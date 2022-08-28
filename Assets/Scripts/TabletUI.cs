@@ -17,8 +17,6 @@ public class TabletUI : MonoBehaviour
     [SerializeField]
     Transform pcSpawnPoint;
 
-    [SerializeField]
-    GameObject[] Applications;
 
     [SerializeField]
 
