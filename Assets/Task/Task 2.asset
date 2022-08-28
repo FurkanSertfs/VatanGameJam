@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf0b95d7ca1bebc42a8cf96b06e05f72, type: 3}
   m_Name: Task 2
   m_EditorClassIdentifier: 
-  taskDecription: 
-  taskAward: 0
+  taskDecription: "virus atilmas\u0131 gerekiyor"
+  taskAward: 150
   pcBuilding: 0
   selectTask:
     format: 0

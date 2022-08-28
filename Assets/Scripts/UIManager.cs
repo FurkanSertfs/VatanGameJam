@@ -27,7 +27,7 @@ public class UIManager : MonoBehaviour
             GameObject newTask = Instantiate(dailyTaskUI);
 
             newTask.transform.parent = transform;
-
+            newTask.transform.localScale = new Vector3(1,1,1);
             newTask.GetComponent<Task>().teskClass = dailyTask[i];
         }
 

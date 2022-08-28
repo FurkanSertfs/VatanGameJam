@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf0b95d7ca1bebc42a8cf96b06e05f72, type: 3}
   m_Name: Task 1
   m_EditorClassIdentifier: 
-  taskDecription: 
-  taskAward: 0
+  taskDecription: "Format atilmas\u0131 gerekiyor hjashjashj hjashjashj ahjs jahs
+    hjas ksahshjadhj ahjdhja hjdhja hjdadhj ahjshjas hjashjad hjadhj ahj"
+  taskAward: 50
   pcBuilding: 0
   selectTask:
-    format: 0
+    format: 1
     virusScanner: 0
     InstallGta: 0
     InstallFollowTheLight: 0
