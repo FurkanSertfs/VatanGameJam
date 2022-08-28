@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Task : MonoBehaviour
 {
@@ -18,14 +19,28 @@ public class Task : MonoBehaviour
         
         tablet.taskAwardText.text = teskClass.taskAward.ToString();
 
-        tablet.Selectedtasks = teskClass;
+        tablet.SelectedtaskClass = teskClass;
+
+        TaskManager.taskManager.selectedTask = this;
+
 
         if (!tablet.startTaskButton.activeSelf)
         {
             tablet.startTaskButton.SetActive(true);
         }
+
+        for (int i = 0; i < UIManager.uIManager.dailtTasks.Count; i++)
+        {
+            UIManager.uIManager.dailtTasks[i].GetComponent<Task>().ButtunColor(Color.white);
+        }
+        ButtunColor(new Color32(0, 150, 255,255)) ;
+
     }
 
+    public void ButtunColor(Color col)
+    {
+        GetComponent<Image>().color = col;
+    }
     
 
 

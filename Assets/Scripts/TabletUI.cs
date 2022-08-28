@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 
@@ -27,11 +28,13 @@ public class TabletUI : MonoBehaviour
 
     public bool isTaskActive;
 
-    public TaskClass Selectedtasks; 
+    public TaskClass SelectedtaskClass; 
 
     public static TabletUI tabletUI;
 
     public GameObject startTaskButton;
+
+ 
 
     private void Start()
     {
@@ -52,7 +55,7 @@ public class TabletUI : MonoBehaviour
 
             GameObject newPC = Instantiate(pcPrefab, pcSpawnPoint.position, pcSpawnPoint.rotation);
 
-            newPC.GetComponent<PC>().taskClass = Selectedtasks;
+            newPC.GetComponent<PC>().taskClass = SelectedtaskClass;
         }
 
 
@@ -64,12 +67,6 @@ public class TabletUI : MonoBehaviour
   
     
     }
-
-
-
-
-
-
 
     void Update()
     {
@@ -83,6 +80,10 @@ public class TabletUI : MonoBehaviour
                 }
 
                 Tablet.SetActive(false);
+                
+                EventSystem.current.SetSelectedGameObject(null);
+                
+             
             }
             
             else
