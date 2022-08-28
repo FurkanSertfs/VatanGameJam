@@ -395,7 +395,7 @@ MonoBehaviour:
   taskDescriptionText: {fileID: 14668927}
   taskAwardText: {fileID: 52383892}
   isTaskActive: 0
-  Selectedtasks: {fileID: 0}
+  SelectedtaskClass: {fileID: 0}
   startTaskButton: {fileID: 290045218}
 --- !u!4 &90194104
 Transform:
@@ -1245,6 +1245,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0609924d539f4cc4881128153a049a98, type: 2}
   dailyTaskUI: {fileID: 7037156034017767544, guid: 1ae0f4325245ee244bbaa023e2ab9d92,
     type: 3}
+  dailtTasks: []
 --- !u!1 &1682170844
 GameObject:
   m_ObjectHideFlags: 0
@@ -1285,14 +1286,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1877223910}
   - component: {fileID: 1877223912}
-  - component: {fileID: 1877223911}
+  - component: {fileID: 1877223913}
   m_Layer: 5
   m_Name: GorevlerApp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1877223910
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1316,36 +1317,6 @@ RectTransform:
   m_AnchoredPosition: {x: 3.0257568, y: -8.2404785}
   m_SizeDelta: {x: 148.32495, y: -30.943386}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1877223911
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1877223909}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.8962264, g: 0.8962264, b: 0.8962264, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &1877223912
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1354,6 +1325,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1877223909}
   m_CullTransparentMesh: 1
+--- !u!114 &1877223913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877223909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed2c4ea969246814f96e1166a2b6e136, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedTask: {fileID: 0}
 --- !u!1 &1914468803
 GameObject:
   m_ObjectHideFlags: 0
