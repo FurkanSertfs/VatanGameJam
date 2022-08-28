@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf0b95d7ca1bebc42a8cf96b06e05f72, type: 3}
+  m_Name: Task 2
+  m_EditorClassIdentifier: 
+  taskDecription: 
+  taskAward: 0
+  pcBuilding: 0
+  selectTask:
+    format: 0
+    virusScanner: 0
+    InstallGta: 0
+    InstallFollowTheLight: 0
+    InstallCastle: 0
+    UpgradeRam16Gb: 0
+    InstallStorage320: 0
+    InstallStorage500: 0
