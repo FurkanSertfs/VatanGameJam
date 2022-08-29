@@ -62,13 +62,13 @@ public class PCUI : MonoBehaviour
     {
         if (installScreen.activeSelf)
         {
-            installPercentText.text = "% "+(100.1F / installBar.fillAmount * 100).ToString();
+            installPercentText.text = "% "+ ((float) 100.1F / (float)installBar.fillAmount * 100).ToString();
        
         }
 
         if (deInstallScreen.activeSelf)
         {
-            deInstallPercentText.text = "% " + (100.1F / deInstalBar.fillAmount * 100).ToString();
+            deInstallPercentText.text = "% " + ((float)100.1F / (float) deInstalBar.fillAmount * 100).ToString();
 
         }
 
