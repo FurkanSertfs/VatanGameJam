@@ -68,7 +68,7 @@ public class PC : MonoBehaviour
 
             PCUI.pCUI.installApps.sprite = appClass.icon;
 
-            DOTween.To(() => 0.001f, x => PCUI.pCUI.installBar.fillAmount = x, 1, 1).OnComplete(()=>ShowApps());
+            DOTween.To(() => 0.001f, x => PCUI.pCUI.installBar.fillAmount = x, 1, Random.Range(1.01f, 3)).OnComplete(()=>ShowApps());
 
             eventSystem.enabled = false;
             
