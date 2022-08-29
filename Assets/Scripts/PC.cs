@@ -68,7 +68,7 @@ public class PC : MonoBehaviour
 
             PCUI.pCUI.installApps.sprite = appClass.icon;
 
-            DOTween.To(() => 0.001f, x => PCUI.pCUI.installBar.fillAmount = x, 1, Random.Range(1.01f, 3)).OnComplete(()=>ShowApps());
+            DOTween.To(() => 0.001f, x => PCUI.pCUI.installBar.fillAmount = x, 1, Random.Range(1.01f, 5)).OnComplete(()=>ShowApps());
 
             eventSystem.enabled = false;
             
@@ -94,7 +94,7 @@ public class PC : MonoBehaviour
 
                 PCUI.pCUI.deInstallApps.sprite = appClass.icon;
 
-                DOTween.To(() => 0.001f, x => PCUI.pCUI.deInstalBar.fillAmount = x, 1, Random.Range(1.01f,3)).OnComplete(() => ShowApps());
+                DOTween.To(() => 0.001f, x => PCUI.pCUI.deInstalBar.fillAmount = x, 1, Random.Range(1.01f,5)).OnComplete(() => ShowApps());
 
                 eventSystem.enabled = false;
 
