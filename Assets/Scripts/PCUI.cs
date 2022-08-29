@@ -11,17 +11,21 @@ public class PCUI : MonoBehaviour
 
     public Image[] apps,driversComplated;
 
-    public GameObject installScreen,deInstallScreen, completedScan,programYukleKaldirApp,virusScannerApp,driverBoosterApp;
+    public GameObject installScreen,deInstallScreen, completedScan,programYukleKaldirApp,virusScannerApp,driverBoosterApp, restarPCScreen,formatScreen;
 
-    public Image installApps, deInstallApps,installBar,deInstalBar,virusScannerBar,driverBar;
+    public Image installApps, deInstallApps,installBar,deInstalBar,virusScannerBar,driverBar,windowsInstallBar;
 
-    
 
-    public Text scannedFilesText,driverInstalPerAgeText,installPercentText,deInstallPercentText;
+    public InputField windowsKeyField;
+
+    public Text scannedFilesText,driverInstalPerAgeText,installPercentText,deInstallPercentText,windowsKeyText,enterKeyText;
 
     float scannedFiles, driverInstalPerAge;
 
     public PointerEventData eventData;
+
+    bool trueKey;
+
 
     private void Awake()
     {
@@ -35,6 +39,98 @@ public class PCUI : MonoBehaviour
     {
         apps.SetActive(false);
     }
+
+    public void ClearEnterText()
+    {
+        enterKeyText.enabled =false;
+        windowsKeyText.text = "I";
+    }
+
+    public void WindowsKey()
+   {
+
+      
+
+        windowsKeyText.text = "";
+
+        for (int i = 0; i < windowsKeyField.text.Length; i++)
+        {
+            if (i < windowsKeyField.text.Length-1)
+            {
+               
+
+                if (!windowsKeyField.text[i].Equals(' ')&&i == windowsKeyField.text.Length - 1)
+                {
+                    windowsKeyText.text += windowsKeyField.text[i];
+
+                }
+
+                else if(!windowsKeyField.text[i].Equals(' ')&& i <= windowsKeyField.text.Length - 2)
+                {
+                    if (!windowsKeyField.text[i+1].Equals(' '))
+                    {
+                        windowsKeyText.text += windowsKeyField.text[i] + "-";
+
+                    }
+                    else
+                    {
+                        windowsKeyText.text += windowsKeyField.text[i];
+                    }
+                }
+
+
+                else
+                {
+                    windowsKeyText.text += windowsKeyField.text[i];
+                }
+
+
+            }
+
+            else
+            {
+                windowsKeyText.text += windowsKeyField.text[i];
+            }
+         
+
+        }
+
+        if(windowsKeyField.text=="vatan game jam"|| windowsKeyField.text == "VATAN GAME JAM" || windowsKeyField.text == "vatangamejam" || windowsKeyField.text == "333333333" || windowsKeyField.text == "Stratera"||windowsKeyField.text == "grimnax" || windowsKeyField.text == "Grimnax" || windowsKeyField.text == "stratera")
+        {
+            StartFormat();
+            trueKey = true;
+        }
+    }
+
+    private void StartFormat()
+    {
+  
+        DOTween.To(() => 0.01f, x => windowsInstallBar.fillAmount = x, 1, Random.Range(1.51f, 5)).OnComplete(()=>RestartPc());
+        enterKeyText.text = "Enter Windows Key...";
+        windowsInstallBar.fillAmount = 0;
+        windowsKeyField.text = "";
+        trueKey = false;
+    }
+    void RestartPc()
+    {
+        restarPCScreen.SetActive(true);
+
+        float timer;
+
+        DOTween.To(() => 0.01f, x => timer = x, 1, Random.Range(1.51f, 2.1f)).OnComplete(() => OpenPC());
+
+
+    }
+    void OpenPC()
+    {
+        restarPCScreen.SetActive(false);
+        formatScreen.SetActive(false);
+    }
+
+
+
+
+
 
     public void StartVirusScanner()
     {
@@ -60,6 +156,22 @@ public class PCUI : MonoBehaviour
     }
     private void Update()
     {
+
+        if (trueKey)
+        {
+            windowsKeyText.text = "% "+ (windowsInstallBar.fillAmount * 100).ToString("F0");
+        }
+
+
+        if (windowsKeyField.isFocused&&enterKeyText.text.Length>1)
+        {
+         
+
+            enterKeyText.text = "l";
+        }
+
+
+
         if (installScreen.activeSelf)
         {
             installPercentText.text = "% "+ (installBar.fillAmount * 100).ToString("F0");
@@ -68,7 +180,7 @@ public class PCUI : MonoBehaviour
 
         if (deInstallScreen.activeSelf)
         {
-            deInstallPercentText.text = "% " + (deInstalBar.fillAmount * 100).ToString();
+            deInstallPercentText.text = "% " + (deInstalBar.fillAmount * 100).ToString("F0");
 
         }
 
