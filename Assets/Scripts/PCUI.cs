@@ -66,6 +66,12 @@ public class PCUI : MonoBehaviour
        
         }
 
+        if (deInstallScreen.activeSelf)
+        {
+            deInstallPercentText.text = "% " + (100.1F / deInstalBar.fillAmount * 100).ToString();
+
+        }
+
 
 
 
