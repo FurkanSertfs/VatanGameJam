@@ -17,7 +17,7 @@ public class PCUI : MonoBehaviour
 
     
 
-    public Text scannedFilesText,driverInstalPerAgeText;
+    public Text scannedFilesText,driverInstalPerAgeText,installPercentText,deInstallPercentText;
 
     float scannedFiles, driverInstalPerAge;
 
@@ -60,6 +60,17 @@ public class PCUI : MonoBehaviour
     }
     private void Update()
     {
+        if (installScreen.activeSelf)
+        {
+            installPercentText.text = "% "+(100.1F / installBar.fillAmount * 100).ToString();
+       
+        }
+
+
+
+
+
+
 
         if (virusScannerApp.activeSelf)
         {

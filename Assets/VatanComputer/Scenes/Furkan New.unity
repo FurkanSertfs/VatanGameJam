@@ -9668,7 +9668,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 344994231206683368}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -3}
+  m_LocalPosition: {x: 0, y: 0, z: -0.7}
   m_LocalScale: {x: 0.125, y: 0.125, z: 1}
   m_Children:
   - {fileID: 344994230327806519}
@@ -9720,6 +9720,8 @@ MonoBehaviour:
   driverBar: {fileID: 0}
   scannedFilesText: {fileID: 344994230871719650}
   driverInstalPerAgeText: {fileID: 0}
+  installPercentText: {fileID: 0}
+  deInstallPercentText: {fileID: 0}
 --- !u!222 &344994231206683373
 CanvasRenderer:
   m_ObjectHideFlags: 0
