@@ -7,8 +7,7 @@ public class PC : MonoBehaviour
     public TaskClass taskClass;
 
     public GameObject graficCard, cpu, ram;
-
-    AppClass aps;
+    private  List<AppClass> aps = new List<AppClass>();
 
     public static PC pc;
     
@@ -39,8 +38,65 @@ public class PC : MonoBehaviour
 
     public void InstallAplication(AppClass appClass)
     {
+        bool isThere=false;
+
+        for (int i = 0; i < aps.Count; i++)
+        {
+            if (appClass.ID == aps[i].ID)
+            {
+                isThere = true;
+
+                break;
+
+            }
+
+        }
+
+        if (!isThere)
+        {
+            aps.Add(appClass);
+        }
 
     }
+
+    public void DeinstallAplication(AppClass appClass)
+    {
+       
+
+        for (int i = 0; i < aps.Count; i++)
+        {
+            if (appClass.ID == aps[i].ID)
+            {
+                aps.Add(appClass);
+
+                break;
+
+            }
+
+        }
+
+      
+
+    }
+
+    public void ShowApps()
+    {
+        for (int i = 0; i < aps.Count; i++)
+        {
+
+            PCUI.pCUI.apps[i].gameObject.SetActive(true);
+
+            PCUI.pCUI.apps[i].sprite = aps[i].icon;
+
+
+
+
+        }
+
+
+
+    }
+
 
 
 

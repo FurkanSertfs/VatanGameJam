@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 
 
@@ -8,13 +10,11 @@ using UnityEngine;
 
 public class AppClass : ScriptableObject
 {
-    public string taskDecription;
+    public int ID;
 
-    public int taskAward;
+    public Sprite icon;
 
-    public bool pcBuilding;
 
-    public SelectTask selectTask;
 
 
 }
