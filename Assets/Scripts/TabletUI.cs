@@ -18,12 +18,6 @@ public class TabletUI : MonoBehaviour
     [SerializeField]
     Transform pcSpawnPoint;
 
-
-    [SerializeField]
-
-    Button islerButton,elKitabiButton;
-
-   
     public Text taskDescriptionText, taskAwardText;
 
     public bool isTaskActive;
@@ -34,12 +28,14 @@ public class TabletUI : MonoBehaviour
 
     public GameObject startTaskButton;
 
- 
 
-    private void Start()
+    private void Awake()
     {
         tabletUI = this;
     }
+
+   
+    
 
     public void OpenApp(GameObject Application)
     {

@@ -11,7 +11,7 @@ public class PCUI : MonoBehaviour
 
     public Image[] apps;
 
-    public GameObject installScreen,deInstallScreen, completedScan,virusScanner;
+    public GameObject installScreen,deInstallScreen, completedScan,programYukleKaldirApp,virusScannerApp,driverBoosterApp;
 
     public Image installApps, deInstallApps,installBar,deInstalBar,virusScannerBar;
 
@@ -55,7 +55,7 @@ public class PCUI : MonoBehaviour
     private void Update()
     {
 
-        if (virusScanner.activeSelf)
+        if (virusScannerApp.activeSelf)
         {
             scannedFilesText.text = scannedFiles.ToString();
         }

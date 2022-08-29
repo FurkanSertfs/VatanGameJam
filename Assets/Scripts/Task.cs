@@ -14,9 +14,9 @@ public class Task : MonoBehaviour
     public void SelectTask()
     {
         tablet = TabletUI.tabletUI;
-        
+
         tablet.taskDescriptionText.text = teskClass.taskDecription;
-        
+
         tablet.taskAwardText.text = teskClass.taskAward.ToString();
 
         tablet.SelectedtaskClass = teskClass;

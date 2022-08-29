@@ -43,9 +43,6 @@ public class PC : MonoBehaviour
         //  }
 
 
-
-
-
     }
 
 
@@ -83,14 +80,6 @@ public class PC : MonoBehaviour
     }
 
 
-
-
-
-
-
-
-
-
     public void DeinstallAplication(AppClass appClass)
     {
        
@@ -99,9 +88,6 @@ public class PC : MonoBehaviour
         {
             if (appClass.ID == aps[i].ID)
             {
-             
-             
-
                 aps.RemoveAt(i);
                
                 PCUI.pCUI.deInstallScreen.SetActive(true);
@@ -117,8 +103,6 @@ public class PC : MonoBehaviour
             }
 
         }
-
-      
 
     }
 
@@ -137,6 +121,8 @@ public class PC : MonoBehaviour
             PCUI.pCUI.apps[i].gameObject.SetActive(false);
 
             PCUI.pCUI.apps[i].sprite = null;
+
+            
         }
         
         
@@ -147,7 +133,7 @@ public class PC : MonoBehaviour
 
             PCUI.pCUI.apps[i].sprite = aps[i].icon;
 
-
+            PCUI.pCUI.apps[i].GetComponent<PCApps>().appClass = aps[i];
 
 
         }
