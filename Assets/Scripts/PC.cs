@@ -20,12 +20,10 @@ public class PC : MonoBehaviour
         pc = this;
 
         eventSystem = EventSystem.current;
+      
+        ShowApps();
 
-
-        for (int i = 0; i < taskClass.installedApps.Length; i++)
-        {
-            InstallAplication(taskClass.installedApps[i]);
-        }
+        
 
 
         if (taskClass.pcBuilding)
