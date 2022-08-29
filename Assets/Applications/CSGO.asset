@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e29a99af51e6f6149b03451632dfe66c, type: 3}
-  m_Name: Gta 3
+  m_Name: CSGO
   m_EditorClassIdentifier: 
-  ID: 0
-  icon: {fileID: 21300000, guid: 44e1d00612058b549af98a55a7c14c39, type: 3}
+  ID: 4
+  icon: {fileID: 21300000, guid: e01b46c86cf8dd946a4464dbf62113c4, type: 3}
