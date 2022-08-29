@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: DriverBooster
   m_EditorClassIdentifier: 
   ID: 2
-  icon: {fileID: 21300000, guid: 8f1101ede0941f34fa2bb18b68543109, type: 3}
+  icon: {fileID: 21300000, guid: 9a73f56f3109a4044a27cc24a4f11131, type: 3}
