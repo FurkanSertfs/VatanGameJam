@@ -15,6 +15,7 @@ MonoBehaviour:
   taskDecription: ' GYHJUK'
   taskAward: 500
   pcBuilding: 0
+  installedApps: []
   selectTask:
     format: 0
     virusScanner: 0

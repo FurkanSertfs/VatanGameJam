@@ -39,15 +39,17 @@ public class UIManager : MonoBehaviour
         for (int i = 0; i < dailyTask.Length; i++)
         {
 
-            GameObject newTask = Instantiate(dailyTaskUI);
-            newTask.transform.parent = transform;
-            newTask.transform.localScale = new Vector3(1,1,1);
+            GameObject newTask = Instantiate(dailyTaskUI,transform);
+       
             newTask.GetComponent<Task>().teskClass = dailyTask[i];
+          
             dailtTasks.Add(newTask);
 
           
         }
+        
         dailtTasks[0].GetComponent<Task>().ButtunColor(new Color32(0, 150, 255, 255));
+     
         dailtTasks[0].GetComponent<Task>().SelectTask();
 
      

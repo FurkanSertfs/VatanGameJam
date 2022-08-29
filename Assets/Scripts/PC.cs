@@ -1,19 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using DG.Tweening;
+using UnityEngine.EventSystems;
 public class PC : MonoBehaviour
 {
     public TaskClass taskClass;
 
     public GameObject graficCard, cpu, ram;
-    private  List<AppClass> aps = new List<AppClass>();
+    
+    public  List<AppClass> aps = new List<AppClass>();
 
     public static PC pc;
+
+    EventSystem eventSystem;
     
     void Start()
     {
         pc = this;
+
+        eventSystem = EventSystem.current;
+
+
+        for (int i = 0; i < taskClass.installedApps.Length; i++)
+        {
+            InstallAplication(taskClass.installedApps[i]);
+        }
+
 
         if (taskClass.pcBuilding)
         
@@ -21,13 +34,15 @@ public class PC : MonoBehaviour
 
         }
 
-        else
-        
-        {
-            graficCard.SetActive(true);
-            cpu.SetActive(true);
-            ram.SetActive(true);
-        }
+      
+
+        //else
+
+        //{
+        //    graficCard.SetActive(true);
+        //    cpu.SetActive(true);
+        //    ram.SetActive(true);
+        //  }
 
 
 
@@ -54,10 +69,29 @@ public class PC : MonoBehaviour
 
         if (!isThere)
         {
+            PCUI.pCUI.installScreen.SetActive(true);
+
+            PCUI.pCUI.installApps.sprite = appClass.icon;
+
+            DOTween.To(() => 0.001f, x => PCUI.pCUI.installBar.fillAmount = x, 1, 1).OnComplete(()=>ShowApps());
+
+            eventSystem.enabled = false;
+            
             aps.Add(appClass);
+           
+           
         }
 
     }
+
+
+
+
+
+
+
+
+
 
     public void DeinstallAplication(AppClass appClass)
     {
@@ -67,7 +101,18 @@ public class PC : MonoBehaviour
         {
             if (appClass.ID == aps[i].ID)
             {
-                aps.Add(appClass);
+             
+             
+
+                aps.RemoveAt(i);
+               
+                PCUI.pCUI.deInstallScreen.SetActive(true);
+
+                PCUI.pCUI.deInstallApps.sprite = appClass.icon;
+
+                DOTween.To(() => 0.001f, x => PCUI.pCUI.deInstalBar.fillAmount = x, 1, 1).OnComplete(() => ShowApps());
+
+                eventSystem.enabled = false;
 
                 break;
 
@@ -81,6 +126,22 @@ public class PC : MonoBehaviour
 
     public void ShowApps()
     {
+        eventSystem.enabled = true;
+
+        PCUI.pCUI.installScreen.SetActive(false);
+       
+        PCUI.pCUI.deInstallScreen.SetActive(false);
+
+  
+
+        for (int i = 0; i < PCUI.pCUI.apps.Length; i++)
+        {
+            PCUI.pCUI.apps[i].gameObject.SetActive(false);
+
+            PCUI.pCUI.apps[i].sprite = null;
+        }
+        
+        
         for (int i = 0; i < aps.Count; i++)
         {
 

@@ -19,6 +19,8 @@ public class TaskClass : ScriptableObject
 
     public bool pcBuilding;
 
+    public AppClass[] installedApps;
+
     public SelectTask selectTask;
 
 

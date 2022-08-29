@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InstalllAplication : MonoBehaviour
+public class InstallAplication : MonoBehaviour
 {
    
 
@@ -12,5 +12,13 @@ public class InstalllAplication : MonoBehaviour
         PC.pc.InstallAplication(app);
        
     }
+
+    public void DeinstallApp(AppClass app)
+    {
+        PC.pc.DeinstallAplication(app);
+
+    }
+
+
 
 }

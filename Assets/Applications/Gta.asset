@@ -12,15 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e29a99af51e6f6149b03451632dfe66c, type: 3}
   m_Name: Gta
   m_EditorClassIdentifier: 
-  taskDecription: 
-  taskAward: 0
-  pcBuilding: 0
-  selectTask:
-    format: 0
-    virusScanner: 0
-    InstallGta: 0
-    InstallFollowTheLight: 0
-    InstallCastle: 0
-    UpgradeRam16Gb: 0
-    InstallStorage320: 0
-    InstallStorage500: 0
+  ID: 0
+  icon: {fileID: 21300000, guid: 44e1d00612058b549af98a55a7c14c39, type: 3}

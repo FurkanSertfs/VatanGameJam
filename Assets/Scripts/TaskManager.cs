@@ -16,10 +16,18 @@ public class TaskManager : MonoBehaviour
 
     private void OnEnable()
     {
-        for (int i = 0; i < UIManager.uIManager.dailtTasks.Count; i++)
+        if (UIManager.uIManager != null)
         {
-            UIManager.uIManager.dailtTasks[i].GetComponent<Task>().ButtunColor(Color.white);
+            for (int i = 0; i < UIManager.uIManager.dailtTasks.Count; i++)
+            {
+
+                UIManager.uIManager.dailtTasks[i].GetComponent<Task>().ButtunColor(Color.white);
+            }
         }
+       
+      
+        
+
 
         if (selectedTask != null)
         {
