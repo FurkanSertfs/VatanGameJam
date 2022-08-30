@@ -15,20 +15,20 @@ public class PCUI : MonoBehaviour
 
     public Image installApps, deInstallApps,installBar,deInstalBar,virusScannerBar,driverBar,windowsInstallBar;
 
-
     public InputField windowsKeyField;
 
-    public Text scannedFilesText,driverInstalPerAgeText,installPercentText,deInstallPercentText,windowsKeyText,enterKeyText;
+    public Text scannedFilesText,driverInstalPerAgeText,installPercentText,deInstallPercentText,windowsKeyText,enterKeyText, virusFoundText;
 
-    float scannedFiles, driverInstalPerAge;
+    float scannedFiles, driverInstalPerAge,virusFound;
 
-    public PointerEventData eventData;
+    EventSystem eventSystem;
 
     bool trueKey;
 
 
     private void Awake()
     {
+        eventSystem = EventSystem.current;
         pCUI = this;
 
       
@@ -136,10 +136,17 @@ public class PCUI : MonoBehaviour
     {
         completedScan.SetActive(false);
 
+        eventSystem.enabled = false;
 
-        DOTween.To(() => 0.001f, x => virusScannerBar.fillAmount = x, 1, 1).OnComplete(() => EndVirusScanner());
+        float random;
+
+        random = Random.Range(1.01f, 2.75f);
+
+        DOTween.To(() => 0.001f, x => virusScannerBar.fillAmount = x, 1, random).OnComplete(() => EndVirusScanner());
     
-        DOTween.To(() => 0.001f, x => scannedFiles = x, Random.Range(30000,50000), 1).OnComplete(() => EndVirusScanner());
+        DOTween.To(() => 0.001f, x => scannedFiles = x, Random.Range(30000,50000), random);
+
+        DOTween.To(() => 0.001f, x => virusFound = x, Random.Range(3, 50), random);
     }
 
 
@@ -153,6 +160,8 @@ public class PCUI : MonoBehaviour
     void EndVirusScanner()
     {
         completedScan.SetActive(true);
+        
+        eventSystem.enabled = true;
     }
     private void Update()
     {
@@ -193,7 +202,10 @@ public class PCUI : MonoBehaviour
         if (virusScannerApp.activeSelf)
         {
             scannedFilesText.text = scannedFiles.ToString();
-          
+
+            virusFoundText.text = virusFound.ToString();
+
+
         }
 
         if (driverBoosterApp.activeSelf)
