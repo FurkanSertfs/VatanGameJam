@@ -148,7 +148,7 @@ public class PCUI : MonoBehaviour
     
         DOTween.To(() => 0.001f, x => scannedFiles = x, Random.Range(30000,50000), random);
 
-        DOTween.To(() => 0.001f, x => virusFound = x, Random.Range(3, 50), random);
+        DOTween.To(() => 0, x => virusFound = x, Random.Range(3, 50), random);
     }
 
 
