@@ -19,7 +19,7 @@ public class PCUI : MonoBehaviour
 
     public Text scannedFilesText,driverInstalPerAgeText,installPercentText,deInstallPercentText,windowsKeyText,enterKeyText, virusFoundText,gpuMhzText, cpuMhzText, memMhzText, tempCText;
 
-    float scannedFiles, driverInstalPerAge,virusFound,gpuMhz=500,cpuMhz=500,memMhz=500,tempC=75;
+    float scannedFiles, driverInstalPerAge,virusFound,gpuMhz=750,cpuMhz=750,memMhz=750,tempC=75;
 
     EventSystem eventSystem;
 
@@ -298,7 +298,7 @@ public class PCUI : MonoBehaviour
             if (Time.time > timer1)
             {
                 ;
-                DOTween.To(() => (int)gpuMhz, x => gpuMhz = x, (int)Mathf.Clamp(Random.Range(gpuMhz - 200, gpuMhz + 200), 500, 1000), 5.6f);
+                DOTween.To(() => (int)gpuMhz, x => gpuMhz = x, (int)Mathf.Clamp(Random.Range(gpuMhz - 75, gpuMhz + 75), 500, 1000), 3.6f);
                
                 timer1 = Time.time +8.5f;
 
@@ -306,7 +306,7 @@ public class PCUI : MonoBehaviour
 
             if (Time.time > timer2)
             {
-                DOTween.To(() => (int)cpuMhz, x => cpuMhz = x, (int)Mathf.Clamp(Random.Range(cpuMhz - 200, cpuMhz + 200), 500, 1000), 7f);
+                DOTween.To(() => (int)cpuMhz, x => cpuMhz = x, (int)Mathf.Clamp(Random.Range(cpuMhz - 75, cpuMhz + 75), 500, 1000), 5f);
 
                 
 
@@ -315,7 +315,7 @@ public class PCUI : MonoBehaviour
 
             if (Time.time > timer3)
             {
-                DOTween.To(() => (int)memMhz, x => memMhz = x, (int)Mathf.Clamp(Random.Range(memMhz - 200, memMhz + 200), 500, 1000), 4.6f);
+                DOTween.To(() => (int)memMhz, x => memMhz = x, (int)Mathf.Clamp(Random.Range(memMhz - 75, memMhz + 75), 500, 1000), 2.6f);
 
                  
 
