@@ -104,7 +104,7 @@ public class PCUI : MonoBehaviour
     private void StartFormat()
     {
   
-        DOTween.To(() => 0.01f, x => windowsInstallBar.fillAmount = x, 1, Random.Range(1.51f, 5)).OnComplete(()=>RestartPc());
+        DOTween.To(() => 0.01f, x => windowsInstallBar.fillAmount = x, 1, Random.Range(5f, 7)).OnComplete(()=>RestartPc());
         enterKeyText.text = "Enter Windows Key...";
         windowsInstallBar.fillAmount = 0;
         windowsKeyField.text = "";
@@ -116,7 +116,7 @@ public class PCUI : MonoBehaviour
 
         float timer;
 
-        DOTween.To(() => 0.01f, x => timer = x, 1, Random.Range(1.51f, 2.1f)).OnComplete(() => OpenPC());
+        DOTween.To(() => 0.01f, x => timer = x, 1, Random.Range(3.2f, 5.1f)).OnComplete(() => OpenPC());
 
 
     }
