@@ -29,9 +29,8 @@ public class PCUI : MonoBehaviour
     private void Awake()
     {
         eventSystem = EventSystem.current;
+     
         pCUI = this;
-
-      
 
     }
 
@@ -95,7 +94,7 @@ public class PCUI : MonoBehaviour
 
         }
 
-        if(windowsKeyField.text=="vatan game jam"|| windowsKeyField.text == "VATAN GAME JAM" || windowsKeyField.text == "vatangamejam" || windowsKeyField.text == "333333333" || windowsKeyField.text == "Stratera"||windowsKeyField.text == "grimnax" || windowsKeyField.text == "Grimnax" || windowsKeyField.text == "stratera")
+        if(windowsKeyField.text=="vatan game jam"|| windowsKeyField.text == "VATAN GAME JAM" || windowsKeyField.text == "VATANGAMEJAM" || windowsKeyField.text == "vatangamejam" || windowsKeyField.text == "333333333" || windowsKeyField.text == "Stratera"||windowsKeyField.text == "grimnax" || windowsKeyField.text == "Grimnax" || windowsKeyField.text == "stratera")
         {
             StartFormat();
             trueKey = true;
@@ -152,10 +151,21 @@ public class PCUI : MonoBehaviour
 
     public void InstallDriver()
     {
-        DOTween.To(() => 0.001f, x => driverBar.fillAmount = x, 1, 1).OnComplete(() => EndVirusScanner());
+        DOTween.To(() => 0.001f, x => driverBar.fillAmount = x, 1, 1).OnComplete(() => EndInstallDriver());
 
-        DOTween.To(() => 0, x => driverInstalPerAge = x, 100, 1.75f).OnComplete(() => EndVirusScanner());
+        DOTween.To(() => 0, x => driverInstalPerAge = x, 100, 1.75f).OnComplete(() => EndInstallDriver());
+
+        eventSystem.enabled = false;
     }
+
+    void EndInstallDriver()
+    {
+      
+
+        eventSystem.enabled = true;
+    }
+
+
 
     void EndVirusScanner()
     {
@@ -163,6 +173,9 @@ public class PCUI : MonoBehaviour
         
         eventSystem.enabled = true;
     }
+
+
+
     private void Update()
     {
 
