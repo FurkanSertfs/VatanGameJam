@@ -510,6 +510,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 64581885}
   m_CullTransparentMesh: 1
+--- !u!1 &69083951
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 69083952}
+  - component: {fileID: 69083954}
+  - component: {fileID: 69083953}
+  m_Layer: 5
+  m_Name: DriverLoadingBar (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &69083952
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69083951}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1997763993}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 1}
+  m_SizeDelta: {x: 201.2, y: 201.2}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &69083953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69083951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0.15839663, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 0d90eea443f78e44bb4cb59c82bfcb6e, type: 3}
+  m_Type: 3
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 0
+  m_FillClockwise: 1
+  m_FillOrigin: 2
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &69083954
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69083951}
+  m_CullTransparentMesh: 1
 --- !u!1 &77094658
 GameObject:
   m_ObjectHideFlags: 0
@@ -2775,9 +2850,9 @@ RectTransform:
   m_Father: {fileID: 488187456}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 364, y: -131.75308}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 728, y: 36}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &351469629
@@ -3185,7 +3260,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 367484782}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
   m_Name: 
@@ -3274,7 +3349,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: VOLT
+  m_Text: Temp
 --- !u!222 &367910120
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3760,7 +3835,7 @@ GameObject:
   - component: {fileID: 458707252}
   - component: {fileID: 458707251}
   m_Layer: 5
-  m_Name: DriverLoadingBar
+  m_Name: DriverLoadingBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3798,7 +3873,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.15839663, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5594,9 +5669,9 @@ RectTransform:
   m_Father: {fileID: 488187456}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 364, y: -18}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 728, y: 36}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &729004665
@@ -6135,9 +6210,9 @@ RectTransform:
   m_Father: {fileID: 488187456}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 364, y: -74.87654}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 728, y: 36}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &772171544
@@ -8147,9 +8222,9 @@ RectTransform:
   m_Father: {fileID: 488187456}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 364, y: -188.62964}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 728, y: 36}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1042944816
@@ -11934,7 +12009,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1843470504
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12930,6 +13005,7 @@ RectTransform:
   m_LocalScale: {x: 1.4, y: 1.4, z: 1}
   m_Children:
   - {fileID: 458707250}
+  - {fileID: 69083952}
   m_Father: {fileID: 1843470504}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13174,7 +13250,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 344994231206683372}
         m_TargetAssemblyTypeName: PCUI, Assembly-CSharp
-        m_MethodName: StartVirusScanner
+        m_MethodName: InstallDriver
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15254,7 +15330,11 @@ MonoBehaviour:
   - {fileID: 206738052}
   - {fileID: 1173123998}
   - {fileID: 273717826}
-  driversComplated: []
+  driversComplated:
+  - {fileID: 363118269}
+  - {fileID: 884630927}
+  - {fileID: 1580896990}
+  - {fileID: 1973324173}
   installScreen: {fileID: 344994229790431540}
   deInstallScreen: {fileID: 1960844285}
   completedScan: {fileID: 344994229824957760}
@@ -15268,8 +15348,12 @@ MonoBehaviour:
   installBar: {fileID: 344994230182208232}
   deInstalBar: {fileID: 538787775}
   virusScannerBar: {fileID: 344994231583764397}
-  driverBar: {fileID: 0}
+  driverBar: {fileID: 69083953}
   windowsInstallBar: {fileID: 3593710610290474696}
+  gpuMhzBar: {fileID: 226619992}
+  cpuMhzBar: {fileID: 1183586766}
+  memMhzBar: {fileID: 922416691}
+  tempCbar: {fileID: 834098956}
   windowsKeyField: {fileID: 3593710608519121165}
   scannedFilesText: {fileID: 344994230871719650}
   driverInstalPerAgeText: {fileID: 142186838}
@@ -15278,6 +15362,14 @@ MonoBehaviour:
   windowsKeyText: {fileID: 3593710608890681527}
   enterKeyText: {fileID: 3593710608232942827}
   virusFoundText: {fileID: 1093886253}
+  gpuMhzText: {fileID: 653538986}
+  cpuMhzText: {fileID: 377558291}
+  memMhzText: {fileID: 1348448175}
+  tempCText: {fileID: 446742436}
+  timer1: 0
+  timer2: 0
+  timer3: 0
+  timer4: 0
 --- !u!222 &344994231206683373
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15718,7 +15810,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &3593710608519121162
 MonoBehaviour:
   m_ObjectHideFlags: 0

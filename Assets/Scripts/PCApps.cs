@@ -23,6 +23,10 @@ public class PCApps : MonoBehaviour
         if (appClass.ID == 2)
         {
             PCUI.pCUI.driverBoosterApp.SetActive(true);
+            PCUI.pCUI.timer1 = Time.time + 0.1f;
+            PCUI.pCUI.timer2 = Time.time + 0.1f;
+            PCUI.pCUI.timer3 = Time.time + 0.1f;
+            PCUI.pCUI.timer4 = Time.time + 0.1f;
         }
     }
 
