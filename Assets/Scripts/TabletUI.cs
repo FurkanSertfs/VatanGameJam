@@ -88,6 +88,11 @@ public class TabletUI : MonoBehaviour
                 
                 newP.basketElement = GameObjectsinBasket[GameObjectsinBasket.Count-1].GetComponent<BasketElement>();
 
+                newP.basketElement.plusButton.onClick.AddListener(() => AddProduct(newP.basketElement));
+
+                newP.basketElement.minusButton.onClick.AddListener(() => DeleteProduct(newP.basketElement));
+
+
                 newP.basketElement.productClass = newP;
 
 

@@ -11,5 +11,7 @@ public class BasketElement : MonoBehaviour
     public Image productImage;
 
     public PruductClass productClass;
+
+    public Button plusButton, minusButton;
     
 }
