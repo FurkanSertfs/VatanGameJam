@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using StarterAssets;
 
 [System.Serializable]
 public class PruductClass
@@ -212,7 +213,7 @@ public class TabletUI : MonoBehaviour
             }
 
             Tablet.SetActive(false);
-
+            Cursor.visible = false;
             EventSystem.current.SetSelectedGameObject(null);
 
 
@@ -220,6 +221,7 @@ public class TabletUI : MonoBehaviour
 
         else
         {
+            Cursor.visible = true;
             Tablet.SetActive(true);
 
         }
