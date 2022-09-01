@@ -13,7 +13,9 @@ public class SelectTask
 
 public class GorevAnlatim
 {
-    public string[] GorevAnlat;
+    public string GorevAnlat;
+    public bool isComplated;
+    
 
 }
 
@@ -32,7 +34,8 @@ public class TaskClass : ScriptableObject
 
     public SelectTask selectTask;
 
-    public GorevAnlatim gorevAnlatim;
+    [NonReorderable]
+    public List<GorevAnlatim> gorevAnlatim;
 
 
 }

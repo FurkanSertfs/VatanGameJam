@@ -2532,10 +2532,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6580802567161272858, guid: ff91b2a7770c7014d88e3928da92781d,
-          type: 3}
+      - m_Target: {fileID: 802619564}
         m_TargetAssemblyTypeName: TabletUI, Assembly-CSharp
-        m_MethodName: StartTheTask
+        m_MethodName: GorevKabul
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3988,6 +3987,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UsePipelineSettings: 1
+--- !u!1 &426034475 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6580802567161272859, guid: ff91b2a7770c7014d88e3928da92781d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1052324724}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &426034477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426034475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8ce9de5f6714864697bb3e731eb9182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PCpoint: {fileID: 8808345894112802005}
 --- !u!1 &446742434
 GameObject:
   m_ObjectHideFlags: 0
@@ -4978,7 +4996,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1052324724}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 426034475}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a5d60462369a67e46991371dd859d117, type: 3}
@@ -7344,7 +7362,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1052324724}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 426034475}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f1708020566b524381093d366a63f52, type: 3}
@@ -9584,7 +9602,7 @@ PrefabInstance:
         type: 3}
       propertyPath: pcSpawnPoint
       value: 
-      objectReference: {fileID: 8808345894112802005}
+      objectReference: {fileID: 1117682079}
     - target: {fileID: 6580802567161272858, guid: ff91b2a7770c7014d88e3928da92781d,
         type: 3}
       propertyPath: taskAwardText
@@ -9859,6 +9877,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1110165954}
   m_CullTransparentMesh: 1
+--- !u!1 &1117682078
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1117682079}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1117682079
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117682078}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 478.63388, y: 155.45613, z: -0.71624756}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1125294359
 GameObject:
   m_ObjectHideFlags: 0
@@ -19620,7 +19668,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &8894666820539278360
 MonoBehaviour:
   m_ObjectHideFlags: 0

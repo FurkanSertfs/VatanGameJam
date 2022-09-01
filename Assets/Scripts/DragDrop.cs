@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 
-public class DragDrop : MonoBehaviour, IPointerDownHandler, IDragHandler
+public class DragDrop : MonoBehaviour,IDragHandler
 {
     [SerializeField]
     private Canvas canvas;
@@ -25,7 +25,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IDragHandler
 
     private void Update()
     {
-        Debug.Log(rectTransform.anchoredPosition);
+       
 
         if (rectTransform.anchoredPosition.x < minX)
         {
@@ -59,10 +59,6 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IDragHandler
 
    
 
-    public void OnPointerDown(PointerEventData eventData)
-    {
-
-    }
 
 
 

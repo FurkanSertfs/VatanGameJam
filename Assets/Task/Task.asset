@@ -24,8 +24,9 @@ MonoBehaviour:
     InstallStorage320: 0
     InstallStorage500: 0
   gorevAnlatim:
-    GorevAnlat:
-    - Ram Al
-    - "Ekran Kart\u0131 Al"
-    - Format
-    - "Driver G\xFCncelle"
+  - GorevAnlat: Ram Al
+    isComplated: 1
+  - GorevAnlat: "\u0130slemci al"
+    isComplated: 0
+  - GorevAnlat: Format at
+    isComplated: 0
