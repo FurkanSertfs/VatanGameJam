@@ -16,12 +16,14 @@ public class TabletUI : MonoBehaviour
 
 
     [SerializeField]
-    Transform pcSpawnPoint,taskSpawnPoint,taskManager;
+    Transform pcSpawnPoint,taskManager;
 
     public Text taskDescriptionText, taskAwardText;
 
+    [HideInInspector]
     public bool isTaskActive;
-
+   
+    [HideInInspector]
     public TaskClass SelectedtaskClass; 
 
     public static TabletUI tabletUI;

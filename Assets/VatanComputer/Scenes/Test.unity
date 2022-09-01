@@ -9640,6 +9640,11 @@ PrefabInstance:
       objectReference: {fileID: 8808345894112802011}
     - target: {fileID: 6580802567161272858, guid: ff91b2a7770c7014d88e3928da92781d,
         type: 3}
+      propertyPath: isTaskActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6580802567161272858, guid: ff91b2a7770c7014d88e3928da92781d,
+        type: 3}
       propertyPath: pcSpawnPoint
       value: 
       objectReference: {fileID: 8808345894112802005}
@@ -19224,7 +19229,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &8894666820539278360
 MonoBehaviour:
   m_ObjectHideFlags: 0
