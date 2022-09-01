@@ -9,22 +9,21 @@ public class PCUI : MonoBehaviour
 {
     public static PCUI pCUI;
 
-    public Image[] apps,driversComplated;
+    public Image[] apps, driversComplated;
 
-    public GameObject installScreen,deInstallScreen, completedScan,programYukleKaldirApp,virusScannerApp,driverBoosterApp, restarPCScreen,formatScreen;
+    public GameObject installScreen, deInstallScreen, completedScan, programYukleKaldirApp, virusScannerApp, driverBoosterApp, restarPCScreen, formatScreen;
 
-    public Image installApps, deInstallApps,installBar,deInstalBar,virusScannerBar,driverBar,windowsInstallBar,gpuMhzBar,cpuMhzBar,memMhzBar,tempCbar;
+    public Image installApps, deInstallApps, installBar, deInstalBar, virusScannerBar, driverBar, windowsInstallBar, gpuMhzBar, cpuMhzBar, memMhzBar, tempCbar;
 
     public InputField windowsKeyField;
 
-    public Text scannedFilesText,driverInstalPerAgeText,installPercentText,deInstallPercentText,windowsKeyText,enterKeyText, virusFoundText,gpuMhzText, cpuMhzText, memMhzText, tempCText;
+    public Text scannedFilesText, driverInstalPerAgeText, installPercentText, deInstallPercentText, windowsKeyText, enterKeyText, virusFoundText, gpuMhzText, cpuMhzText, memMhzText, tempCText;
 
-    float scannedFiles, driverInstalPerAge,virusFound,gpuMhz=750,cpuMhz=750,memMhz=750,tempC=75;
+    float scannedFiles, driverInstalPerAge, virusFound, gpuMhz = 750, cpuMhz = 750, memMhz = 750, tempC = 75;
 
     EventSystem eventSystem;
 
-    public float timer1,timer2,timer3,timer4;
-
+    public float timer1, timer2, timer3, timer4;
 
     bool trueKey;
 
@@ -36,6 +35,33 @@ public class PCUI : MonoBehaviour
         pCUI = this;
 
     }
+
+
+
+
+    public void OpenCloseButton(GameObject openObject)
+    {
+        if (openObject.activeSelf)
+        {
+           
+            openObject.SetActive(false);
+        }
+
+        else
+        {
+            openObject.SetActive(true);
+            PointClose.pointClose.gameObject.SetActive(true);
+        }
+       
+
+
+    }
+
+ 
+    
+
+
+
 
     public void CloseApp(GameObject apps)
     {
@@ -146,7 +172,7 @@ public class PCUI : MonoBehaviour
 
         DOTween.To(() => 0.001f, x => virusScannerBar.fillAmount = x, 1, random).OnComplete(() => EndVirusScanner());
     
-        DOTween.To(() => 0.001f, x => scannedFiles = x, Random.Range(30000,50000), random);
+        DOTween.To(() => 0, x => scannedFiles = x, Random.Range(30000,50000), random);
 
         DOTween.To(() => 0, x => virusFound = x, Random.Range(3, 50), random);
     }
