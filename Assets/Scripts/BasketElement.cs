@@ -8,6 +8,8 @@ public class BasketElement : MonoBehaviour
 {
     public Text productNameText, priceText, countText;
 
+    public Image productImage;
+
     public PruductClass productClass;
     
 }
