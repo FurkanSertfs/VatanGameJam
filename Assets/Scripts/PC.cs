@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.EventSystems;
+using UnityEditor;
+
 public class PC : MonoBehaviour
 {
     public TaskClass taskClass;
@@ -23,8 +25,9 @@ public class PC : MonoBehaviour
       
         ShowApps();
 
-        
 
+        var tex = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/tex.png");
+        Cursor.SetCursor(tex, new Vector2(0.015f, 0.015f), CursorMode.ForceSoftware);
 
         if (taskClass.pcBuilding)
         
