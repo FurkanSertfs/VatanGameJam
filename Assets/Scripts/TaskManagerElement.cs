@@ -11,8 +11,11 @@ public class TaskManagerElement : MonoBehaviour
 
     TaskClass taskClass;
 
+    
+
     void Start()
     {
+        
         
     }
 

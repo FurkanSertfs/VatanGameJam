@@ -4,20 +4,33 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+[System.Serializable]
+public class PruductClass
+
+{
+    public Product product;
+
+    public int count;
+
+    public BasketElement basketElement;
+
+}
+
+
 
 public class TabletUI : MonoBehaviour
 {
 
     [SerializeField]
-    GameObject Tablet, pcPrefab, taskPrefab;
+    GameObject Tablet, pcPrefab, taskPrefab,basketElementPrefab;
 
     [SerializeField]
     GameObject[] applications;
 
 
-    public Transform pcSpawnPoint, taskManager;
+    public Transform pcSpawnPoint, taskManager,basketPoint;
 
-    public Text taskDescriptionText, taskAwardText;
+    public Text taskDescriptionText, taskAwardText,totalBasketPriceText;
 
     [HideInInspector]
     public bool isTaskActive;
@@ -29,19 +42,127 @@ public class TabletUI : MonoBehaviour
 
     public GameObject startTaskButton;
 
+    public   List<PruductClass> productsinBasket= new List<PruductClass>();
 
     List<GameObject> activeTask = new List<GameObject>();
+
+    List<GameObject> GameObjectsinBasket = new List<GameObject>();
+
+
+    int totalBasketPrice;
 
     private void Awake()
     {
         tabletUI = this;
     }
 
-    private void Start()
+    public void AddProducttoBasket(Product newproduct)
     {
+        bool isThere = false;
 
+        for (int i = 0; i < productsinBasket.Count; i++)
+        {
+            if (newproduct.ID == productsinBasket[i].product.ID)
+            {
+                isThere = true;
+               
+                productsinBasket[i].count++;
+
+                break;
+
+            }
+
+        }
+
+        if (!isThere)
+        {
+            if (productsinBasket.Count < 6)
+            {
+                PruductClass newP = new PruductClass();
+
+                newP.product = newproduct;
+                newP.count = 1;
+                productsinBasket.Add(newP);
+
+                GameObjectsinBasket.Add(Instantiate(basketElementPrefab, basketPoint.transform));
+                
+                newP.basketElement = GameObjectsinBasket[GameObjectsinBasket.Count-1].GetComponent<BasketElement>();
+
+                newP.basketElement.productClass = newP;
+
+
+
+                UpdateBasket();
+            }
+            else
+            {
+                Debug.Log("Yer yoq aq");
+            }
+         
+
+
+        }
+    }
+
+   public void DeleteProduct(BasketElement basketElement)
+    {
+        basketElement.productClass.count--;
+        UpdateBasket();
+    }
+
+    public void AddProduct(BasketElement basketElement)
+    {
+        basketElement.productClass.count++;
+        UpdateBasket();
+    }
+
+
+
+
+
+    void UpdateBasket()
+    {
+         totalBasketPrice = 0;
+
+        for (int i = 0; i < productsinBasket.Count; i++)
+        {
+
+            productsinBasket[i].basketElement.productNameText.text = productsinBasket[i].product.productName;
+
+            productsinBasket[i].basketElement.priceText.text = (productsinBasket[i].count * productsinBasket[i].product.price).ToString();
+
+            productsinBasket[i].basketElement.countText.text = (productsinBasket[i].count).ToString();
+
+            totalBasketPrice += productsinBasket[i].count * productsinBasket[i].product.price;
+
+        }
+
+        totalBasketPriceText.text = totalBasketPrice.ToString();
 
     }
+
+    public void ConfirmtheBasket()
+    {
+        if (GameManager.gameManager.money >= totalBasketPrice)
+        {
+            GameManager.gameManager.money -= totalBasketPrice;
+
+
+            for (int i = 0; i < GameObjectsinBasket.Count; i++)
+            {
+                Destroy(GameObjectsinBasket[i]);
+            }
+            GameObjectsinBasket.Clear();
+
+            productsinBasket.Clear();
+
+            UpdateBasket();
+        }
+    }
+
+
+
+
 
 
     void Update()
@@ -60,8 +181,8 @@ public class TabletUI : MonoBehaviour
             {
                 if (SelectedtaskClass.gorevAnlatim[i].isComplated)
                 {
-                   
-                    activeTask[i].GetComponent<TaskManagerElement>().gorevComplated.SetActive(true);
+
+                    SelectedtaskClass.gorevAnlatim[i].taskManagerElement.gorevComplated.SetActive(true);
                 }
 
             }
@@ -129,7 +250,9 @@ public class TabletUI : MonoBehaviour
             {
                 activeTask.Add(Instantiate(taskPrefab, taskManager.transform));
 
-                activeTask[activeTask.Count-1].GetComponent<TaskManagerElement>().gorevText.text = SelectedtaskClass.gorevAnlatim[i].GorevAnlat;
+                SelectedtaskClass.gorevAnlatim[i].taskManagerElement = activeTask[activeTask.Count - 1].GetComponent<TaskManagerElement>();
+
+                SelectedtaskClass.gorevAnlatim[i].taskManagerElement.gorevText.text = SelectedtaskClass.gorevAnlatim[i].GorevAnlat;
 
             }
 

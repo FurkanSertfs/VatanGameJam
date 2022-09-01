@@ -14,9 +14,15 @@ public class SelectTask
 public class GorevAnlatim
 {
     public string GorevAnlat;
+
     public bool isComplated;
     
+    public enum Taskenum { Format,Ram8, Ram16,Kart1050TÝ, Kart1650, Kart2060, Kart3060 , Kart3080 ,Virus,Driver};
 
+    public Taskenum task;
+
+    [HideInInspector]
+    public TaskManagerElement taskManagerElement;
 }
 
 
@@ -31,7 +37,7 @@ public class TaskClass : ScriptableObject
     public bool pcBuilding;
 
     public AppClass[] installedApps;
-
+    
     public SelectTask selectTask;
 
     [NonReorderable]
