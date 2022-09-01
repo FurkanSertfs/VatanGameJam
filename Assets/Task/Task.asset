@@ -26,7 +26,7 @@ MonoBehaviour:
   gorevAnlatim:
   - GorevAnlat: Ram Al
     isComplated: 0
-    task: 0
+    task: 1
     taskManagerElement: {fileID: 0}
   - GorevAnlat: "\u0130slemci al"
     isComplated: 0

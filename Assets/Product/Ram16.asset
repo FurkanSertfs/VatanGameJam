@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: Ram16
   m_EditorClassIdentifier: 
   product: 1
-  ID: 0
+  ID: 1
+  productName: Corsair 16GB
+  price: 1000

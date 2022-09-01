@@ -150,7 +150,9 @@ public class TabletUI : MonoBehaviour
     public void ConfirmtheBasket()
     {
         if (GameManager.gameManager.money >= totalBasketPrice)
+            
         {
+            Debug.Log("old");
             GameManager.gameManager.money -= totalBasketPrice;
 
 
