@@ -25,6 +25,8 @@ public class PCUI : MonoBehaviour
 
     public float timer1, timer2, timer3, timer4;
 
+    public GameObject[] pointClose,afterRestartCloseObject;
+
     bool trueKey;
 
 
@@ -50,7 +52,10 @@ public class PCUI : MonoBehaviour
         else
         {
             openObject.SetActive(true);
-            PointClose.pointClose.gameObject.SetActive(true);
+            for (int i = 0; i < pointClose.Length; i++)
+            {
+                pointClose[i].SetActive(true);
+            }
         }
        
 
@@ -139,16 +144,31 @@ public class PCUI : MonoBehaviour
         windowsKeyField.text = "";
         trueKey = false;
     }
-    void RestartPc()
+    public void RestartPc()
     {
         restarPCScreen.SetActive(true);
+
+        for (int i = 0; i < afterRestartCloseObject.Length; i++)
+        {
+            afterRestartCloseObject[i].SetActive(false);
+        }
 
         float timer;
 
         DOTween.To(() => 0.01f, x => timer = x, 1, Random.Range(3.2f, 5.1f)).OnComplete(() => OpenPC());
 
 
+
+
     }
+
+    public void ClosePc()
+    {
+        pCUI.gameObject.SetActive(false);
+
+
+    }
+
     void OpenPC()
     {
         restarPCScreen.SetActive(false);
