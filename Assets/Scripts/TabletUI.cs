@@ -20,8 +20,7 @@ public class TabletUI : MonoBehaviour
 
     public Text taskDescriptionText, taskAwardText;
 
-    [HideInInspector]
-    public bool isTaskActive;
+    public bool isTaskActive = false;
    
     [HideInInspector]
     public TaskClass SelectedtaskClass; 
