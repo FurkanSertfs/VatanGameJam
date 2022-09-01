@@ -8,12 +8,9 @@ public class PointClose : MonoBehaviour, IPointerDownHandler
 
     public GameObject[] closeObject;
 
-    public static PointClose pointClose;
+    
 
-    private void Awake()
-    {
-        pointClose = this;
-    }
+   
 
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -22,7 +19,10 @@ public class PointClose : MonoBehaviour, IPointerDownHandler
             closeObject[i].SetActive(false);
         }
 
-        gameObject.SetActive(false);
-       
+        for (int i = 0; i < PCUI.pCUI.pointClose.Length; i++)
+        {
+            PCUI.pCUI.pointClose[i].SetActive(false);
+        }
+
     }
 }

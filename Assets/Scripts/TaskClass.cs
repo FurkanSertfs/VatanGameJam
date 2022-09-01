@@ -5,9 +5,18 @@ using UnityEngine;
 [System.Serializable]
 public class SelectTask
 {
-    public bool format, virusScanner, InstallGta, InstallFollowTheLight, InstallCastle, UpgradeRam16Gb, InstallStorage320, InstallStorage500;
+    public bool FormatAt, VirusleriTemizle, GtaYükle, UpgradeRam16, InstallStorage320, InstallStorage500;
 
 }
+
+[System.Serializable]
+
+public class GorevAnlatim
+{
+    public string[] GorevAnlat;
+
+}
+
 
 [CreateAssetMenu(fileName = "Task ", menuName = "Crate  New Task")]
 
@@ -22,6 +31,8 @@ public class TaskClass : ScriptableObject
     public AppClass[] installedApps;
 
     public SelectTask selectTask;
+
+    public GorevAnlatim gorevAnlatim;
 
 
 }

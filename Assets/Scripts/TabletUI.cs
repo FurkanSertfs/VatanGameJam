@@ -9,14 +9,14 @@ public class TabletUI : MonoBehaviour
 {
 
     [SerializeField]
-     GameObject Tablet,pcPrefab;
+     GameObject Tablet,pcPrefab, taskPrefab;
 
     [SerializeField]
     GameObject[] applications;
 
 
     [SerializeField]
-    Transform pcSpawnPoint;
+    Transform pcSpawnPoint,taskSpawnPoint,taskManager;
 
     public Text taskDescriptionText, taskAwardText;
 
@@ -52,6 +52,15 @@ public class TabletUI : MonoBehaviour
             GameObject newPC = Instantiate(pcPrefab, pcSpawnPoint.position, pcSpawnPoint.rotation);
 
             newPC.GetComponent<PC>().taskClass = SelectedtaskClass;
+
+            for (int i = 0; i < newPC.GetComponent<PC>().taskClass.gorevAnlatim.GorevAnlat.Length; i++)
+            {
+                GameObject newTask = Instantiate(taskPrefab, taskManager.transform);
+               
+                newTask.GetComponent<TaskManagerElement>().gorevText.text = newPC.GetComponent<PC>().taskClass.gorevAnlatim.GorevAnlat[i];
+            
+            }
+
         }
 
 

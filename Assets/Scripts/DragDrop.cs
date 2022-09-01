@@ -26,6 +26,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IDragHandler
     private void Update()
     {
         Debug.Log(rectTransform.anchoredPosition);
+
         if (rectTransform.anchoredPosition.x < minX)
         {
             rectTransform.anchoredPosition = new Vector2(minX, rectTransform.anchoredPosition.y);
