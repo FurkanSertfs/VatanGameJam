@@ -67,7 +67,7 @@ public class BuyManager : MonoBehaviour
                 }
             }
 
-            if (hit.collider.CompareTag("PC"))
+           else if (hit.collider.CompareTag("PC"))
             {
                 GameManager.gameManager.croshair.color = Color.blue;
                
