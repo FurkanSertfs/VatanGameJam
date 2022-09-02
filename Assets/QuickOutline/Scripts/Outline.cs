@@ -78,17 +78,30 @@ public class Outline : MonoBehaviour {
   private Material outlineMaskMaterial;
   private Material outlineFillMaterial;
 
-  private bool needsUpdate;
+    private bool needsUpdate;
+    
+    [SerializeField]
+    
+    private bool alwaysActive;
 
     private void OnMouseEnter()
     {
-        outlineWidth = 10;
-        needsUpdate = true;
+        if (!alwaysActive)
+        {
+            outlineWidth = 10;
+            needsUpdate = true;
+        }
+      
     }
     private void OnMouseExit()
     {
-        outlineWidth = 0;
-        needsUpdate = true;
+
+        if (!alwaysActive)
+        {
+            outlineWidth = 0;
+            needsUpdate = true;
+        }
+      
     }
 
     void Awake() {

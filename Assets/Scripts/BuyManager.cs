@@ -7,6 +7,9 @@ public class BuyManager : MonoBehaviour
 {
 
     public GameObject fpsCam;
+
+    public Camera pcbuildCam;
+
     float timer;
     private void Start()
     {
@@ -18,11 +21,30 @@ public class BuyManager : MonoBehaviour
      
         RaycastHit hit;
 
-       
+        if (Input.GetMouseButtonDown(0)&&pcbuildCam.gameObject.activeSelf)
+        {
+
+            Ray ray = pcbuildCam.ScreenPointToRay(Input.mousePosition);
+
+            if(Physics.Raycast(ray,out RaycastHit hitinfo))
+            {
+                Debug.Log(hitinfo.collider.gameObject.name);
+
+            }
+
+
+        }
+
+
+
+
+
+
+
         
 
         // if (Physics.Raycast(fpsCam.transform.position, forwardX, out hit, Range))
-        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit,7.5F))
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit,7.5F)&&fpsCam.activeSelf)
         {
            
             if (hit.collider.CompareTag("Product"))
@@ -80,6 +102,8 @@ public class BuyManager : MonoBehaviour
 
         }
     }
+
+
 }
 
 
