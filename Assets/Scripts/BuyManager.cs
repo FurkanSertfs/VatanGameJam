@@ -24,33 +24,33 @@ public class BuyManager : MonoBehaviour
         // if (Physics.Raycast(fpsCam.transform.position, forwardX, out hit, Range))
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit,20))
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+           
+            if (hit.collider.CompareTag("Product"))
             {
+                GameManager.gameManager.croshair.color = Color.green;
 
-                
-                if(timer +0.2f < Time.time)
+                if (Input.GetKeyDown(KeyCode.Mouse0) && !TabletUI.tabletUI.Tablet.activeSelf)
                 {
 
-
-
-                    if (hit.collider.CompareTag("Product"))
+                    if (timer + 0.2f < Time.time)
                     {
+
+
                         TabletUI.tabletUI.AddProducttoBasket(hit.collider.GetComponent<ProductManager>().product);
 
-                        
+
+                        timer = Time.time;
                     }
 
-                    timer = Time.time;
                 }
-
-               
+            }
            
+            else
+            {
+                GameManager.gameManager.croshair.color = Color.white;
             }
 
-          
-        
-         
-           
+
 
         }
     }

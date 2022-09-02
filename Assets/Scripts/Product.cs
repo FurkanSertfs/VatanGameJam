@@ -9,12 +9,16 @@ using UnityEngine;
 public class Product : ScriptableObject
 {
 
-    public GorevAnlatim.Taskenum product;
+    public GorevAnlatim.Taskenum productType;
 
     public int ID;
 
     public string productName;
 
     public int price;
+
+    public GameObject prefab;
+
+    public Sprite productImage;
 
 }
