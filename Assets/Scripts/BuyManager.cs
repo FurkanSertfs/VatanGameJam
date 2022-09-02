@@ -48,9 +48,7 @@ public class BuyManager : MonoBehaviour
             if (hit.collider.CompareTag("PC"))
             {
                 GameManager.gameManager.croshair.color = Color.blue;
-
-              //  hit.collider.GetComponent<Outline>().OutlineWidth = 10;
-
+               
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                 { 
                        
@@ -62,7 +60,7 @@ public class BuyManager : MonoBehaviour
 
             else
             {
-              
+
                 GameManager.gameManager.croshair.color = Color.white;
 
 
@@ -74,7 +72,7 @@ public class BuyManager : MonoBehaviour
 
         else
         {
-           
+
             GameManager.gameManager.croshair.color = Color.white;
 
 

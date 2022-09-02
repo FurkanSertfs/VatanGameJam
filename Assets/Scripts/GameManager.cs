@@ -61,8 +61,6 @@ public class GameManager : MonoBehaviour
             firstPersonController.enabled = true;
 
             croshair.enabled = true;
-
-            fpsButton.SetActive(false);
         }
 
     }

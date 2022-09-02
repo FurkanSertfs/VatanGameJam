@@ -8,6 +8,7 @@ public class PCCameraControl : MonoBehaviour
     [SerializeField] private Camera cam;
     [SerializeField] private Transform target;
 
+    public float zoom = -5;
     private Vector3 prevPos;
 
 
@@ -20,19 +21,31 @@ public class PCCameraControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+        if(Input.GetAxis("Mouse ScrollWheel") !=0)
+        {
+            zoom += Input.GetAxis("Mouse ScrollWheel");
+            cam.transform.Translate(new Vector3(0, 0, Input.GetAxis("Mouse ScrollWheel")));
+
+        }
         if (Input.GetMouseButtonDown(0))
         {
             prevPos = cam.ScreenToViewportPoint(Input.mousePosition);
-
+            
         }
         if (Input.GetMouseButton(0))
-        {
-            Vector3 direction = prevPos - cam.ScreenToViewportPoint(Input.mousePosition);
+        
             {
+                Vector3 direction = prevPos - cam.ScreenToViewportPoint(Input.mousePosition);
+
                 cam.transform.position = target.position;
 
-                cam.transform.Rotate(new Vector3(1, 0, 0), direction.y * 180);
+                cam.transform.Rotate(new Vector3(1, 0, 0), direction.y * 40);
+                cam.transform.Rotate(new Vector3(0, 1, 0), -direction.x * 360, Space.World);
+                cam.transform.Translate(new Vector3(0, 0, zoom));
+
+            prevPos = cam.ScreenToViewportPoint(Input.mousePosition);
             }
-        }
+        
     }
 }
