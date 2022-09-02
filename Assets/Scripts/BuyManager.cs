@@ -22,7 +22,7 @@ public class BuyManager : MonoBehaviour
         
 
         // if (Physics.Raycast(fpsCam.transform.position, forwardX, out hit, Range))
-        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit,20))
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit,7.5F))
         {
            
             if (hit.collider.CompareTag("Product"))
@@ -44,12 +44,36 @@ public class BuyManager : MonoBehaviour
 
                 }
             }
-           
-            else
+
+            if (hit.collider.CompareTag("PC"))
             {
-                GameManager.gameManager.croshair.color = Color.white;
+                GameManager.gameManager.croshair.color = Color.blue;
+               
+                if (Input.GetKeyDown(KeyCode.Mouse0))
+                { 
+                       
+                    GameManager.gameManager.ChangeCam("PC");
+               
+                }
+
             }
 
+            else
+            {
+
+                GameManager.gameManager.croshair.color = Color.white;
+
+
+            }
+
+
+
+        }
+
+        else
+        {
+
+            GameManager.gameManager.croshair.color = Color.white;
 
 
         }

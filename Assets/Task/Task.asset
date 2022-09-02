@@ -24,15 +24,15 @@ MonoBehaviour:
     InstallStorage320: 0
     InstallStorage500: 0
   gorevAnlatim:
-  - GorevAnlat: Ram Al
+  - GorevAnlat: 8 Ram Al
     isComplated: 0
-    task: 1
+    productType: 1
     taskManagerElement: {fileID: 0}
-  - GorevAnlat: "\u0130slemci al"
+  - GorevAnlat: 16 Ram Al
     isComplated: 0
-    task: 0
+    productType: 2
     taskManagerElement: {fileID: 0}
   - GorevAnlat: Format at
     isComplated: 0
-    task: 0
+    productType: 0
     taskManagerElement: {fileID: 0}

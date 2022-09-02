@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a12bfb23204f0da4f869cdceef0568aa, type: 3}
   m_Name: Ram16
   m_EditorClassIdentifier: 
-  productType: 0
+  productType: 2
   ID: 1
   productName: Corsair 16GB
   price: 1000

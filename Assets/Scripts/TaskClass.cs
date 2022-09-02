@@ -19,7 +19,7 @@ public class GorevAnlatim
     
     public enum Taskenum { Format,Ram8, Ram16,Kart1050TÝ, Kart1650, Kart2060, Kart3060 , Kart3080 ,Virus,Driver};
 
-    public Taskenum task;
+    public Taskenum productType;
 
     [HideInInspector]
     public TaskManagerElement taskManagerElement;

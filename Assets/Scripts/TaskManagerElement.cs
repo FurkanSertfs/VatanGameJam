@@ -13,14 +13,5 @@ public class TaskManagerElement : MonoBehaviour
 
     
 
-    void Start()
-    {
-        
-        
-    }
-
-    void Update()
-    {
-        
-    }
+  
 }
