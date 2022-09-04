@@ -39,7 +39,11 @@ public class PCCase : MonoBehaviour
     private void Awake()
     {
         pCCase = this;
-        pcbuildCam = GameManager.gameManager.pcBuildCam.GetComponent<Camera>();
+        if (GameManager.gameManager != null)
+        {
+            pcbuildCam = GameManager.gameManager.pcBuildCam.GetComponent<Camera>();
+        }
+      
     }
 
     private void Update()
