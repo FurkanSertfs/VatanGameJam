@@ -19,6 +19,7 @@ public class PCCaseElement : MonoBehaviour
 
     public bool UpDeInstall = false;
 
+   
 
     private Outline outline;
 
@@ -52,7 +53,7 @@ public class PCCaseElement : MonoBehaviour
     }
     void InstallElement()
     {
-        DownisInstall = true;
+        DownisInstall = false;
         
         DownisInstall2 = true;
 
@@ -82,6 +83,7 @@ public class PCCaseElement : MonoBehaviour
                 {
                     DownisInstall = PCCase.pCCase.productCaseHave[i].isInstall;
 
+                   
                     if (PCCase.pCCase.productCaseHave[i].isRotate)
                     {
                         DownisInstall = !PCCase.pCCase.productCaseHave[i].isInstall;
@@ -99,20 +101,45 @@ public class PCCaseElement : MonoBehaviour
 
                     if (PCCase.pCCase.productCaseHave[i].isRotate)
                     {
-                        DownisInstall2 = !PCCase.pCCase.productCaseHave[i].isInstall;
+                        DownisInstall2 = PCCase.pCCase.productCaseHave[i].isInstall;
 
 
                     }
 
                 }
             }
+          
             else
             {
                 DownisInstall = true;
+                
             }
 
 
 
+        }
+
+        if (productType==PCCaseElement.ProductType.RightCover)
+        {
+            if (PCCase.pCCase.productCaseHave.Count == PCCase.pCCase.caseMustHave.Length )
+            {
+
+                DownisInstall = true;
+                
+                DownisInstall2 = true;
+                
+                UpDeInstall = true;
+            }
+            else
+            {
+                DownisInstall = false;
+
+                DownisInstall2 = false;
+
+                UpDeInstall = false;
+
+            }
+          
         }
         
         
@@ -257,6 +284,11 @@ public class PCCaseElement : MonoBehaviour
 
     public void AfterDeinstall()
     {
+       
+
+        GetComponent<Outline>().alwaysActive = false;
+       
+        GetComponent<Outline>().OutlineWidth = 0;
 
         if (!isRotate)
         {

@@ -14,7 +14,7 @@ public class PCCase : MonoBehaviour
 
     // installed Elements Screws and Cover
     [SerializeField]
-    PCCaseElement.ProductType[] caseMustHave;
+   public PCCaseElement.ProductType[] caseMustHave;
 
     [SerializeField]
     PCCaseElement.ProductType[] CaseProducts;
@@ -31,6 +31,10 @@ public class PCCase : MonoBehaviour
     public static PCCase pCCase;
 
     public bool pcCanOpen;
+
+    public GameObject screwUp, screwDown;
+    public Transform screwUpBase, screwDownBase;
+
 
     private void Awake()
     {
@@ -61,7 +65,7 @@ public class PCCase : MonoBehaviour
             pcCanOpen = false;
         }
 
-        Debug.Log(pcCanOpen);
+       
 
     }
 
@@ -159,7 +163,7 @@ public class PCCase : MonoBehaviour
            
                 bool isThere = false;
 
-                Debug.Log(hitinfo.collider.gameObject.name);
+               
 
                 for (int i = 0; i < elementCaseHave.Count; i++)
                 {
@@ -231,6 +235,29 @@ public class PCCase : MonoBehaviour
                     productCaseHave.Add(selectedObject.GetComponent<PCCaseElement>());
                   
                     hitinfo.collider.gameObject.SetActive(false);
+
+                    if (productType == PCCaseElement.ProductType.RightCover)
+                    {
+                        screwDown.transform.DOMove(screwDownBase.position, 1);
+
+                        screwDown.gameObject.tag = "PcElement";
+
+                        screwDown.GetComponent<PCCaseElement>().isInstall = true;
+
+                        productCaseHave.Add(screwDown.GetComponent<PCCaseElement>());
+
+
+
+                        screwUp.transform.DOMove(screwUpBase.position, 1);
+
+                        screwUp.gameObject.tag = "PcElement";
+
+                        screwUp.GetComponent<PCCaseElement>().isInstall = true;
+
+                        productCaseHave.Add(screwUp.GetComponent<PCCaseElement>());
+
+                    }
+                
                   
                  
 
