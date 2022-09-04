@@ -80,9 +80,8 @@ public class Outline : MonoBehaviour {
 
     private bool needsUpdate;
     
-    [SerializeField]
     
-    private bool alwaysActive;
+    public bool alwaysActive;
 
     private void OnMouseEnter()
     {

@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+using DG.Tweening;
 public class BuyManager : MonoBehaviour
 {
 
     public GameObject fpsCam;
 
-    public Camera pcbuildCam;
 
     float timer;
     private void Start()
@@ -17,33 +16,9 @@ public class BuyManager : MonoBehaviour
     }
     void Update()
     {
-        Vector3 forwardX = transform.TransformDirection(Vector3.forward);
-     
         RaycastHit hit;
-
-        if (Input.GetMouseButtonDown(0)&&pcbuildCam.gameObject.activeSelf)
-        {
-
-            Ray ray = pcbuildCam.ScreenPointToRay(Input.mousePosition);
-
-            if(Physics.Raycast(ray,out RaycastHit hitinfo))
-            {
-                Debug.Log(hitinfo.collider.gameObject.name);
-
-            }
-
-
-        }
-
-
-
-
-
-
-
-        
-
-        // if (Physics.Raycast(fpsCam.transform.position, forwardX, out hit, Range))
+       
+       
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit,7.5F)&&fpsCam.activeSelf)
         {
            
@@ -83,7 +58,7 @@ public class BuyManager : MonoBehaviour
             else
             {
 
-                GameManager.gameManager.croshair.color = Color.white;
+                //GameManager.gameManager.croshair.color = Color.white;
 
 
             }
@@ -95,11 +70,21 @@ public class BuyManager : MonoBehaviour
         else
         {
 
-            GameManager.gameManager.croshair.color = Color.white;
+            //GameManager.gameManager.croshair.color = Color.white;
 
 
         }
     }
+
+
+    void StopRotate()
+    {
+
+    }
+
+
+
+
 
 
 }

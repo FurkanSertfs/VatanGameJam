@@ -9,6 +9,17 @@ TagManager:
   - Product
   - PC Area
   - PC
+  - Screw
+  - CpuLock
+  - Screw2
+  - CpuLock2
+  - Cpu
+  - Cpu2
+  - PcElement
+  - Ready Product
+  - ProductPoint
+  - State
+  - PowerButton
   layers:
   - Default
   - TransparentFX

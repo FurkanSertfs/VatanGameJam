@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/VatanComputer/Scenes/Test3.unity
+    guid: b57361f235f3f4c4aa3ae87566251687
   m_configObjects: {}
