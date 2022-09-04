@@ -39,7 +39,7 @@ public class PCUI : MonoBehaviour
 
         pCUI = this;
 
-        Debug.Log("1");
+     
     }
   
 

@@ -14,5 +14,7 @@ public class cpuBg : MonoBehaviour
     void Update()
     {
         transform.position = cpu.transform.position;
+        transform.rotation = cpu.transform.rotation;
+
     }
 }

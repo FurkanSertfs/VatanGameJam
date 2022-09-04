@@ -159,11 +159,14 @@ public class PCCase : MonoBehaviour
            
                 bool isThere = false;
 
+                Debug.Log(hitinfo.collider.gameObject.name);
+
                 for (int i = 0; i < elementCaseHave.Count; i++)
                 {
-                    if (elementCaseHave[i].gameObject.activeSelf)
+                    if (elementCaseHave[i].isInstall)
                     {
                         allClosed = false;
+                        
                     }
                 }
 
@@ -218,6 +221,8 @@ public class PCCase : MonoBehaviour
 
 
                     selectedObject.transform.DOMove(hitinfo.collider.gameObject.transform.position, 1);
+               
+                    selectedObject.transform.DORotateQuaternion(hitinfo.collider.gameObject.transform.rotation, 1);
 
                     selectedObject.gameObject.tag = "PcElement";
 

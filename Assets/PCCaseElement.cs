@@ -34,6 +34,8 @@ public class PCCaseElement : MonoBehaviour
     private void Start()
     {
         outline = GetComponent<Outline>();
+
+        
     }
 
     void Update()
@@ -219,7 +221,11 @@ public class PCCaseElement : MonoBehaviour
             {
                 seq.Append(transform.DOMove(transformPoint[i].position, 0.3f));
 
+                transform.DOLocalRotate(new Vector3(transformPoint[i].rotation.eulerAngles.x, transformPoint[i].rotation.eulerAngles.y, transformPoint[i].rotation.eulerAngles.z), 0.3F);
+
             }
+
+            transform.DOLocalRotate(new Vector3(transformPoint[transformPoint.Length - 1].rotation.eulerAngles.x, transformPoint[transformPoint.Length - 1].rotation.eulerAngles.y, transformPoint[transformPoint.Length - 1].rotation.eulerAngles.z), 0.3F);
 
             seq.Append(transform.DOMove(transformPoint[transformPoint.Length - 1].position, 1).OnComplete(() => AfterDeinstall()));
         }
@@ -257,16 +263,6 @@ public class PCCaseElement : MonoBehaviour
             isInstall = false;
         }
      
-
-        if (productType == ProductType.DownScrew || productType == ProductType.UpScrew || productType == ProductType.RightCover)
-        {
-
-            gameObject.SetActive(false);
-
-
-        }
-
-
 
 
     }
