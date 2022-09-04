@@ -91,7 +91,7 @@ public class PCCase : MonoBehaviour
     {
         Ray ray = pcbuildCam.ScreenPointToRay(Input.mousePosition);
 
-        if (Physics.Raycast(ray, out RaycastHit hitinfo))
+        if (Physics.Raycast(ray, out RaycastHit hitinfo)&&pcbuildCam.gameObject.activeSelf)
         {
             if (hitinfo.collider.CompareTag("PowerButton"))
             {

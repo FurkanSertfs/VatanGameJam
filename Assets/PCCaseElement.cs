@@ -15,7 +15,9 @@ public class PCCaseElement : MonoBehaviour
 
     public bool DownisInstall = false;
 
-    public  bool DownisInstall2 = true;
+    public bool DownisInstall2 = true;
+
+    public bool UpDeInstall = false;
 
 
     private Outline outline;
@@ -48,12 +50,29 @@ public class PCCaseElement : MonoBehaviour
     }
     void InstallElement()
     {
-        DownisInstall = false;
-       
+        DownisInstall = true;
+        
         DownisInstall2 = true;
+
+        UpDeInstall = true;
+
+       
+
+
 
         for (int i = 0; i < PCCase.pCCase.productCaseHave.Count; i++)
         {
+
+
+            if (UpType == PCCase.pCCase.productCaseHave[i].productType)
+            {
+                UpDeInstall =!PCCase.pCCase.productCaseHave[i].isInstall;
+
+
+            }
+
+
+
             if (DownType != PCCaseElement.ProductType.Empty || DownType2 != PCCaseElement.ProductType.Empty)
             {
 
@@ -78,7 +97,7 @@ public class PCCaseElement : MonoBehaviour
 
                     if (PCCase.pCCase.productCaseHave[i].isRotate)
                     {
-                        DownisInstall2 = PCCase.pCCase.productCaseHave[i].isInstall;
+                        DownisInstall2 = !PCCase.pCCase.productCaseHave[i].isInstall;
 
 
                     }
@@ -96,7 +115,7 @@ public class PCCaseElement : MonoBehaviour
         
         
 
-        if (!DownisInstall || !DownisInstall2)
+        if (!DownisInstall || !DownisInstall2|| !UpDeInstall)
         {
             outline.OutlineColor = Color.yellow;
 
