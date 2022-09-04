@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     public Transform pcpoint;
 
    
-    private FirstPersonController firstPersonController;
+    public FirstPersonController firstPersonController;
 
 
     private void Awake()
@@ -36,6 +36,14 @@ public class GameManager : MonoBehaviour
             GameObject testO = Instantiate(pcPrefab, pcpoint.position, pcpoint.rotation,pcpoint.transform);
 
             testO.SetActive(true);
+        }
+        if (TabletUI.tabletUI.Tablet.active)
+        {
+            firstPersonController.enabled = false;
+        }
+        else
+        {
+            firstPersonController.enabled = true;
         }
     }
 

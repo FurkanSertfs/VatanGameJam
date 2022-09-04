@@ -41,7 +41,15 @@ public class PCUI : MonoBehaviour
 
      
     }
-  
+    private void OnEnable()
+    {
+        eventSystem = EventSystem.current;
+
+        pCUI = this;
+
+       
+    }
+
 
 
     private void Update()

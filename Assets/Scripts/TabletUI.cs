@@ -394,6 +394,7 @@ public class TabletUI : MonoBehaviour
 
             Cursor.lockState = CursorLockMode.Locked;
 
+
             EventSystem.current.SetSelectedGameObject(null);
 
 
