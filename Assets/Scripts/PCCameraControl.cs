@@ -24,19 +24,7 @@ public class PCCameraControl : MonoBehaviour
         cam = GameManager.gameManager.pcBuildCam.GetComponent<Camera>();
         target = PCCase.pCCase.gameObject.transform;
 
-        Vector3 direction = prevPos - cam.ScreenToViewportPoint(Input.mousePosition);
-
-
-        cam.transform.position = target.position;
-
-
-        cam.transform.Rotate(new Vector3(1, 0, 0), direction.y * 40);
-
-        cam.transform.Rotate(new Vector3(0, 1, 0), -direction.x * 360, Space.World);
-
-        cam.transform.Translate(new Vector3(0, 0, zoom));
-
-        prevPos = cam.ScreenToViewportPoint(Input.mousePosition);
+      
     }
 
     // Update is called once per frame

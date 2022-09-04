@@ -9,7 +9,6 @@ public class test : MonoBehaviour
     void Start()
     {
 
-        transform.DOLocalRotate(new Vector3(-90,transform.rotation.y, transform.rotation.z),1);
 
     }
 

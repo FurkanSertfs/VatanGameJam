@@ -15,8 +15,11 @@ public class PCCaseElement : MonoBehaviour
 
     public bool DownisInstall = false;
 
-    public  bool DownisInstall2 = true;
+    public bool DownisInstall2 = true;
 
+    public bool UpDeInstall = false;
+
+   
 
     private Outline outline;
 
@@ -32,6 +35,8 @@ public class PCCaseElement : MonoBehaviour
     private void Start()
     {
         outline = GetComponent<Outline>();
+
+        
     }
 
     void Update()
@@ -49,11 +54,28 @@ public class PCCaseElement : MonoBehaviour
     void InstallElement()
     {
         DownisInstall = false;
-       
+        
         DownisInstall2 = true;
+
+        UpDeInstall = true;
+
+       
+
+
 
         for (int i = 0; i < PCCase.pCCase.productCaseHave.Count; i++)
         {
+
+
+            if (UpType == PCCase.pCCase.productCaseHave[i].productType)
+            {
+                UpDeInstall =!PCCase.pCCase.productCaseHave[i].isInstall;
+
+
+            }
+
+
+
             if (DownType != PCCaseElement.ProductType.Empty || DownType2 != PCCaseElement.ProductType.Empty)
             {
 
@@ -61,6 +83,7 @@ public class PCCaseElement : MonoBehaviour
                 {
                     DownisInstall = PCCase.pCCase.productCaseHave[i].isInstall;
 
+                   
                     if (PCCase.pCCase.productCaseHave[i].isRotate)
                     {
                         DownisInstall = !PCCase.pCCase.productCaseHave[i].isInstall;
@@ -85,18 +108,43 @@ public class PCCaseElement : MonoBehaviour
 
                 }
             }
+          
             else
             {
                 DownisInstall = true;
+                
             }
 
 
 
         }
+
+        if (productType==PCCaseElement.ProductType.RightCover)
+        {
+            if (PCCase.pCCase.productCaseHave.Count == PCCase.pCCase.caseMustHave.Length )
+            {
+
+                DownisInstall = true;
+                
+                DownisInstall2 = true;
+                
+                UpDeInstall = true;
+            }
+            else
+            {
+                DownisInstall = false;
+
+                DownisInstall2 = false;
+
+                UpDeInstall = false;
+
+            }
+          
+        }
         
         
 
-        if (!DownisInstall || !DownisInstall2)
+        if (!DownisInstall || !DownisInstall2|| !UpDeInstall)
         {
             outline.OutlineColor = Color.yellow;
 
@@ -200,7 +248,11 @@ public class PCCaseElement : MonoBehaviour
             {
                 seq.Append(transform.DOMove(transformPoint[i].position, 0.3f));
 
+                transform.DOLocalRotate(new Vector3(transformPoint[i].rotation.eulerAngles.x, transformPoint[i].rotation.eulerAngles.y, transformPoint[i].rotation.eulerAngles.z), 0.3F);
+
             }
+
+            transform.DOLocalRotate(new Vector3(transformPoint[transformPoint.Length - 1].rotation.eulerAngles.x, transformPoint[transformPoint.Length - 1].rotation.eulerAngles.y, transformPoint[transformPoint.Length - 1].rotation.eulerAngles.z), 0.3F);
 
             seq.Append(transform.DOMove(transformPoint[transformPoint.Length - 1].position, 1).OnComplete(() => AfterDeinstall()));
         }
@@ -232,22 +284,17 @@ public class PCCaseElement : MonoBehaviour
 
     public void AfterDeinstall()
     {
+       
+
+        GetComponent<Outline>().alwaysActive = false;
+       
+        GetComponent<Outline>().OutlineWidth = 0;
 
         if (!isRotate)
         {
             isInstall = false;
         }
      
-
-        if (productType == ProductType.DownScrew || productType == ProductType.UpScrew || productType == ProductType.RightCover)
-        {
-
-            gameObject.SetActive(false);
-
-
-        }
-
-
 
 
     }

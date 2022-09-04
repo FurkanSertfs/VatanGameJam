@@ -14,7 +14,7 @@ public class PCCase : MonoBehaviour
 
     // installed Elements Screws and Cover
     [SerializeField]
-    PCCaseElement.ProductType[] caseMustHave;
+   public PCCaseElement.ProductType[] caseMustHave;
 
     [SerializeField]
     PCCaseElement.ProductType[] CaseProducts;
@@ -32,10 +32,18 @@ public class PCCase : MonoBehaviour
 
     public bool pcCanOpen;
 
+    public GameObject screwUp, screwDown;
+    public Transform screwUpBase, screwDownBase;
+
+
     private void Awake()
     {
         pCCase = this;
-        pcbuildCam = GameManager.gameManager.pcBuildCam.GetComponent<Camera>();
+        if (GameManager.gameManager != null)
+        {
+            pcbuildCam = GameManager.gameManager.pcBuildCam.GetComponent<Camera>();
+        }
+      
     }
 
     private void Update()
@@ -61,7 +69,7 @@ public class PCCase : MonoBehaviour
             pcCanOpen = false;
         }
 
-        Debug.Log(pcCanOpen);
+       
 
     }
 
@@ -91,7 +99,7 @@ public class PCCase : MonoBehaviour
     {
         Ray ray = pcbuildCam.ScreenPointToRay(Input.mousePosition);
 
-        if (Physics.Raycast(ray, out RaycastHit hitinfo))
+        if (Physics.Raycast(ray, out RaycastHit hitinfo)&&pcbuildCam.gameObject.activeSelf)
         {
             if (hitinfo.collider.CompareTag("PowerButton"))
             {
@@ -159,11 +167,14 @@ public class PCCase : MonoBehaviour
            
                 bool isThere = false;
 
+               
+
                 for (int i = 0; i < elementCaseHave.Count; i++)
                 {
-                    if (elementCaseHave[i].gameObject.activeSelf)
+                    if (elementCaseHave[i].isInstall)
                     {
                         allClosed = false;
+                        
                     }
                 }
 
@@ -218,6 +229,8 @@ public class PCCase : MonoBehaviour
 
 
                     selectedObject.transform.DOMove(hitinfo.collider.gameObject.transform.position, 1);
+               
+                    selectedObject.transform.DORotateQuaternion(hitinfo.collider.gameObject.transform.rotation, 1);
 
                     selectedObject.gameObject.tag = "PcElement";
 
@@ -226,6 +239,29 @@ public class PCCase : MonoBehaviour
                     productCaseHave.Add(selectedObject.GetComponent<PCCaseElement>());
                   
                     hitinfo.collider.gameObject.SetActive(false);
+
+                    if (productType == PCCaseElement.ProductType.RightCover)
+                    {
+                        screwDown.transform.DOMove(screwDownBase.position, 1);
+
+                        screwDown.gameObject.tag = "PcElement";
+
+                        screwDown.GetComponent<PCCaseElement>().isInstall = true;
+
+                        productCaseHave.Add(screwDown.GetComponent<PCCaseElement>());
+
+
+
+                        screwUp.transform.DOMove(screwUpBase.position, 1);
+
+                        screwUp.gameObject.tag = "PcElement";
+
+                        screwUp.GetComponent<PCCaseElement>().isInstall = true;
+
+                        productCaseHave.Add(screwUp.GetComponent<PCCaseElement>());
+
+                    }
+                
                   
                  
 
