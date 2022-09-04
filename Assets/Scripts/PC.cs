@@ -16,37 +16,15 @@ public class PC : MonoBehaviour
     public static PC pc;
 
     EventSystem eventSystem;
-    
-    void Start()
+
+    private void Awake()
     {
         pc = this;
 
         eventSystem = EventSystem.current;
-      
-        ShowApps();
-
-
-     //   var tex = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/tex.png");
-      //  Cursor.SetCursor(tex, new Vector2(0.015f, 0.015f), CursorMode.ForceSoftware);
-
-        if (taskClass.pcBuilding)
-        
-        {
-
-        }
-
-      
-
-        //else
-
-        //{
-        //    graficCard.SetActive(true);
-        //    cpu.SetActive(true);
-        //    ram.SetActive(true);
-        //  }
-
-
     }
+
+
 
 
     public void InstallAplication(AppClass appClass)
@@ -111,35 +89,41 @@ public class PC : MonoBehaviour
 
     public void ShowApps()
     {
-        eventSystem.enabled = true;
+        if (PCUI.pCUI != null)
+        {
+            eventSystem.enabled = true;
 
-        PCUI.pCUI.installScreen.SetActive(false);
+            PCUI.pCUI.installScreen.SetActive(false);
+
+            PCUI.pCUI.deInstallScreen.SetActive(false);
+
+
+
+            for (int i = 0; i < PCUI.pCUI.apps.Length; i++)
+            {
+                PCUI.pCUI.apps[i].gameObject.SetActive(false);
+
+                PCUI.pCUI.apps[i].sprite = null;
+
+
+            }
+
+
+            for (int i = 0; i < aps.Count; i++)
+            {
+
+                PCUI.pCUI.apps[i].gameObject.SetActive(true);
+
+                PCUI.pCUI.apps[i].sprite = aps[i].icon;
+
+                PCUI.pCUI.apps[i].GetComponent<PCApps>().appClass = aps[i];
+
+
+            }
+        }
        
-        PCUI.pCUI.deInstallScreen.SetActive(false);
 
-  
-
-        for (int i = 0; i < PCUI.pCUI.apps.Length; i++)
-        {
-            PCUI.pCUI.apps[i].gameObject.SetActive(false);
-
-            PCUI.pCUI.apps[i].sprite = null;
-
-            
-        }
         
-        
-        for (int i = 0; i < aps.Count; i++)
-        {
-
-            PCUI.pCUI.apps[i].gameObject.SetActive(true);
-
-            PCUI.pCUI.apps[i].sprite = aps[i].icon;
-
-            PCUI.pCUI.apps[i].GetComponent<PCApps>().appClass = aps[i];
-
-
-        }
 
 
 

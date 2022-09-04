@@ -20,6 +20,7 @@ TagManager:
   - ProductPoint
   - State
   - PowerButton
+  - PCBuild
   layers:
   - Default
   - TransparentFX

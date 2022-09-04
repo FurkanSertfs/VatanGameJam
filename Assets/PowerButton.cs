@@ -9,6 +9,8 @@ public class PowerButton : MonoBehaviour
 
     public static PowerButton powerButton;
 
+    bool firstTime=false;
+
     private void Awake()
     {
         powerButton = this;
@@ -24,7 +26,7 @@ public class PowerButton : MonoBehaviour
                 PCUI.pCUI.RestartPc();
                 PCUI.pCUI.isOpen = true;
                 transform.DOMove(pointOpen.position,0.5f);
-               
+                firstTime = false;
             }
 
             else
@@ -38,7 +40,13 @@ public class PowerButton : MonoBehaviour
     }
     public void CloseB()
     {
-        transform.DOMove(pointClose.position, 0.5f);
+        if (!firstTime)
+        {
+            firstTime = true;
+            transform.DOMove(pointClose.position, 0.5f);
+
+        }
+
     }
 
  

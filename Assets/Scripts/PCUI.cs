@@ -34,15 +34,14 @@ public class PCUI : MonoBehaviour
 
     private void Awake()
     {
+
         eventSystem = EventSystem.current;
-     
+
         pCUI = this;
 
+        Debug.Log("1");
     }
-
-
-
-
+  
 
 
     private void Update()
@@ -386,7 +385,8 @@ public class PCUI : MonoBehaviour
 
     public void OpenPC()
     {
-     
+
+       PC.pc.ShowApps();
 
         restarPCScreen.SetActive(false);
       

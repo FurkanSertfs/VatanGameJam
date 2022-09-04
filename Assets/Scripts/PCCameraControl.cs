@@ -5,17 +5,38 @@ using UnityEngine;
 public class PCCameraControl : MonoBehaviour
 {
 
-    [SerializeField] private Camera cam;
-    [SerializeField] private Transform target;
+    private Camera cam;
+    private Transform target;
 
-    public float zoom = -5;
+    public static PCCameraControl pCCameraControl;
+
+    private float zoom = -1.700002f;
     private Vector3 prevPos;
 
-
- 
-    void Start()
+    private void Awake()
     {
-        
+        pCCameraControl = this;
+      
+    }
+
+    private void OnEnable()
+    {
+        cam = GameManager.gameManager.pcBuildCam.GetComponent<Camera>();
+        target = PCCase.pCCase.gameObject.transform;
+
+        Vector3 direction = prevPos - cam.ScreenToViewportPoint(Input.mousePosition);
+
+
+        cam.transform.position = target.position;
+
+
+        cam.transform.Rotate(new Vector3(1, 0, 0), direction.y * 40);
+
+        cam.transform.Rotate(new Vector3(0, 1, 0), -direction.x * 360, Space.World);
+
+        cam.transform.Translate(new Vector3(0, 0, zoom));
+
+        prevPos = cam.ScreenToViewportPoint(Input.mousePosition);
     }
 
     // Update is called once per frame
@@ -28,24 +49,28 @@ public class PCCameraControl : MonoBehaviour
             cam.transform.Translate(new Vector3(0, 0, Input.GetAxis("Mouse ScrollWheel")));
 
         }
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(1))
         {
             prevPos = cam.ScreenToViewportPoint(Input.mousePosition);
             
         }
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(1))
         
-            {
-                Vector3 direction = prevPos - cam.ScreenToViewportPoint(Input.mousePosition);
+        {
+            Vector3 direction = prevPos - cam.ScreenToViewportPoint(Input.mousePosition);
 
-                cam.transform.position = target.position;
+                
+            cam.transform.position = target.position;
 
-                cam.transform.Rotate(new Vector3(1, 0, 0), direction.y * 40);
-                cam.transform.Rotate(new Vector3(0, 1, 0), -direction.x * 360, Space.World);
-                cam.transform.Translate(new Vector3(0, 0, zoom));
+                
+            cam.transform.Rotate(new Vector3(1, 0, 0), direction.y * 40);
+               
+            cam.transform.Rotate(new Vector3(0, 1, 0), -direction.x * 360, Space.World);
+               
+            cam.transform.Translate(new Vector3(0, 0, zoom));
 
             prevPos = cam.ScreenToViewportPoint(Input.mousePosition);
-            }
+        }
         
     }
 }

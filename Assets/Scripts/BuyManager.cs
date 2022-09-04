@@ -55,10 +55,25 @@ public class BuyManager : MonoBehaviour
 
             }
 
+            else if (hit.collider.CompareTag("PCBuild"))
+            {
+                GameManager.gameManager.croshair.color = Color.blue;
+
+                if (Input.GetKeyDown(KeyCode.Mouse0))
+                {
+
+                    GameManager.gameManager.ChangeCam("PCBuild");
+
+                }
+
+            }
+
+
+
             else
             {
 
-                //GameManager.gameManager.croshair.color = Color.white;
+                GameManager.gameManager.croshair.color = Color.white;
 
 
             }
@@ -70,7 +85,7 @@ public class BuyManager : MonoBehaviour
         else
         {
 
-            //GameManager.gameManager.croshair.color = Color.white;
+            GameManager.gameManager.croshair.color = Color.white;
 
 
         }

@@ -35,6 +35,7 @@ public class PCCase : MonoBehaviour
     private void Awake()
     {
         pCCase = this;
+        pcbuildCam = GameManager.gameManager.pcBuildCam.GetComponent<Camera>();
     }
 
     private void Update()
@@ -107,11 +108,25 @@ public class PCCase : MonoBehaviour
                 }
            
             }
+           
+            else if (hitinfo.collider.CompareTag("PC"))
+            {
+                
+
+                if (Input.GetKeyDown(KeyCode.Mouse0))
+                {
+
+                    GameManager.gameManager.ChangeCam("PC");
+
+                }
+
+            }
 
 
 
 
-           else if (hitinfo.collider.CompareTag("PcElement"))
+
+            else if (hitinfo.collider.CompareTag("PcElement"))
             {
                 GameManager.gameManager.croshair.color = Color.blue;
 
