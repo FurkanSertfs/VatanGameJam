@@ -7,6 +7,8 @@ public class SelectTask
 {
     public bool FormatAt, VirusleriTemizle, GtaYükle, UpgradeRam16, InstallStorage320, InstallStorage500;
 
+ 
+
 }
 
 [System.Serializable]

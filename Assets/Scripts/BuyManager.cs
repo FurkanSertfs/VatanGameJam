@@ -98,7 +98,7 @@ public class BuyManager : MonoBehaviour
                 GameManager.gameManager.infoOpenPc.SetActive(false);
                 GameManager.gameManager.infoPcRotate.SetActive(false);
                 GameManager.gameManager.infoAddTable.SetActive(false);
-                GameManager.gameManager.infoOpenMonitor.SetActive(false);
+                GameManager.gameManager.infoOpenMonitor.SetActive(true);
 
 
                 if (Input.GetKeyDown(KeyCode.Mouse0))

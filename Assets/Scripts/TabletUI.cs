@@ -36,6 +36,8 @@ public class SelectedTask
 
     public List<bool> isComplated= new List<bool>();
 
+    public Task taskObject;
+
 
 }
 
@@ -79,7 +81,7 @@ public class TabletUI : MonoBehaviour
 
     private List<GameObject> activeTask = new List<GameObject>();
 
-    bool isFinish;
+    public bool isFinish;
 
 
     int totalBasketPrice;
@@ -287,6 +289,22 @@ public class TabletUI : MonoBehaviour
            
         }
     }
+   public void FinishTask()
+    {
+        GameManager.gameManager.money += startedTaskClass.task.taskAward;
+
+        startedTaskClass.taskObject.thick.SetActive(true);
+
+        startedTaskClass.task.isFinished = true;
+
+        isFinish = false;
+
+        selectedtaskClass = null;
+
+    }
+
+
+
 
     void CheckTask()
     {
@@ -334,19 +352,7 @@ public class TabletUI : MonoBehaviour
                 }
             }
 
-            if (isFinish)
-            {
-                isTaskActive = false;
-
-                GameManager.gameManager.money += startedTaskClass.task.taskAward;
-               
-                if (selectedtaskClass == startedTaskClass)
-                {
-                    startTaskButton.GetComponentInChildren<Text>().text = "Görevi Bitir";
-                }
-
-             
-            }
+           
 
 
 
@@ -480,7 +486,7 @@ public class TabletUI : MonoBehaviour
     {
       
 
-        if (!isTaskActive)
+        if (!isTaskActive &&!selectedtaskClass.task.isFinished)
         {
             CloseTablet();
 
