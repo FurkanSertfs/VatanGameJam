@@ -9,4 +9,10 @@ public class ProductManager : MonoBehaviour
 
     public Transform spawnPoint;
 
+    public PCCaseElement.ProductType productType;
+
+    public int ID;
+
+    public GameObject envanterPrefab;
+
 }

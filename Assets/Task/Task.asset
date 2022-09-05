@@ -12,11 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf0b95d7ca1bebc42a8cf96b06e05f72, type: 3}
   m_Name: Task
   m_EditorClassIdentifier: 
-  ID: 0
   taskDecription: "G\xF6rev"
   taskAward: 500
-  pcBuilding: 0
-  isFinished: 1
   installedApps: []
   selectTask:
     FormatAt: 0
@@ -26,7 +23,6 @@ MonoBehaviour:
     InstallStorage320: 0
     InstallStorage500: 0
   gorevAnlatim:
-  - GorevAnlat: 8 Ram Al
-    isComplated: 0
+  - GorevAnlat: 8GB Ram Al
     productType: 1
     taskManagerElement: {fileID: 0}

@@ -6,26 +6,25 @@ using UnityEngine.UI;
 public class Task : MonoBehaviour
 {
     [SerializeField]
-   public TaskClass teskClass;
+   public SelectedTask teskClass;
 
     public GameObject thick;
 
-    public int ID;
 
     TabletUI tablet;
 
   
     public void SelectTask()
     {
-        Debug.Log("selectTask");
+        
 
         tablet = TabletUI.tabletUI;
 
-        tablet.taskDescriptionText.text = teskClass.taskDecription;
+        tablet.taskDescriptionText.text = teskClass.task.taskDecription;
 
-        tablet.taskAwardText.text = teskClass.taskAward.ToString();
+        tablet.taskAwardText.text = teskClass.task.taskAward.ToString();
 
-        tablet.selectedtaskClass.task = teskClass;
+        tablet.selectedtaskClass = teskClass;
 
 
         tablet.selectedtaskClass.taskObject = this;
@@ -52,12 +51,18 @@ public class Task : MonoBehaviour
             {
                 tablet.startTaskButton.GetComponentInChildren<Text>().text = "Görev Tamamlandý";
 
-                tablet.startTaskButton.onClick.AddListener(() => tablet.GorevKabul());
+                tablet.startTaskButton.onClick.RemoveAllListeners();
+
+              
+
+              
             }
 
             else
             {
                 tablet.startTaskButton.GetComponentInChildren<Text>().text = "Görevi Bitir";
+
+                tablet.startTaskButton.onClick.RemoveAllListeners();
 
                 tablet.startTaskButton.onClick.AddListener(() => tablet.FinishTask());
             }
@@ -69,14 +74,20 @@ public class Task : MonoBehaviour
 
         else
         {
+            tablet.startTaskButton.onClick.RemoveAllListeners();
+
+            tablet.startTaskButton.GetComponent<Button>().onClick.AddListener(() => tablet.GorevKabul());
+
             if (tablet.isTaskActive)
             {
-                tablet.startTaskButton.GetComponent<Button>().onClick.AddListener(() => tablet.GorevKabul());
+              
 
                 tablet.startTaskButton.GetComponentInChildren<Text>().text = "Aktif bir görev var";
             }
             else
             {
+
+
                 tablet.startTaskButton.GetComponentInChildren<Text>().text = "Göreve Baþla";
             }
 

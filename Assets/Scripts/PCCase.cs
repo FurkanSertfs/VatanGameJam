@@ -33,7 +33,12 @@ public class PCCase : MonoBehaviour
     public bool pcCanOpen;
 
     public GameObject screwUp, screwDown;
+    
     public Transform screwUpBase, screwDownBase;
+
+    TableProducts tabletProducts;
+
+    ProductManager hitProductManager;
 
 
     private void Awake()
@@ -44,6 +49,11 @@ public class PCCase : MonoBehaviour
             pcbuildCam = GameManager.gameManager.pcBuildCam.GetComponent<Camera>();
         }
       
+    }
+
+    private void Start()
+    {
+        tabletProducts = TableProducts.tableProducts;
     }
 
     private void Update()
@@ -97,10 +107,20 @@ public class PCCase : MonoBehaviour
 
     void RaycastMethod()
     {
+        bool canAddTable = true;
+
         Ray ray = pcbuildCam.ScreenPointToRay(Input.mousePosition);
 
         if (Physics.Raycast(ray, out RaycastHit hitinfo)&&pcbuildCam.gameObject.activeSelf)
         {
+            if (hitinfo.collider.GetComponent<ProductManager>() != null)
+            {
+                hitProductManager = hitinfo.collider.GetComponent<ProductManager>();
+            }
+
+
+
+
             if (hitinfo.collider.CompareTag("PowerButton"))
             {
 
@@ -109,17 +129,17 @@ public class PCCase : MonoBehaviour
                 if (Input.GetMouseButtonDown(0))
                 {
                     ChechPcOpen();
-                 
+
 
                     hitinfo.collider.GetComponent<PowerButton>().Power();
-                
+
                 }
-           
+
             }
-           
+
             else if (hitinfo.collider.CompareTag("PC"))
             {
-                
+
 
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
@@ -140,7 +160,7 @@ public class PCCase : MonoBehaviour
 
                 if (Input.GetMouseButtonDown(0))
                 {
-                   
+
                     hitinfo.collider.gameObject.GetComponent<PCCaseElement>().StartDoMove();
 
                     if (!hitinfo.collider.gameObject.GetComponent<PCCaseElement>().isRotate)
@@ -163,36 +183,36 @@ public class PCCase : MonoBehaviour
 
             else if (hitinfo.collider.CompareTag("Ready Product"))
             {
-                bool allClosed=true;
-           
+                bool allClosed = true;
+
                 bool isThere = false;
 
-               
+
 
                 for (int i = 0; i < elementCaseHave.Count; i++)
                 {
                     if (elementCaseHave[i].isInstall)
                     {
                         allClosed = false;
-                        
+
                     }
                 }
 
                 for (int i = 0; i < productCaseHave.Count; i++)
                 {
-                    if (productCaseHave[i].productType==hitinfo.collider.GetComponent<PCCaseElement>().productType)
+                    if (productCaseHave[i].productType == hitinfo.collider.GetComponent<PCCaseElement>().productType)
                     {
                         isThere = true;
                     }
                 }
 
 
-                if (allClosed&&!isThere)
+                if (allClosed && !isThere)
                 {
                     hitinfo.collider.GetComponent<Outline>().enabled = true;
-                  
+
                     GameManager.gameManager.croshair.color = Color.blue;
-                 
+
                     if (Input.GetMouseButtonDown(0))
                     {
                         selectedObject = hitinfo.collider.gameObject;
@@ -201,23 +221,81 @@ public class PCCase : MonoBehaviour
 
                         ShowOutLine();
 
-                        
+
 
                     }
-               
-                
+
+                    else if (Input.GetMouseButtonDown(1))
+                    {
+
+                        if (hitProductManager != null)
+                        {
+                            TabletUI.tabletUI.CreateEnvanter(hitProductManager);
+
+                            for (int i = 0; i < tabletProducts.productTableHave.Count; i++)
+                            {
+                                if (hitProductManager.productType == tabletProducts.productTableHave[i].productType)
+                                {
+                                    tabletProducts.productTableHave.RemoveAt(i);
+                                    break;
+                                }
+
+                            }
+
+                            Destroy(hitinfo.collider.gameObject);
+                        }
+
+                       
+
+
+                    }
+
+
                 }
 
                 else
                 {
                     hitinfo.collider.GetComponent<Outline>().enabled = false;
                 }
-               
-                
 
+
+
+
+
+
+            }
+            else if (hitinfo.collider.CompareTag("State"))
+            {
+                GameManager.gameManager.croshair.color = Color.blue;
               
+                if (Input.GetMouseButtonDown(1))
+                {
+
+                    if (hitProductManager != null)
+                    {
+                        TabletUI.tabletUI.CreateEnvanter(hitProductManager);
+
+                        for (int i = 0; i < tabletProducts.productTableHave.Count; i++)
+                        {
+                            if (hitProductManager.productType == tabletProducts.productTableHave[i].productType)
+                            {
+                                tabletProducts.productTableHave.RemoveAt(i);
+                                break;
+                            }
+
+                        }
 
 
+                        Destroy(hitinfo.collider.gameObject);
+                  
+                    
+                    
+                    }
+
+                 
+
+
+                }
             }
 
             else if (hitinfo.collider.CompareTag("ProductPoint"))
@@ -229,7 +307,7 @@ public class PCCase : MonoBehaviour
 
 
                     selectedObject.transform.DOMove(hitinfo.collider.gameObject.transform.position, 1);
-               
+
                     selectedObject.transform.DORotateQuaternion(hitinfo.collider.gameObject.transform.rotation, 1);
 
                     selectedObject.gameObject.tag = "PcElement";
@@ -237,7 +315,7 @@ public class PCCase : MonoBehaviour
                     selectedObject.GetComponent<PCCaseElement>().isInstall = true;
 
                     productCaseHave.Add(selectedObject.GetComponent<PCCaseElement>());
-                  
+
                     hitinfo.collider.gameObject.SetActive(false);
 
                     if (productType == PCCaseElement.ProductType.RightCover)
@@ -261,9 +339,9 @@ public class PCCase : MonoBehaviour
                         productCaseHave.Add(screwUp.GetComponent<PCCaseElement>());
 
                     }
-                
-                  
-                 
+
+
+
 
                 }
 

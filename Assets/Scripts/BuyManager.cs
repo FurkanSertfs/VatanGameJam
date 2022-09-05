@@ -8,6 +8,7 @@ public class BuyManager : MonoBehaviour
 
     public GameObject fpsCam,productsPointsParent;
 
+    bool canAddTable;
 
     public Image productImage;
 
@@ -17,11 +18,13 @@ public class BuyManager : MonoBehaviour
 
     ProductManager hitProductManager;
 
+    TableProducts tableProducts;
 
     float timer;
     private void Start()
     {
         Cursor.visible = false;
+        tableProducts = TableProducts.tableProducts;
     }
     void Update()
     {
@@ -40,13 +43,37 @@ public class BuyManager : MonoBehaviour
                 GameManager.gameManager.infoOpenMonitor.SetActive(false);
                 GameManager.gameManager.croshair.color = Color.green;
 
-
+                canAddTable = true;
 
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
-                    GameObject newProduct = Instantiate(hitProductManager.product.prefabProduct, hitProductManager.spawnPoint.position, hitProductManager.spawnPoint.rotation, productsPointsParent.transform);
+                    for (int i = 0; i < tableProducts.productTableHave.Count; i++)
+                    {
+                        if (hitProductManager.productType == tableProducts.productTableHave[i].productType)
+                        {
+                            canAddTable = false;
+                            break;
+                        }
+                       
+                    }
+                    
+                    if(canAddTable)
+                    {
+                        GameObject newProduct = Instantiate(hitProductManager.product.prefabProduct, hitProductManager.spawnPoint.position, hitProductManager.spawnPoint.rotation, productsPointsParent.transform);
+                        newProduct.GetComponent<ProductManager>().product = hitProductManager.product;
+                        newProduct.GetComponent<ProductManager>().spawnPoint = hitProductManager.spawnPoint;
+                        newProduct.GetComponent<ProductManager>().productType = hitProductManager.productType;
+                        newProduct.GetComponent<ProductManager>().envanterPrefab = hitProductManager.envanterPrefab;
+                        newProduct.GetComponent<ProductManager>().ID = hitProductManager.ID;
+                        tableProducts.productTableHave.Add(newProduct.GetComponent<ProductManager>());
 
-                    Destroy(hit.collider.gameObject);
+
+
+
+                        hit.collider.gameObject.SetActive(false);
+
+                    }
+                   
                     
 
                 }
@@ -55,10 +82,9 @@ public class BuyManager : MonoBehaviour
 
 
 
-                if (hit.collider.CompareTag("Product"))
+            else if (hit.collider.CompareTag("Product"))
             {
                 GameManager.gameManager.croshair.color = Color.green;
-
                 GameManager.gameManager.infoBuy.SetActive(true);
                 GameManager.gameManager.infoOpenPc.SetActive(false);
                 GameManager.gameManager.infoAddTable.SetActive(false);
@@ -125,6 +151,93 @@ public class BuyManager : MonoBehaviour
                 }
 
             }
+
+
+            else if (hit.collider.CompareTag("Ready Product"))
+            {
+                GameManager.gameManager.croshair.color = Color.blue;
+
+                if (Input.GetMouseButtonDown(1))
+                {
+
+                    if (hitProductManager != null)
+                    {
+                        TabletUI.tabletUI.CreateEnvanter(hitProductManager);
+
+                        for (int i = 0; i < tableProducts.productTableHave.Count; i++)
+                        {
+                            if (hitProductManager.productType == tableProducts.productTableHave[i].productType)
+                            {
+                                tableProducts.productTableHave.RemoveAt(i);
+                                break;
+                            }
+
+                        }
+
+
+                        Destroy(hit.collider.gameObject);
+
+
+
+                    }
+
+
+
+
+                }
+            }
+
+
+
+
+
+            else if (hit.collider.CompareTag("State"))
+            {
+                GameManager.gameManager.croshair.color = Color.blue;
+
+                if (Input.GetMouseButtonDown(1))
+                {
+
+                    if (hitProductManager != null)
+                    {
+                        TabletUI.tabletUI.CreateEnvanter(hitProductManager);
+
+                        for (int i = 0; i < tableProducts.productTableHave.Count; i++)
+                        {
+                            if (hitProductManager.productType == tableProducts.productTableHave[i].productType)
+                            {
+                                tableProducts.productTableHave.RemoveAt(i);
+                                break;
+                            }
+
+                        }
+
+
+                        Destroy(hit.collider.gameObject);
+
+
+
+                    }
+
+
+
+
+                }
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

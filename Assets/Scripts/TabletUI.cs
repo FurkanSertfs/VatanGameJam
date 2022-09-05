@@ -38,6 +38,8 @@ public class SelectedTask
 
     public Task taskObject;
 
+    public int ID;
+
 
 }
 
@@ -102,7 +104,7 @@ public class TabletUI : MonoBehaviour
 
     //
 
-
+    int mod;
 
 
     int totalBasketPrice;
@@ -115,6 +117,8 @@ public class TabletUI : MonoBehaviour
     private void Start()
     {
         NextDay();
+
+     
     }
 
 
@@ -148,7 +152,7 @@ public class TabletUI : MonoBehaviour
 
             GameObject newTask = Instantiate(dailyTaskUI, gorevlerLayout.transform);
 
-            newTask.GetComponent<Task>().teskClass = dailyTask[i];
+            newTask.GetComponent<Task>().teskClass.task = dailyTask[i];
 
             newTask.GetComponent<Task>().teskClass.ID = totalTaskID;
 
@@ -350,14 +354,27 @@ public class TabletUI : MonoBehaviour
 
         startedTaskClass.taskObject.thick.SetActive(true);
 
-        taskID[startedTaskClass.task.ID] = true;
+
+        taskID[startedTaskClass.ID] = true;
        
-        awardID[startedTaskClass.task.ID] = true;
+        awardID[startedTaskClass.ID] = true;
 
         isTaskActive = false;
 
-        selectedtaskClass.task = null;
+        startedTaskClass.isComplated.Clear();
+     
+        startedTaskClass.task = null;
+     
 
+
+        for (int i = 0; i < activeTask.Count; i++)
+        {
+            Destroy(activeTask[i].gameObject);
+        }
+        activeTask.Clear();
+
+        startTaskButton.GetComponent<Button>().onClick.RemoveAllListeners();
+       
         startTaskButton.GetComponent<Button>().onClick.AddListener(() => GorevKabul());
 
     }
@@ -368,7 +385,6 @@ public class TabletUI : MonoBehaviour
     void CheckTask()
     {
       
-
         if (startedTaskClass.task != null)
         {
           
@@ -420,7 +436,7 @@ public class TabletUI : MonoBehaviour
 
             if (isFinish)
             {
-                taskID[startedTaskClass.task.ID] = true;
+                taskID[startedTaskClass.ID] = true;
             }
             
 
@@ -434,7 +450,7 @@ public class TabletUI : MonoBehaviour
     {
         int id;
       
-        int mod=0;
+        // mod=0;
 
       
 
@@ -485,24 +501,36 @@ public class TabletUI : MonoBehaviour
 
             for (int j = 0; j < productsinBasket[i].count; j++)
             {
-               
+
 
                 id = productsinBasket[i].product.ID;
 
-               
 
-                
+
+
 
                 mod++;
 
-                Instantiate(productsinBasket[i].product.prefabEnvanter, productsSpawnPoints[id].spawnPoints[mod%(productsSpawnPoints[id].spawnPoints.Length-1)]);
-           
+                GameObject newEnvanterProduct = Instantiate(productsinBasket[i].product.prefabEnvanter, productsSpawnPoints[id].spawnPoints[mod % (productsSpawnPoints[id].spawnPoints.Length - 1)]);
+
+                newEnvanterProduct.GetComponent<ProductManager>().spawnPoint = productsSpawnPoints[id].spawnPoints[mod % (productsSpawnPoints[id].spawnPoints.Length - 1)].GetComponent<ProductSpawn>().spawnPoint;
+
             }
 
-           
-        
+
         }
 
+    }
+
+    public void CreateEnvanter(ProductManager productManager)
+    {
+        mod++;
+
+        GameObject newEnvanterProduct = Instantiate(productManager.envanterPrefab, productsSpawnPoints[productManager.ID].spawnPoints[mod % (productsSpawnPoints[productManager.ID].spawnPoints.Length - 1)]);
+
+        newEnvanterProduct.GetComponent<ProductManager>().spawnPoint = productsSpawnPoints[productManager.ID].spawnPoints[mod % (productsSpawnPoints[productManager.ID].spawnPoints.Length - 1)].GetComponent<ProductSpawn>().spawnPoint;
+
+        newEnvanterProduct.SetActive(true);
     }
 
 
@@ -514,21 +542,25 @@ public class TabletUI : MonoBehaviour
         if (selectedtaskClass.task!=null)
         {
 
-            if (taskID[selectedtaskClass.task.ID])
+            if (taskID[selectedtaskClass.ID])
             {
 
-                if (awardID[selectedtaskClass.task.ID])
+                if (awardID[selectedtaskClass.ID])
                 {
                     startTaskButton.GetComponentInChildren<Text>().text = "Görev Tamamlandý";
 
-                    startTaskButton.onClick.AddListener(() => GorevKabul());
+                    startTaskButton.onClick.RemoveAllListeners();
+
+                  
                 }
 
                 else
                 {
                     startTaskButton.GetComponentInChildren<Text>().text = "Görevi Bitir";
 
-                    startTaskButton.onClick.AddListener(() => FinishTask());
+                    startTaskButton.onClick.RemoveAllListeners();
+
+                    startTaskButton.GetComponent<Button>().onClick.AddListener(() => FinishTask());
                 }
 
 
@@ -538,15 +570,20 @@ public class TabletUI : MonoBehaviour
 
             else
             {
+                startTaskButton.onClick.RemoveAllListeners();
+
+                startTaskButton.GetComponent<Button>().onClick.AddListener(() => GorevKabul());
+
                 if (isTaskActive)
                 {
-                    startTaskButton.GetComponent<Button>().onClick.AddListener(() => GorevKabul());
+                   
 
                     startTaskButton.GetComponentInChildren<Text>().text = "Aktif bir görev var";
                 }
                 else
                 {
                     startTaskButton.GetComponentInChildren<Text>().text = "Göreve Baþla";
+                     
                 }
 
 
@@ -605,7 +642,7 @@ public class TabletUI : MonoBehaviour
        
 
 
-        if (!isTaskActive && !taskID[selectedtaskClass.task.ID])
+        if (!isTaskActive && !taskID[selectedtaskClass.ID])
         {
             CloseTablet();
 

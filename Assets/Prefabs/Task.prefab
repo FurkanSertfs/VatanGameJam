@@ -377,5 +377,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5940a832109dd7a43bb83a098f9373a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teskClass: {fileID: 0}
+  teskClass:
+    task: {fileID: 0}
+    isComplated: 
+    taskObject: {fileID: 0}
+    id: 0
   thick: {fileID: 7037156032885555085}
