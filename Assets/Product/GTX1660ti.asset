@@ -18,6 +18,6 @@ MonoBehaviour:
   price: 3000
   prefabEnvanter: {fileID: 4393125770643796167, guid: 8deb9cb21fc58d2469179474a28ead5b,
     type: 3}
-  prefabProduct: {fileID: 8763277401402870562, guid: fe899956aed809a4b9d1dc97b87fbeeb,
+  prefabProduct: {fileID: 8763277401402870562, guid: 5af5944d9b77d5d4782eba2555adb7ef,
     type: 3}
   productImage: {fileID: 21300000, guid: b4348e9a67a73e440974e18d22dad185, type: 3}

@@ -105,6 +105,7 @@ MonoBehaviour:
   UpType: 9
   DownType: 0
   DownType2: 0
+  taskType: 2
   isInstall: 0
   isRotate: 0
   DownisInstall: 0
@@ -160,3 +161,5 @@ MonoBehaviour:
   product: {fileID: 0}
   spawnPoint: {fileID: 0}
   productType: 0
+  ID: 0
+  envanterPrefab: {fileID: 0}
