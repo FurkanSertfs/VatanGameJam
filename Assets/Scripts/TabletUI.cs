@@ -104,7 +104,7 @@ public class TabletUI : MonoBehaviour
 
     //
 
-    int mod = 1;
+    int mod = 0;
 
 
     int totalBasketPrice;
