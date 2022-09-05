@@ -104,7 +104,8 @@ public class TabletUI : MonoBehaviour
 
     //
 
-    new List<int> mod = new List<int>();
+    [HideInInspector]
+    public List<int> mod = new List<int>();
 
 
     int totalBasketPrice;
