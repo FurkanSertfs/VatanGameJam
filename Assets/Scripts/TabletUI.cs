@@ -449,10 +449,10 @@ public class TabletUI : MonoBehaviour
     void PlaceProducts()
     {
         int id;
-      
+
         // mod=0;
 
-      
+        int count = 0;
 
         for (int i = 0; i < productsinBasket.Count; i++)
         {
@@ -497,24 +497,21 @@ public class TabletUI : MonoBehaviour
             }
 
 
-
+            count = mod.Count;
 
             for (int j = 0; j < productsinBasket[i].count; j++)
             {
 
 
                 id = productsinBasket[i].product.ID;
-
                 if (mod.Count < id)
                 {
-                    for (int k = 0; k < id-mod.Count; k++)
+                    for (int k = 0; k < (id-count)+1; k++)
                     {
                         mod.Add(0);
                     }
                 }
 
-
-               
 
                 GameObject newEnvanterProduct = Instantiate(productsinBasket[i].product.prefabEnvanter, productsSpawnPoints[id].spawnPoints[mod[id] % (productsSpawnPoints[id].spawnPoints.Length - 1)]);
 
