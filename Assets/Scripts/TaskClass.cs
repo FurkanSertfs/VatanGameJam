@@ -17,7 +17,7 @@ public class GorevAnlatim
 {
     public string GorevAnlat;
 
-    public enum Taskenum { Format,Ram8, Ram16,Kart1050TÝ, Kart1650, Kart2060, Kart3060 , Kart3080 ,Virus,Driver};
+    public enum Taskenum { Format,Ram8, Ram16,Kart1050TÝ, Kart1650, Kart2060, Kart3060 , Kart3080 ,Virus,Driver,i7CPU,i5CPU,SSD240,SSD500};
 
     public Taskenum productType;
 
@@ -33,14 +33,16 @@ public class TaskClass : ScriptableObject
    
     public string taskDecription;
 
-    public int taskAward;
+    public bool pcBuilding;
 
-    public AppClass[] installedApps;
-    
-    public SelectTask selectTask;
+    public int taskAward;
 
     [NonReorderable]
     public List<GorevAnlatim> gorevAnlatim;
+
+    public AppClass[] installedApps;
+    
+    
 
 
 }
