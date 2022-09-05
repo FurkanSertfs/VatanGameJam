@@ -15,7 +15,7 @@ public class ShopingDes : MonoBehaviour
         private void OnEnable()
         {
 
-        transform.DOMove(target.position, 1.25f).SetEase(easeType).OnComplete(()=>OnTarget());
+        transform.DOMove(target.position, 2.25f).SetEase(easeType).OnComplete(()=>OnTarget());
         
         }
 

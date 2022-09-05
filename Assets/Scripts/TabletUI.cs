@@ -48,6 +48,8 @@ public class SelectedTask
 public class TabletUI : MonoBehaviour
 {
 
+
+
     [SerializeField]
     GameObject  pcPrefab, taskPrefab,basketElementPrefab,shophingInfoUI;
 
@@ -59,12 +61,13 @@ public class TabletUI : MonoBehaviour
     [HideInInspector]
     public bool isTaskActive;
 
-    [HideInInspector]
     public SelectedTask selectedtaskClass,startedTaskClass;
 
     public static TabletUI tabletUI;
 
-    public GameObject startTaskButton, Tablet;
+    public GameObject Tablet;
+
+    public Button startTaskButton;
 
     public  List<PruductClass> productsinBasket= new List<PruductClass>();
 
@@ -81,7 +84,25 @@ public class TabletUI : MonoBehaviour
 
     private List<GameObject> activeTask = new List<GameObject>();
 
-    public bool isFinish;
+    //
+
+     public  List<bool> taskID = new List<bool>();
+
+    public List<bool> awardID = new List<bool>();
+
+    public int totalTaskID,currentTaskID;
+
+    public TaskClass[] dailyTask;
+
+    public GameObject dailyTaskUI;
+
+    public List<GameObject> dailyTasksObjects = new List<GameObject>();
+
+    public GameObject gorevlerLayout;
+
+    //
+
+
 
 
     int totalBasketPrice;
@@ -90,6 +111,10 @@ public class TabletUI : MonoBehaviour
     {
         tabletUI = this;
         Cursor.visible = false;
+    }
+    private void Start()
+    {
+        NextDay();
     }
 
 
@@ -113,7 +138,37 @@ public class TabletUI : MonoBehaviour
 
     }
 
+    public void NextDay()
+    {
 
+        //dailtTasks.Clear();
+
+        for (int i = 0; i < dailyTask.Length; i++)
+        {
+
+            GameObject newTask = Instantiate(dailyTaskUI, gorevlerLayout.transform);
+
+            newTask.GetComponent<Task>().teskClass = dailyTask[i];
+
+            newTask.GetComponent<Task>().teskClass.ID = totalTaskID;
+
+
+            awardID.Add(false);
+            taskID.Add(false);
+
+            totalTaskID++;
+
+            dailyTasksObjects.Add(newTask);
+
+
+        }
+
+        dailyTasksObjects[0].GetComponent<Task>().ButtunColor(new Color32(0, 150, 255, 255));
+
+        dailyTasksObjects[0].GetComponent<Task>().SelectTask();
+
+
+    }
 
 
 
@@ -295,11 +350,15 @@ public class TabletUI : MonoBehaviour
 
         startedTaskClass.taskObject.thick.SetActive(true);
 
-        startedTaskClass.task.isFinished = true;
+        taskID[startedTaskClass.task.ID] = true;
+       
+        awardID[startedTaskClass.task.ID] = true;
 
-        isFinish = false;
+        isTaskActive = false;
 
-        selectedtaskClass = null;
+        selectedtaskClass.task = null;
+
+        startTaskButton.GetComponent<Button>().onClick.AddListener(() => GorevKabul());
 
     }
 
@@ -308,10 +367,12 @@ public class TabletUI : MonoBehaviour
 
     void CheckTask()
     {
-         isFinish = true;
+      
 
         if (startedTaskClass.task != null)
         {
+          
+
             for (int i = 0; i < startedTaskClass.task.gorevAnlatim.Count; i++)
             {
                 for (int j = 0; j < productWeHave.Count; j++)
@@ -343,6 +404,7 @@ public class TabletUI : MonoBehaviour
 
             }
 
+            bool isFinish = true;
 
             for (int i = 0; i < startedTaskClass.isComplated.Count; i++)
             {
@@ -351,11 +413,15 @@ public class TabletUI : MonoBehaviour
                     isFinish = false;
                 }
             }
+            if (startedTaskClass.task == null)
+            {
+                isFinish = false;
+            }
 
-           
-
-
-
+            if (isFinish)
+            {
+                taskID[startedTaskClass.task.ID] = true;
+            }
             
 
         }
@@ -443,6 +509,58 @@ public class TabletUI : MonoBehaviour
 
     void CloseTablet()
     {
+        CheckTask();
+
+        if (selectedtaskClass.task!=null)
+        {
+
+            if (taskID[selectedtaskClass.task.ID])
+            {
+
+                if (awardID[selectedtaskClass.task.ID])
+                {
+                    startTaskButton.GetComponentInChildren<Text>().text = "Görev Tamamlandý";
+
+                    startTaskButton.onClick.AddListener(() => GorevKabul());
+                }
+
+                else
+                {
+                    startTaskButton.GetComponentInChildren<Text>().text = "Görevi Bitir";
+
+                    startTaskButton.onClick.AddListener(() => FinishTask());
+                }
+
+
+            }
+
+
+
+            else
+            {
+                if (isTaskActive)
+                {
+                    startTaskButton.GetComponent<Button>().onClick.AddListener(() => GorevKabul());
+
+                    startTaskButton.GetComponentInChildren<Text>().text = "Aktif bir görev var";
+                }
+                else
+                {
+                    startTaskButton.GetComponentInChildren<Text>().text = "Göreve Baþla";
+                }
+
+
+            }
+
+
+
+
+
+        }
+
+
+
+
         if (Tablet.activeSelf)
         {
             for (int i = 0; i < applications.Length; i++)
@@ -484,15 +602,18 @@ public class TabletUI : MonoBehaviour
 
     public void GorevKabul()
     {
-      
+       
 
-        if (!isTaskActive &&!selectedtaskClass.task.isFinished)
+
+        if (!isTaskActive && !taskID[selectedtaskClass.task.ID])
         {
             CloseTablet();
 
             startTaskButton.GetComponentInChildren<Text>().text = "Aktif bir görev var";
 
-            startedTaskClass = selectedtaskClass;
+            startedTaskClass.task = selectedtaskClass.task;
+
+            startedTaskClass.taskObject = selectedtaskClass.taskObject;
 
             isTaskActive = true;
 

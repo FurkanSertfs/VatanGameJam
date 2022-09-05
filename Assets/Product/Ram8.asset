@@ -16,5 +16,8 @@ MonoBehaviour:
   ID: 0
   productName: Corsair 8GB
   price: 500
-  prefab: {fileID: 7175777002750055679, guid: 4a570bc38ffcd6343b8d3394b1cd54e0, type: 3}
+  prefabEnvanter: {fileID: 7175777002750055679, guid: 4a570bc38ffcd6343b8d3394b1cd54e0,
+    type: 3}
+  prefabProduct: {fileID: 7175777002750055679, guid: 4a570bc38ffcd6343b8d3394b1cd54e0,
+    type: 3}
   productImage: {fileID: 21300000, guid: b3464cf51153b1747b7580cb3ecc0bd5, type: 3}

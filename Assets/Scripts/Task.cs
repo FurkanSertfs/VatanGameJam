@@ -10,11 +10,15 @@ public class Task : MonoBehaviour
 
     public GameObject thick;
 
+    public int ID;
+
     TabletUI tablet;
 
   
     public void SelectTask()
     {
+        Debug.Log("selectTask");
+
         tablet = TabletUI.tabletUI;
 
         tablet.taskDescriptionText.text = teskClass.taskDecription;
@@ -23,37 +27,60 @@ public class Task : MonoBehaviour
 
         tablet.selectedtaskClass.task = teskClass;
 
+
         tablet.selectedtaskClass.taskObject = this;
 
         TaskManager.taskManager.selectedTask = this;
 
 
-        if (!tablet.startTaskButton.activeSelf)
+        if (!tablet.startTaskButton.gameObject.activeSelf)
         {
-            tablet.startTaskButton.SetActive(true);
+            tablet.startTaskButton.gameObject.SetActive(true);
         }
 
-        for (int i = 0; i < UIManager.uIManager.dailtTasks.Count; i++)
+        for (int i = 0; i < TabletUI.tabletUI.dailyTasksObjects.Count; i++)
         {
-            UIManager.uIManager.dailtTasks[i].GetComponent<Task>().ButtunColor(Color.white);
+            TabletUI.tabletUI.dailyTasksObjects[i].GetComponent<Task>().ButtunColor(Color.white);
         }
 
         ButtunColor(new Color32(0, 150, 255,255)) ;
 
-        if (tablet.isFinish)
+        if (tablet.taskID[teskClass.ID])
         {
-            if (tablet.selectedtaskClass == tablet.startedTaskClass)
+           
+            if (tablet.awardID[teskClass.ID])
             {
-                tablet.startTaskButton.GetComponentInChildren<Text>().text = "Görevi Bitir";
+                tablet.startTaskButton.GetComponentInChildren<Text>().text = "Görev Tamamlandý";
 
-                tablet.startTaskButton.GetComponent<Button>().onClick.AddListener(() => tablet.FinishTask());
+                tablet.startTaskButton.onClick.AddListener(() => tablet.GorevKabul());
             }
 
             else
             {
+                tablet.startTaskButton.GetComponentInChildren<Text>().text = "Görevi Bitir";
+
+                tablet.startTaskButton.onClick.AddListener(() => tablet.FinishTask());
+            }
+
+           
+        }
+       
+
+
+        else
+        {
+            if (tablet.isTaskActive)
+            {
                 tablet.startTaskButton.GetComponent<Button>().onClick.AddListener(() => tablet.GorevKabul());
+
                 tablet.startTaskButton.GetComponentInChildren<Text>().text = "Aktif bir görev var";
             }
+            else
+            {
+                tablet.startTaskButton.GetComponentInChildren<Text>().text = "Göreve Baþla";
+            }
+
+            
         }
 
     }

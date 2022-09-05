@@ -15,12 +15,13 @@ MonoBehaviour:
   taskDecription: "virus atilmas\u0131 gerekiyor"
   taskAward: 150
   pcBuilding: 0
+  isFinished: 0
+  installedApps: []
   selectTask:
-    format: 0
-    virusScanner: 0
-    InstallGta: 0
-    InstallFollowTheLight: 0
-    InstallCastle: 0
-    UpgradeRam16Gb: 0
+    FormatAt: 0
+    VirusleriTemizle: 0
+    "GtaY\xFCkle": 0
+    UpgradeRam16: 0
     InstallStorage320: 0
     InstallStorage500: 0
+  gorevAnlatim: []

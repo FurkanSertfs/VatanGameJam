@@ -36,7 +36,6 @@ public class BuyManager : MonoBehaviour
 
                 GameManager.gameManager.infoBuy.SetActive(false);
                 GameManager.gameManager.infoOpenPc.SetActive(false);
-                GameManager.gameManager.infoPcRotate.SetActive(false);
                 GameManager.gameManager.infoAddTable.SetActive(true);
                 GameManager.gameManager.infoOpenMonitor.SetActive(false);
                 GameManager.gameManager.croshair.color = Color.green;
@@ -62,7 +61,6 @@ public class BuyManager : MonoBehaviour
 
                 GameManager.gameManager.infoBuy.SetActive(true);
                 GameManager.gameManager.infoOpenPc.SetActive(false);
-                GameManager.gameManager.infoPcRotate.SetActive(false);
                 GameManager.gameManager.infoAddTable.SetActive(false);
                 GameManager.gameManager.infoOpenMonitor.SetActive(false);
 
@@ -96,7 +94,6 @@ public class BuyManager : MonoBehaviour
 
                 GameManager.gameManager.infoBuy.SetActive(false);
                 GameManager.gameManager.infoOpenPc.SetActive(false);
-                GameManager.gameManager.infoPcRotate.SetActive(false);
                 GameManager.gameManager.infoAddTable.SetActive(false);
                 GameManager.gameManager.infoOpenMonitor.SetActive(true);
 
@@ -116,7 +113,6 @@ public class BuyManager : MonoBehaviour
 
                 GameManager.gameManager.infoBuy.SetActive(false);
                 GameManager.gameManager.infoOpenPc.SetActive(true);
-                GameManager.gameManager.infoPcRotate.SetActive(false);
                 GameManager.gameManager.infoAddTable.SetActive(false);
                 GameManager.gameManager.infoOpenMonitor.SetActive(false);
 
@@ -138,7 +134,6 @@ public class BuyManager : MonoBehaviour
                 GameManager.gameManager.croshair.color = Color.white;
                 GameManager.gameManager.infoBuy.SetActive(false);
                 GameManager.gameManager.infoOpenPc.SetActive(false);
-                GameManager.gameManager.infoPcRotate.SetActive(false);
                 GameManager.gameManager.infoAddTable.SetActive(false);
                 GameManager.gameManager.infoOpenMonitor.SetActive(false);
 
@@ -155,7 +150,6 @@ public class BuyManager : MonoBehaviour
             GameManager.gameManager.croshair.color = Color.white;
             GameManager.gameManager.infoBuy.SetActive(false);
             GameManager.gameManager.infoOpenPc.SetActive(false);
-            GameManager.gameManager.infoPcRotate.SetActive(false);
             GameManager.gameManager.infoAddTable.SetActive(false);
             GameManager.gameManager.infoOpenMonitor.SetActive(false);
 

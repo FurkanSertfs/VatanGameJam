@@ -32,12 +32,13 @@ public class GorevAnlatim
 
 public class TaskClass : ScriptableObject
 {
+    public int ID;
 
     public string taskDecription;
 
     public int taskAward;
 
-    public bool pcBuilding,isFinished;
+    public bool pcBuilding;
 
     public AppClass[] installedApps;
     
