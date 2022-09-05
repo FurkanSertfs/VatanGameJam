@@ -509,13 +509,15 @@ public class TabletUI : MonoBehaviour
 
 
 
-                mod++;
+               
 
                 Debug.Log(mod % (productsSpawnPoints[id].spawnPoints.Length - 1));
 
                 GameObject newEnvanterProduct = Instantiate(productsinBasket[i].product.prefabEnvanter, productsSpawnPoints[id].spawnPoints[mod % (productsSpawnPoints[id].spawnPoints.Length - 1)]);
 
                 newEnvanterProduct.GetComponent<ProductManager>().spawnPoint = productsSpawnPoints[id].spawnPoints [mod % (productsSpawnPoints[id].spawnPoints.Length - 1) ].GetComponent<ProductSpawn>().spawnPoint;
+
+                mod++;
 
             }
 
@@ -526,7 +528,7 @@ public class TabletUI : MonoBehaviour
 
     public void CreateEnvanter(ProductManager productManager)
     {
-        mod++;
+      
 
         Debug.Log(mod % (productsSpawnPoints[productManager.ID].spawnPoints.Length - 1));
 
@@ -535,6 +537,7 @@ public class TabletUI : MonoBehaviour
         newEnvanterProduct.GetComponent<ProductManager>().spawnPoint = productsSpawnPoints[productManager.ID].spawnPoints[mod% (productsSpawnPoints[productManager.ID].spawnPoints.Length - 1) ].GetComponent<ProductSpawn>().spawnPoint;
 
         newEnvanterProduct.SetActive(true);
+        mod++;
     }
 
 
