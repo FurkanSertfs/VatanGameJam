@@ -662,10 +662,14 @@ public class TabletUI : MonoBehaviour
 
             isTaskActive = true;
 
-            GameObject newPC = Instantiate(pcPrefab, pcSpawnPoint.position, pcSpawnPoint.rotation);
+            if (startedTaskClass.task.pcBuilding)
+            {
+                GameObject newPC = Instantiate(pcPrefab, pcSpawnPoint.position, pcSpawnPoint.rotation);
 
+                newPC.GetComponent<PC>().taskClass = startedTaskClass.task;
+            }
 
-            newPC.GetComponent<PC>().taskClass = startedTaskClass.task;
+           
 
             for (int i = 0; i < startedTaskClass.task.gorevAnlatim.Count; i++)
             {

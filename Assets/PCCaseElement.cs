@@ -10,6 +10,9 @@ public class PCCaseElement : MonoBehaviour
 
     public ProductType UpType;
     public ProductType DownType,DownType2;
+   
+    public GorevAnlatim.Taskenum taskType;
+
 
     public bool isInstall, isRotate;
 
