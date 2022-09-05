@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
 
     public Image croshair;
 
-    public GameObject fpsCam, pcuiCam,fpsButton,pcBuildCam,pcPrefab,infoOpenPc,infoPcRotate,infoBuy,intoAddTable;
+    public GameObject fpsCam, pcuiCam,fpsButton,pcBuildCam,pcPrefab,infoOpenPc,infoPcRotate,infoBuy,iftoAddTable;
 
     public Transform pcpoint;
 
@@ -75,6 +75,11 @@ public class GameManager : MonoBehaviour
                 PCCase.pCCase.GetComponent<BoxCollider>().enabled = true;
                 PCCase.pCCase.GetComponent<Outline>().enabled = true;
             }
+            infoBuy.SetActive(false);
+            infoOpenPc.SetActive(false);
+            infoPcRotate.SetActive(false);
+            iftoAddTable.SetActive(false);
+
         }
 
        if(name == "FPS")
@@ -98,7 +103,12 @@ public class GameManager : MonoBehaviour
                 PCCase.pCCase.GetComponent<BoxCollider>().enabled = true;
                 PCCase.pCCase.GetComponent<Outline>().enabled = true;
             }
-            
+
+            infoBuy.SetActive(false);
+            infoOpenPc.SetActive(false);
+            infoPcRotate.SetActive(false);
+            iftoAddTable.SetActive(false);
+
         }
 
         if (name == "PCBuild")
@@ -124,6 +134,11 @@ public class GameManager : MonoBehaviour
             PCCase.pCCase.GetComponent<BoxCollider>().enabled = false;
             
             PCCase.pCCase.GetComponent<Outline>().enabled = false;
+
+            infoBuy.SetActive(false);
+            infoOpenPc.SetActive(false);
+            infoPcRotate.SetActive(true);
+            iftoAddTable.SetActive(false);
         }
 
         
