@@ -16,9 +16,13 @@ public class BuyManager : MonoBehaviour
 
     public GameObject shophingInfoUI;
 
-    ProductManager hitProductManager;
+    ProductManager hitProductManager,newProductManager;
 
     TableProducts tableProducts;
+
+    public PCCaseElement[] products;
+
+    public Transform[] Cpupoints;
 
     float timer;
     private void Start()
@@ -33,9 +37,25 @@ public class BuyManager : MonoBehaviour
        
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit,7.5F)&&fpsCam.activeSelf && !TabletUI.tabletUI.Tablet.activeSelf)
         {
-            if (hit.collider.CompareTag("EnvanterElement"))
+            if (hit.collider.GetComponent<ProductManager>() != null)
             {
                 hitProductManager = hit.collider.GetComponent<ProductManager>();
+            }
+
+            else if (hit.collider.GetComponentInParent<ProductManager>() != null)
+            {
+                hitProductManager = hit.collider.GetComponentInParent<ProductManager>();
+            }
+
+            else
+            {
+                hitProductManager = null;
+            }
+
+            if (hit.collider.CompareTag("EnvanterElement"))
+            {
+               
+
 
                 GameManager.gameManager.infoBuy.SetActive(false);
                 GameManager.gameManager.infoOpenPc.SetActive(false);
@@ -60,11 +80,29 @@ public class BuyManager : MonoBehaviour
                     if(canAddTable)
                     {
                         GameObject newProduct = Instantiate(hitProductManager.product.prefabProduct, hitProductManager.spawnPoint.position, hitProductManager.spawnPoint.rotation, productsPointsParent.transform);
-                        newProduct.GetComponent<ProductManager>().product = hitProductManager.product;
-                        newProduct.GetComponent<ProductManager>().spawnPoint = hitProductManager.spawnPoint;
-                        newProduct.GetComponent<ProductManager>().productType = hitProductManager.productType;
-                        newProduct.GetComponent<ProductManager>().envanterPrefab = hitProductManager.envanterPrefab;
-                        newProduct.GetComponent<ProductManager>().ID = hitProductManager.ID;
+
+                        newProductManager = newProduct.GetComponent<ProductManager>();
+
+                        newProductManager.product = hitProductManager.product;
+
+                        newProductManager.spawnPoint = hitProductManager.spawnPoint;
+
+                        newProductManager.productType = hitProductManager.productType;
+
+                        newProductManager.envanterPrefab = hitProductManager.envanterPrefab;
+
+                        newProductManager.ID = hitProductManager.ID;
+
+                        newProductManager.GetComponent<PCCaseElement>().transformPoint[0] = hitProductManager.spawnPoint;
+
+                        if (newProductManager.productType == PCCaseElement.ProductType.CPU)
+                        {
+                            products = newProductManager.GetComponentsInChildren<PCCaseElement>();
+                            products[0].transformPoint[0] = Cpupoints[0];
+                            products[1].transformPoint[0] = Cpupoints[1];
+                        }
+                        else
+
                         tableProducts.productTableHave.Add(newProduct.GetComponent<ProductManager>());
 
 
@@ -162,6 +200,9 @@ public class BuyManager : MonoBehaviour
 
                     if (hitProductManager != null)
                     {
+
+                        
+
                         TabletUI.tabletUI.CreateEnvanter(hitProductManager);
 
                         for (int i = 0; i < tableProducts.productTableHave.Count; i++)
@@ -175,7 +216,7 @@ public class BuyManager : MonoBehaviour
                         }
 
 
-                        Destroy(hit.collider.gameObject);
+                        Destroy(hitProductManager.gameObject);
 
 
 
@@ -200,6 +241,9 @@ public class BuyManager : MonoBehaviour
 
                     if (hitProductManager != null)
                     {
+                      
+
+
                         TabletUI.tabletUI.CreateEnvanter(hitProductManager);
 
                         for (int i = 0; i < tableProducts.productTableHave.Count; i++)
@@ -213,7 +257,7 @@ public class BuyManager : MonoBehaviour
                         }
 
 
-                        Destroy(hit.collider.gameObject);
+                        Destroy(hitProductManager.gameObject);
 
 
 

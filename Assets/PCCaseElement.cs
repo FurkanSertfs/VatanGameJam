@@ -23,7 +23,7 @@ public class PCCaseElement : MonoBehaviour
 
     private Outline outline;
 
-    public enum ProductType { Empty, CpuCooler, CpuCover, GPU, CPU, HDD, Ram, UpScrew, DownScrew, RightCover }
+    public enum ProductType { Empty, CpuCooler, CpuCover, GPU, CPU, HDD, Ram, UpScrew, DownScrew, RightCover,CpuWithCooler }
 
 
     public ProductType productType;

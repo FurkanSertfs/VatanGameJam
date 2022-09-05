@@ -117,6 +117,16 @@ public class PCCase : MonoBehaviour
             {
                 hitProductManager = hitinfo.collider.GetComponent<ProductManager>();
             }
+            
+           else if (hitinfo.collider.GetComponentInParent<ProductManager>() != null)
+            {
+                hitProductManager = hitinfo.collider.GetComponentInParent<ProductManager>();
+            }
+
+            else
+            {
+                hitProductManager = null;
+            }
 
 
 
@@ -227,9 +237,11 @@ public class PCCase : MonoBehaviour
 
                     else if (Input.GetMouseButtonDown(1))
                     {
-
-                        if (hitProductManager != null)
+                       if (hitProductManager != null)
                         {
+                           
+
+
                             TabletUI.tabletUI.CreateEnvanter(hitProductManager);
 
                             for (int i = 0; i < tabletProducts.productTableHave.Count; i++)
@@ -242,7 +254,7 @@ public class PCCase : MonoBehaviour
 
                             }
 
-                            Destroy(hitinfo.collider.gameObject);
+                            Destroy(hitProductManager.gameObject);
                         }
 
                        
@@ -273,6 +285,9 @@ public class PCCase : MonoBehaviour
 
                     if (hitProductManager != null)
                     {
+                       
+
+
                         TabletUI.tabletUI.CreateEnvanter(hitProductManager);
 
                         for (int i = 0; i < tabletProducts.productTableHave.Count; i++)
@@ -286,10 +301,9 @@ public class PCCase : MonoBehaviour
                         }
 
 
-                        Destroy(hitinfo.collider.gameObject);
-                  
-                    
-                    
+                        Destroy(hitProductManager.gameObject);
+
+
                     }
 
                  

@@ -13,8 +13,16 @@ public class cpuBg : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = cpu.transform.position;
-        transform.rotation = cpu.transform.rotation;
+        if (cpu!=null)
+        {
+            transform.position = cpu.transform.position;
+            transform.rotation = cpu.transform.rotation;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+      
 
     }
 }
