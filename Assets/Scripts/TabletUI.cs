@@ -47,7 +47,7 @@ public class TabletUI : MonoBehaviour
 {
 
     [SerializeField]
-    GameObject  pcPrefab, taskPrefab,basketElementPrefab;
+    GameObject  pcPrefab, taskPrefab,basketElementPrefab,shophingInfoUI;
 
     public Transform pcSpawnPoint, taskManager,basketPoint;
 
@@ -79,7 +79,6 @@ public class TabletUI : MonoBehaviour
 
     private List<GameObject> activeTask = new List<GameObject>();
 
-  
 
 
     int totalBasketPrice;
@@ -145,6 +144,8 @@ public class TabletUI : MonoBehaviour
                 
                 break;
 
+               
+
             }
 
         }
@@ -172,17 +173,26 @@ public class TabletUI : MonoBehaviour
                 newP.basketElement.productClass = newP;
 
 
-
                 UpdateBasket();
             }
             else
             {
-                Debug.Log("Yer yoq aq");
+                ShopDescription();
             }
          
 
 
         }
+
+
+    }
+
+
+    void ShopDescription()
+    {
+        GameObject shopD = Instantiate(shophingInfoUI, shophingInfoUI.GetComponent<ShopingDes>().startPoint.transform);
+
+        shopD.SetActive(true);
     }
 
     public void DeleteProduct(BasketElement basketElement)
@@ -428,7 +438,7 @@ public class TabletUI : MonoBehaviour
         {
             CloseTablet();
 
-            startTaskButton.GetComponentInChildren<Text>().text = "Active bir Gorev var";
+            startTaskButton.GetComponentInChildren<Text>().text = "Active bir gorev var";
 
             isTaskActive = true;
 

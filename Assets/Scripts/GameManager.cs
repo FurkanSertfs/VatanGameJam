@@ -13,11 +13,10 @@ public class GameManager : MonoBehaviour
 
     public Image croshair;
 
-    public GameObject fpsCam, pcuiCam,fpsButton,pcBuildCam,pcPrefab;
+    public GameObject fpsCam, pcuiCam,fpsButton,pcBuildCam,pcPrefab,infoOpenPc,infoPcRotate,infoBuy,intoAddTable;
 
     public Transform pcpoint;
 
-   
     public FirstPersonController firstPersonController;
 
 

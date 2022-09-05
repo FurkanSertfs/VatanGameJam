@@ -9,6 +9,14 @@ public class BuyManager : MonoBehaviour
     public GameObject fpsCam;
 
 
+    public Image productImage;
+
+    public Text  shopingDescriptionText, priceText;
+
+    public GameObject shophingInfoUI;
+
+    ProductManager hitProductManager;
+
     float timer;
     private void Start()
     {
@@ -29,11 +37,19 @@ public class BuyManager : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Mouse0) && !TabletUI.tabletUI.Tablet.activeSelf)
                 {
 
-                    if (timer + 0.2f < Time.time)
+                    if (timer + 0.6f < Time.time)
                     {
+                        hitProductManager = hit.collider.GetComponent<ProductManager>();
 
+                        TabletUI.tabletUI.AddProducttoBasket(hitProductManager.product);
 
-                        TabletUI.tabletUI.AddProducttoBasket(hit.collider.GetComponent<ProductManager>().product);
+                        productImage.sprite = hitProductManager.product.productImage;
+
+                        shopingDescriptionText.text = "1 Tane " + hitProductManager.product.name+" Sepete Eklendi";
+
+                        priceText.text = "-" + (hitProductManager.product.price) + " TL";
+
+                        ShopDescription();
 
 
                         timer = Time.time;
@@ -92,10 +108,13 @@ public class BuyManager : MonoBehaviour
     }
 
 
-    void StopRotate()
+    void ShopDescription()
     {
-
+        GameObject shopD = Instantiate(shophingInfoUI, shophingInfoUI.GetComponent<ShopingDes>().startPoint.transform);
+       
+        shopD.SetActive(true);
     }
+    
 
 
 

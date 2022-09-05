@@ -8,8 +8,10 @@ public class FanManager : MonoBehaviour
     public Vector3 rotate;
 
     Vector3 temp;
-    bool firstTime = true,startB=false;
+    bool firstTime = true,isInstall=true;
     float timer;
+
+    
 
     private void Awake()
     {
@@ -23,8 +25,20 @@ public class FanManager : MonoBehaviour
 
     void Update()
     {
+        if (GetComponent<PCCaseElement>() != null)
+        {
+            isInstall = GetComponent<PCCaseElement>().isInstall;
+        }
+
+       else if (GetComponentInParent< PCCaseElement>() != null)
+        {
+            isInstall = GetComponentInParent<PCCaseElement>().isInstall;
+
+        }
+
        
-        if (Time.time - timer > 3.2f)
+
+        if (Time.time - timer > 3.2f&&isInstall)
         {
            
 
