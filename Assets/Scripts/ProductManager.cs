@@ -7,4 +7,6 @@ public class ProductManager : MonoBehaviour
 
     public Product product;
 
+    public Transform spawnPoint;
+
 }

@@ -58,7 +58,7 @@ public class TabletUI : MonoBehaviour
     public bool isTaskActive;
 
     [HideInInspector]
-    public SelectedTask selectedtaskClass;
+    public SelectedTask selectedtaskClass,startedTaskClass;
 
     public static TabletUI tabletUI;
 
@@ -79,6 +79,7 @@ public class TabletUI : MonoBehaviour
 
     private List<GameObject> activeTask = new List<GameObject>();
 
+    bool isFinish;
 
 
     int totalBasketPrice;
@@ -101,21 +102,7 @@ public class TabletUI : MonoBehaviour
 
         }
 
-        if (isTaskActive)
-        {
-
-            for (int i = 0; i < activeTask.Count; i++)
-            {
-                if (selectedtaskClass.isComplated[i])
-                {
-
-                    selectedtaskClass.task.gorevAnlatim[i].taskManagerElement.gorevComplated.SetActive(true);
-                }
-
-            }
-
-
-        }
+    
 
 
 
@@ -223,6 +210,19 @@ public class TabletUI : MonoBehaviour
         UpdateBasket();
     }
 
+    public void DeleteProductEnvanter(Product product)
+    {
+        for (int i = 0; i < productWeHave.Count; i++)
+        {
+            if(product.ID== productWeHave[i].product.ID)
+            {
+                productWeHave.RemoveAt(i);
+            }
+        }
+    }
+
+
+
     public void AddProduct(BasketElement basketElement)
     {
         basketElement.productClass.count++;
@@ -290,22 +290,68 @@ public class TabletUI : MonoBehaviour
 
     void CheckTask()
     {
-        if (selectedtaskClass.task != null)
+         isFinish = true;
+
+        if (startedTaskClass.task != null)
         {
-            for (int i = 0; i < selectedtaskClass.task.gorevAnlatim.Count; i++)
+            for (int i = 0; i < startedTaskClass.task.gorevAnlatim.Count; i++)
             {
                 for (int j = 0; j < productWeHave.Count; j++)
                 {
 
-                    if (selectedtaskClass.task.gorevAnlatim[i].productType == productWeHave[j].product.productType)
+                    if (startedTaskClass.task.gorevAnlatim[i].productType == productWeHave[j].product.productType)
                     {
-                        selectedtaskClass.isComplated[i] = true;
+                        startedTaskClass.isComplated[i] = true;
                     }
 
                 }
 
 
             }
+
+            if (isTaskActive)
+            {
+
+                for (int i = 0; i < activeTask.Count; i++)
+                {
+                    if (startedTaskClass.isComplated[i])
+                    {
+
+                        startedTaskClass.task.gorevAnlatim[i].taskManagerElement.gorevComplated.SetActive(true);
+                    }
+
+                }
+
+
+            }
+
+
+            for (int i = 0; i < startedTaskClass.isComplated.Count; i++)
+            {
+                if (!startedTaskClass.isComplated[i])
+                {
+                    isFinish = false;
+                }
+            }
+
+            if (isFinish)
+            {
+                isTaskActive = false;
+
+                GameManager.gameManager.money += startedTaskClass.task.taskAward;
+               
+                if (selectedtaskClass == startedTaskClass)
+                {
+                    startTaskButton.GetComponentInChildren<Text>().text = "Görevi Bitir";
+                }
+
+             
+            }
+
+
+
+            
+
         }
 
      
@@ -377,7 +423,7 @@ public class TabletUI : MonoBehaviour
 
                 mod++;
 
-                Instantiate(productsinBasket[i].product.prefab, productsSpawnPoints[id].spawnPoints[mod%(productsSpawnPoints[id].spawnPoints.Length-1)]);
+                Instantiate(productsinBasket[i].product.prefabEnvanter, productsSpawnPoints[id].spawnPoints[mod%(productsSpawnPoints[id].spawnPoints.Length-1)]);
            
             }
 
@@ -438,28 +484,30 @@ public class TabletUI : MonoBehaviour
         {
             CloseTablet();
 
-            startTaskButton.GetComponentInChildren<Text>().text = "Active bir gorev var";
+            startTaskButton.GetComponentInChildren<Text>().text = "Aktif bir görev var";
+
+            startedTaskClass = selectedtaskClass;
 
             isTaskActive = true;
 
             GameObject newPC = Instantiate(pcPrefab, pcSpawnPoint.position, pcSpawnPoint.rotation);
 
 
-            newPC.GetComponent<PC>().taskClass = selectedtaskClass.task;
+            newPC.GetComponent<PC>().taskClass = startedTaskClass.task;
 
-            for (int i = 0; i < selectedtaskClass.task.gorevAnlatim.Count; i++)
+            for (int i = 0; i < startedTaskClass.task.gorevAnlatim.Count; i++)
             {
-                selectedtaskClass.isComplated.Add(false);
+                startedTaskClass.isComplated.Add(false);
             }
          
 
-            for (int i = 0; i < selectedtaskClass.task.gorevAnlatim.Count; i++)
+            for (int i = 0; i < startedTaskClass.task.gorevAnlatim.Count; i++)
             {
                 activeTask.Add(Instantiate(taskPrefab, taskManager.transform));
 
-                selectedtaskClass.task.gorevAnlatim[i].taskManagerElement = activeTask[activeTask.Count - 1].GetComponent<TaskManagerElement>();
+                startedTaskClass.task.gorevAnlatim[i].taskManagerElement = activeTask[activeTask.Count - 1].GetComponent<TaskManagerElement>();
 
-                selectedtaskClass.task.gorevAnlatim[i].taskManagerElement.gorevText.text = selectedtaskClass.task.gorevAnlatim[i].GorevAnlat;
+                startedTaskClass.task.gorevAnlatim[i].taskManagerElement.gorevText.text = startedTaskClass.task.gorevAnlatim[i].GorevAnlat;
 
             }
 

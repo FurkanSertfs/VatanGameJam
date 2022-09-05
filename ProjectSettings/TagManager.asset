@@ -21,6 +21,7 @@ TagManager:
   - State
   - PowerButton
   - PCBuild
+  - EnvanterElement
   layers:
   - Default
   - TransparentFX

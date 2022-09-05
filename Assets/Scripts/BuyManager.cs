@@ -6,7 +6,7 @@ using DG.Tweening;
 public class BuyManager : MonoBehaviour
 {
 
-    public GameObject fpsCam;
+    public GameObject fpsCam,productsPointsParent;
 
 
     public Image productImage;
@@ -16,6 +16,7 @@ public class BuyManager : MonoBehaviour
     public GameObject shophingInfoUI;
 
     ProductManager hitProductManager;
+
 
     float timer;
     private void Start()
@@ -27,14 +28,45 @@ public class BuyManager : MonoBehaviour
         RaycastHit hit;
        
        
-        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit,7.5F)&&fpsCam.activeSelf)
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit,7.5F)&&fpsCam.activeSelf && !TabletUI.tabletUI.Tablet.activeSelf)
         {
-           
-            if (hit.collider.CompareTag("Product"))
+            if (hit.collider.CompareTag("EnvanterElement"))
+            {
+                hitProductManager = hit.collider.GetComponent<ProductManager>();
+
+                GameManager.gameManager.infoBuy.SetActive(false);
+                GameManager.gameManager.infoOpenPc.SetActive(false);
+                GameManager.gameManager.infoPcRotate.SetActive(false);
+                GameManager.gameManager.infoAddTable.SetActive(true);
+                GameManager.gameManager.infoOpenMonitor.SetActive(false);
+                GameManager.gameManager.croshair.color = Color.green;
+
+
+
+                if (Input.GetKeyDown(KeyCode.Mouse0))
+                {
+                    GameObject newProduct = Instantiate(hitProductManager.product.prefabProduct, hitProductManager.spawnPoint.position, hitProductManager.spawnPoint.rotation, productsPointsParent.transform);
+
+                    Destroy(hit.collider.gameObject);
+                    
+
+                }
+
+            }
+
+
+
+                if (hit.collider.CompareTag("Product"))
             {
                 GameManager.gameManager.croshair.color = Color.green;
 
-                if (Input.GetKeyDown(KeyCode.Mouse0) && !TabletUI.tabletUI.Tablet.activeSelf)
+                GameManager.gameManager.infoBuy.SetActive(true);
+                GameManager.gameManager.infoOpenPc.SetActive(false);
+                GameManager.gameManager.infoPcRotate.SetActive(false);
+                GameManager.gameManager.infoAddTable.SetActive(false);
+                GameManager.gameManager.infoOpenMonitor.SetActive(false);
+
+                if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
 
                     if (timer + 0.6f < Time.time)
@@ -61,7 +93,14 @@ public class BuyManager : MonoBehaviour
            else if (hit.collider.CompareTag("PC"))
             {
                 GameManager.gameManager.croshair.color = Color.blue;
-               
+
+                GameManager.gameManager.infoBuy.SetActive(false);
+                GameManager.gameManager.infoOpenPc.SetActive(false);
+                GameManager.gameManager.infoPcRotate.SetActive(false);
+                GameManager.gameManager.infoAddTable.SetActive(false);
+                GameManager.gameManager.infoOpenMonitor.SetActive(false);
+
+
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                 { 
                        
@@ -74,6 +113,13 @@ public class BuyManager : MonoBehaviour
             else if (hit.collider.CompareTag("PCBuild"))
             {
                 GameManager.gameManager.croshair.color = Color.blue;
+
+                GameManager.gameManager.infoBuy.SetActive(false);
+                GameManager.gameManager.infoOpenPc.SetActive(true);
+                GameManager.gameManager.infoPcRotate.SetActive(false);
+                GameManager.gameManager.infoAddTable.SetActive(false);
+                GameManager.gameManager.infoOpenMonitor.SetActive(false);
+
 
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
@@ -90,6 +136,11 @@ public class BuyManager : MonoBehaviour
             {
 
                 GameManager.gameManager.croshair.color = Color.white;
+                GameManager.gameManager.infoBuy.SetActive(false);
+                GameManager.gameManager.infoOpenPc.SetActive(false);
+                GameManager.gameManager.infoPcRotate.SetActive(false);
+                GameManager.gameManager.infoAddTable.SetActive(false);
+                GameManager.gameManager.infoOpenMonitor.SetActive(false);
 
 
             }
@@ -102,6 +153,11 @@ public class BuyManager : MonoBehaviour
         {
 
             GameManager.gameManager.croshair.color = Color.white;
+            GameManager.gameManager.infoBuy.SetActive(false);
+            GameManager.gameManager.infoOpenPc.SetActive(false);
+            GameManager.gameManager.infoPcRotate.SetActive(false);
+            GameManager.gameManager.infoAddTable.SetActive(false);
+            GameManager.gameManager.infoOpenMonitor.SetActive(false);
 
 
         }

@@ -17,7 +17,7 @@ public class Product : ScriptableObject
 
     public int price;
 
-    public GameObject prefab;
+    public GameObject prefabEnvanter,prefabProduct;
 
     public Sprite productImage;
 

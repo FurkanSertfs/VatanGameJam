@@ -8,6 +8,8 @@ public class Task : MonoBehaviour
     [SerializeField]
    public TaskClass teskClass;
 
+    public GameObject thick;
+
     TabletUI tablet;
 
   
@@ -33,6 +35,7 @@ public class Task : MonoBehaviour
         {
             UIManager.uIManager.dailtTasks[i].GetComponent<Task>().ButtunColor(Color.white);
         }
+
         ButtunColor(new Color32(0, 150, 255,255)) ;
 
     }
