@@ -5,7 +5,8 @@ using DG.Tweening;
 
 public class test : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    public GameObject prefab;
     void Start()
     {
 
@@ -15,7 +16,10 @@ public class test : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            GameObject a = Instantiate(prefab);
+        }
 
         
 
