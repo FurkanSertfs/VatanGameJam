@@ -285,9 +285,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f685b03bd3bacf8418cf5cc4a528396c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  product: {fileID: 0}
+  product: {fileID: 11400000, guid: d0d4e7a9c70ba5740af6dd4f7ccadcd6, type: 2}
   spawnPoint: {fileID: 0}
-  productType: 0
+  productType: 3
+  ID: 0
+  envanterPrefab: {fileID: 2145944453165270401, guid: a016ef4c8e7788c47b121716a36c6f40,
+    type: 3}
 --- !u!1 &8763277401678412165
 GameObject:
   m_ObjectHideFlags: 0

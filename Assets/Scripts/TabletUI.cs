@@ -104,7 +104,7 @@ public class TabletUI : MonoBehaviour
 
     //
 
-    int mod;
+    int mod = 1;
 
 
     int totalBasketPrice;
@@ -513,7 +513,7 @@ public class TabletUI : MonoBehaviour
 
                 GameObject newEnvanterProduct = Instantiate(productsinBasket[i].product.prefabEnvanter, productsSpawnPoints[id].spawnPoints[(productsSpawnPoints[id].spawnPoints.Length - 1) % mod]);
 
-                newEnvanterProduct.GetComponent<ProductManager>().spawnPoint = productsSpawnPoints[id].spawnPoints[mod % (productsSpawnPoints[id].spawnPoints.Length - 1)].GetComponent<ProductSpawn>().spawnPoint;
+                newEnvanterProduct.GetComponent<ProductManager>().spawnPoint = productsSpawnPoints[id].spawnPoints [(productsSpawnPoints[id].spawnPoints.Length - 1) % mod].GetComponent<ProductSpawn>().spawnPoint;
 
             }
 
@@ -528,7 +528,7 @@ public class TabletUI : MonoBehaviour
 
         GameObject newEnvanterProduct = Instantiate(productManager.envanterPrefab, productsSpawnPoints[productManager.ID].spawnPoints[(productsSpawnPoints[productManager.ID].spawnPoints.Length - 1)%mod]);
 
-        newEnvanterProduct.GetComponent<ProductManager>().spawnPoint = productsSpawnPoints[productManager.ID].spawnPoints[mod % (productsSpawnPoints[productManager.ID].spawnPoints.Length - 1)].GetComponent<ProductSpawn>().spawnPoint;
+        newEnvanterProduct.GetComponent<ProductManager>().spawnPoint = productsSpawnPoints[productManager.ID].spawnPoints[ (productsSpawnPoints[productManager.ID].spawnPoints.Length - 1)].GetComponent<ProductSpawn>().spawnPoint;
 
         newEnvanterProduct.SetActive(true);
     }

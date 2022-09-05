@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   productType: 6
   ID: 2
-  productName: RTX3060
-  price: 500
+  productName: RTX3050
+  price: 3500
   prefabEnvanter: {fileID: 1057881245177971571, guid: 78289b3e94cf1d84fbd30f32bf66cf0c,
     type: 3}
   prefabProduct: {fileID: 8763277401402870562, guid: fe899956aed809a4b9d1dc97b87fbeeb,
