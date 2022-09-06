@@ -104,6 +104,8 @@ public class TabletUI : MonoBehaviour
 
     public GameObject gorevlerLayout;
 
+   
+
     //
 
     [HideInInspector]
@@ -147,8 +149,13 @@ public class TabletUI : MonoBehaviour
 
     public void NextDay()
     {
+        for (int i = 0; i < dailyTasksObjects.Count; i++)
+        {
+            Destroy(dailyTasksObjects[i]);
+        }
 
-        //dailtTasks.Clear();
+
+        dailyTasksObjects.Clear();
 
         for (int i = 0; i < dailyTask.Length; i++)
         {
@@ -382,12 +389,22 @@ public class TabletUI : MonoBehaviour
        
         startTaskButton.GetComponent<Button>().onClick.AddListener(() => GorevKabul());
 
+        CheckDay();
+
+    }
+
+    void CheckDay()
+    {
+        //for (int i = 0; i < activeTask; i++)
+        //{
+
+        //}
+
+
     }
 
 
-
-
-    void CheckTask()
+        void CheckTask()
     {
       
         if (startedTaskClass.task != null)

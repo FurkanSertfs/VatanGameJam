@@ -4944,6 +4944,9 @@ MonoBehaviour:
   - {fileID: 1118896169171575084}
   taskType: 
   pcCanOpen: 0
+  isSystemActive: 0
+  isScanned: 0
+  isDriverInstalled: 0
   screwUp: {fileID: 1118896169971365277}
   screwDown: {fileID: 1118896168564376256}
   screwUpBase: {fileID: 1118896169171575079}
@@ -7767,8 +7770,9 @@ GameObject:
   - component: {fileID: 4825904075402640465}
   - component: {fileID: 4825904075402640815}
   - component: {fileID: 4825904075402640464}
+  - component: {fileID: 4260534738261204656}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: Day
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7835,6 +7839,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 09.09.2022
+--- !u!114 &4260534738261204656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4825904075402640466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8235d80c57d05b4fb7cab45144a7d61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timetext: {fileID: 0}
+  dayText: {fileID: 4825904075402640464}
+  day: 1
+  hour: 0
 --- !u!1 &4825904075403881169
 GameObject:
   m_ObjectHideFlags: 0
@@ -11666,8 +11686,9 @@ GameObject:
   - component: {fileID: 4825904075967976224}
   - component: {fileID: 4825904075967976254}
   - component: {fileID: 4825904075967976255}
+  - component: {fileID: 9087036129259741927}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Time
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11734,6 +11755,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 17:18
+--- !u!114 &9087036129259741927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4825904075967976225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8235d80c57d05b4fb7cab45144a7d61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timetext: {fileID: 4825904075967976255}
+  dayText: {fileID: 0}
+  day: 1
+  hour: 0
 --- !u!1 &4825904075973100382
 GameObject:
   m_ObjectHideFlags: 0
@@ -14233,7 +14270,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4825904076479802807
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19651,7 +19688,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8297428155311810623
 RectTransform:
   m_ObjectHideFlags: 0
