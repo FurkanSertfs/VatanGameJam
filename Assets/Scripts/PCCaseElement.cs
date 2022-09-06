@@ -47,6 +47,8 @@ public class PCCaseElement : MonoBehaviour
 
     void Update()
     {
+      
+
         if (isInstall)
         {
             DeinstallElement();

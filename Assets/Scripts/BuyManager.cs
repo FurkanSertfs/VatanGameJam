@@ -61,10 +61,10 @@ public class BuyManager : MonoBehaviour
                 hitProductManager = null;
             }
 
-            if (hit.collider.CompareTag("EnvanterElement"))
+            if (hit.collider.CompareTag("EnvanterElement")&&PCCase.pCCase!=null)
             {
-               
 
+            
 
                 GameManager.gameManager.infoBuy.SetActive(false);
                 GameManager.gameManager.infoOpenPc.SetActive(false);
@@ -76,6 +76,7 @@ public class BuyManager : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
+
                     for (int i = 0; i < tableProducts.productTableHave.Count; i++)
                     {
                         if (hitProductManager.productType == tableProducts.productTableHave[i].productType)
@@ -85,13 +86,15 @@ public class BuyManager : MonoBehaviour
                         }
                        
                     }
-                    
-                    if(canAddTable)
-                    {
 
-                        TabletUI.tabletUI.mod[hitProductManager.ID]-=1;
+                    if (canAddTable)
+                    {
+                       
+                        TabletUI.tabletUI.mod[(int)hitProductManager.product.model]-=1;
 
                         GameObject newProduct = Instantiate(hitProductManager.product.prefabProduct, hitProductManager.spawnPoint.position, hitProductManager.spawnPoint.rotation, productsPointsParent.transform);
+
+                      
 
                         newProductManager = newProduct.GetComponent<ProductManager>();
 
@@ -104,16 +107,18 @@ public class BuyManager : MonoBehaviour
                         newProductManager.envanterPrefab = hitProductManager.envanterPrefab;
 
                         newProductManager.ID = hitProductManager.ID;
-
-                        newProductManager.GetComponent<PCCaseElement>().transformPoint[0] = hitProductManager.spawnPoint;
-
+                     
                         if (newProductManager.productType == PCCaseElement.ProductType.CPU)
                         {
                             products = newProductManager.GetComponentsInChildren<PCCaseElement>();
                             products[0].transformPoint[0] = Cpupoints[0];
                             products[1].transformPoint[0] = Cpupoints[1];
                         }
+
                         else
+                        {
+                            newProductManager.GetComponent<PCCaseElement>().transformPoint[0] = hitProductManager.spawnPoint;
+                        }
 
                         tableProducts.productTableHave.Add(newProduct.GetComponent<ProductManager>());
 
@@ -151,11 +156,15 @@ public class BuyManager : MonoBehaviour
 
                         productImage.sprite = hitProductManager.product.productImage;
 
-                        shopingDescriptionText.text = "1 Tane " + hitProductManager.product.name+" Sepete Eklendi";
+                        shopingDescriptionText.text = hitProductManager.product.name+" Sepete Eklendi";
 
-                        priceText.text = "-" + (hitProductManager.product.price) + " TL";
+                        priceText.text = (hitProductManager.product.price) + " TL";
 
-                        ShopDescription();
+                        if (TabletUI.tabletUI.productsinBasket.Count < 6)
+                        {
+                            ShopDescription();
+                        }
+                      
 
 
                         timer = Time.time;

@@ -112,7 +112,7 @@ public class TabletUI : MonoBehaviour
 
     //
 
-    [HideInInspector]
+   
     public List<int> mod = new List<int>();
 
 
@@ -216,7 +216,7 @@ public class TabletUI : MonoBehaviour
 
         if (!isThere)
         {
-            if (productsinBasket.Count < 6)
+            if (productsinBasket.Count < 8)
             {
                 PruductClass newP = new PruductClass();
 
@@ -252,7 +252,7 @@ public class TabletUI : MonoBehaviour
     }
 
 
-    void ShopDescription()
+  public  void ShopDescription()
     {
         GameObject shopD = Instantiate(shophingInfoUI, shophingInfoUI.GetComponent<ShopingDes>().startPoint.transform);
 
