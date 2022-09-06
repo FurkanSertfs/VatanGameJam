@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a12bfb23204f0da4f869cdceef0568aa, type: 3}
-  m_Name: Ram16
+  m_Name: SSD500
   m_EditorClassIdentifier: 
-  productType: 2
-  model: 2
-  ID: 3
-  productName: Corsair 16GB
-  price: 800
-  prefabEnvanter: {fileID: 275430038351915756, guid: 6f5ed18f94d720c488566b5d46daf8d3,
+  productType: 13
+  model: 3
+  ID: 7
+  productName: Intel SSD
+  price: 3000
+  prefabEnvanter: {fileID: 7754317421322655283, guid: a590725d3562c3f43a1443001cbe9d0c,
     type: 3}
-  prefabProduct: {fileID: 3621013353624466814, guid: 226fe48adfa607f4b97c90efd773692d,
+  prefabProduct: {fileID: 8025141250204031504, guid: d66ca98528ff9944ea444d940ec3ffef,
     type: 3}
-  productImage: {fileID: 21300000, guid: ce9d9bae3708d0148824cf63b053fbac, type: 3}
+  productImage: {fileID: 21300000, guid: 4a9438b8806fc1c47ae30fc44a04e756, type: 3}
