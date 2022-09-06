@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: GTX1660ti
   m_EditorClassIdentifier: 
   productType: 4
+  model: 1
   ID: 1
   productName: GTX1660Ti
   price: 3000

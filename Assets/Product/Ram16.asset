@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Ram16
   m_EditorClassIdentifier: 
   productType: 2
+  model: 2
   ID: 3
   productName: Corsair 16GB
   price: 500

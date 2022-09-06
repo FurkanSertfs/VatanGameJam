@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: GTX1050ti
   m_EditorClassIdentifier: 
   productType: 3
+  model: 1
   ID: 0
   productName: GTX1050Ti
   price: 2000
