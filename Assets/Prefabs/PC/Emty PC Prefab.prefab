@@ -1345,7 +1345,7 @@ GameObject:
   - component: {fileID: 1118896168554061291}
   - component: {fileID: 1118896168554061294}
   - component: {fileID: 1118896168554061292}
-  - component: {fileID: 1118896168554061293}
+  - component: {fileID: 7605721602788593847}
   m_Layer: 0
   m_Name: Gpu Base
   m_TagString: ProductPoint
@@ -1453,8 +1453,8 @@ MonoBehaviour:
   bakeKeys: []
   bakeValues: []
   alwaysActive: 1
---- !u!64 &1118896168554061293
-MeshCollider:
+--- !u!65 &7605721602788593847
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1463,10 +1463,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -4823503397225320071, guid: fd494c00f31b37f459fdbe5a1b421406, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.105541885, y: 0.033207092, z: 0.04741798}
+  m_Center: {x: 0.0010130228, y: -0.0030422094, z: -0.0017421873}
 --- !u!1 &1118896168564376256
 GameObject:
   m_ObjectHideFlags: 0
@@ -1564,7 +1563,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   elementType: 5
-  pCCaseElement: {fileID: 1118896169971365276}
   UpType: 7
   DownType: 9
   DownType2: 0
@@ -3260,7 +3258,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   elementType: 0
-  pCCaseElement: {fileID: 0}
   UpType: 1
   DownType: 0
   DownType2: 0
@@ -3582,7 +3579,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   elementType: 6
-  pCCaseElement: {fileID: 1118896168564376319}
   UpType: 8
   DownType: 0
   DownType2: 0
@@ -4551,7 +4547,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   elementType: 4
-  pCCaseElement: {fileID: 0}
   UpType: 0
   DownType: 8
   DownType2: 0
