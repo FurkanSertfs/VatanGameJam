@@ -16,7 +16,7 @@ MonoBehaviour:
   ID: 3
   productName: Corsair 16GB
   price: 500
-  prefabEnvanter: {fileID: 5602230997433483314, guid: 78ed942ab50e7e944bb3c220c0e67f2a,
+  prefabEnvanter: {fileID: 275430038351915756, guid: 6f5ed18f94d720c488566b5d46daf8d3,
     type: 3}
   prefabProduct: {fileID: 3621013353624466814, guid: 226fe48adfa607f4b97c90efd773692d,
     type: 3}
