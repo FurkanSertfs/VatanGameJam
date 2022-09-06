@@ -160,10 +160,8 @@ public class BuyManager : MonoBehaviour
 
                         priceText.text = (hitProductManager.product.price) + " TL";
 
-                        if (TabletUI.tabletUI.productsinBasket.Count < 6)
-                        {
-                            ShopDescription();
-                        }
+                        ShopDescription();
+                        
                       
 
 
