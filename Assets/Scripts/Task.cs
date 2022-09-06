@@ -6,10 +6,11 @@ using UnityEngine.UI;
 public class Task : MonoBehaviour
 {
     [SerializeField]
-   public SelectedTask teskClass;
+    public SelectedTask teskClass;
 
     public GameObject thick;
 
+    public Text gorevName;
 
     TabletUI tablet;
 
@@ -43,6 +44,8 @@ public class Task : MonoBehaviour
         }
 
         ButtunColor(new Color32(0, 150, 255,255)) ;
+
+       
 
         if (tablet.taskID[teskClass.ID])
         {

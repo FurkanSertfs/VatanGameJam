@@ -23,10 +23,12 @@ public class PCUI : MonoBehaviour
 
     EventSystem eventSystem;
 
+    [HideInInspector]
     public float timer1, timer2, timer3, timer4;
 
     public GameObject[] pointClose,afterRestartCloseObject;
 
+    [HideInInspector]
     public bool isOpen;
 
     bool trueKey;
@@ -358,6 +360,7 @@ public class PCUI : MonoBehaviour
         }
     }
 
+
     private void StartFormat()
     {
   
@@ -369,7 +372,12 @@ public class PCUI : MonoBehaviour
     }
     public void RestartPc()
     {
+        PCCase.pCCase.isSystemActive = true;
+
+        PCCase.pCCase.taskType.Add(GorevAnlatim.Taskenum.Format);
+
         closeScreen.SetActive(false);
+       
         restarPCScreen.SetActive(true);
 
         for (int i = 0; i < afterRestartCloseObject.Length; i++)
@@ -440,7 +448,11 @@ public class PCUI : MonoBehaviour
 
     void EndInstallDriver()
     {
-      
+       
+
+        PCCase.pCCase.isDriverInstalled = true;
+
+        PCCase.pCCase.taskType.Add(GorevAnlatim.Taskenum.Driver);
 
         eventSystem.enabled = true;
     }
@@ -449,6 +461,10 @@ public class PCUI : MonoBehaviour
 
     void EndVirusScanner()
     {
+        PCCase.pCCase.isScanned = true;
+
+        PCCase.pCCase.taskType.Add(GorevAnlatim.Taskenum.Virus);
+
         completedScan.SetActive(true);
         
         eventSystem.enabled = true;

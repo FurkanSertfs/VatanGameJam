@@ -17,9 +17,11 @@ public class GorevAnlatim
 {
     public string GorevAnlat;
 
-    public enum Taskenum { Format,Ram8, Ram16,Kart1050TÝ, Kart1650, Kart2060, Kart3060 , Kart3080 ,Virus,Driver,i7CPU,i5CPU,SSD240,SSD500};
+    public enum Taskenum { Format,Ram8, Ram16,Kart1050TÝ, Kart1650, Kart2060, Kart3060 , Kart3080 ,Virus,Driver,i7CPU,i5CPU,SSD240,SSD500,None};
 
     public Taskenum productType;
+
+   // public Taskenum pcProduct;
 
     [HideInInspector]
     public TaskManagerElement taskManagerElement;

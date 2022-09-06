@@ -12,22 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf0b95d7ca1bebc42a8cf96b06e05f72, type: 3}
   m_Name: Task 1
   m_EditorClassIdentifier: 
-  ID: 0
-  taskDecription: "Format atilmas\u0131 gerekiyor hjashjashj hjashjashj ahjs jahs
-    hjas ksahshjadhj ahjdhja hjdhja hjdadhj ahjshjas hjashjad hjadhj ahj"
+  taskDecription: "At\xF6lyedeki bilgisayara format at\u0131lmas\u0131 gerekiyor
+    - (\u015Eifre oralarda bir yerde)"
+  pcBuilding: 1
   taskAward: 50
-  pcBuilding: 0
-  isFinished: 1
-  installedApps: []
-  selectTask:
-    FormatAt: 0
-    VirusleriTemizle: 0
-    "GtaY\xFCkle": 0
-    UpgradeRam16: 0
-    InstallStorage320: 0
-    InstallStorage500: 0
   gorevAnlatim:
-  - GorevAnlat: 
-    isComplated: 0
+  - GorevAnlat: Sistemi Kur
     productType: 0
     taskManagerElement: {fileID: 0}
+  installedApps: []
