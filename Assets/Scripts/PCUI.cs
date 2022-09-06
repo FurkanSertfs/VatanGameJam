@@ -372,6 +372,8 @@ public class PCUI : MonoBehaviour
     }
     public void RestartPc()
     {
+
+
         PCCase.pCCase.isSystemActive = true;
 
         PCCase.pCCase.taskType.Add(GorevAnlatim.Taskenum.Format);
@@ -388,6 +390,8 @@ public class PCUI : MonoBehaviour
         float timer;
 
         DOTween.To(() => 0.01f, x => timer = x, 1, Random.Range(3.2f, 5.1f)).OnComplete(() => OpenPC());
+
+        TabletUI.tabletUI.CheckTask();
 
 
     }

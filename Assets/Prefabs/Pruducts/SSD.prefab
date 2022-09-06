@@ -100,10 +100,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57f249986d464854ab886f8510cc51af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pCCaseElement: {fileID: 0}
+  elementType: 0
   UpType: 9
   DownType: 0
   DownType2: 0
+  taskType: 12
   isInstall: 0
   isRotate: 0
   DownisInstall: 0
@@ -158,4 +159,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   product: {fileID: 0}
   spawnPoint: {fileID: 0}
-  productType: 0
+  productType: 5
+  ID: 0
+  envanterPrefab: {fileID: 0}

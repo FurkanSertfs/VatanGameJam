@@ -246,7 +246,7 @@ MonoBehaviour:
   UpType: 9
   DownType: 4
   DownType2: 2
-  taskType: 0
+  taskType: 10
   isInstall: 0
   isRotate: 0
   DownisInstall: 0
