@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: RAM 8
   m_EditorClassIdentifier: 
   productType: 1
+  model: 2
   ID: 4
   productName: RAM 8GB
   price: 500
-  prefabEnvanter: {fileID: 275430038351915756, guid: 6f5ed18f94d720c488566b5d46daf8d3,
+  prefabEnvanter: {fileID: 3941955305474158406, guid: 125135ef9ddb7e843965aee3b8fa90e5,
     type: 3}
   prefabProduct: {fileID: 3621013353624466814, guid: 39437d0a1d3b93440b7df6399478b083,
     type: 3}

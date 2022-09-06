@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: RTX3060
   m_EditorClassIdentifier: 
   productType: 6
+  model: 1
   ID: 2
   productName: RTX3050
   price: 3500

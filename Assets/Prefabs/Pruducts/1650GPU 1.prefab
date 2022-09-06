@@ -228,7 +228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57f249986d464854ab886f8510cc51af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pCCaseElement: {fileID: 0}
+  elementType: 0
   UpType: 9
   DownType: 0
   DownType2: 0
@@ -289,7 +289,7 @@ MonoBehaviour:
   product: {fileID: 11400000, guid: d0d4e7a9c70ba5740af6dd4f7ccadcd6, type: 2}
   spawnPoint: {fileID: 0}
   productType: 3
-  ID: 0
+  ID: 1
   envanterPrefab: {fileID: 2145944453165270401, guid: a016ef4c8e7788c47b121716a36c6f40,
     type: 3}
 --- !u!1 &8763277401678412165
