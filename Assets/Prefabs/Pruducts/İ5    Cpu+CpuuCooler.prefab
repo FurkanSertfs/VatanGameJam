@@ -114,7 +114,7 @@ MonoBehaviour:
   UpType: 2
   DownType: 2
   DownType2: 0
-  taskType: 0
+  taskType: 11
   isInstall: 0
   isRotate: 0
   DownisInstall: 0
@@ -312,7 +312,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6679258289566832745}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.192, y: 0.027, z: 0.414}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6679258289047707062}

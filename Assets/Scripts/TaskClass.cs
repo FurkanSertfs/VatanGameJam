@@ -42,7 +42,7 @@ public class TaskClass : ScriptableObject
    
     public string taskDecription;
 
-    public bool pcBuilding;
+    public bool pcBuilding,needFormat;
 
     public int taskAward;
 
@@ -54,6 +54,7 @@ public class TaskClass : ScriptableObject
 
     public AppClass[] installedApps;
     
+
     
 
 

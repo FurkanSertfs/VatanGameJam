@@ -15,6 +15,7 @@ MonoBehaviour:
   taskDecription: "Gelen bilgisayar\u0131n sipari\u015F edilen par\xE7a ile y\xFCkseltmesini
     yap, driverlar\u0131n\u0131 kur."
   pcBuilding: 1
+  needFormat: 1
   taskAward: 3300
   gorevAnlatim:
   - GorevAnlat: "500GB SSD ile Y\xFCkselt"

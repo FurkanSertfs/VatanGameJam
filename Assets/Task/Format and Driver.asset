@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   taskDecription: "Gelen bilgisayara format at ve driverlar\u0131n\u0131 kur."
   pcBuilding: 1
+  needFormat: 1
   taskAward: 300
   gorevAnlatim:
   - GorevAnlat: " \u0130\u015Fletim Sistemini Y\xFCkle"

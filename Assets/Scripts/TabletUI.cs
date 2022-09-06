@@ -418,7 +418,6 @@ public class TabletUI : MonoBehaviour
             for (int i = 0; i < startedTaskClass.task.gorevAnlatim.Count; i++)
             {
                 startedTaskClass.isComplated[i] = false;
-                startedTaskClass.isComplated[i] = false;
 
 
                 for (int j = 0; j < productWeHave.Count; j++)
@@ -461,6 +460,10 @@ public class TabletUI : MonoBehaviour
                     {
 
                         startedTaskClass.task.gorevAnlatim[i].taskManagerElement.gorevComplated.SetActive(true);
+                    }
+                    else
+                    {
+                        startedTaskClass.task.gorevAnlatim[i].taskManagerElement.gorevComplated.SetActive(false);
                     }
 
                 }
@@ -578,7 +581,7 @@ public class TabletUI : MonoBehaviour
     {
 
         int count = mod.Count;
-        int id = productManager.ID;
+        int id = (int)productManager.product.model;
 
         if (mod.Count <= id)
         {
@@ -589,12 +592,12 @@ public class TabletUI : MonoBehaviour
         }
     
 
-        GameObject newEnvanterProduct = Instantiate(productManager.envanterPrefab, productsSpawnPoints[(int)productManager.product.model].spawnPoints[mod[productManager.ID] % (productsSpawnPoints[productManager.ID].spawnPoints.Length - 1)]);
+        GameObject newEnvanterProduct = Instantiate(productManager.envanterPrefab, productsSpawnPoints[id].spawnPoints[mod[id] % (productsSpawnPoints[id].spawnPoints.Length - 1)]);
 
-        newEnvanterProduct.GetComponent<ProductManager>().spawnPoint = productsSpawnPoints[(int)productManager.product.model].spawnPoints[mod[productManager.ID] % (productsSpawnPoints[productManager.ID].spawnPoints.Length - 1) ].GetComponent<ProductSpawn>().spawnPoint;
+        newEnvanterProduct.GetComponent<ProductManager>().spawnPoint = productsSpawnPoints[id].spawnPoints[mod[id] % (productsSpawnPoints[id].spawnPoints.Length - 1) ].GetComponent<ProductSpawn>().spawnPoint;
 
         newEnvanterProduct.SetActive(true);
-        mod[productManager.ID]++;
+        mod[id]++;
     }
 
 
@@ -712,7 +715,9 @@ public class TabletUI : MonoBehaviour
 
         newProductManager.spawnPoint = pcProductsSpawnPoints[(int)owned.productType];
 
-        newProductManager.GetComponent<PCCaseElement>().transformPoint[0] = pcProductsSpawnPoints[(int)owned.productType];
+        
+
+        BuyManager.buyManager.tableProducts.productTableHave.Add(newProduct.GetComponent<ProductManager>());
 
         if (newProductManager.productType == PCCaseElement.ProductType.CPU)
         {
@@ -724,7 +729,8 @@ public class TabletUI : MonoBehaviour
         }
         else
         {
-            BuyManager.buyManager.tableProducts.productTableHave.Add(newProduct.GetComponent<ProductManager>());
+            newProductManager.GetComponent<PCCaseElement>().transformPoint[0] = pcProductsSpawnPoints[(int)owned.productType];
+            
         }
            
 

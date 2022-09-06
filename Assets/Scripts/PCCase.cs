@@ -42,6 +42,7 @@ public class PCCase : MonoBehaviour
 
     ProductManager hitProductManager;
 
+    bool isCoverOpnned;
 
     private void Awake()
     {
@@ -57,7 +58,22 @@ public class PCCase : MonoBehaviour
         {
             pcbuildCam = GameManager.gameManager.pcBuildCam.GetComponent<Camera>();
         }
+
+        
+
+
+        if (TabletUI.tabletUI.startedTaskClass.task.needFormat)
+        {
+            isSystemActive = false;
+        }
+        else
+        {
+            isSystemActive = true;
+        }
+
+       
     }
+   
 
     private void Update()
     {
@@ -291,7 +307,7 @@ public class PCCase : MonoBehaviour
                     if (hitProductManager != null)
                     {
                        
-
+                        
 
                         TabletUI.tabletUI.CreateEnvanter(hitProductManager);
 

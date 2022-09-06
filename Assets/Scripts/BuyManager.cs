@@ -93,9 +93,7 @@ public class BuyManager : MonoBehaviour
                         TabletUI.tabletUI.mod[(int)hitProductManager.product.model]-=1;
 
                         GameObject newProduct = Instantiate(hitProductManager.product.prefabProduct, hitProductManager.spawnPoint.position, hitProductManager.spawnPoint.rotation, productsPointsParent.transform);
-
-                      
-
+                        
                         newProductManager = newProduct.GetComponent<ProductManager>();
 
                         newProductManager.product = hitProductManager.product;

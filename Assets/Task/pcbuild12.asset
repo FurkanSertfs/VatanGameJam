@@ -15,6 +15,7 @@ MonoBehaviour:
   taskDecription: "Masana gelecek olan kasa i\xE7erisine verilen sipari\u015Fteki
     par\xE7alar\u0131 yerle\u015Ftir, sistemi kur."
   pcBuilding: 1
+  needFormat: 1
   taskAward: 12400
   gorevAnlatim:
   - GorevAnlat: 8GB Ram Tak
