@@ -187,7 +187,7 @@ public class PCCase : MonoBehaviour
                     }
 
                     ChechPcOpen();
-
+                    TabletUI.tabletUI.CheckTask();
                 }
 
 
@@ -362,7 +362,7 @@ public class PCCase : MonoBehaviour
                     }
 
 
-
+                    TabletUI.tabletUI.CheckTask();
 
                 }
 

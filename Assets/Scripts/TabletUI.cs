@@ -216,7 +216,7 @@ public class TabletUI : MonoBehaviour
 
         if (!isThere)
         {
-            if (productsinBasket.Count < 8)
+            if (productsinBasket.Count < 9)
             {
                 PruductClass newP = new PruductClass();
 
@@ -408,8 +408,8 @@ public class TabletUI : MonoBehaviour
     }
 
 
-        void CheckTask()
-    {
+     public void CheckTask()
+        {
       
         if (startedTaskClass.task != null)
         {
@@ -417,6 +417,10 @@ public class TabletUI : MonoBehaviour
 
             for (int i = 0; i < startedTaskClass.task.gorevAnlatim.Count; i++)
             {
+                startedTaskClass.isComplated[i] = false;
+                startedTaskClass.isComplated[i] = false;
+
+
                 for (int j = 0; j < productWeHave.Count; j++)
                 {
 
@@ -585,9 +589,9 @@ public class TabletUI : MonoBehaviour
         }
     
 
-        GameObject newEnvanterProduct = Instantiate(productManager.envanterPrefab, productsSpawnPoints[productManager.ID].spawnPoints[mod[productManager.ID] % (productsSpawnPoints[productManager.ID].spawnPoints.Length - 1)]);
+        GameObject newEnvanterProduct = Instantiate(productManager.envanterPrefab, productsSpawnPoints[(int)productManager.product.model].spawnPoints[mod[productManager.ID] % (productsSpawnPoints[productManager.ID].spawnPoints.Length - 1)]);
 
-        newEnvanterProduct.GetComponent<ProductManager>().spawnPoint = productsSpawnPoints[productManager.ID].spawnPoints[mod[productManager.ID] % (productsSpawnPoints[productManager.ID].spawnPoints.Length - 1) ].GetComponent<ProductSpawn>().spawnPoint;
+        newEnvanterProduct.GetComponent<ProductManager>().spawnPoint = productsSpawnPoints[(int)productManager.product.model].spawnPoints[mod[productManager.ID] % (productsSpawnPoints[productManager.ID].spawnPoints.Length - 1) ].GetComponent<ProductSpawn>().spawnPoint;
 
         newEnvanterProduct.SetActive(true);
         mod[productManager.ID]++;
