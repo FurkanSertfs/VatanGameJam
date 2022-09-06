@@ -707,7 +707,7 @@ public class TabletUI : MonoBehaviour
             {
                 GameObject newPC = Instantiate(pcPrefab, pcSpawnPoint.position, pcSpawnPoint.rotation);
 
-                newPC.GetComponent<PC>().taskClass = startedTaskClass.task;
+                newPC.GetComponentInChildren<PC>().taskClass = startedTaskClass.task;
             }
 
            
