@@ -8,7 +8,7 @@ using UnityEngine;
 [System.Serializable]
 public class OwnedProducts
 {
-    public enum Model {CPU=1,GPU=2,RAM=3,HDD=4}
+    public enum Model {CPU=0,GPU=1,RAM=2,HDD=3}
 
     public Model productType; 
     public GameObject productPrefab;

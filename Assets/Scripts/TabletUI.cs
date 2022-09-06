@@ -82,10 +82,10 @@ public class TabletUI : MonoBehaviour
 
 
     [SerializeField]
-    private Transform[] pcProductsSpawnPoints;
+    public Transform[] pcProductsSpawnPoints;
 
     [SerializeField]
-    private Transform[] pcProductsSpawnPointsinCase;
+    public Transform[] pcProductsSpawnPointsinCase;
 
     [SerializeField]
     [NonReorderable]
@@ -551,7 +551,7 @@ public class TabletUI : MonoBehaviour
 
 
                 id = productsinBasket[i].product.ID;
-                if (mod.Count < id)
+                if (mod.Count <= id)
                 {
                     for (int k = 0; k < (id-count)+1; k++)
                     {
@@ -575,7 +575,19 @@ public class TabletUI : MonoBehaviour
 
     public void CreateEnvanter(ProductManager productManager)
     {
-      
+
+        int count = mod.Count;
+        int id = productManager.ID;
+
+        if (mod.Count <= id)
+        {
+            for (int k = 0; k < (id - count) + 1; k++)
+            {
+                mod.Add(0);
+            }
+        }
+    
+
 
         Debug.Log(mod[productManager.ID] % (productsSpawnPoints[productManager.ID].spawnPoints.Length - 1));
 
@@ -693,6 +705,7 @@ public class TabletUI : MonoBehaviour
 
    void AddProductToPc(OwnedProducts owned)
     {
+
         ProductManager newProductManager;
 
         GameObject newProduct = Instantiate(owned.productPrefab, pcProductsSpawnPoints[(int)owned.productType].position, pcProductsSpawnPoints[(int)owned.productType].rotation, BuyManager.buyManager.productsPointsParent.transform);

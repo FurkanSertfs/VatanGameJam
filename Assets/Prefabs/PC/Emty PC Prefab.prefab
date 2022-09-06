@@ -1563,6 +1563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57f249986d464854ab886f8510cc51af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  elementType: 5
   pCCaseElement: {fileID: 1118896169971365276}
   UpType: 7
   DownType: 9
@@ -3258,6 +3259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57f249986d464854ab886f8510cc51af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  elementType: 0
   pCCaseElement: {fileID: 0}
   UpType: 1
   DownType: 0
@@ -3579,6 +3581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57f249986d464854ab886f8510cc51af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  elementType: 6
   pCCaseElement: {fileID: 1118896168564376319}
   UpType: 8
   DownType: 0
@@ -4547,6 +4550,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57f249986d464854ab886f8510cc51af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  elementType: 4
   pCCaseElement: {fileID: 0}
   UpType: 0
   DownType: 8

@@ -233,6 +233,7 @@ public class PCCase : MonoBehaviour
 
                         ShowOutLine();
 
+                        Debug.Log("asama1");
 
 
                     }
@@ -318,8 +319,11 @@ public class PCCase : MonoBehaviour
             {
                 GameManager.gameManager.croshair.color = Color.blue;
 
+                Debug.Log("asama2");
+
                 if (Input.GetMouseButtonDown(0))
                 {
+                    Debug.Log("asama3");
 
 
                     selectedObject.transform.DOMove(hitinfo.collider.gameObject.transform.position, 1);

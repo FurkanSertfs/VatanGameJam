@@ -18,6 +18,11 @@ MonoBehaviour:
   taskAward: 50
   gorevAnlatim:
   - GorevAnlat: Sistemi Kur
-    productType: 0
+    buyProduct: 14
+    buildProduct: 0
     taskManagerElement: {fileID: 0}
+  ownedProducts:
+  - productType: 2
+    productPrefab: {fileID: 8763277401402870562, guid: fe899956aed809a4b9d1dc97b87fbeeb,
+      type: 3}
   installedApps: []

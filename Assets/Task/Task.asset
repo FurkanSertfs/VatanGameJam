@@ -18,19 +18,20 @@ MonoBehaviour:
   taskAward: 40
   gorevAnlatim:
   - GorevAnlat: 8GB Ram Al
-    productType: 1
-    pcProduct: 14
+    buyProduct: 1
+    buildProduct: 14
     taskManagerElement: {fileID: 0}
   - GorevAnlat: 240GB SSD Al
-    productType: 12
-    pcProduct: 0
+    buyProduct: 12
+    buildProduct: 14
     taskManagerElement: {fileID: 0}
   - GorevAnlat: "GTX 1050Ti Ekran Kart\u0131 Al"
-    productType: 3
-    pcProduct: 0
+    buyProduct: 3
+    buildProduct: 14
     taskManagerElement: {fileID: 0}
   - GorevAnlat: Intel i5 CPU Al
-    productType: 3
-    pcProduct: 0
+    buyProduct: 11
+    buildProduct: 14
     taskManagerElement: {fileID: 0}
+  ownedProducts: []
   installedApps: []

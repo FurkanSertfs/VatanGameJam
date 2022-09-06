@@ -18,6 +18,8 @@ MonoBehaviour:
   taskAward: 40
   gorevAnlatim:
   - GorevAnlat: RTX 3060 Al
-    productType: 6
+    buyProduct: 14
+    buildProduct: 0
     taskManagerElement: {fileID: 0}
+  ownedProducts: []
   installedApps: []

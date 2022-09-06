@@ -5,8 +5,9 @@ using DG.Tweening;
 
 public class PCCaseElement : MonoBehaviour
 {
+    public enum ElementType { None,UpScrew=4,DownScrew=5,RightCover=6 }
 
-    public PCCaseElement pCCaseElement;
+    public ElementType elementType;
     
     public ProductType UpType;
     
@@ -36,6 +37,11 @@ public class PCCaseElement : MonoBehaviour
     {
         outline = GetComponent<Outline>();
 
+        if ((int)elementType>0)
+        {
+            transformPoint[0] = TabletUI.tabletUI.pcProductsSpawnPoints[(int)elementType];
+
+        }
         
     }
 
