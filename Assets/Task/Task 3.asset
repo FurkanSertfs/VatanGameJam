@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf0b95d7ca1bebc42a8cf96b06e05f72, type: 3}
+  m_Name: Task 3
+  m_EditorClassIdentifier: 
+  taskDecription: "Envanterde  \xFCr\xFCn kalmad\u0131 ma\u011Fzadan belirtilen \xFCr\xFCnleri
+    bul ve sat\u0131n al"
+  pcBuilding: 0
+  taskAward: 40
+  gorevAnlatim:
+  - GorevAnlat: 8GB Ram Al
+    buyProduct: 1
+    buildProduct: 14
+    taskManagerElement: {fileID: 0}
+  - GorevAnlat: 240GB SSD Al
+    buyProduct: 12
+    buildProduct: 14
+    taskManagerElement: {fileID: 0}
+  - GorevAnlat: "GTX 1050Ti Ekran Kart\u0131 Al"
+    buyProduct: 3
+    buildProduct: 14
+    taskManagerElement: {fileID: 0}
+  - GorevAnlat: Intel i5 CPU Al
+    buyProduct: 11
+    buildProduct: 14
+    taskManagerElement: {fileID: 0}
+  ownedProducts: []
+  installedApps: []
