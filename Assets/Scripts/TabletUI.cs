@@ -85,7 +85,6 @@ public class TabletUI : MonoBehaviour
     public Transform[] pcProductsSpawnPoints;
 
     [SerializeField]
-    [NonReorderable]
     private List<PruductClass> productWeHave = new List<PruductClass>();
 
     private List<GameObject> activeTask = new List<GameObject>();
@@ -114,7 +113,7 @@ public class TabletUI : MonoBehaviour
 
    
     public List<int> mod = new List<int>();
-
+    GameObject newPc;
 
     int totalBasketPrice;
 
@@ -370,7 +369,6 @@ public class TabletUI : MonoBehaviour
 
         startedTaskClass.taskObject.thick.SetActive(true);
 
-
         taskID[startedTaskClass.ID] = true;
        
         awardID[startedTaskClass.ID] = true;
@@ -381,8 +379,6 @@ public class TabletUI : MonoBehaviour
      
         startedTaskClass.task = null;
      
-
-
         for (int i = 0; i < activeTask.Count; i++)
         {
             Destroy(activeTask[i].gameObject);
@@ -392,6 +388,35 @@ public class TabletUI : MonoBehaviour
         startTaskButton.GetComponent<Button>().onClick.RemoveAllListeners();
        
         startTaskButton.GetComponent<Button>().onClick.AddListener(() => GorevKabul());
+
+        if(PCCase.pCCase != null)
+        {
+            for (int j = 0; j < PCCase.pCCase.productCaseHave.Count; j++)
+            {
+                for (int i = 0; i < productWeHave.Count; i++)
+                {
+
+                    
+                    if (PCCase.pCCase.productCaseHave[j].taskType == productWeHave[i].product.productType)
+                    {
+
+                      productWeHave.RemoveAt(i);
+                       
+                        
+                    }
+                }
+               
+            }
+            Destroy(newPc);
+            Transform[] products= BuyManager.buyManager.productsPointsParent.gameObject.GetComponentsInChildren<Transform>();
+            for (int i = 1; i < products.Length; i++)
+            {
+                Destroy(products[i].gameObject);
+            }
+
+        }
+
+        CheckTask();
 
         CheckDay();
 
@@ -422,9 +447,12 @@ public class TabletUI : MonoBehaviour
 
                 for (int j = 0; j < productWeHave.Count; j++)
                 {
+                
 
                     if (startedTaskClass.task.gorevAnlatim[i].buyProduct == productWeHave[j].product.productType)
                     {
+                      
+
                         startedTaskClass.isComplated[i] = true;
                     }
 
@@ -437,6 +465,7 @@ public class TabletUI : MonoBehaviour
 
                         if (PCCase.pCCase.taskType[j] == startedTaskClass.task.gorevAnlatim[i].buildProduct)
                         {
+                         
                             startedTaskClass.isComplated[i] = true;
                         }
 
@@ -715,8 +744,6 @@ public class TabletUI : MonoBehaviour
 
         newProductManager.spawnPoint = pcProductsSpawnPoints[(int)owned.productType];
 
-        
-
         BuyManager.buyManager.tableProducts.productTableHave.Add(newProduct.GetComponent<ProductManager>());
 
         if (newProductManager.productType == PCCaseElement.ProductType.CPU)
@@ -760,9 +787,11 @@ public class TabletUI : MonoBehaviour
 
             if (startedTaskClass.task.pcBuilding)
             {
-                GameObject newPC = Instantiate(pcPrefab, pcSpawnPoint.position, pcSpawnPoint.rotation);
+               
 
-                newPC.GetComponentInChildren<PC>().taskClass = startedTaskClass.task;
+                newPc = Instantiate(pcPrefab, pcSpawnPoint.position, pcSpawnPoint.rotation);
+
+                newPc.GetComponentInChildren<PC>().taskClass = startedTaskClass.task;
                 
                 if (startedTaskClass.task.ownedProducts.Length > 0)
                 {

@@ -56,19 +56,27 @@ public class PCUI : MonoBehaviour
 
     private void Update()
     {
-
-        if (!PCCase.pCCase.pcCanOpen)
+        if (PCCase.pCCase!=null)
         {
+            if (!PCCase.pCCase.pcCanOpen)
+            {
 
+                closeScreen.SetActive(true);
+                PowerButton.powerButton.CloseB();
+
+            }
+
+            if (!isOpen)
+            {
+                closeScreen.SetActive(true);
+            }
+        }
+        else
+        {
             closeScreen.SetActive(true);
-            PowerButton.powerButton.CloseB();
-
         }
 
-        if (!isOpen)
-        {
-            closeScreen.SetActive(true);
-        }
+       
 
 
 
@@ -458,6 +466,8 @@ public class PCUI : MonoBehaviour
 
         PCCase.pCCase.taskType.Add(GorevAnlatim.Taskenum.Driver);
 
+        TabletUI.tabletUI.CheckTask();
+
         eventSystem.enabled = true;
     }
 
@@ -468,6 +478,8 @@ public class PCUI : MonoBehaviour
         PCCase.pCCase.isScanned = true;
 
         PCCase.pCCase.taskType.Add(GorevAnlatim.Taskenum.Virus);
+
+        TabletUI.tabletUI.CheckTask();
 
         completedScan.SetActive(true);
         

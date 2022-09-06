@@ -30,9 +30,9 @@ public class FanManager : MonoBehaviour
             isInstall = GetComponent<PCCaseElement>().isInstall;
         }
 
-       else if (GetComponentInParent< PCCaseElement>() != null)
+       else if (GetComponentInParent< PCCase>() != null)
         {
-            isInstall = GetComponentInParent<PCCaseElement>().isInstall;
+            isInstall = PCUI.pCUI.isOpen;
 
         }
       

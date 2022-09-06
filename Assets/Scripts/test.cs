@@ -6,22 +6,12 @@ using DG.Tweening;
 public class test : MonoBehaviour
 {
 
-    public GameObject prefab;
+    public Transform[] prefab;
     void Start()
     {
 
-
+        prefab = GetComponentsInChildren<Transform>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            GameObject a = Instantiate(prefab);
-        }
-
-        
-
-    }
+   
 }

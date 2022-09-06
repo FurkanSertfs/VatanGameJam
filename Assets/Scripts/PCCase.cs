@@ -60,16 +60,22 @@ public class PCCase : MonoBehaviour
         }
 
         
+        if(TabletUI.tabletUI.startedTaskClass.task != null) 
+        {
+
+            if (TabletUI.tabletUI.startedTaskClass.task.needFormat)
+            {
+                isSystemActive = false;
+            }
+            else
+            {
+                isSystemActive = true;
+            }
+
+        }
 
 
-        if (TabletUI.tabletUI.startedTaskClass.task.needFormat)
-        {
-            isSystemActive = false;
-        }
-        else
-        {
-            isSystemActive = true;
-        }
+        
 
        
     }
