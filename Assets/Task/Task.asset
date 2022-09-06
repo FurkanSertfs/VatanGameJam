@@ -14,26 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   taskDecription: "Envanterde  \xFCr\xFCn kalmad\u0131 ma\u011Fzadan belirtilen \xFCr\xFCnleri
     bul ve sat\u0131n al"
-  pcBuilding: 1
+  pcBuilding: 0
   taskAward: 40
-  installedApps: []
-  selectTask:
-    FormatAt: 0
-    VirusleriTemizle: 0
-    "GtaY\xFCkle": 0
-    UpgradeRam16: 0
-    InstallStorage320: 0
-    InstallStorage500: 0
   gorevAnlatim:
   - GorevAnlat: 8GB Ram Al
     productType: 1
+    pcProduct: 14
     taskManagerElement: {fileID: 0}
   - GorevAnlat: 240GB SSD Al
     productType: 12
+    pcProduct: 0
     taskManagerElement: {fileID: 0}
   - GorevAnlat: "GTX 1050Ti Ekran Kart\u0131 Al"
     productType: 3
+    pcProduct: 0
     taskManagerElement: {fileID: 0}
   - GorevAnlat: Intel i5 CPU Al
     productType: 3
+    pcProduct: 0
     taskManagerElement: {fileID: 0}
+  installedApps: []

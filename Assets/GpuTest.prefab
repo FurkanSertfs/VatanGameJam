@@ -126,6 +126,8 @@ GameObject:
   - component: {fileID: 6447012075097139602}
   - component: {fileID: 6447012075097139600}
   - component: {fileID: 6447012075097139599}
+  - component: {fileID: -7586603459538684090}
+  - component: {fileID: -5922238958379912113}
   m_Layer: 0
   m_Name: GpuTest
   m_TagString: Untagged
@@ -233,6 +235,34 @@ MonoBehaviour:
   bakeKeys: []
   bakeValues: []
   alwaysActive: 0
+--- !u!114 &-7586603459538684090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6447012075097139597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5df4dc42fc6743a459458fe6b794fbc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startPoint: {fileID: 0}
+  target: {fileID: 0}
+  easeType: 0
+--- !u!114 &-5922238958379912113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6447012075097139597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2926d3771cb2388449e4448d5c7093ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 0}
 --- !u!1 &6447012076141125297
 GameObject:
   m_ObjectHideFlags: 0

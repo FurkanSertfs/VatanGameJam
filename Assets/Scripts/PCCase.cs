@@ -14,7 +14,7 @@ public class PCCase : MonoBehaviour
 
     // installed Elements Screws and Cover
     [SerializeField]
-   public PCCaseElement.ProductType[] caseMustHave;
+    public PCCaseElement.ProductType[] caseMustHave;
 
     [SerializeField]
     PCCaseElement.ProductType[] CaseProducts;
@@ -27,10 +27,12 @@ public class PCCase : MonoBehaviour
     private  ReadyProduct[] productBase;
 
     GameObject selectedObject;
-    
+
+    public List<GorevAnlatim.Taskenum> taskType= new List<GorevAnlatim.Taskenum>();
+
     public static PCCase pCCase;
 
-    public bool pcCanOpen;
+    public bool pcCanOpen,isSystemActive,isScanned,isDriverInstalled;
 
     public GameObject screwUp, screwDown;
     
@@ -44,16 +46,17 @@ public class PCCase : MonoBehaviour
     private void Awake()
     {
         pCCase = this;
-        if (GameManager.gameManager != null)
-        {
-            pcbuildCam = GameManager.gameManager.pcBuildCam.GetComponent<Camera>();
-        }
+      
       
     }
 
     private void Start()
     {
         tabletProducts = TableProducts.tableProducts;
+        if (GameManager.gameManager != null)
+        {
+            pcbuildCam = GameManager.gameManager.pcBuildCam.GetComponent<Camera>();
+        }
     }
 
     private void Update()
@@ -182,6 +185,16 @@ public class PCCase : MonoBehaviour
                                 productCaseHave.RemoveAt(i);
                             }
                         }
+
+                        for(int i = 0; i < taskType.Count; i++)
+                        {
+                            if (taskType[i] == hitinfo.collider.GetComponent<PCCaseElement>().taskType)
+                            {
+                                taskType.RemoveAt(i);
+                            }
+                        }
+
+
                     }
 
                     ChechPcOpen();
@@ -330,6 +343,8 @@ public class PCCase : MonoBehaviour
 
                     productCaseHave.Add(selectedObject.GetComponent<PCCaseElement>());
 
+                    taskType.Add(selectedObject.GetComponent<PCCaseElement>().taskType);
+
                     hitinfo.collider.gameObject.SetActive(false);
 
                     if (productType == PCCaseElement.ProductType.RightCover)
@@ -341,8 +356,6 @@ public class PCCase : MonoBehaviour
                         screwDown.GetComponent<PCCaseElement>().isInstall = true;
 
                         productCaseHave.Add(screwDown.GetComponent<PCCaseElement>());
-
-
 
                         screwUp.transform.DOMove(screwUpBase.position, 1);
 

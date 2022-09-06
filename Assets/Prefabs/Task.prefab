@@ -381,5 +381,6 @@ MonoBehaviour:
     task: {fileID: 0}
     isComplated: 
     taskObject: {fileID: 0}
-    id: 0
+    ID: 0
   thick: {fileID: 7037156032885555085}
+  gorevName: {fileID: 7037156033011130351}

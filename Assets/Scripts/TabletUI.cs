@@ -88,7 +88,9 @@ public class TabletUI : MonoBehaviour
 
     //
 
-     public  List<bool> taskID = new List<bool>();
+   
+
+    public  List<bool> taskID = new List<bool>();
 
     public List<bool> awardID = new List<bool>();
 
@@ -154,6 +156,8 @@ public class TabletUI : MonoBehaviour
             GameObject newTask = Instantiate(dailyTaskUI, gorevlerLayout.transform);
 
             newTask.GetComponent<Task>().teskClass.task = dailyTask[i];
+
+            newTask.GetComponent<Task>().gorevName.text = "GÖREV "+(totalTaskID+1).ToString();
 
             newTask.GetComponent<Task>().teskClass.ID = totalTaskID;
 
@@ -401,6 +405,24 @@ public class TabletUI : MonoBehaviour
                     }
 
                 }
+
+                if (PCCase.pCCase != null)
+                {
+                    for (int j = 0; j < PCCase.pCCase.taskType.Count; j++)
+                    {
+
+                        if (PCCase.pCCase.taskType[j] == startedTaskClass.task.gorevAnlatim[i].productType)
+                        {
+                            startedTaskClass.isComplated[i] = true;
+                        }
+
+                    }
+                }
+
+                
+
+
+
 
 
             }
@@ -659,6 +681,8 @@ public class TabletUI : MonoBehaviour
             startedTaskClass.task = selectedtaskClass.task;
 
             startedTaskClass.taskObject = selectedtaskClass.taskObject;
+
+            startedTaskClass.ID = selectedtaskClass.ID;
 
             isTaskActive = true;
 
