@@ -85,9 +85,6 @@ public class TabletUI : MonoBehaviour
     public Transform[] pcProductsSpawnPoints;
 
     [SerializeField]
-    public Transform[] pcProductsSpawnPointsinCase;
-
-    [SerializeField]
     [NonReorderable]
     private List<PruductClass> productWeHave = new List<PruductClass>();
 
@@ -588,9 +585,6 @@ public class TabletUI : MonoBehaviour
         }
     
 
-
-        Debug.Log(mod[productManager.ID] % (productsSpawnPoints[productManager.ID].spawnPoints.Length - 1));
-
         GameObject newEnvanterProduct = Instantiate(productManager.envanterPrefab, productsSpawnPoints[productManager.ID].spawnPoints[mod[productManager.ID] % (productsSpawnPoints[productManager.ID].spawnPoints.Length - 1)]);
 
         newEnvanterProduct.GetComponent<ProductManager>().spawnPoint = productsSpawnPoints[productManager.ID].spawnPoints[mod[productManager.ID] % (productsSpawnPoints[productManager.ID].spawnPoints.Length - 1) ].GetComponent<ProductSpawn>().spawnPoint;
@@ -714,7 +708,7 @@ public class TabletUI : MonoBehaviour
 
         newProductManager.spawnPoint = pcProductsSpawnPoints[(int)owned.productType];
 
-        newProductManager.GetComponent<PCCaseElement>().transformPoint[0] = pcProductsSpawnPointsinCase[(int)owned.productType];
+        newProductManager.GetComponent<PCCaseElement>().transformPoint[0] = pcProductsSpawnPoints[(int)owned.productType];
 
         if (newProductManager.productType == PCCaseElement.ProductType.CPU)
         {
