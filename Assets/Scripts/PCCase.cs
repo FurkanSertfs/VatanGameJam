@@ -66,9 +66,6 @@ public class PCCase : MonoBehaviour
             RaycastMethod();
         }
        
-      
-
-
     }
 
     void ChechPcOpen()
@@ -81,8 +78,6 @@ public class PCCase : MonoBehaviour
         {
             pcCanOpen = false;
         }
-
-       
 
     }
 
@@ -102,7 +97,6 @@ public class PCCase : MonoBehaviour
             }
 
         }
-
 
     }
 
@@ -130,8 +124,6 @@ public class PCCase : MonoBehaviour
             {
                 hitProductManager = null;
             }
-
-
 
 
             if (hitinfo.collider.CompareTag("PowerButton"))
@@ -162,9 +154,6 @@ public class PCCase : MonoBehaviour
                 }
 
             }
-
-
-
 
 
             else if (hitinfo.collider.CompareTag("PcElement"))

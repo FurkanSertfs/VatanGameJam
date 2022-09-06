@@ -17,14 +17,23 @@ public class BuyManager : MonoBehaviour
     public GameObject shophingInfoUI;
 
     ProductManager hitProductManager,newProductManager;
+    
+    [SerializeField]
+    public TableProducts tableProducts;
 
-    TableProducts tableProducts;
-
-    public PCCaseElement[] products;
+    private PCCaseElement[] products;
 
     public Transform[] Cpupoints;
 
+   public static BuyManager buyManager;
+
     float timer;
+    private void Awake()
+    {
+        buyManager = this;
+    }
+
+
     private void Start()
     {
         Cursor.visible = false;

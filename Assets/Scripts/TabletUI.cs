@@ -80,6 +80,13 @@ public class TabletUI : MonoBehaviour
     [NonReorderable]
     private List<ProductSpawnPoint> productsSpawnPoints = new List<ProductSpawnPoint>();
 
+
+    [SerializeField]
+    private Transform[] pcProductsSpawnPoints;
+
+    [SerializeField]
+    private Transform[] pcProductsSpawnPointsinCase;
+
     [SerializeField]
     [NonReorderable]
     private List<PruductClass> productWeHave = new List<PruductClass>();
@@ -416,7 +423,7 @@ public class TabletUI : MonoBehaviour
                 for (int j = 0; j < productWeHave.Count; j++)
                 {
 
-                    if (startedTaskClass.task.gorevAnlatim[i].productType == productWeHave[j].product.productType)
+                    if (startedTaskClass.task.gorevAnlatim[i].buyProduct == productWeHave[j].product.productType)
                     {
                         startedTaskClass.isComplated[i] = true;
                     }
@@ -428,7 +435,7 @@ public class TabletUI : MonoBehaviour
                     for (int j = 0; j < PCCase.pCCase.taskType.Count; j++)
                     {
 
-                        if (PCCase.pCCase.taskType[j] == startedTaskClass.task.gorevAnlatim[i].productType)
+                        if (PCCase.pCCase.taskType[j] == startedTaskClass.task.gorevAnlatim[i].buildProduct)
                         {
                             startedTaskClass.isComplated[i] = true;
                         }
@@ -684,6 +691,37 @@ public class TabletUI : MonoBehaviour
 
     }
 
+   void AddProductToPc(OwnedProducts owned)
+    {
+        ProductManager newProductManager;
+
+        GameObject newProduct = Instantiate(owned.productPrefab, pcProductsSpawnPoints[(int)owned.productType].position, pcProductsSpawnPoints[(int)owned.productType].rotation, BuyManager.buyManager.productsPointsParent.transform);
+
+        newProductManager = newProduct.GetComponent<ProductManager>();
+
+        newProductManager.spawnPoint = pcProductsSpawnPoints[(int)owned.productType];
+
+        newProductManager.GetComponent<PCCaseElement>().transformPoint[0] = pcProductsSpawnPointsinCase[(int)owned.productType];
+
+        if (newProductManager.productType == PCCaseElement.ProductType.CPU)
+        {
+            PCCaseElement[] products = newProductManager.GetComponentsInChildren<PCCaseElement>();
+           
+            products[0].transformPoint[0] = BuyManager.buyManager.Cpupoints[0];
+            
+            products[1].transformPoint[0] = BuyManager.buyManager.Cpupoints[1];
+        }
+        else
+        {
+            BuyManager.buyManager.tableProducts.productTableHave.Add(newProduct.GetComponent<ProductManager>());
+        }
+           
+
+           
+    }
+
+
+
     public void GorevKabul()
     {
        
@@ -708,6 +746,14 @@ public class TabletUI : MonoBehaviour
                 GameObject newPC = Instantiate(pcPrefab, pcSpawnPoint.position, pcSpawnPoint.rotation);
 
                 newPC.GetComponentInChildren<PC>().taskClass = startedTaskClass.task;
+                
+                if (startedTaskClass.task.ownedProducts.Length > 0)
+                {
+                    for (int i = 0; i < startedTaskClass.task.ownedProducts.Length; i++)
+                    {
+                        AddProductToPc(startedTaskClass.task.ownedProducts[i]);
+                    }
+                }
             }
 
            
