@@ -10,15 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf0b95d7ca1bebc42a8cf96b06e05f72, type: 3}
-  m_Name: Task 3
+  m_Name: Format and Driver
   m_EditorClassIdentifier: 
-  taskDecription: EVAN
+  taskDecription: "Gelen bilgisayara format at ve driverlar\u0131n\u0131 kur."
   pcBuilding: 1
-  taskAward: 0
+  taskAward: 300
   gorevAnlatim:
-  - GorevAnlat: 
+  - GorevAnlat: " \u0130\u015Fletim Sistemini Y\xFCkle"
     buyProduct: 14
-    buildProduct: 8
+    buildProduct: 0
+    taskManagerElement: {fileID: 0}
+  - GorevAnlat: "Driverlar\u0131 Kur"
+    buyProduct: 14
+    buildProduct: 9
     taskManagerElement: {fileID: 0}
   ownedProducts:
   - productType: 0
@@ -29,5 +33,8 @@ MonoBehaviour:
       type: 3}
   - productType: 2
     productPrefab: {fileID: 3621013353624466814, guid: 39437d0a1d3b93440b7df6399478b083,
+      type: 3}
+  - productType: 3
+    productPrefab: {fileID: 8025141250204031504, guid: d66ca98528ff9944ea444d940ec3ffef,
       type: 3}
   installedApps: []
