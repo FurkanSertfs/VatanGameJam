@@ -11,6 +11,8 @@ public class Product : ScriptableObject
 
     public GorevAnlatim.Taskenum productType;
 
+    public OwnedProducts.Model model;
+
     public int ID;
 
     public string productName;

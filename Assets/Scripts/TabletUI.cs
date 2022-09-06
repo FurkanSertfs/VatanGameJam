@@ -550,7 +550,7 @@ public class TabletUI : MonoBehaviour
             {
 
 
-                id = productsinBasket[i].product.ID;
+                id = (int)productsinBasket[i].product.model;
                 if (mod.Count <= id)
                 {
                     for (int k = 0; k < (id-count)+1; k++)
