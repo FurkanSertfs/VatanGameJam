@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
 
     public Text moneyText;
 
+    public int day;
+
     private void Awake()
     {
         gameManager = this;

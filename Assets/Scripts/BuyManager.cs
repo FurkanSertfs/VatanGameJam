@@ -104,8 +104,19 @@ public class BuyManager : MonoBehaviour
 
                         newProductManager.envanterPrefab = hitProductManager.envanterPrefab;
 
-                        newProduct.GetComponent<PCCaseElement>().isAddedInEnvanter = true;
-                        
+                        if (newProduct.GetComponent<PCCaseElement>() != null)
+                        {
+                            newProduct.GetComponent<PCCaseElement>().isAddedInEnvanter = true;
+                        }
+
+                        else if(newProduct.GetComponentInParent<PCCaseElement>() != null)
+                        {
+                            newProduct.GetComponentInParent<PCCaseElement>().isAddedInEnvanter = true;
+
+                        }
+                      
+
+
 
                         newProductManager.ID = hitProductManager.ID;
                      
