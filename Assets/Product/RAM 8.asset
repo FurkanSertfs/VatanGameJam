@@ -15,10 +15,10 @@ MonoBehaviour:
   productType: 1
   model: 2
   ID: 4
-  productName: RAM 8GB
+  productName: Corsair 8GB Ram
   price: 500
   prefabEnvanter: {fileID: 3941955305474158406, guid: 125135ef9ddb7e843965aee3b8fa90e5,
     type: 3}
   prefabProduct: {fileID: 3621013353624466814, guid: 39437d0a1d3b93440b7df6399478b083,
     type: 3}
-  productImage: {fileID: 21300000, guid: ce9d9bae3708d0148824cf63b053fbac, type: 3}
+  productImage: {fileID: 21300000, guid: 47d26690fddd21746b3561b94787488e, type: 3}

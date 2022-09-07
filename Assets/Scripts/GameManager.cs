@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
 
     public FirstPersonController firstPersonController;
 
+    public Text moneyText;
 
     private void Awake()
     {
@@ -30,6 +31,9 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+
+        moneyText.text = money.ToString() + " TL";
+
         if (Input.GetKeyDown(KeyCode.K))
         {
             GameObject testO = Instantiate(pcPrefab, pcpoint.position, pcpoint.rotation,pcpoint.transform);

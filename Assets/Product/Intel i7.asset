@@ -15,7 +15,7 @@ MonoBehaviour:
   productType: 10
   model: 0
   ID: 6
-  productName: Intel i7
+  productName: 'Intel I7 12700 '
   price: 4000
   prefabEnvanter: {fileID: 6476448739622032108, guid: 102d457d1d3ab114a86d374e1c5387d0,
     type: 3}

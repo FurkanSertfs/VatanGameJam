@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   productType: 13
   model: 3
-  ID: 7
+  ID: 8
   productName: Intel SSD
   price: 3000
   prefabEnvanter: {fileID: 7754317421322655283, guid: a590725d3562c3f43a1443001cbe9d0c,
     type: 3}
-  prefabProduct: {fileID: 8025141250204031504, guid: d66ca98528ff9944ea444d940ec3ffef,
+  prefabProduct: {fileID: 8025141250204031504, guid: 1f5ddc757bd67bf4ba2ea4325a3d4501,
     type: 3}
-  productImage: {fileID: 21300000, guid: 4a9438b8806fc1c47ae30fc44a04e756, type: 3}
+  productImage: {fileID: 21300000, guid: b5e71ffea57a5f34ba947e0935c76365, type: 3}

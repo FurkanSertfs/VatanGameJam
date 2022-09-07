@@ -15,10 +15,10 @@ MonoBehaviour:
   productType: 6
   model: 1
   ID: 2
-  productName: RTX3050
+  productName: RTX 3060
   price: 3500
   prefabEnvanter: {fileID: 1057881245177971571, guid: 78289b3e94cf1d84fbd30f32bf66cf0c,
     type: 3}
   prefabProduct: {fileID: 8763277401402870562, guid: 85df7e8bea6399e41b9841d2cb596a9b,
     type: 3}
-  productImage: {fileID: 21300000, guid: b3464cf51153b1747b7580cb3ecc0bd5, type: 3}
+  productImage: {fileID: 21300000, guid: 7eb4cf586b5034d4b85bcca17606d939, type: 3}

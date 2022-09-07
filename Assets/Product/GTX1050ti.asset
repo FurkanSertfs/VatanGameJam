@@ -15,10 +15,10 @@ MonoBehaviour:
   productType: 3
   model: 1
   ID: 0
-  productName: GTX1050Ti
+  productName: GTX 1050 Ti
   price: 2000
   prefabEnvanter: {fileID: 2145944453165270401, guid: a016ef4c8e7788c47b121716a36c6f40,
     type: 3}
   prefabProduct: {fileID: 8763277401402870562, guid: fe899956aed809a4b9d1dc97b87fbeeb,
     type: 3}
-  productImage: {fileID: 21300000, guid: b4348e9a67a73e440974e18d22dad185, type: 3}
+  productImage: {fileID: 21300000, guid: 695b1d5549c8f59448e359808c631ad3, type: 3}

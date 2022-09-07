@@ -606,6 +606,63 @@ public class TabletUI : MonoBehaviour
 
     }
 
+   void AddProducttoList(Product product)
+    {
+        bool isThere = false;
+
+        PruductClass newProduct=new PruductClass();
+
+        newProduct.name = product.name;
+        newProduct.count = 1;
+        newProduct.product = product;
+
+        if (productWeHave.Count > 0)
+        {
+            
+
+
+            for (int j = 0; j < productWeHave.Count; j++)
+            {
+
+
+                if (product.ID == productWeHave[j].product.ID)
+                {
+
+                    isThere = true;
+
+                    productWeHave[j].count += newProduct.count;
+
+                    break;
+
+
+                }
+
+
+
+
+            }
+            if (!isThere)
+            {
+                productWeHave.Add(newProduct);
+            }
+
+        }
+
+        else
+        {
+            productWeHave.Add(newProduct);
+
+
+
+        }
+    }
+
+
+
+
+
+
+
     public void CreateEnvanter(ProductManager productManager)
     {
 
@@ -626,6 +683,30 @@ public class TabletUI : MonoBehaviour
         newEnvanterProduct.GetComponent<ProductManager>().spawnPoint = productsSpawnPoints[id].spawnPoints[mod[id] % (productsSpawnPoints[id].spawnPoints.Length - 1) ].GetComponent<ProductSpawn>().spawnPoint;
 
         newEnvanterProduct.SetActive(true);
+
+        if (productManager.GetComponent<PCCaseElement>() != null)
+        {
+            if (!productManager.GetComponent<PCCaseElement>().isAddedInEnvanter)
+            {
+                productManager.GetComponent<PCCaseElement>().isAddedInEnvanter = true;
+
+                AddProducttoList(productManager.product);
+            }
+        }
+        else if (productManager.GetComponentInChildren<PCCaseElement>() != null)
+        {
+            if (!productManager.GetComponentInChildren<PCCaseElement>().isAddedInEnvanter)
+            {
+                productManager.GetComponentInChildren<PCCaseElement>().isAddedInEnvanter = true;
+
+                AddProducttoList(productManager.product);
+            }
+
+        }
+
+       
+        
+        
         mod[id]++;
     }
 

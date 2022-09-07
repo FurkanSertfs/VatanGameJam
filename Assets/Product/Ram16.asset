@@ -15,10 +15,10 @@ MonoBehaviour:
   productType: 2
   model: 2
   ID: 3
-  productName: Corsair 16GB
+  productName: Corsair 16GB Ram
   price: 800
   prefabEnvanter: {fileID: 275430038351915756, guid: 6f5ed18f94d720c488566b5d46daf8d3,
     type: 3}
   prefabProduct: {fileID: 3621013353624466814, guid: 226fe48adfa607f4b97c90efd773692d,
     type: 3}
-  productImage: {fileID: 21300000, guid: ce9d9bae3708d0148824cf63b053fbac, type: 3}
+  productImage: {fileID: 21300000, guid: 3518f0ddc61e6434281da13aa88de600, type: 3}

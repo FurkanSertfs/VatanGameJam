@@ -12,7 +12,7 @@ public class BuyManager : MonoBehaviour
 
     public Image productImage;
 
-    public Text  shopingDescriptionText, priceText;
+    public Text  shopingDescriptionText, priceText,hitProductNameText;
 
     public GameObject shophingInfoUI;
 
@@ -64,8 +64,8 @@ public class BuyManager : MonoBehaviour
             if (hit.collider.CompareTag("EnvanterElement")&&PCCase.pCCase!=null)
             {
 
-            
 
+              
                 GameManager.gameManager.infoBuy.SetActive(false);
                 GameManager.gameManager.infoOpenPc.SetActive(false);
                 GameManager.gameManager.infoAddTable.SetActive(true);
@@ -103,6 +103,9 @@ public class BuyManager : MonoBehaviour
                         newProductManager.productType = hitProductManager.productType;
 
                         newProductManager.envanterPrefab = hitProductManager.envanterPrefab;
+
+                        newProduct.GetComponent<PCCaseElement>().isAddedInEnvanter = true;
+                        
 
                         newProductManager.ID = hitProductManager.ID;
                      
@@ -142,6 +145,9 @@ public class BuyManager : MonoBehaviour
                 GameManager.gameManager.infoOpenPc.SetActive(false);
                 GameManager.gameManager.infoAddTable.SetActive(false);
                 GameManager.gameManager.infoOpenMonitor.SetActive(false);
+
+
+                hitProductNameText.text = hitProductManager.product.productName + " " + hitProductManager.product.price + " TL";
 
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                 {

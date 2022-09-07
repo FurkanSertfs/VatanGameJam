@@ -33,6 +33,8 @@ public class PCCaseElement : MonoBehaviour
 
     private float rotateX = -90;
 
+    public bool isAddedInEnvanter;
+
     private void Start()
     {
         outline = GetComponent<Outline>();

@@ -15,10 +15,10 @@ MonoBehaviour:
   productType: 11
   model: 0
   ID: 5
-  productName: Intel I5
+  productName: 'Intel I5 12400F '
   price: 2500
   prefabEnvanter: {fileID: 7456322186176621382, guid: b01bd91369dd5d048a50eb566057f953,
     type: 3}
   prefabProduct: {fileID: 6679258289566832745, guid: f67448bb4dd5f044e9123fa293d85b20,
     type: 3}
-  productImage: {fileID: 21300000, guid: b4348e9a67a73e440974e18d22dad185, type: 3}
+  productImage: {fileID: 21300000, guid: bcf95123e8d4f054c92b023899596de0, type: 3}
