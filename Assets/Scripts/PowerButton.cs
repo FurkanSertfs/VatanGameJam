@@ -16,6 +16,14 @@ public class PowerButton : MonoBehaviour
         powerButton = this;
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            Power();
+        }
+    }
+
     IEnumerator PressButton(string name)
     {
         PCUI.pCUI.isOpen = true;

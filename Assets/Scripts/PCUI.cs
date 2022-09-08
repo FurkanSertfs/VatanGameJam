@@ -126,6 +126,7 @@ public class PCUI : MonoBehaviour
 
         if (driverBoosterApp.activeSelf)
         {
+            Debug.Log("driver1");
 
 
             driverInstalPerAgeText.text = driverInstalPerAge.ToString();
@@ -232,6 +233,8 @@ public class PCUI : MonoBehaviour
 
             if (driverInstalPerAge < 12)
             {
+            
+
                 driversComplated[0].gameObject.SetActive(false);
                 driversComplated[1].gameObject.SetActive(false);
                 driversComplated[2].gameObject.SetActive(false);
@@ -269,6 +272,15 @@ public class PCUI : MonoBehaviour
     }
 
 
+    public void RestartUI()
+    {
+        completedScan.SetActive(false);
+       
+        driverInstalPerAge = 0;
+
+        PCUI.pCUI.isOpen = false;
+
+    }
 
 
 
@@ -373,14 +385,15 @@ public class PCUI : MonoBehaviour
     {
   
         DOTween.To(() => 0.01f, x => windowsInstallBar.fillAmount = x, 1, Random.Range(5f, 7)).OnComplete(()=>RestartPc());
-        enterKeyText.text = "Enter Windows Key...";
-        windowsInstallBar.fillAmount = 0;
-        windowsKeyField.text = "";
-        trueKey = false;
+       
     }
     public void RestartPc()
     {
-
+        enterKeyText.text = "Enter Windows Key...";
+        windowsInstallBar.fillAmount = 0;
+        windowsKeyField.text = "Enter Windows Key...";
+        trueKey = false;
+      
 
         PCCase.pCCase.isSystemActive = true;
 
@@ -419,6 +432,8 @@ public class PCUI : MonoBehaviour
         restarPCScreen.SetActive(false);
       
         formatScreen.SetActive(false);
+
+        
     }
 
 

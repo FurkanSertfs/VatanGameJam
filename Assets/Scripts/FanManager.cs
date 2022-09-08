@@ -41,7 +41,7 @@ public class FanManager : MonoBehaviour
             isInstall = false;
         }
 
-        if (PCUI.pCUI == null)
+        if (PCUI.pCUI == null||PCCase.pCCase==null)
         {
             isInstall = false;
         }

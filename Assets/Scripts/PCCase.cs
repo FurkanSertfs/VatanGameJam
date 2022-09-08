@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-
-
+using UnityEngine.UI;
 
 public class PCCase : MonoBehaviour
 {
@@ -21,49 +20,58 @@ public class PCCase : MonoBehaviour
 
     public List<PCCaseElement> elementCaseHave = new List<PCCaseElement>();
 
-    public List<PCCaseElement> productCaseHave=new List<PCCaseElement>();
+    public List<PCCaseElement> productCaseHave = new List<PCCaseElement>();
 
     [SerializeField]
-    private  ReadyProduct[] productBase;
+    private ReadyProduct[] productBase;
 
     GameObject selectedObject;
 
-    public List<GorevAnlatim.Taskenum> taskType= new List<GorevAnlatim.Taskenum>();
+    public List<GorevAnlatim.Taskenum> taskType = new List<GorevAnlatim.Taskenum>();
 
     public static PCCase pCCase;
 
-    public bool pcCanOpen,isSystemActive,isScanned,isDriverInstalled;
+    public bool pcCanOpen, isSystemActive, isScanned, isDriverInstalled;
 
     public GameObject screwUp, screwDown;
-    
+
     public Transform screwUpBase, screwDownBase;
 
     TableProducts tabletProducts;
 
     ProductManager hitProductManager;
 
+    private TabletUI tablet;
+
     bool isCoverOpnned;
+
+
+
 
     private void Awake()
     {
         pCCase = this;
-      
-      
+
+
     }
 
     private void Start()
     {
+        tablet = TabletUI.tabletUI;
+
+
+
         tabletProducts = TableProducts.tableProducts;
         if (GameManager.gameManager != null)
         {
             pcbuildCam = GameManager.gameManager.pcBuildCam.GetComponent<Camera>();
         }
 
-        
-        if(TabletUI.tabletUI.startedTaskClass.task != null) 
+
+        if (tablet.startedTaskClass.task != null)
         {
 
-            if (TabletUI.tabletUI.startedTaskClass.task.needFormat)
+            if (tablet.startedTaskClass.task.needFormat)
             {
                 isSystemActive = false;
             }
@@ -75,11 +83,11 @@ public class PCCase : MonoBehaviour
         }
 
 
-        
 
-       
+
+
     }
-   
+
 
     private void Update()
     {
@@ -87,13 +95,21 @@ public class PCCase : MonoBehaviour
         {
             RaycastMethod();
         }
-       
+
     }
 
     void ChechPcOpen()
     {
         if (productCaseHave.Count >= caseMustHave.Length)
         {
+            if (!Tutorial.tutorial.pressPower)
+            {
+                Tutorial.tutorial.pressPower = true;
+
+                Tutorial.tutorial.pressPowerTutorial.SetActive(true);
+
+            }
+
             pcCanOpen = true;
         }
         else
@@ -107,8 +123,8 @@ public class PCCase : MonoBehaviour
     {
         for (int i = 0; i < productBase.Length; i++)
         {
-           
-            if(productType == productBase[i].productType)
+
+            if (productType == productBase[i].productType)
             {
                 productBase[i].gameObject.SetActive(true);
 
@@ -130,14 +146,14 @@ public class PCCase : MonoBehaviour
 
         Ray ray = pcbuildCam.ScreenPointToRay(Input.mousePosition);
 
-        if (Physics.Raycast(ray, out RaycastHit hitinfo)&&pcbuildCam.gameObject.activeSelf)
+        if (Physics.Raycast(ray, out RaycastHit hitinfo) && pcbuildCam.gameObject.activeSelf)
         {
             if (hitinfo.collider.GetComponent<ProductManager>() != null)
             {
                 hitProductManager = hitinfo.collider.GetComponent<ProductManager>();
             }
-            
-           else if (hitinfo.collider.GetComponentInParent<ProductManager>() != null)
+
+            else if (hitinfo.collider.GetComponentInParent<ProductManager>() != null)
             {
                 hitProductManager = hitinfo.collider.GetComponentInParent<ProductManager>();
             }
@@ -145,6 +161,31 @@ public class PCCase : MonoBehaviour
             else
             {
                 hitProductManager = null;
+            }
+
+            if (hitProductManager != null)
+            {
+                tablet.hitProductName.gameObject.SetActive(true);
+                tablet.hitProductName.text = hitProductManager.product.name;
+
+                if (hitProductManager.gameObject.GetComponent<Outline>()!=null)
+                {
+                    tablet.hitProductName.color = hitProductManager.gameObject.GetComponent<Outline>().OutlineColor;
+
+                }
+
+               else if (hitProductManager.gameObject.GetComponentInParent<Outline>() != null)
+                {
+                    tablet.hitProductName.color = hitProductManager.gameObject.GetComponentInParent<Outline>().OutlineColor;
+
+                }
+               
+
+
+            }
+            else
+            {
+                tablet.hitProductName.gameObject.SetActive(false);
             }
 
 
@@ -182,6 +223,8 @@ public class PCCase : MonoBehaviour
             {
                 GameManager.gameManager.croshair.color = Color.blue;
 
+
+
                 if (Input.GetMouseButtonDown(0))
                 {
 
@@ -197,7 +240,7 @@ public class PCCase : MonoBehaviour
                             }
                         }
 
-                        for(int i = 0; i < taskType.Count; i++)
+                        for (int i = 0; i < taskType.Count; i++)
                         {
                             if (taskType[i] == hitinfo.collider.GetComponent<PCCaseElement>().taskType)
                             {
@@ -209,7 +252,7 @@ public class PCCase : MonoBehaviour
                     }
 
                     ChechPcOpen();
-                    TabletUI.tabletUI.CheckTask();
+                    tablet.CheckTask();
                 }
 
 
@@ -247,7 +290,7 @@ public class PCCase : MonoBehaviour
 
                     GameManager.gameManager.croshair.color = Color.blue;
 
-                    
+
 
                     if (Input.GetMouseButtonDown(0))
                     {
@@ -257,19 +300,19 @@ public class PCCase : MonoBehaviour
 
                         ShowOutLine();
 
-                     
+
 
 
                     }
 
                     else if (Input.GetMouseButtonDown(1))
                     {
-                       if (hitProductManager != null)
+                        if (hitProductManager != null)
                         {
-                           
 
 
-                            TabletUI.tabletUI.CreateEnvanter(hitProductManager);
+
+                            tablet.CreateEnvanter(hitProductManager);
 
                             for (int i = 0; i < tabletProducts.productTableHave.Count; i++)
                             {
@@ -284,7 +327,7 @@ public class PCCase : MonoBehaviour
                             Destroy(hitProductManager.gameObject);
                         }
 
-                       
+
 
 
                     }
@@ -306,16 +349,18 @@ public class PCCase : MonoBehaviour
             else if (hitinfo.collider.CompareTag("State"))
             {
                 GameManager.gameManager.croshair.color = Color.blue;
-              
+
+                // hitProductNameText.text = hitProductManager.product.productName + " " + hitProductManager.product.price + " TL";
+
                 if (Input.GetMouseButtonDown(1))
                 {
 
                     if (hitProductManager != null)
                     {
-                       
-                        
 
-                        TabletUI.tabletUI.CreateEnvanter(hitProductManager);
+
+
+                        tablet.CreateEnvanter(hitProductManager);
 
                         for (int i = 0; i < tabletProducts.productTableHave.Count; i++)
                         {
@@ -333,7 +378,7 @@ public class PCCase : MonoBehaviour
 
                     }
 
-                 
+
 
 
                 }
@@ -343,7 +388,7 @@ public class PCCase : MonoBehaviour
             {
                 GameManager.gameManager.croshair.color = Color.blue;
 
-              
+
 
                 if (Input.GetMouseButtonDown(0))
                 {
@@ -384,7 +429,7 @@ public class PCCase : MonoBehaviour
                     }
 
 
-                    TabletUI.tabletUI.CheckTask();
+                    tablet.CheckTask();
 
                 }
 

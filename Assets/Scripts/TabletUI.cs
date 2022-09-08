@@ -58,7 +58,7 @@ public class TabletUI : MonoBehaviour
     public Transform pcSpawnPoint, taskManager,basketPoint;
 
   
-    public Text taskDescriptionText, taskAwardText,totalBasketPriceText;
+    public Text taskDescriptionText, taskAwardText,totalBasketPriceText, hitProductName;
 
     [HideInInspector]
     public bool isTaskActive;
@@ -105,13 +105,21 @@ public class TabletUI : MonoBehaviour
 
     public List<GameObject> dailyTasksObjects = new List<GameObject>();
 
-    public GameObject gorevlerLayout;
+    public bool isDayFinished;
 
-   
+    public GameObject gorevlerLayout, endDayObject;
+
+
+
 
     //
+    // Totorial
+    [HideInInspector]
+    public bool pressPower;
 
-   
+    // 
+
+
     public List<int> mod = new List<int>();
     GameObject newPc;
 
@@ -360,6 +368,12 @@ public class TabletUI : MonoBehaviour
             CloseTablet();
 
             CheckTask();
+
+            if (!Tutorial.tutorial.envanter)
+            {
+                Tutorial.tutorial.envanter = true;
+                Tutorial.tutorial.envanterTutorial.SetActive(true);
+            }
            
         }
     }
@@ -414,20 +428,57 @@ public class TabletUI : MonoBehaviour
                 Destroy(products[i].gameObject);
             }
 
+            for (int i = 0; i < TableProducts.tableProducts.productTableHave.Count; i++)
+            {
+                Destroy(TableProducts.tableProducts.productTableHave[i].gameObject);
+            }
+            TableProducts.tableProducts.productTableHave.Clear();
+
+          
+            PCUI.pCUI.RestartUI();
+
+
         }
 
         CheckTask();
 
         CheckDay();
 
+        if (isDayFinished)
+        {
+            StartCoroutine(FinishDay());
+        }
+
     }
+
+  
+    IEnumerator FinishDay()
+    {
+        yield return new WaitForSeconds(1);
+        
+         endDayObject.SetActive(true); 
+
+        NextDay();
+    }
+
+
 
     void CheckDay()
     {
-        //for (int i = 0; i < activeTask; i++)
-        //{
+        isDayFinished = true;
 
-        //}
+        for (int i = 0; i < dailyTasksObjects.Count; i++)
+        {
+            
+            if (!taskID[dailyTasksObjects[i].GetComponent<Task>().teskClass.ID])
+          
+            {
+                isDayFinished = false;
+
+
+            }
+
+        }
 
 
     }
@@ -501,6 +552,7 @@ public class TabletUI : MonoBehaviour
             }
 
             bool isFinish = true;
+
 
             for (int i = 0; i < startedTaskClass.isComplated.Count; i++)
             {
