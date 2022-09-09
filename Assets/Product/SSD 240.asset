@@ -21,4 +21,4 @@ MonoBehaviour:
     type: 3}
   prefabProduct: {fileID: 8025141250204031504, guid: d66ca98528ff9944ea444d940ec3ffef,
     type: 3}
-  productImage: {fileID: 21300000, guid: b5e71ffea57a5f34ba947e0935c76365, type: 3}
+  productImage: {fileID: 21300000, guid: e6c870b4fa6f3644ea55d6b5e98d9c42, type: 3}

@@ -19,6 +19,10 @@ public class Tutorial : MonoBehaviour
 
     public  void CloseTutorialButton(GameObject gameObject)
     {
+        GameManager.gameManager.audioSource.clip = GameManager.gameManager.UIclick;
+
+        GameManager.gameManager.audioSource.Play();
+
         gameObject.SetActive(false);
        
      
@@ -26,6 +30,10 @@ public class Tutorial : MonoBehaviour
 
     public void CloseTutorialKey(GameObject gameObject)
     {
+        GameManager.gameManager.audioSource.clip = GameManager.gameManager.UIclick;
+
+        GameManager.gameManager.audioSource.Play();
+
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             gameObject.SetActive(false);
@@ -35,6 +43,10 @@ public class Tutorial : MonoBehaviour
 
     public void OpenAppTutorial(GameObject openApp)
     {
+        GameManager.gameManager.audioSource.clip = GameManager.gameManager.UIclick;
+
+        GameManager.gameManager.audioSource.Play();
+
         openApp.SetActive(true);
         gameObject.SetActive(false);
     }

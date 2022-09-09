@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour
 
     public int day;
 
+    public AudioClip confirmBasketSound, UIclick, buyProduct;
+    public AudioSource audioSource;
+
     private void Awake()
     {
         gameManager = this;
@@ -31,6 +34,7 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         firstPersonController = GetComponent<FirstPersonController>();
     }
 

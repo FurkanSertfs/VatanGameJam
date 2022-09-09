@@ -288,6 +288,11 @@ public class PCUI : MonoBehaviour
 
     public void OpenCloseButton(GameObject openObject)
     {
+
+        GameManager.gameManager.audioSource.clip = GameManager.gameManager.UIclick;
+
+        GameManager.gameManager.audioSource.Play();
+
         if (openObject.activeSelf)
         {
            
@@ -315,6 +320,11 @@ public class PCUI : MonoBehaviour
 
     public void CloseApp(GameObject apps)
     {
+
+        GameManager.gameManager.audioSource.clip = GameManager.gameManager.UIclick;
+
+        GameManager.gameManager.audioSource.Play();
+
         apps.SetActive(false);
     }
 
@@ -419,6 +429,11 @@ public class PCUI : MonoBehaviour
 
    public void ClosePc()
     {
+
+        GameManager.gameManager.audioSource.clip = GameManager.gameManager.UIclick;
+
+        GameManager.gameManager.audioSource.Play();
+
         isOpen = false;
         PowerButton.powerButton.CloseB();
     }
@@ -443,6 +458,11 @@ public class PCUI : MonoBehaviour
 
     public void StartVirusScanner()
     {
+
+        GameManager.gameManager.audioSource.clip = GameManager.gameManager.UIclick;
+
+        GameManager.gameManager.audioSource.Play();
+
         completedScan.SetActive(false);
 
         eventSystem.enabled = false;
@@ -461,6 +481,11 @@ public class PCUI : MonoBehaviour
 
     public void InstallDriver()
     {
+
+        GameManager.gameManager.audioSource.clip = GameManager.gameManager.UIclick;
+
+        GameManager.gameManager.audioSource.Play();
+
         float random;
 
         random = Random.Range(2.51f, 5.75f);

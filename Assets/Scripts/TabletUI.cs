@@ -50,8 +50,6 @@ public class SelectedTask
 public class TabletUI : MonoBehaviour
 {
 
-
-
     [SerializeField]
     GameObject  pcPrefab, taskPrefab,basketElementPrefab,shophingInfoUI;
 
@@ -134,7 +132,7 @@ public class TabletUI : MonoBehaviour
     {
         NextDay();
 
-     
+       
     }
 
 
@@ -345,7 +343,10 @@ public class TabletUI : MonoBehaviour
         if (GameManager.gameManager.money >= totalBasketPrice)
             
         {
-          
+            GameManager.gameManager.audioSource.clip = GameManager.gameManager.confirmBasketSound;
+            
+            GameManager.gameManager.audioSource.Play();
+
             GameManager.gameManager.money -= totalBasketPrice;
 
             PlaceProducts();
@@ -379,6 +380,11 @@ public class TabletUI : MonoBehaviour
     }
    public void FinishTask()
     {
+
+        GameManager.gameManager.audioSource.clip = GameManager.gameManager.UIclick;
+
+        GameManager.gameManager.audioSource.Play();
+
         GameManager.gameManager.money += startedTaskClass.task.taskAward;
 
         startedTaskClass.taskObject.thick.SetActive(true);
@@ -485,8 +491,10 @@ public class TabletUI : MonoBehaviour
 
 
      public void CheckTask()
-        {
+    {
       
+       
+        
         if (startedTaskClass.task != null)
         {
           
@@ -718,6 +726,10 @@ public class TabletUI : MonoBehaviour
     public void CreateEnvanter(ProductManager productManager)
     {
 
+        GameManager.gameManager.audioSource.clip = GameManager.gameManager.UIclick;
+
+        GameManager.gameManager.audioSource.Play();
+
         int count = mod.Count;
         int id = (int)productManager.product.model;
 
@@ -870,6 +882,9 @@ public class TabletUI : MonoBehaviour
     {
         Application.SetActive(true);
 
+        GameManager.gameManager.audioSource.clip = GameManager.gameManager.UIclick;
+
+        GameManager.gameManager.audioSource.Play();
 
     }
 
@@ -908,7 +923,10 @@ public class TabletUI : MonoBehaviour
 
     public void GorevKabul()
     {
-       
+
+        GameManager.gameManager.audioSource.clip = GameManager.gameManager.UIclick;
+
+        GameManager.gameManager.audioSource.Play();
 
 
         if (!isTaskActive && !taskID[selectedtaskClass.ID])
