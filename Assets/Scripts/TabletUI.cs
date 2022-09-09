@@ -97,7 +97,9 @@ public class TabletUI : MonoBehaviour
 
     public int totalTaskID,currentTaskID;
 
-    public TaskClass[] dailyTask;
+    public List<TaskClass>  dailyTask;
+
+    public TaskClass[] totalDailyTask;
 
     public GameObject dailyTaskUI;
 
@@ -166,7 +168,7 @@ public class TabletUI : MonoBehaviour
 
         dailyTasksObjects.Clear();
 
-        for (int i = 0; i < dailyTask.Length; i++)
+        for (int i = 0; i < dailyTask.Count; i++)
         {
 
             GameObject newTask = Instantiate(dailyTaskUI, gorevlerLayout.transform);
