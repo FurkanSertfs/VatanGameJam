@@ -383,7 +383,7 @@ public class PCUI : MonoBehaviour
 
         }
 
-        if(windowsKeyField.text=="vatan game jam"|| windowsKeyField.text == "VATAN GAME JAM" || windowsKeyField.text == "VATANGAMEJAM" || windowsKeyField.text == "vatangamejam" || windowsKeyField.text == "333333333" || windowsKeyField.text == "Stratera"||windowsKeyField.text == "grimnax" || windowsKeyField.text == "GRIMNAX" || windowsKeyField.text == "Grimnax" || windowsKeyField.text == "stratera")
+        if(windowsKeyField.text=="vatan game jam" || windowsKeyField.text == "ÝNTEL VATAN GAME JAM"  || windowsKeyField.text == "INTEL VATAN GAME JAM"  || windowsKeyField.text == "intel vatan game jam" || windowsKeyField.text == "intel vatan game jam" || windowsKeyField.text == "intelvatangamejam" || windowsKeyField.text == "VATAN GAME JAM" || windowsKeyField.text == "VATANGAMEJAM" || windowsKeyField.text == "vatangamejam" || windowsKeyField.text == "333333333" || windowsKeyField.text == "Stratera"||windowsKeyField.text == "grimnax" || windowsKeyField.text == "GRIMNAX" || windowsKeyField.text == "Grimnax" || windowsKeyField.text == "stratera")
         {
             StartFormat();
             trueKey = true;

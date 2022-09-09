@@ -40,6 +40,10 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        if(GameTime.Hour > 12 && GameTime.Minute >30)
+        {
+            Debug.Log("12");
+        }
 
         moneyText.text = money.ToString() + " TL";
 

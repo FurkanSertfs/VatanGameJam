@@ -22,7 +22,7 @@ MonoBehaviour:
     buyProduct: 14
     buildProduct: 2
     taskManagerElement: {fileID: 0}
-  - GorevAnlat: " \u0130\u015Fletim Sistemini Y\xFCkle"
+  - GorevAnlat: "\u0130\u015Fletim Sistemini Y\xFCkle"
     buyProduct: 14
     buildProduct: 0
     taskManagerElement: {fileID: 0}

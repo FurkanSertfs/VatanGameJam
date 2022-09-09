@@ -11,6 +11,8 @@ public class GameTime : MonoBehaviour
    [HideInInspector]
     public static System.DateTime realDay = System.DateTime.Now;
 
+    public static GameTime gameTime;
+
     public static Action OnMinuteChanged;
     public static Action OnHourChanged;
 
@@ -19,9 +21,12 @@ public class GameTime : MonoBehaviour
     private float minuteToRealTime = 1;
 
     public static int Minute,Hour,Day,Month,Year;
+    private void Awake()
+    {
+        gameTime = this;
+    }
 
 
-  
 
     private void Start()
     {

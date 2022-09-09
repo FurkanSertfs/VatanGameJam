@@ -884,9 +884,7 @@ public class TabletUI : MonoBehaviour
     {
         Application.SetActive(true);
 
-        GameManager.gameManager.audioSource.clip = GameManager.gameManager.UIclick;
-
-        GameManager.gameManager.audioSource.Play();
+     
 
     }
 

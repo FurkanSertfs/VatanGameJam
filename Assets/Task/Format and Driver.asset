@@ -17,7 +17,7 @@ MonoBehaviour:
   needFormat: 1
   taskAward: 300
   gorevAnlatim:
-  - GorevAnlat: " \u0130\u015Fletim Sistemini Y\xFCkle"
+  - GorevAnlat: "\u0130\u015Fletim Sistemini Y\xFCkle"
     buyProduct: 14
     buildProduct: 0
     taskManagerElement: {fileID: 0}
