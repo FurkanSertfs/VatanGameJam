@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/MainScreen.unity
     guid: 59085110a0b785c448744a7a3637a838
   - enabled: 1
-    path: Assets/VatanComputer/Scenes/Test3.unity
-    guid: b57361f235f3f4c4aa3ae87566251687
+    path: Assets/VatanComputer/Scenes/Main.unity
+    guid: 4b78bef1a3d30584e92a463742248627
   m_configObjects: {}

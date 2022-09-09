@@ -14,7 +14,7 @@ public class UIMain : MonoBehaviour
     public GameObject mainScreen;
     public void StartGame()
     {
-        SceneManager.LoadScene("Test3");
+        SceneManager.LoadScene("Main");
     }
 
     public void Settings()

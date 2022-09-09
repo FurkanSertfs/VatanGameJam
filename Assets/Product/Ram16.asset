@@ -15,7 +15,7 @@ MonoBehaviour:
   productType: 2
   model: 2
   ID: 3
-  productName: Corsair 16GB Ram
+  productName: Forsael 16GB Ram
   price: 800
   prefabEnvanter: {fileID: 275430038351915756, guid: 6f5ed18f94d720c488566b5d46daf8d3,
     type: 3}

@@ -15,7 +15,7 @@ MonoBehaviour:
   productType: 1
   model: 2
   ID: 4
-  productName: Corsair 8GB Ram
+  productName: Forsael 8GB Ram
   price: 500
   prefabEnvanter: {fileID: 3941955305474158406, guid: 125135ef9ddb7e843965aee3b8fa90e5,
     type: 3}
