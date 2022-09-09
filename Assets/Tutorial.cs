@@ -20,6 +20,8 @@ public class Tutorial : MonoBehaviour
     public  void CloseTutorialButton(GameObject gameObject)
     {
         gameObject.SetActive(false);
+       
+     
     }
 
     public void CloseTutorialKey(GameObject gameObject)

@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
 
     public int money;
 
-    public Image croshair;
+    public Image croshair,loadingCursor;
 
     public GameObject fpsCam, pcuiCam,fpsButton,pcBuildCam,pcPrefab,infoOpenPc,infoPcRotate,infoBuy,infoAddTable,infoOpenMonitor;
 
@@ -27,8 +27,11 @@ public class GameManager : MonoBehaviour
     {
         gameManager = this;
        
-        firstPersonController = GetComponent<FirstPersonController>();
         
+    }
+    private void Start()
+    {
+        firstPersonController = GetComponent<FirstPersonController>();
     }
 
     private void Update()
@@ -42,14 +45,7 @@ public class GameManager : MonoBehaviour
 
             testO.SetActive(true);
         }
-        if (TabletUI.tabletUI.Tablet.active)
-        {
-            firstPersonController.enabled = false;
-        }
-        else
-        {
-            firstPersonController.enabled = true;
-        }
+      
     }
 
 

@@ -16,8 +16,7 @@ public class FollowMouse : MonoBehaviour, IDragHandler
 
     void Update()
     {
-        Debug.Log(Input.mousePosition / CanvasRectTransform.localScale.x);
-        Debug.Log(Input.mousePosition);
+        
         rectTransform.anchoredPosition = Input.mousePosition / CanvasRectTransform.localScale.x;
 
     }

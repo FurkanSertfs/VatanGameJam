@@ -123,6 +123,7 @@ MonoBehaviour:
   productType: 4
   transformPoint:
   - {fileID: 0}
+  isAddedInEnvanter: 0
 --- !u!114 &6679258289047707067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,6 +256,7 @@ MonoBehaviour:
   productType: 1
   transformPoint:
   - {fileID: 0}
+  isAddedInEnvanter: 0
 --- !u!114 &6679258289179594103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -337,7 +339,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 0}
   productType: 4
   ID: 5
-  envanterPrefab: {fileID: 3393185309149180579, guid: 6ccde58135a8a1c498f1aa0276ea6d48,
+  envanterPrefab: {fileID: 6476448739622032108, guid: 102d457d1d3ab114a86d374e1c5387d0,
     type: 3}
 --- !u!1 &6679258289676397484
 GameObject:

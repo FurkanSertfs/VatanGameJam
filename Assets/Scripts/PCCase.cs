@@ -227,6 +227,16 @@ public class PCCase : MonoBehaviour
 
                 if (Input.GetMouseButtonDown(0))
                 {
+                    if (hitinfo.collider.gameObject.GetComponent<PCCaseElement>().productType == PCCaseElement.ProductType.CpuCover)
+                    {
+                        selectedObject = null;
+                        productType = PCCaseElement.ProductType.Empty;
+                        ShowOutLine();
+                    }
+                    
+
+                    
+                 
 
                     hitinfo.collider.gameObject.GetComponent<PCCaseElement>().StartDoMove();
 
@@ -305,26 +315,42 @@ public class PCCase : MonoBehaviour
 
                     }
 
-                    else if (Input.GetMouseButtonDown(1))
+                    else if (Input.GetMouseButton(1))
                     {
+                        
+
                         if (hitProductManager != null)
                         {
+                            GameManager.gameManager.loadingCursor.fillAmount = 0;
+                            GameManager.gameManager.loadingCursor.gameObject.SetActive(true);
+                            GameManager.gameManager.loadingCursor.fillAmount += Time.deltaTime*2/3;
 
-
-
-                            tablet.CreateEnvanter(hitProductManager);
-
-                            for (int i = 0; i < tabletProducts.productTableHave.Count; i++)
+                            if (GameManager.gameManager.loadingCursor.fillAmount>=1)
                             {
-                                if (hitProductManager.productType == tabletProducts.productTableHave[i].productType)
+
+
+                                tablet.CreateEnvanter(hitProductManager);
+
+                                for (int i = 0; i < tabletProducts.productTableHave.Count; i++)
                                 {
-                                    tabletProducts.productTableHave.RemoveAt(i);
-                                    break;
+                                    if (hitProductManager.productType == tabletProducts.productTableHave[i].productType)
+                                    {
+                                        tabletProducts.productTableHave.RemoveAt(i);
+                                        break;
+                                    }
+
                                 }
 
+                                Destroy(hitProductManager.gameObject);
+                               
                             }
+                            
 
-                            Destroy(hitProductManager.gameObject);
+                            
+                        }
+                        else
+                        {
+                            GameManager.gameManager.loadingCursor.gameObject.SetActive(false);
                         }
 
 
@@ -352,35 +378,54 @@ public class PCCase : MonoBehaviour
 
                 // hitProductNameText.text = hitProductManager.product.productName + " " + hitProductManager.product.price + " TL";
 
-                if (Input.GetMouseButtonDown(1))
+                if (Input.GetMouseButton(1))
                 {
+                   
 
-                    if (hitProductManager != null)
+                   
+                    GameManager.gameManager.loadingCursor.gameObject.SetActive(true);
+                    GameManager.gameManager.loadingCursor.fillAmount += Time.deltaTime;
+
+
+                    if (GameManager.gameManager.loadingCursor.fillAmount >= 1)
                     {
 
-
-
-                        tablet.CreateEnvanter(hitProductManager);
-
-                        for (int i = 0; i < tabletProducts.productTableHave.Count; i++)
+                        
+                        if (hitProductManager != null)
                         {
-                            if (hitProductManager.productType == tabletProducts.productTableHave[i].productType)
+
+
+                            tablet.CreateEnvanter(hitProductManager);
+
+                            for (int i = 0; i < tabletProducts.productTableHave.Count; i++)
                             {
-                                tabletProducts.productTableHave.RemoveAt(i);
-                                break;
+                                if (hitProductManager.productType == tabletProducts.productTableHave[i].productType)
+                                {
+                                    tabletProducts.productTableHave.RemoveAt(i);
+                                    break;
+                                }
+
                             }
+
+
+                            Destroy(hitProductManager.gameObject);
+
 
                         }
 
-
-                        Destroy(hitProductManager.gameObject);
-
-
                     }
+                 
+
+                       
 
 
 
 
+                }
+                else
+                {
+                    GameManager.gameManager.loadingCursor.gameObject.SetActive(false);
+                    GameManager.gameManager.loadingCursor.fillAmount = 0;
                 }
             }
 
@@ -393,6 +438,7 @@ public class PCCase : MonoBehaviour
                 if (Input.GetMouseButtonDown(0))
                 {
 
+                   
 
                     selectedObject.transform.DOMove(hitinfo.collider.gameObject.transform.position, 1);
 
@@ -427,7 +473,9 @@ public class PCCase : MonoBehaviour
                         productCaseHave.Add(screwUp.GetComponent<PCCaseElement>());
 
                     }
-
+                
+                   
+                  
 
                     tablet.CheckTask();
 
@@ -440,6 +488,8 @@ public class PCCase : MonoBehaviour
 
             else
             {
+                GameManager.gameManager.loadingCursor.fillAmount = 0;
+                GameManager.gameManager.loadingCursor.gameObject.SetActive(false);
                 GameManager.gameManager.croshair.color = Color.white;
             }
 
@@ -448,6 +498,9 @@ public class PCCase : MonoBehaviour
 
         else
         {
+            GameManager.gameManager.croshair.color = Color.white;
+            GameManager.gameManager.loadingCursor.fillAmount = 0;
+            GameManager.gameManager.loadingCursor.gameObject.SetActive(false);
             GameManager.gameManager.croshair.color = Color.white;
 
         }
