@@ -18,7 +18,7 @@ public class GameTime : MonoBehaviour
 
     private float timer;
 
-    private float minuteToRealTime = 1;
+    private float minuteToRealTime = 1.5f;
 
     public static int Minute,Hour,Day,Month,Year;
     private void Awake()
