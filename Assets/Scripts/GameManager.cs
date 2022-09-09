@@ -40,9 +40,14 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if(GameTime.Hour > 12 && GameTime.Minute >30)
+        if(GameTime.Hour >= 12 && GameTime.Minute >30)
         {
-            Debug.Log("12");
+            GameTime.Hour = 9;
+            GameTime.Minute = 0;
+
+           TabletUI.tabletUI.StartCoroutine(TabletUI.tabletUI.FinishDay());
+           
+            day++;
         }
 
         moneyText.text = money.ToString() + " TL";

@@ -168,27 +168,57 @@ public class TabletUI : MonoBehaviour
 
         dailyTasksObjects.Clear();
 
-        for (int i = 0; i < dailyTask.Count; i++)
+        if (GameManager.gameManager.day == 0)
         {
+            for (int i = 0; i < dailyTask.Count; i++)
+            {
 
-            GameObject newTask = Instantiate(dailyTaskUI, gorevlerLayout.transform);
+                GameObject newTask = Instantiate(dailyTaskUI, gorevlerLayout.transform);
 
-            newTask.GetComponent<Task>().teskClass.task = dailyTask[i];
+                newTask.GetComponent<Task>().teskClass.task = dailyTask[i];
 
-            newTask.GetComponent<Task>().gorevName.text = "GÖREV "+(totalTaskID+1).ToString();
+                newTask.GetComponent<Task>().gorevName.text = "GÖREV " + (totalTaskID + 1).ToString();
 
-            newTask.GetComponent<Task>().teskClass.ID = totalTaskID;
+                newTask.GetComponent<Task>().teskClass.ID = totalTaskID;
 
 
-            awardID.Add(false);
-            taskID.Add(false);
+                awardID.Add(false);
+                taskID.Add(false);
 
-            totalTaskID++;
+                totalTaskID++;
 
-            dailyTasksObjects.Add(newTask);
+                dailyTasksObjects.Add(newTask);
 
+
+            }
+        }
+        else
+        {
+            for (int i = 0; i < totalDailyTask.Length; i++)
+            {
+
+                GameObject newTask = Instantiate(dailyTaskUI, gorevlerLayout.transform);
+
+                newTask.GetComponent<Task>().teskClass.task = totalDailyTask[i];
+
+                newTask.GetComponent<Task>().gorevName.text = "GÖREV " + (totalTaskID + 1).ToString();
+
+                newTask.GetComponent<Task>().teskClass.ID = totalTaskID;
+
+
+                awardID.Add(false);
+                taskID.Add(false);
+
+                totalTaskID++;
+
+                dailyTasksObjects.Add(newTask);
+
+
+            }
 
         }
+
+       
 
         dailyTasksObjects[0].GetComponent<Task>().ButtunColor(new Color32(0, 150, 255, 255));
 
@@ -460,13 +490,12 @@ public class TabletUI : MonoBehaviour
     }
 
   
-    IEnumerator FinishDay()
+   public IEnumerator FinishDay()
     {
         yield return new WaitForSeconds(1);
         
          endDayObject.SetActive(true); 
-
-        NextDay();
+         NextDay();
     }
 
 
