@@ -151,6 +151,8 @@ public class BuyManager : MonoBehaviour
 
             else if (hit.collider.CompareTag("Product"))
             {
+
+             
                 GameManager.gameManager.croshair.color = Color.green;
                 GameManager.gameManager.infoBuy.SetActive(true);
                 GameManager.gameManager.infoOpenPc.SetActive(false);
@@ -162,6 +164,10 @@ public class BuyManager : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
+                    GameManager.gameManager.audioSource.clip = GameManager.gameManager.UIclick;
+
+                    GameManager.gameManager.audioSource.Play();
+
 
                     if (timer + 0.6f < Time.time)
                     {
