@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if(GameTime.Hour >= 12 && GameTime.Minute >30)
+        if(GameTime.Hour >= 17 && GameTime.Minute >30)
         {
             GameTime.Hour = 9;
             GameTime.Minute = 0;
