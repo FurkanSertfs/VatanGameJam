@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f685b03bd3bacf8418cf5cc4a528396c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  product: {fileID: 11400000, guid: a0ae6e0c99fa49a478e16e8fca8af0e8, type: 2}
+  product: {fileID: 11400000, guid: 8a4052bfb078bfe4bb21c6525acc08b2, type: 2}
   spawnPoint: {fileID: 0}
   productType: 4
   ID: 6

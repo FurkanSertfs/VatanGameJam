@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
 
     public int money;
 
-    public Image croshair;
+    public Image croshair,loadingCursor;
 
     public GameObject fpsCam, pcuiCam,fpsButton,pcBuildCam,pcPrefab,infoOpenPc,infoPcRotate,infoBuy,infoAddTable,infoOpenMonitor;
 

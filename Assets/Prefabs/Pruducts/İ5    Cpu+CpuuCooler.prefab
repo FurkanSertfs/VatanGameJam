@@ -123,6 +123,7 @@ MonoBehaviour:
   productType: 4
   transformPoint:
   - {fileID: 0}
+  isAddedInEnvanter: 0
 --- !u!114 &6679258289047707067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,6 +256,7 @@ MonoBehaviour:
   productType: 1
   transformPoint:
   - {fileID: 0}
+  isAddedInEnvanter: 0
 --- !u!114 &6679258289179594103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -333,11 +335,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f685b03bd3bacf8418cf5cc4a528396c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  product: {fileID: 11400000, guid: 8a4052bfb078bfe4bb21c6525acc08b2, type: 2}
+  product: {fileID: 11400000, guid: a0ae6e0c99fa49a478e16e8fca8af0e8, type: 2}
   spawnPoint: {fileID: 0}
   productType: 4
   ID: 6
-  envanterPrefab: {fileID: 3393185309149180579, guid: 6ccde58135a8a1c498f1aa0276ea6d48,
+  envanterPrefab: {fileID: 7456322186176621382, guid: b01bd91369dd5d048a50eb566057f953,
     type: 3}
 --- !u!1 &6679258289676397484
 GameObject:
