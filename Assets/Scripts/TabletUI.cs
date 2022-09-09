@@ -494,8 +494,18 @@ public class TabletUI : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         
-         endDayObject.SetActive(true); 
-         NextDay();
+
+        endDayObject.SetActive(true);
+        
+        GameManager.gameManager.day++;
+        
+        GameTime.Hour = 9;
+        
+        GameTime.Minute = 0;
+
+       
+
+        NextDay();
     }
 
 
