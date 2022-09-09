@@ -401,7 +401,7 @@ public class PCUI : MonoBehaviour
     {
         enterKeyText.text = "Enter Windows Key...";
         windowsInstallBar.fillAmount = 0;
-        windowsKeyField.text = "Enter Windows Key...";
+        windowsKeyField.text = "L";
         trueKey = false;
       
 
