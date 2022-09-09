@@ -768,6 +768,8 @@ public class TabletUI : MonoBehaviour
     {
         CheckTask();
 
+       
+
         if (selectedtaskClass.task!=null)
         {
 
@@ -829,6 +831,7 @@ public class TabletUI : MonoBehaviour
 
         if (Tablet.activeSelf)
         {
+
             for (int i = 0; i < applications.Length; i++)
             {
                 applications[i].SetActive(false);
@@ -840,6 +843,7 @@ public class TabletUI : MonoBehaviour
 
             Cursor.lockState = CursorLockMode.Locked;
 
+            GameManager.gameManager.firstPersonController.enabled = true;
 
             EventSystem.current.SetSelectedGameObject(null);
 
@@ -848,9 +852,12 @@ public class TabletUI : MonoBehaviour
 
         else
         {
+           
             Cursor.visible = true;
 
             Cursor.lockState = CursorLockMode.Confined;
+
+            GameManager.gameManager.firstPersonController.enabled = false;
 
             Tablet.SetActive(true);
 
