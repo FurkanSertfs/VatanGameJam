@@ -18,10 +18,10 @@ public class TwitchConnet : MonoBehaviour
     const string URL = "irc.chat.twitch.tv";
     const int PORT = 6667;
 
-    string User = "DomaArigatoMissRobota";
+    string User = "mecetfree";
 
-    string OAuth = "ouath:67xxxxx";
-    string Channel = "plejaa";
+    string OAuth = "oauth:s27whwnyq05bwrogdsogtlrwxjaqna";
+    string Channel = "grimnax";
 
     float PingCounter = 0;
     private void ConnectToTwitch()
@@ -30,9 +30,9 @@ public class TwitchConnet : MonoBehaviour
         Reader = new StreamReader(Twitch.GetStream());
         Writer = new StreamWriter(Twitch.GetStream());
 
-        Writer.WriteLine("PASS" + OAuth);
-        Writer.WriteLine("NICK" + User.ToLower());
-        Writer.WriteLine("JOIN # " + Channel.ToLower());
+        Writer.WriteLine("PASS " + OAuth);
+        Writer.WriteLine("NICK " + User.ToLower());
+        Writer.WriteLine("JOIN #" + Channel.ToLower());
         Writer.Flush();
 
 
@@ -55,13 +55,20 @@ public class TwitchConnet : MonoBehaviour
 
         if (!Twitch.Connected)
         {
+           
             ConnectToTwitch();
 
         }
+        else
+        {
+        
+        }
        if(Twitch.Available > 0)
         {
+          
             string message = Reader.ReadLine();
-            if(message.Contains("PRIVMSG"))
+            print(message);
+            if (message.Contains("PRIVMSG"))
             {
                 int splitPoint = message.IndexOf("!");
                 string chatter = message.Substring(1, splitPoint - 1);
@@ -69,9 +76,10 @@ public class TwitchConnet : MonoBehaviour
                 splitPoint = message.IndexOf(":", 1);
                 string msg = message.Substring(splitPoint + 1);
 
-                OnChatMessage?.Invoke(chatter, msg); 
+                OnChatMessage?.Invoke(chatter, msg);
+                print(message);
+
             }
-            print(message); 
         }
 
     }
