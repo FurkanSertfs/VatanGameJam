@@ -7,12 +7,19 @@ public class RandomColor : MonoBehaviour
 {
     [Header("Hexagons")]
     public Material Hexa1;
+    public Renderer hexa;
 
     void Start()
     {
-        Color randomColour = Random.ColorHSV();
-        Hexa1.DOColor(randomColour, 3).SetLoops(-1);
-        Debug.Log("yedi");
+        Hexa1 = GetComponent<MeshRenderer>().material;
+        hexa = GetComponent<MeshRenderer>();    
+
+        Hexa1.DOColor(Color.red, "_EmissionColor", 1);
+
+        //hexa.material.DOColor(Color.blue, "_BaseColor", 1);
+        // GetComponent<MeshRenderer>().material.color = Color.blue;
+
+
     }
 
     // Update is called once per frame
