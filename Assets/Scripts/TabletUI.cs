@@ -51,7 +51,7 @@ public class TabletUI : MonoBehaviour
 {
 
     [SerializeField]
-    GameObject  pcPrefab, taskPrefab,basketElementPrefab,shophingInfoUI;
+   public GameObject  pcPrefab, taskPrefab,basketElementPrefab,shophingInfoUI;
 
     public Transform pcSpawnPoint, taskManager,basketPoint;
 
@@ -81,6 +81,9 @@ public class TabletUI : MonoBehaviour
 
     [SerializeField]
     public Transform[] pcProductsSpawnPoints;
+
+    [SerializeField]
+    public Transform[] pcProductsinCaseSpawnPoints;
 
     [SerializeField]
     private List<PruductClass> productWeHave = new List<PruductClass>();
@@ -932,13 +935,31 @@ public class TabletUI : MonoBehaviour
 
         ProductManager newProductManager;
 
-        GameObject newProduct = Instantiate(owned.productPrefab, pcProductsSpawnPoints[(int)owned.productType].position, pcProductsSpawnPoints[(int)owned.productType].rotation, BuyManager.buyManager.productsPointsParent.transform);
+        GameObject newProduct = Instantiate(owned.productPrefab, pcProductsinCaseSpawnPoints[(int)owned.productType].position, pcProductsinCaseSpawnPoints[(int)owned.productType].rotation, BuyManager.buyManager.productsPointsParent.transform);
 
         newProductManager = newProduct.GetComponent<ProductManager>();
 
         newProductManager.spawnPoint = pcProductsSpawnPoints[(int)owned.productType];
 
         BuyManager.buyManager.tableProducts.productTableHave.Add(newProduct.GetComponent<ProductManager>());
+
+        if (newProduct.GetComponent<CpuManager>()== null)
+        {
+
+            Debug.Log(newProduct.gameObject.name);
+
+            PCCase.pCCase.productCaseHave.Add(newProduct.GetComponent<PCCaseElement>());
+
+            PCCase.pCCase.taskType.Add(newProduct.GetComponent<PCCaseElement>().taskType);
+        }
+        else
+        {
+            PCCase.pCCase.productCaseHave.Add(newProduct.GetComponent<CpuManager>().cpu);
+            PCCase.pCCase.productCaseHave.Add(newProduct.GetComponent<CpuManager>().cpuCooler);
+        }
+
+      
+
 
         if (newProductManager.productType == PCCaseElement.ProductType.CPU)
         {

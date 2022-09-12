@@ -228,12 +228,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57f249986d464854ab886f8510cc51af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pCCaseElement: {fileID: 0}
+  elementType: 0
   UpType: 9
   DownType: 0
   DownType2: 0
   taskType: 3
-  isInstall: 0
+  isInstall: 1
   isRotate: 0
   DownisInstall: 0
   DownisInstall2: 1
@@ -241,6 +241,7 @@ MonoBehaviour:
   productType: 3
   transformPoint:
   - {fileID: 0}
+  isAddedInEnvanter: 0
 --- !u!64 &8763277401402870591
 MeshCollider:
   m_ObjectHideFlags: 0

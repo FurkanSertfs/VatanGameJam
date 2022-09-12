@@ -26,6 +26,10 @@ public class GameManager : MonoBehaviour
     public AudioClip confirmBasketSound, UIclick, buyProduct;
     public AudioSource audioSource;
 
+    public GameObject[] PCCases;
+
+    public GameObject activeCase,caseBase;
+
     private void Awake()
     {
         gameManager = this;

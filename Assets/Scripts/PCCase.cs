@@ -98,6 +98,11 @@ public class PCCase : MonoBehaviour
 
     }
 
+    private void OnEnable()
+    {
+        ChechPcOpen();
+    }
+
     void ChechPcOpen()
     {
         if (productCaseHave.Count >= caseMustHave.Length)
@@ -166,6 +171,8 @@ public class PCCase : MonoBehaviour
             if (hitProductManager != null)
             {
                 tablet.hitProductName.gameObject.SetActive(true);
+
+
                 tablet.hitProductName.text = hitProductManager.product.name;
 
                 if (hitProductManager.gameObject.GetComponent<Outline>()!=null)
@@ -299,9 +306,6 @@ public class PCCase : MonoBehaviour
                     hitinfo.collider.GetComponent<Outline>().enabled = true;
 
                     GameManager.gameManager.croshair.color = Color.blue;
-
-
-
                     if (Input.GetMouseButtonDown(0))
                     {
                         selectedObject = hitinfo.collider.gameObject;
@@ -311,52 +315,86 @@ public class PCCase : MonoBehaviour
                         ShowOutLine();
 
 
-
-
                     }
-
-                    else if (Input.GetMouseButton(1))
+                    //
+                    if (Input.GetMouseButton(1) && hitProductManager != null)
                     {
-                        
+                        GameManager.gameManager.loadingCursor.gameObject.SetActive(true);
+                        GameManager.gameManager.loadingCursor.fillAmount += Time.deltaTime;
 
-                        if (hitProductManager != null)
+                        if (GameManager.gameManager.loadingCursor.fillAmount >= 1)
                         {
-                            GameManager.gameManager.loadingCursor.fillAmount = 0;
-                            GameManager.gameManager.loadingCursor.gameObject.SetActive(true);
-                            GameManager.gameManager.loadingCursor.fillAmount += Time.deltaTime*2/3;
+                            tablet.CreateEnvanter(hitProductManager);
 
-                            if (GameManager.gameManager.loadingCursor.fillAmount>=1)
+                            for (int i = 0; i < tabletProducts.productTableHave.Count; i++)
                             {
-
-
-                                tablet.CreateEnvanter(hitProductManager);
-
-                                for (int i = 0; i < tabletProducts.productTableHave.Count; i++)
+                                if (hitProductManager.productType == tabletProducts.productTableHave[i].productType)
                                 {
-                                    if (hitProductManager.productType == tabletProducts.productTableHave[i].productType)
+                                    tabletProducts.productTableHave.RemoveAt(i);
+                                    break;
+                                }
+
+                            }
+                            if (hitProductManager.productType !=PCCaseElement.ProductType.CPU)
+                            {
+                                for (int i = 0; i < productCaseHave.Count; i++)
+                                {
+
+                                    if (hitProductManager.productType == productCaseHave[i].productType)
                                     {
-                                        tabletProducts.productTableHave.RemoveAt(i);
+                                        productCaseHave.RemoveAt(i);
                                         break;
                                     }
 
+
+                                }
+                            }
+                            else
+                            {
+                                for (int i = 0; i < productCaseHave.Count; i++)
+                                {
+
+                                    if (PCCaseElement.ProductType.CPU == productCaseHave[i].productType)
+                                    {
+                                        productCaseHave.RemoveAt(i);
+                                       
+                                    }
+
+                                   else if (PCCaseElement.ProductType.CpuCooler == productCaseHave[i].productType)
+                                    {
+                                        productCaseHave.RemoveAt(i);
+                                       
+                                    }
+
+
                                 }
 
-                                Destroy(hitProductManager.gameObject);
-                               
                             }
-                            
 
                             
+
+
+
+                            Destroy(hitProductManager.gameObject);
+
+
                         }
-                        else
-                        {
-                            GameManager.gameManager.loadingCursor.gameObject.SetActive(false);
-                        }
-
-
-
 
                     }
+
+                    else
+                    {
+                        GameManager.gameManager.loadingCursor.gameObject.SetActive(false);
+                        GameManager.gameManager.loadingCursor.fillAmount = 0;
+                    }
+                    //
+
+
+
+
+
+
+
 
 
                 }
@@ -378,23 +416,13 @@ public class PCCase : MonoBehaviour
 
                 // hitProductNameText.text = hitProductManager.product.productName + " " + hitProductManager.product.price + " TL";
 
-                if (Input.GetMouseButton(1))
+                if (Input.GetMouseButton(1)&& hitProductManager != null)
                 {
-                   
-
-                   
                     GameManager.gameManager.loadingCursor.gameObject.SetActive(true);
                     GameManager.gameManager.loadingCursor.fillAmount += Time.deltaTime;
 
-
                     if (GameManager.gameManager.loadingCursor.fillAmount >= 1)
                     {
-
-                        
-                        if (hitProductManager != null)
-                        {
-
-
                             tablet.CreateEnvanter(hitProductManager);
 
                             for (int i = 0; i < tabletProducts.productTableHave.Count; i++)
@@ -411,17 +439,10 @@ public class PCCase : MonoBehaviour
                             Destroy(hitProductManager.gameObject);
 
 
-                        }
-
                     }
                  
-
-                       
-
-
-
-
                 }
+
                 else
                 {
                     GameManager.gameManager.loadingCursor.gameObject.SetActive(false);

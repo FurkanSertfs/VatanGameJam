@@ -22,6 +22,8 @@ TagManager:
   - PowerButton
   - PCBuild
   - EnvanterElement
+  - PCEnvanterElement
+  - PCPoint
   layers:
   - Default
   - TransparentFX

@@ -25,10 +25,10 @@ public class PCCaseElement : MonoBehaviour
 
     private Outline outline;
 
-    public enum ProductType { Empty, CpuCooler, CpuCover, GPU, CPU, HDD, Ram, UpScrew, DownScrew, RightCover,CpuWithCooler }
+    public enum ProductType { Empty, CpuCooler, CpuCover, GPU, CPU, HDD, Ram, UpScrew, DownScrew, RightCover,CpuWithCooler,Case }
 
     public ProductType productType;
-
+    
     public Transform[] transformPoint;
 
     private float rotateX = -90;
@@ -49,16 +49,19 @@ public class PCCaseElement : MonoBehaviour
 
     void Update()
     {
-      
+        if (PCCase.pCCase != null)
+        {
+            if (isInstall)
+            {
+                DeinstallElement();
+            }
+            else
+            {
+                InstallElement();
+            }
+        }
 
-        if (isInstall)
-        {
-            DeinstallElement();
-        }
-        else
-        {
-            InstallElement();
-        }
+      
 
     }
     void InstallElement()

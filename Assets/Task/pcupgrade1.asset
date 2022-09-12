@@ -15,7 +15,9 @@ MonoBehaviour:
   taskDecription: "Gelen bilgisayar\u0131n sipari\u015F edilen par\xE7a ile y\xFCkseltmesini
     yap, driverlar\u0131n\u0131 kur."
   pcBuilding: 1
+  needFormat: 0
   taskAward: 3700
+  caseModel: 0
   gorevAnlatim:
   - GorevAnlat: "RTX 3060Ti Ekran Kart\u0131 \u0130le Y\xFCkselt"
     buyProduct: 14
@@ -27,15 +29,15 @@ MonoBehaviour:
     taskManagerElement: {fileID: 0}
   ownedProducts:
   - productType: 0
-    productPrefab: {fileID: 6679258289566832745, guid: f67448bb4dd5f044e9123fa293d85b20,
+    productPrefab: {fileID: 6679258289566832745, guid: 5cb21f1714326bb4a89be333a004b187,
       type: 3}
   - productType: 1
-    productPrefab: {fileID: 8763277401402870562, guid: fe899956aed809a4b9d1dc97b87fbeeb,
+    productPrefab: {fileID: 8763277401402870562, guid: 142f40af28b06d44590d8b5ccf7bca31,
       type: 3}
   - productType: 2
-    productPrefab: {fileID: 3621013353624466814, guid: 39437d0a1d3b93440b7df6399478b083,
+    productPrefab: {fileID: 3621013353624466814, guid: e0dd2d3b769110742942ac666a6e6456,
       type: 3}
   - productType: 3
-    productPrefab: {fileID: 8025141250204031504, guid: d66ca98528ff9944ea444d940ec3ffef,
+    productPrefab: {fileID: 8025141250204031504, guid: d9b18842de3f13c4ea210aebb95ecbfc,
       type: 3}
   installedApps: []

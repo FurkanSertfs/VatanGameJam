@@ -24,17 +24,58 @@ public class PCCameraControl : MonoBehaviour
         cam = GameManager.gameManager.pcBuildCam.GetComponent<Camera>();
         target = PCCase.pCCase.gameObject.transform;
 
-      
+        Vector3 direction = prevPos - cam.ScreenToViewportPoint(Input.mousePosition);
+
+
+        cam.transform.position = target.position;
+
+
+        cam.transform.Rotate(new Vector3(1, 0, 0));
+
+        cam.transform.Rotate(new Vector3(0, 1, 0), Space.World);
+
+        cam.transform.Translate(new Vector3(0, 0, zoom));
+
+        prevPos = cam.ScreenToViewportPoint(Input.mousePosition);
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        if(Input.GetAxis("Mouse ScrollWheel") !=0)
+      
+        if (Input.GetAxis("Mouse ScrollWheel") !=0)
         {
             zoom += Input.GetAxis("Mouse ScrollWheel");
-            cam.transform.Translate(new Vector3(0, 0, Input.GetAxis("Mouse ScrollWheel")));
+
+
+            if (zoom <= -2.7)
+            {
+                zoom = -2.7f;
+
+                if (Input.GetAxis("Mouse ScrollWheel") > 0)
+                {
+                    cam.transform.Translate(new Vector3(0, 0, Input.GetAxis("Mouse ScrollWheel")));
+                }
+            }
+
+            else if (zoom >= -0.8f)
+            {
+                if(Input.GetAxis("Mouse ScrollWheel") < 0)
+                {
+                    cam.transform.Translate(new Vector3(0, 0, Input.GetAxis("Mouse ScrollWheel")));
+                }
+                
+                zoom = -0.8f;
+
+            }
+            else
+            {
+                cam.transform.Translate(new Vector3(0, 0, Input.GetAxis("Mouse ScrollWheel")));
+            }
+
+          
 
         }
         if (Input.GetMouseButtonDown(1))
@@ -50,7 +91,6 @@ public class PCCameraControl : MonoBehaviour
                 
             cam.transform.position = target.position;
 
-                
             cam.transform.Rotate(new Vector3(1, 0, 0), direction.y * 40);
                
             cam.transform.Rotate(new Vector3(0, 1, 0), -direction.x * 360, Space.World);

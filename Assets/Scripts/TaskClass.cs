@@ -8,9 +8,9 @@ using UnityEngine;
 [System.Serializable]
 public class OwnedProducts
 {
-    public enum Model {CPU=0,GPU=1,RAM=2,HDD=3}
+    public enum Model {CPU=0,GPU=1,RAM=2,HDD=3,Case=4}
 
-    public Model productType; 
+    public Model productType;
     public GameObject productPrefab;
 
 }
@@ -22,7 +22,10 @@ public class GorevAnlatim
 {
     public string GorevAnlat;
 
-    public enum Taskenum { Format,Ram8, Ram16,Kart1050TÝ, Kart1650, Kart2060, Kart3060 , Kart3080 ,Virus,Driver,i7CPU,i5CPU,SSD240,SSD500,None};
+    public enum Taskenum { None,GTX1050Ti, GTX1660Ti, RTX2060, RTX2080, RTX3050, RTX3060, RTX3090,
+        i510400F, i511400F, i510600, i711700F, i910900, i911900, i911900K,
+        SSD240GB,SSD500GB,SSD1TB,RAM8GB,RAM16GB,
+        CaseMode0, CaseMode1, CaseMode2, CaseMode3, CaseMode4,Format,Virus,Driver };
 
     public Taskenum buyProduct;
 
@@ -45,6 +48,8 @@ public class TaskClass : ScriptableObject
     public bool pcBuilding,needFormat;
 
     public int taskAward;
+
+    public int caseModel;
 
     [NonReorderable]
     public List<GorevAnlatim> gorevAnlatim;

@@ -114,6 +114,7 @@ MonoBehaviour:
   productType: 6
   transformPoint:
   - {fileID: 0}
+  isAddedInEnvanter: 0
 --- !u!114 &3621013353624466785
 MonoBehaviour:
   m_ObjectHideFlags: 0

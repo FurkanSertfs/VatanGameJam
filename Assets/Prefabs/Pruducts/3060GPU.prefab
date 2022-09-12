@@ -233,7 +233,7 @@ MonoBehaviour:
   DownType: 0
   DownType2: 0
   taskType: 6
-  isInstall: 0
+  isInstall: 1
   isRotate: 0
   DownisInstall: 0
   DownisInstall2: 1
@@ -241,6 +241,7 @@ MonoBehaviour:
   productType: 3
   transformPoint:
   - {fileID: 0}
+  isAddedInEnvanter: 0
 --- !u!64 &8763277401402870591
 MeshCollider:
   m_ObjectHideFlags: 0

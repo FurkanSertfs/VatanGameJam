@@ -6,18 +6,18 @@ using DG.Tweening;
 public class BuyManager : MonoBehaviour
 {
 
-    public GameObject fpsCam,productsPointsParent;
+    public GameObject fpsCam, productsPointsParent;
 
     bool canAddTable;
 
     public Image productImage;
 
-    public Text  shopingDescriptionText, priceText,hitProductNameText;
+    public Text shopingDescriptionText, priceText, hitProductNameText;
 
     public GameObject shophingInfoUI;
 
-    ProductManager hitProductManager,newProductManager;
-    
+    ProductManager hitProductManager, newProductManager;
+
     [SerializeField]
     public TableProducts tableProducts;
 
@@ -25,7 +25,13 @@ public class BuyManager : MonoBehaviour
 
     public Transform[] Cpupoints;
 
-   public static BuyManager buyManager;
+    public static BuyManager buyManager;
+
+    TabletUI tablet;
+
+    GameManager gameManager;
+
+    GameObject newPc;
 
     float timer;
     private void Awake()
@@ -38,13 +44,15 @@ public class BuyManager : MonoBehaviour
     {
         Cursor.visible = false;
         tableProducts = TableProducts.tableProducts;
+        gameManager = GameManager.gameManager;
+        tablet = TabletUI.tabletUI;
     }
     void Update()
     {
         RaycastHit hit;
-       
-       
-        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit,7.5F)&&fpsCam.activeSelf && !TabletUI.tabletUI.Tablet.activeSelf)
+
+
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, 7.5F) && fpsCam.activeSelf && !tablet.Tablet.activeSelf)
         {
             if (hit.collider.GetComponent<ProductManager>() != null)
             {
@@ -61,89 +69,65 @@ public class BuyManager : MonoBehaviour
                 hitProductManager = null;
             }
 
-            if (hit.collider.CompareTag("EnvanterElement")&&PCCase.pCCase!=null)
+            if (hit.collider.CompareTag("PCEnvanterElement"))
             {
+                gameManager.croshair.color = Color.green;
+                gameManager.infoBuy.SetActive(false);
+                gameManager.infoOpenPc.SetActive(false);
+                gameManager.infoAddTable.SetActive(true);
+                gameManager.infoOpenMonitor.SetActive(false);
 
+
+                if (Input.GetKeyDown(KeyCode.Mouse1))
+                {
+                    if (PCCase.pCCase == null)
+                    {
+                        gameManager.activeCase = gameManager.PCCases[hitProductManager.product.caseModelID];
+                        gameManager.caseBase.SetActive(true);
+                        gameManager.activeCase.SetActive(true);
+                        Destroy(hit.collider.gameObject);
+                    }
+
+                    else
+                    {
+                        Debug.Log("Masada zaten pc var");
+                    }
+                }
+
+
+               
 
               
-                GameManager.gameManager.infoBuy.SetActive(false);
-                GameManager.gameManager.infoOpenPc.SetActive(false);
-                GameManager.gameManager.infoAddTable.SetActive(true);
-                GameManager.gameManager.infoOpenMonitor.SetActive(false);
-                GameManager.gameManager.croshair.color = Color.green;
+            }
 
-                canAddTable = true;
-
-                if (Input.GetKeyDown(KeyCode.Mouse0))
+           else if (hit.collider.CompareTag("PCPoint"))
+            {
+                gameManager.croshair.color = Color.green;
+                
+                if (Input.GetKeyDown(KeyCode.Mouse1) && PCCase.pCCase == null)
                 {
+                 
+                    gameManager.caseBase.SetActive(false);
+                    gameManager.activeCase.SetActive(false);
+                    newPc = Instantiate(tablet.pcPrefab, tablet.pcSpawnPoint.position, tablet.pcSpawnPoint.rotation,tablet.pcSpawnPoint);
 
-                    for (int i = 0; i < tableProducts.productTableHave.Count; i++)
-                    {
-                        if (hitProductManager.productType == tableProducts.productTableHave[i].productType)
-                        {
-                            canAddTable = false;
-                            break;
-                        }
-                       
-                    }
-
-                    if (canAddTable)
-                    {
-                       
-                        TabletUI.tabletUI.mod[(int)hitProductManager.product.model]-=1;
-
-                        GameObject newProduct = Instantiate(hitProductManager.product.prefabProduct, hitProductManager.spawnPoint.position, hitProductManager.spawnPoint.rotation, productsPointsParent.transform);
-                        
-                        newProductManager = newProduct.GetComponent<ProductManager>();
-
-                        newProductManager.product = hitProductManager.product;
-
-                        newProductManager.spawnPoint = hitProductManager.spawnPoint;
-
-                        newProductManager.productType = hitProductManager.productType;
-
-                        newProductManager.envanterPrefab = hitProductManager.envanterPrefab;
-
-                        if (newProduct.GetComponent<PCCaseElement>() != null)
-                        {
-                            newProduct.GetComponent<PCCaseElement>().isAddedInEnvanter = true;
-                        }
-
-                        else if(newProduct.GetComponentInParent<PCCaseElement>() != null)
-                        {
-                            newProduct.GetComponentInParent<PCCaseElement>().isAddedInEnvanter = true;
-
-                        }
-                      
-
-
-
-                        newProductManager.ID = hitProductManager.ID;
-                     
-                        if (newProductManager.productType == PCCaseElement.ProductType.CPU)
-                        {
-                            products = newProductManager.GetComponentsInChildren<PCCaseElement>();
-                            products[0].transformPoint[0] = Cpupoints[0];
-                            products[1].transformPoint[0] = Cpupoints[1];
-                        }
-
-                        else
-                        {
-                            newProductManager.GetComponent<PCCaseElement>().transformPoint[0] = hitProductManager.spawnPoint;
-                        }
-
-                        tableProducts.productTableHave.Add(newProduct.GetComponent<ProductManager>());
-
-
-
-
-                        hit.collider.gameObject.SetActive(false);
-
-                    }
+                    newPc.GetComponent<PCModels>().Cases[gameManager.activeCase.GetComponent<ProductManager>().product.caseModelID].SetActive(true);
                    
-                    
 
                 }
+
+                else
+                {
+                    Debug.Log("Masada zaten pc var");
+                }
+
+
+            }
+
+            else if (hit.collider.CompareTag("EnvanterElement") && PCCase.pCCase != null)
+            {
+
+                EnvanterItemAddToTable();
 
             }
 
@@ -152,38 +136,38 @@ public class BuyManager : MonoBehaviour
             else if (hit.collider.CompareTag("Product"))
             {
 
-             
-                GameManager.gameManager.croshair.color = Color.green;
-                GameManager.gameManager.infoBuy.SetActive(true);
-                GameManager.gameManager.infoOpenPc.SetActive(false);
-                GameManager.gameManager.infoAddTable.SetActive(false);
-                GameManager.gameManager.infoOpenMonitor.SetActive(false);
+
+                gameManager.croshair.color = Color.green;
+                gameManager.infoBuy.SetActive(true);
+                gameManager.infoOpenPc.SetActive(false);
+                gameManager.infoAddTable.SetActive(false);
+                gameManager.infoOpenMonitor.SetActive(false);
 
 
                 hitProductNameText.text = hitProductManager.product.productName + " " + hitProductManager.product.price + " TL";
 
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
-                    GameManager.gameManager.audioSource.clip = GameManager.gameManager.UIclick;
+                    gameManager.audioSource.clip = gameManager.UIclick;
 
-                    GameManager.gameManager.audioSource.Play();
+                    gameManager.audioSource.Play();
 
 
                     if (timer + 0.6f < Time.time)
                     {
                         hitProductManager = hit.collider.GetComponent<ProductManager>();
 
-                        TabletUI.tabletUI.AddProducttoBasket(hitProductManager.product);
+                        tablet.AddProducttoBasket(hitProductManager.product);
 
                         productImage.sprite = hitProductManager.product.productImage;
 
-                        shopingDescriptionText.text = hitProductManager.product.name+" Sepete Eklendi";
+                        shopingDescriptionText.text = hitProductManager.product.name + " Sepete Eklendi";
 
                         priceText.text = (hitProductManager.product.price) + " TL";
 
                         ShopDescription();
-                        
-                      
+
+
 
 
                         timer = Time.time;
@@ -192,39 +176,39 @@ public class BuyManager : MonoBehaviour
                 }
             }
 
-           else if (hit.collider.CompareTag("PC"))
+            else if (hit.collider.CompareTag("PC"))
             {
-                GameManager.gameManager.croshair.color = Color.blue;
+                gameManager.croshair.color = Color.blue;
 
-                GameManager.gameManager.infoBuy.SetActive(false);
-                GameManager.gameManager.infoOpenPc.SetActive(false);
-                GameManager.gameManager.infoAddTable.SetActive(false);
-                GameManager.gameManager.infoOpenMonitor.SetActive(true);
+                gameManager.infoBuy.SetActive(false);
+                gameManager.infoOpenPc.SetActive(false);
+                gameManager.infoAddTable.SetActive(false);
+                gameManager.infoOpenMonitor.SetActive(true);
 
 
                 if (Input.GetKeyDown(KeyCode.Mouse0))
-                { 
-                       
-                    GameManager.gameManager.ChangeCam("PC");
-               
+                {
+
+                    gameManager.ChangeCam("PC");
+
                 }
 
             }
 
             else if (hit.collider.CompareTag("PCBuild"))
             {
-                GameManager.gameManager.croshair.color = Color.blue;
+                gameManager.croshair.color = Color.blue;
 
-                GameManager.gameManager.infoBuy.SetActive(false);
-                GameManager.gameManager.infoOpenPc.SetActive(true);
-                GameManager.gameManager.infoAddTable.SetActive(false);
-                GameManager.gameManager.infoOpenMonitor.SetActive(false);
+                gameManager.infoBuy.SetActive(false);
+                gameManager.infoOpenPc.SetActive(true);
+                gameManager.infoAddTable.SetActive(false);
+                gameManager.infoOpenMonitor.SetActive(false);
 
 
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
 
-                    GameManager.gameManager.ChangeCam("PCBuild");
+                    gameManager.ChangeCam("PCBuild");
 
                 }
 
@@ -233,7 +217,7 @@ public class BuyManager : MonoBehaviour
 
             else if (hit.collider.CompareTag("Ready Product"))
             {
-                GameManager.gameManager.croshair.color = Color.blue;
+                gameManager.croshair.color = Color.blue;
 
                 if (Input.GetMouseButtonDown(1))
                 {
@@ -241,9 +225,9 @@ public class BuyManager : MonoBehaviour
                     if (hitProductManager != null)
                     {
 
-                        
 
-                        TabletUI.tabletUI.CreateEnvanter(hitProductManager);
+
+                        tablet.CreateEnvanter(hitProductManager);
 
                         for (int i = 0; i < tableProducts.productTableHave.Count; i++)
                         {
@@ -274,17 +258,17 @@ public class BuyManager : MonoBehaviour
 
             else if (hit.collider.CompareTag("State"))
             {
-                GameManager.gameManager.croshair.color = Color.blue;
+                gameManager.croshair.color = Color.blue;
 
                 if (Input.GetMouseButtonDown(1))
                 {
 
                     if (hitProductManager != null)
                     {
-                      
 
 
-                        TabletUI.tabletUI.CreateEnvanter(hitProductManager);
+
+                        tablet.CreateEnvanter(hitProductManager);
 
                         for (int i = 0; i < tableProducts.productTableHave.Count; i++)
                         {
@@ -328,11 +312,11 @@ public class BuyManager : MonoBehaviour
             else
             {
 
-                GameManager.gameManager.croshair.color = Color.white;
-                GameManager.gameManager.infoBuy.SetActive(false);
-                GameManager.gameManager.infoOpenPc.SetActive(false);
-                GameManager.gameManager.infoAddTable.SetActive(false);
-                GameManager.gameManager.infoOpenMonitor.SetActive(false);
+                gameManager.croshair.color = Color.white;
+                gameManager.infoBuy.SetActive(false);
+                gameManager.infoOpenPc.SetActive(false);
+                gameManager.infoAddTable.SetActive(false);
+                gameManager.infoOpenMonitor.SetActive(false);
 
 
             }
@@ -344,24 +328,104 @@ public class BuyManager : MonoBehaviour
         else
         {
 
-            GameManager.gameManager.croshair.color = Color.white;
-            GameManager.gameManager.infoBuy.SetActive(false);
-            GameManager.gameManager.infoOpenPc.SetActive(false);
-            GameManager.gameManager.infoAddTable.SetActive(false);
-            GameManager.gameManager.infoOpenMonitor.SetActive(false);
+            gameManager.croshair.color = Color.white;
+            gameManager.infoBuy.SetActive(false);
+            gameManager.infoOpenPc.SetActive(false);
+            gameManager.infoAddTable.SetActive(false);
+            gameManager.infoOpenMonitor.SetActive(false);
 
 
         }
     }
 
+    void EnvanterItemAddToTable()
+    {
+        gameManager.infoBuy.SetActive(false);
+        gameManager.infoOpenPc.SetActive(false);
+        gameManager.infoAddTable.SetActive(true);
+        gameManager.infoOpenMonitor.SetActive(false);
+        gameManager.croshair.color = Color.green;
 
+        canAddTable = true;
+
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+
+            for (int i = 0; i < tableProducts.productTableHave.Count; i++)
+            {
+                if (hitProductManager.productType == tableProducts.productTableHave[i].productType)
+                {
+                    canAddTable = false;
+                    break;
+                }
+
+            }
+
+            if (canAddTable)
+            {
+
+                tablet.mod[(int)hitProductManager.product.model] -= 1;
+
+                GameObject newProduct = Instantiate(hitProductManager.product.prefabProduct, hitProductManager.spawnPoint.position, hitProductManager.spawnPoint.rotation, productsPointsParent.transform);
+
+                newProductManager = newProduct.GetComponent<ProductManager>();
+
+                newProductManager.product = hitProductManager.product;
+
+                newProductManager.spawnPoint = hitProductManager.spawnPoint;
+
+                newProductManager.productType = hitProductManager.productType;
+
+                newProductManager.envanterPrefab = hitProductManager.envanterPrefab;
+
+                if (newProduct.GetComponent<PCCaseElement>() != null)
+                {
+                    newProduct.GetComponent<PCCaseElement>().isAddedInEnvanter = true;
+                }
+
+                else if (newProduct.GetComponentInParent<PCCaseElement>() != null)
+                {
+                    newProduct.GetComponentInParent<PCCaseElement>().isAddedInEnvanter = true;
+
+                }
+
+
+
+
+                newProductManager.ID = hitProductManager.ID;
+
+                if (newProductManager.productType == PCCaseElement.ProductType.CPU)
+                {
+                    products = newProductManager.GetComponentsInChildren<PCCaseElement>();
+                    products[0].transformPoint[0] = Cpupoints[0];
+                    products[1].transformPoint[0] = Cpupoints[1];
+                }
+
+                else
+                {
+                    newProductManager.GetComponent<PCCaseElement>().transformPoint[0] = hitProductManager.spawnPoint;
+                }
+
+                tableProducts.productTableHave.Add(newProduct.GetComponent<ProductManager>());
+
+
+
+                hitProductManager.gameObject.SetActive(false);
+
+
+            }
+
+
+
+        }
+    }
     void ShopDescription()
     {
         GameObject shopD = Instantiate(shophingInfoUI, shophingInfoUI.GetComponent<ShopingDes>().startPoint.transform);
-       
+
         shopD.SetActive(true);
     }
-    
+
 
 
 
