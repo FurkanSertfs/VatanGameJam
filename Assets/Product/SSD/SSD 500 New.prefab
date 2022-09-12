@@ -98,7 +98,7 @@ MonoBehaviour:
   product: {fileID: 11400000, guid: c20519f13273b9c4d83d9b322fd091a5, type: 2}
   spawnPoint: {fileID: 0}
   productType: 5
-  ID: 8
+  ID: 15
   envanterPrefab: {fileID: 9125817439676235666}
 --- !u!65 &9125817439676235665
 BoxCollider:

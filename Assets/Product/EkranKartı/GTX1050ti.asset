@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a12bfb23204f0da4f869cdceef0568aa, type: 3}
   m_Name: GTX1050ti
   m_EditorClassIdentifier: 
-  productType: 3
+  productType: 1
   model: 1
   ID: 0
   productName: GTX 1050 Ti
@@ -22,3 +22,4 @@ MonoBehaviour:
   prefabProduct: {fileID: 8763277401402870562, guid: fe899956aed809a4b9d1dc97b87fbeeb,
     type: 3}
   productImage: {fileID: 21300000, guid: 695b1d5549c8f59448e359808c631ad3, type: 3}
+  caseModelID: 0

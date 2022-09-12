@@ -114,6 +114,7 @@ MonoBehaviour:
   productType: 6
   transformPoint:
   - {fileID: 0}
+  isAddedInEnvanter: 0
 --- !u!114 &3621013353624466785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,6 +162,6 @@ MonoBehaviour:
   product: {fileID: 11400000, guid: 07c52ca507bca1a4cbea20e31c05a74f, type: 2}
   spawnPoint: {fileID: 0}
   productType: 6
-  ID: 3
+  ID: 18
   envanterPrefab: {fileID: 275430038351915756, guid: 6f5ed18f94d720c488566b5d46daf8d3,
     type: 3}

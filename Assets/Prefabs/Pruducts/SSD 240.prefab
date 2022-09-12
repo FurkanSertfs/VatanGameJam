@@ -104,7 +104,7 @@ MonoBehaviour:
   UpType: 9
   DownType: 0
   DownType2: 0
-  taskType: 12
+  taskType: 15
   isInstall: 0
   isRotate: 0
   DownisInstall: 0
@@ -161,6 +161,6 @@ MonoBehaviour:
   product: {fileID: 11400000, guid: f8b604275c3cf4145b2c03477499e01d, type: 2}
   spawnPoint: {fileID: 0}
   productType: 5
-  ID: 7
-  envanterPrefab: {fileID: 7754317421322655283, guid: a590725d3562c3f43a1443001cbe9d0c,
+  ID: 14
+  envanterPrefab: {fileID: 8697883375710151414, guid: 0a8336b88a0013e4ea2527d1b4c5786f,
     type: 3}
