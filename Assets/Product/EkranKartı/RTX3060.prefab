@@ -62,7 +62,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 1432594464388952545, guid: b85b22ef24269bf4cbf83cb4e3e49b66, type: 3}
-  - {fileID: -6056682150832676986, guid: b85b22ef24269bf4cbf83cb4e3e49b66, type: 3}
+  - {fileID: 2100000, guid: 3d9c68ba4dc015d4db21f078ba914492, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -113,5 +113,5 @@ MonoBehaviour:
   product: {fileID: 11400000, guid: 7870903ede471394c97987309487222e, type: 2}
   spawnPoint: {fileID: 0}
   productType: 3
-  ID: 2
+  ID: 5
   envanterPrefab: {fileID: 1057881245177971571}

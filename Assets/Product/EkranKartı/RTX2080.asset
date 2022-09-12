@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a12bfb23204f0da4f869cdceef0568aa, type: 3}
+  m_Name: RTX2080
+  m_EditorClassIdentifier: 
+  productType: 4
+  model: 1
+  ID: 3
+  productName: RTX 2080
+  price: 2000
+  prefabEnvanter: {fileID: 1057881245177971571, guid: d83f64ed6a3d7aa4fb52020351a73074,
+    type: 3}
+  prefabProduct: {fileID: 8763277401402870562, guid: 4809383052ce5674cb6b503206e60515,
+    type: 3}
+  productImage: {fileID: 21300000, guid: 72d05684d4f39434487f372063f0c804, type: 3}
+  caseModelID: 0
