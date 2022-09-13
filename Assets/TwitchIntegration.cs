@@ -69,7 +69,7 @@ public class TwitchIntegration : MonoBehaviour
 
         yield return new WaitForSeconds(1);
 
-        if (timer+1 > Time.time)
+        if (timer - Time.time >=0)
         {
             StartCoroutine(Voting(false));
         }
