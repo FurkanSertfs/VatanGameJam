@@ -62,6 +62,7 @@ public class PCUI : MonoBehaviour
             {
 
                 closeScreen.SetActive(true);
+              
                 PowerButton.powerButton.CloseB();
 
             }

@@ -15,6 +15,8 @@ public class Product : ScriptableObject
     
     public int ID;
 
+    public float skor;
+
     public string productName;
 
     public int price;

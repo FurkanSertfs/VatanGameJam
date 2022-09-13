@@ -15,6 +15,7 @@ MonoBehaviour:
   productType: 2
   model: 1
   ID: 1
+  skor: 7.4
   productName: GTX 1660 Ti
   price: 3000
   prefabEnvanter: {fileID: 4393125770643796167, guid: 8deb9cb21fc58d2469179474a28ead5b,

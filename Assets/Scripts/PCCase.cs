@@ -43,7 +43,21 @@ public class PCCase : MonoBehaviour
 
     private TabletUI tablet;
 
-    bool isCoverOpnned;
+    public bool isPriced;
+
+    public int sellPrice, sellBitPrice, caseScore, sellChance,caseCost, recommendedPrice,fiyatPerformans=100;
+
+    public string caseName;
+
+    public float caseSkor;
+
+    public float tempSkor;
+
+    bool isCoverOppened;
+
+    public bool calculatedPrice;
+
+   public List<GameObject> productWeUsed= new List<GameObject>();
 
 
 
@@ -458,9 +472,6 @@ public class PCCase : MonoBehaviour
 
                 if (Input.GetMouseButtonDown(0))
                 {
-
-                   
-
                     selectedObject.transform.DOMove(hitinfo.collider.gameObject.transform.position, 1);
 
                     selectedObject.transform.DORotateQuaternion(hitinfo.collider.gameObject.transform.rotation, 1);
@@ -477,7 +488,7 @@ public class PCCase : MonoBehaviour
 
                     if (productType == PCCaseElement.ProductType.RightCover)
                     {
-                        screwDown.transform.DOMove(screwDownBase.position, 1);
+                        screwDown.transform.DOMove(screwDownBase.position, 1).OnComplete(() => ShowCaceScore());
 
                         screwDown.gameObject.tag = "PcElement";
 
@@ -524,6 +535,108 @@ public class PCCase : MonoBehaviour
             GameManager.gameManager.loadingCursor.gameObject.SetActive(false);
             GameManager.gameManager.croshair.color = Color.white;
 
+        }
+    }
+
+    void ShowCaceScore()
+    {
+     
+        if (tablet.startedTaskClass.task == null)
+          
+        {
+            fiyatPerformans = 100;
+
+            CaseScore.caseScore.gameObject.SetActive(true);
+
+            if (!isPriced)
+            {
+                for (int i = 0; i < productWeUsed.Count; i++)
+                {
+                    Destroy(productWeUsed[i].gameObject);
+                }
+
+                productWeUsed.Clear();
+
+                for (int i = 0; i < taskType.Count; i++)
+                {
+
+
+                    if (taskType[i] == GorevAnlatim.Taskenum.None)
+                    {
+
+
+                    }
+                    else
+                    {
+
+                        for (int j = 0; j < productCaseHave.Count; j++)
+                        {
+
+                            if (taskType[i] == productCaseHave[j].taskType)
+                            {
+
+                                productWeUsed.Add(Instantiate(CaseScore.caseScore.usedProductElement, CaseScore.caseScore.usedProductElementLayout));
+
+
+                                if (productCaseHave[j].GetComponent<ProductManager>() != null)
+                                {
+                                    productWeUsed[productWeUsed.Count - 1].GetComponent<UsedProducts>().productName.text = productCaseHave[j].GetComponent<ProductManager>().product.productName;
+
+                                    productWeUsed[productWeUsed.Count - 1].GetComponent<UsedProducts>().productPrice.text = productCaseHave[j].GetComponent<ProductManager>().product.price.ToString() + " TL";
+
+                                    caseCost += productCaseHave[j].GetComponent<ProductManager>().product.price;
+
+                                    tempSkor += productCaseHave[j].GetComponent<ProductManager>().product.skor;
+                                }
+
+                                else if (productCaseHave[j].GetComponentInParent<ProductManager>() != null)
+                                {
+                                    productWeUsed[productWeUsed.Count - 1].GetComponent<UsedProducts>().productName.text = productCaseHave[j].GetComponentInParent<ProductManager>().product.productName;
+
+                                    productWeUsed[productWeUsed.Count - 1].GetComponent<UsedProducts>().productPrice.text = productCaseHave[j].GetComponentInParent<ProductManager>().product.price.ToString() + " TL";
+
+                                    caseCost += productCaseHave[j].GetComponentInParent<ProductManager>().product.price;
+
+                                    tempSkor += productCaseHave[j].GetComponentInParent<ProductManager>().product.skor;
+                                }
+
+
+
+
+                            }
+
+
+
+                        }
+                    }
+
+
+                }
+
+
+
+                if (GameManager.gameManager.twitchIntegration)
+                {
+
+
+
+                }
+                else
+                {
+                    float min = tempSkor + caseSkor;
+
+                    DOTween.To(() => 0, x => caseScore = x, Random.Range((int)min, (int)min + 10), 3.5F).OnComplete(() => CaseScore.caseScore.RecommendedPrice());
+
+                    DOTween.To(() => 0.1f, x => CaseScore.caseScore.scoreBar.fillAmount = x, Random.Range((int)min, (int)min + 10) / 100.0f, 3.5F);
+
+
+                }
+
+                CaseScore.caseScore.priceSlider.minValue = caseCost;
+
+                CaseScore.caseScore.priceSlider.maxValue = caseCost * 3;
+
+            }
         }
     }
 

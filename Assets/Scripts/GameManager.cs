@@ -28,7 +28,11 @@ public class GameManager : MonoBehaviour
 
     public GameObject[] PCCases;
 
-    public GameObject activeCase,caseBase;
+    public GameObject activeCase,caseBase, sellCaseScreen;
+
+    public int bitTLRatio;
+
+    public bool twitchIntegration;
 
     private void Awake()
     {
@@ -56,12 +60,7 @@ public class GameManager : MonoBehaviour
 
         moneyText.text = money.ToString() + " TL";
 
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            GameObject testO = Instantiate(pcPrefab, pcpoint.position, pcpoint.rotation,pcpoint.transform);
-
-            testO.SetActive(true);
-        }
+      
       
     }
 

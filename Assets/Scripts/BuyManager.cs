@@ -77,15 +77,33 @@ public class BuyManager : MonoBehaviour
                 gameManager.infoAddTable.SetActive(true);
                 gameManager.infoOpenMonitor.SetActive(false);
 
+                bool allDisabled = true;
 
                 if (Input.GetKeyDown(KeyCode.Mouse1))
                 {
                     if (PCCase.pCCase == null)
                     {
-                        gameManager.activeCase = gameManager.PCCases[hitProductManager.product.caseModelID];
-                        gameManager.caseBase.SetActive(true);
-                        gameManager.activeCase.SetActive(true);
-                        Destroy(hit.collider.gameObject);
+                        for (int i = 0; i < gameManager.PCCases.Length; i++)
+                        {
+                            if (gameManager.PCCases[i].activeSelf)
+                            {
+                                allDisabled = false;
+                            }
+                        }
+
+                        if (allDisabled)
+                        {
+                            gameManager.activeCase = gameManager.PCCases[hitProductManager.product.caseModelID];
+                            gameManager.caseBase.SetActive(true);
+                            gameManager.activeCase.SetActive(true);
+                            Destroy(hit.collider.gameObject);
+                        }
+                        else
+                        {
+                            Debug.Log("Kucaginda kasa var");
+
+                        }
+
                     }
 
                     else
@@ -103,23 +121,29 @@ public class BuyManager : MonoBehaviour
            else if (hit.collider.CompareTag("PCPoint"))
             {
                 gameManager.croshair.color = Color.green;
-                
-                if (Input.GetKeyDown(KeyCode.Mouse1) && PCCase.pCCase == null)
-                {
-                 
-                    gameManager.caseBase.SetActive(false);
-                    gameManager.activeCase.SetActive(false);
-                    newPc = Instantiate(tablet.pcPrefab, tablet.pcSpawnPoint.position, tablet.pcSpawnPoint.rotation,tablet.pcSpawnPoint);
 
-                    newPc.GetComponent<PCModels>().Cases[gameManager.activeCase.GetComponent<ProductManager>().product.caseModelID].SetActive(true);
-                   
+
+                if (Input.GetKeyDown(KeyCode.Mouse1))
+                {
+                    if (PCCase.pCCase == null)
+                    {
+
+
+                        gameManager.caseBase.SetActive(false);
+                        gameManager.activeCase.SetActive(false);
+                        newPc = Instantiate(tablet.pcPrefab, tablet.pcSpawnPoint.position, tablet.pcSpawnPoint.rotation, tablet.pcSpawnPoint);
+
+                        newPc.GetComponent<PCModels>().Cases[gameManager.activeCase.GetComponent<ProductManager>().product.caseModelID].SetActive(true);
+
+                    }
+
+                    else
+                    {
+                        Debug.Log("Masada zaten pc var");
+                    }
 
                 }
 
-                else
-                {
-                    Debug.Log("Masada zaten pc var");
-                }
 
 
             }
@@ -211,6 +235,28 @@ public class BuyManager : MonoBehaviour
                     gameManager.ChangeCam("PCBuild");
 
                 }
+
+                if (Input.GetKeyDown(KeyCode.Mouse1))
+                {
+                    if (PCCase.pCCase == null)
+                    {
+
+
+                        gameManager.caseBase.SetActive(false);
+                        gameManager.activeCase.SetActive(false);
+                        newPc = Instantiate(tablet.pcPrefab, tablet.pcSpawnPoint.position, tablet.pcSpawnPoint.rotation, tablet.pcSpawnPoint);
+
+                        newPc.GetComponent<PCModels>().Cases[gameManager.activeCase.GetComponent<ProductManager>().product.caseModelID].SetActive(true);
+
+                    }
+
+                    else
+                    {
+                        Debug.Log("Masada zaten pc var");
+                    }
+
+                }
+
 
             }
 

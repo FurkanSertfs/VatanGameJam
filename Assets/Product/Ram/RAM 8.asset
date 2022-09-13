@@ -15,6 +15,7 @@ MonoBehaviour:
   productType: 18
   model: 2
   ID: 17
+  skor: 0.83
   productName: Forsael 8GB Ram
   price: 500
   prefabEnvanter: {fileID: 3941955305474158406, guid: 125135ef9ddb7e843965aee3b8fa90e5,

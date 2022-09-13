@@ -15,6 +15,7 @@ MonoBehaviour:
   productType: 3
   model: 1
   ID: 2
+  skor: 11.1
   productName: RTX 2060
   price: 2000
   prefabEnvanter: {fileID: 1057881245177971571, guid: a96070e7d036eca4f8a4eda789b986c1,

@@ -15,6 +15,7 @@ MonoBehaviour:
   productType: 1
   model: 1
   ID: 0
+  skor: 3.7
   productName: GTX 1050 Ti
   price: 2000
   prefabEnvanter: {fileID: 2145944453165270401, guid: a016ef4c8e7788c47b121716a36c6f40,

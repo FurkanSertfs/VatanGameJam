@@ -15,6 +15,7 @@ MonoBehaviour:
   productType: 19
   model: 2
   ID: 18
+  skor: 1.66
   productName: Forsael 16GB Ram
   price: 800
   prefabEnvanter: {fileID: 275430038351915756, guid: 6f5ed18f94d720c488566b5d46daf8d3,

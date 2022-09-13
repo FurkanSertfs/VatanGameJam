@@ -15,6 +15,7 @@ MonoBehaviour:
   productType: 9
   model: 0
   ID: 8
+  skor: 11.1
   productName: Intel I5 11400F
   price: 2500
   prefabEnvanter: {fileID: 7456322186176621382, guid: b01bd91369dd5d048a50eb566057f953,

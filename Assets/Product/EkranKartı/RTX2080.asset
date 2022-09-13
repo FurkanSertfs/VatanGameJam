@@ -15,6 +15,7 @@ MonoBehaviour:
   productType: 4
   model: 1
   ID: 3
+  skor: 18.5
   productName: RTX 2080
   price: 2000
   prefabEnvanter: {fileID: 1057881245177971571, guid: d83f64ed6a3d7aa4fb52020351a73074,
