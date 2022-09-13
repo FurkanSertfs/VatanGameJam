@@ -99,11 +99,11 @@ public class CaseScore : MonoBehaviour
     }
     public void CalculateFiyutPerformans()
     {
-        Debug.Log(tempFiyatPerformans);
+        Debug.Log(tempFiyatPerformans + "Temp Fiyat");
 
         pc.fiyatPerformans = tempFiyatPerformans;
 
-        Debug.Log(pc.fiyatPerformans);
+        Debug.Log(pc.fiyatPerformans + " Fiyat Performans");
 
         if (pc.calculatedPrice)
         {
