@@ -103,6 +103,7 @@ public class CaseScore : MonoBehaviour
         {
             pc.fiyatPerformans = tempFiyatPerformans;
 
+            
 
             overPercent = (pc.sellPrice - pc.recommendedPrice) * 100 / pc.recommendedPrice;
 
@@ -117,6 +118,8 @@ public class CaseScore : MonoBehaviour
             {
                 pc.fiyatPerformans = 0;
             }
+
+            priceSlider.maxValue = (3 * pc.recommendedPrice / 2);
         }
        
     }

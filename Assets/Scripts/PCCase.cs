@@ -627,9 +627,9 @@ public class PCCase : MonoBehaviour
 
                     float min = tempSkor + caseSkor;
 
-                    DOTween.To(() => 0, x => caseScore = x, Random.Range((int)min, (int)min + 10), 3.5F).OnComplete(() => CaseScore.caseScore.RecommendedPrice());
+                    DOTween.To(() => 0, x => caseScore = x, Random.Range((int)min, (int)min + 10), 2F).OnComplete(() => CaseScore.caseScore.RecommendedPrice());
 
-                    DOTween.To(() => 0.1f, x => CaseScore.caseScore.scoreBar.fillAmount = x, Random.Range((int)min, (int)min + 10) / 100.0f, 3.5F);
+                    DOTween.To(() => 0.1f, x => CaseScore.caseScore.scoreBar.fillAmount = x, Random.Range((int)min, (int)min + 10) / 100.0f, 2F);
 
 
                 }
