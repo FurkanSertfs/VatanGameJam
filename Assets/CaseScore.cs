@@ -90,9 +90,7 @@ public class CaseScore : MonoBehaviour
 
             sellBitPriceText.text = pc.sellBitPrice.ToString() + " Bit";
             
-            chatInfoText.text = "";
-
-            timeInfoText.text = "";
+           
         }
 
 
