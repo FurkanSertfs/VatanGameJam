@@ -99,15 +99,22 @@ public class CaseScore : MonoBehaviour
     }
     public void CalculateFiyutPerformans()
     {
+        Debug.Log(tempFiyatPerformans);
+
         pc.fiyatPerformans = tempFiyatPerformans;
+
+        Debug.Log(pc.fiyatPerformans);
 
         if (pc.calculatedPrice)
         {
+
+            Debug.Log("kaçkere");
+
+
             overPercent = (pc.sellPrice - pc.recommendedPrice) * 100 / pc.recommendedPrice;
 
-            pc.fiyatPerformans -= (int)(overPercent * 2;
+            pc.fiyatPerformans -= (int)(overPercent * 2);
 
-            Debug.Log(overPercent);
            
             if (pc.fiyatPerformans > 100)
             {
