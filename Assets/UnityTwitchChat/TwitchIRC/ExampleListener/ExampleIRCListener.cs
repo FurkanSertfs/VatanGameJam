@@ -88,6 +88,7 @@ public class ExampleIRCListener : MonoBehaviour
                         voterList.Add(int.Parse(msg[1]));
                     }
 
+                  TwitchIntegration.twitchIntegration.UpdateScore();
 
                 }
             }

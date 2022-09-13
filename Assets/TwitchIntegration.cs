@@ -27,6 +27,19 @@ public class TwitchIntegration : MonoBehaviour
         userList = ExampleIRCListener.userList;
     }
 
+    public void UpdateScore()
+    {
+        totalScore = 0;
+
+        for (int i = 0; i < userList.voterList.Count; i++)
+        {
+            totalScore += userList.voterList[i];
+
+        }
+
+        PCCase.pCCase.caseScore = totalScore / userList.voterList.Count;
+    }
+
     public IEnumerator Voting(bool ClearList)
     {
       
@@ -43,7 +56,7 @@ public class TwitchIntegration : MonoBehaviour
 
         CaseScore.caseScore.chatInfoText.text = "Puanlamak için Chate " + "!Vote puan"+ "yaz";
 
-        CaseScore.caseScore.timeInfoText.text = (timer - Time.time).ToString();
+        CaseScore.caseScore.timeInfoText.text = ((int)timer - Time.time).ToString();
 
 
         if (timer < Time.time)
@@ -53,7 +66,7 @@ public class TwitchIntegration : MonoBehaviour
 
         yield return new WaitForSeconds(1);
 
-        if (timer > Time.time)
+        if (timer > Time.time+1)
         {
             StartCoroutine(Voting(false));
         }
@@ -61,14 +74,6 @@ public class TwitchIntegration : MonoBehaviour
         else
         {
             isVoting = false;
-
-            for (int i = 0; i < userList.voterList.Count; i++)
-            {
-                totalScore += userList.voterList[i];
-
-            }
-            PCCase.pCCase.caseScore = totalScore / userList.voterList.Count;
-
 
 
 
