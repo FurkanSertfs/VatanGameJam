@@ -8,7 +8,11 @@ public class TwitchIntegration : MonoBehaviour
 
     public int voteTime = 10;
 
+    int totalScore;
+
     float timer;
+
+    ExampleIRCListener userList;
 
     public bool isVoting;
 
@@ -18,10 +22,29 @@ public class TwitchIntegration : MonoBehaviour
 
 
     }
-
-    IEnumerator Voting()
+    private void Start()
     {
+        userList = ExampleIRCListener.userList;
+    }
+
+    public IEnumerator Voting(bool ClearList)
+    {
+      
+
+        if (ClearList)
+        {
+            totalScore = 0;
+            userList.voterList.Clear();
+            
+        }
+
+
         isVoting = true;
+
+        CaseScore.caseScore.chatInfoText.text = "Puanlamak için Chate " + "!Vote puan"+ "yaz";
+
+        CaseScore.caseScore.timeInfoText.text = (timer - Time.time).ToString();
+
 
         if (timer < Time.time)
         {
@@ -32,12 +55,24 @@ public class TwitchIntegration : MonoBehaviour
 
         if (timer > Time.time)
         {
-            StartCoroutine(Voting());
+            StartCoroutine(Voting(false));
         }
 
         else
         {
             isVoting = false;
+
+            for (int i = 0; i < userList.voterList.Count; i++)
+            {
+                totalScore += userList.voterList[i];
+
+            }
+            PCCase.pCCase.caseScore = totalScore / userList.voterList.Count;
+
+
+
+
+            CaseScore.caseScore.RecommendedPrice();
         }
    
     }

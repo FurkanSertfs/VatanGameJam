@@ -21,7 +21,7 @@ public class TwitchConnet : MonoBehaviour
     string User = "mecetfree";
 
     string OAuth = "oauth:s27whwnyq05bwrogdsogtlrwxjaqna";
-    string Channel = "grimnax";
+    string Channel = "furkansertfs";
 
     float PingCounter = 0;
     private void ConnectToTwitch()

@@ -177,7 +177,10 @@ public class TwitchIRC : MonoBehaviour
                     continue;
 
                 if (settings.debugIRC)
-                    Debug.Log("<color=#005ae0><b>[IRC INPUT]</b></color> " + raw);
+                {
+                 //   Debug.Log("<color=#005ae0><b>[IRC INPUT]</b></color> " + raw);
+                }
+                  
 
                 string ircString = raw;
                 string tagString = string.Empty;
@@ -226,7 +229,7 @@ public class TwitchIRC : MonoBehaviour
     private Queue<string> outputQueue = new Queue<string>();
     private void IRCOutputProc()
     {
-        Debug.Log("IRCOutput Thread (Send) started");
+      //  Debug.Log("IRCOutput Thread (Send) started");
 
         System.Diagnostics.Stopwatch cooldown = new System.Diagnostics.Stopwatch();
         

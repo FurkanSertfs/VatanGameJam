@@ -95,6 +95,7 @@ public class CaseScore : MonoBehaviour
             timeInfoText.text = "";
         }
 
+
        
     }
     public void CalculateFiyutPerformans()

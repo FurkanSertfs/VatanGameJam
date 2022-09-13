@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,17 @@ public class ExampleIRCListener : MonoBehaviour
 {
     private TwitchIRC IRC;
 
-    public List<Chatter> latestChatter;
+    public List<int> voterList;
+
+
+
+    public static ExampleIRCListener userList;
+
+    private void Awake()
+    {
+        userList = this;
+    }
+
 
     private void Start()
     {
@@ -43,9 +54,44 @@ public class ExampleIRCListener : MonoBehaviour
 
         if (chatter.message == "!join")
             Debug.Log(chatter.tags.displayName + " said !join");
-        if (chatter.message.Contains("Cheer"))
+      
+        if (chatter.message.Contains("!vote"))
         {
-            latestChatter.Add(chatter);
+            if (TwitchIntegration.twitchIntegration.isVoting)
+            {
+                string[] msg;
+                bool isN = true;
+                msg = chatter.message.Split(' ');
+
+                for (int i = 0; i < msg[1].Length; i++)
+                {
+                    if (!Char.IsNumber(msg[1][i]))
+                    {
+                        isN = false;
+                    }
+                }
+                if (isN)
+                {
+                    if (int.Parse(msg[1]) >= 100)
+
+                    {
+                        voterList.Add(100);
+
+
+                    }
+                    else if (int.Parse(msg[1]) <= 0)
+                    {
+                        voterList.Add(0);
+                    }
+                    else
+                    {
+                        voterList.Add(int.Parse(msg[1]));
+                    }
+
+
+                }
+            }
+            
         }
 
         // Get chatter's name color (RGBA Format)
