@@ -58,8 +58,6 @@ public class CaseScore : MonoBehaviour
             
             costText.text = pc.caseCost.ToString();
             
-            chanceText.text = pc.sellChance.ToString();
-
             recommendedPriceText.text = "";
             
             chatInfoText.text = "";
@@ -91,9 +89,7 @@ public class CaseScore : MonoBehaviour
             sellPriceText.text = pc.sellPrice.ToString() + " TL";
 
             sellBitPriceText.text = pc.sellBitPrice.ToString() + " Bit";
-
-            chanceText.text = pc.sellChance.ToString();
-
+            
             chatInfoText.text = "";
 
             timeInfoText.text = "";
@@ -107,9 +103,16 @@ public class CaseScore : MonoBehaviour
 
         if (pc.calculatedPrice)
         {
-            overPercent = (pc.sellBitPrice - pc.recommendedPrice) * 100 / pc.recommendedPrice;
+            overPercent = (pc.sellPrice - pc.recommendedPrice) * 100 / pc.recommendedPrice;
 
-            pc.fiyatPerformans -= (int)(overPercent - profitrate) * 3;
+            pc.fiyatPerformans -= (int)(overPercent * 2;
+
+            Debug.Log(overPercent);
+           
+            if (pc.fiyatPerformans > 100)
+            {
+                pc.fiyatPerformans = 100;
+            }
         }
        
     }
