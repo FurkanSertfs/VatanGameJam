@@ -6,7 +6,7 @@ public class TwitchIntegration : MonoBehaviour
 {
     public  static TwitchIntegration twitchIntegration;
 
-    public int voteTime = 10;
+    public int voteTime;
 
     int totalScore;
 
