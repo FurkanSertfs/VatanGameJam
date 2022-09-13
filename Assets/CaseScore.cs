@@ -99,16 +99,9 @@ public class CaseScore : MonoBehaviour
     }
     public void CalculateFiyutPerformans()
     {
-        Debug.Log(tempFiyatPerformans + "Temp Fiyat");
-
-        pc.fiyatPerformans = tempFiyatPerformans;
-
-        Debug.Log(pc.fiyatPerformans + " Fiyat Performans");
-
-        if (pc.calculatedPrice)
+      if (pc.calculatedPrice)
         {
-
-            Debug.Log("kaçkere");
+            pc.fiyatPerformans = tempFiyatPerformans;
 
 
             overPercent = (pc.sellPrice - pc.recommendedPrice) * 100 / pc.recommendedPrice;
@@ -119,6 +112,10 @@ public class CaseScore : MonoBehaviour
             if (pc.fiyatPerformans > 100)
             {
                 pc.fiyatPerformans = 100;
+            }
+           else if (pc.fiyatPerformans < 0)
+            {
+                pc.fiyatPerformans = 0;
             }
         }
        
@@ -137,8 +134,13 @@ public class CaseScore : MonoBehaviour
             PCCase.pCCase.recommendedPrice = PCCase.pCCase.caseCost + (int)(PCCase.pCCase.caseCost * profitrate/100);
         }
 
+       
         priceSlider.value = pc.recommendedPrice;
+
+       
+
         tempFiyatPerformans = pc.fiyatPerformans;
+        
         pc.calculatedPrice = true;
 
 
@@ -155,7 +157,8 @@ public class CaseScore : MonoBehaviour
     public void SellPrice()
     {
         
-         pc.sellPrice = (int)priceSlider.value;
+        pc.sellPrice = (int)priceSlider.value;
+        
         CalculateFiyutPerformans();
     }
 

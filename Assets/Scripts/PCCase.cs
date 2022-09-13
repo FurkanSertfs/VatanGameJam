@@ -545,6 +545,7 @@ public class PCCase : MonoBehaviour
           
         {
             fiyatPerformans = 100;
+            
 
             CaseScore.caseScore.gameObject.SetActive(true);
 
@@ -623,6 +624,7 @@ public class PCCase : MonoBehaviour
                 }
                 else
                 {
+
                     float min = tempSkor + caseSkor;
 
                     DOTween.To(() => 0, x => caseScore = x, Random.Range((int)min, (int)min + 10), 3.5F).OnComplete(() => CaseScore.caseScore.RecommendedPrice());
@@ -635,6 +637,8 @@ public class PCCase : MonoBehaviour
                 CaseScore.caseScore.priceSlider.minValue = caseCost;
 
                 CaseScore.caseScore.priceSlider.maxValue = caseCost * 3;
+
+             
 
             }
         }
