@@ -618,6 +618,7 @@ public class PCCase : MonoBehaviour
 
                 if (GameManager.gameManager.twitchIntegration)
                 {
+                    Debug.Log("test");
                     TwitchIntegration.twitchIntegration.StartCoroutine(TwitchIntegration.twitchIntegration.Voting(true));
 
 
