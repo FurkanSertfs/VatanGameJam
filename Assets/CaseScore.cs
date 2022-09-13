@@ -123,6 +123,11 @@ public class CaseScore : MonoBehaviour
        
     }
 
+    public void Confirm()
+    {
+
+    }
+
     public void RecommendedPrice()
     {
         profitrate = (PCCase.pCCase.caseScore + 20) / 4;
