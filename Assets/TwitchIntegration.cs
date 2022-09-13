@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class TwitchIntegration : MonoBehaviour
 {
@@ -38,6 +39,8 @@ public class TwitchIntegration : MonoBehaviour
         }
 
         PCCase.pCCase.caseScore = totalScore / userList.voterList.Count;
+
+        CaseScore.caseScore.scoreBar.fillAmount = 0;
     }
 
     public IEnumerator Voting(bool ClearList)
@@ -56,7 +59,7 @@ public class TwitchIntegration : MonoBehaviour
 
         CaseScore.caseScore.chatInfoText.text = "Puanlamak için Chate " + "!Vote puan"+ "yaz";
 
-        CaseScore.caseScore.timeInfoText.text = ((int)timer - Time.time).ToString();
+        CaseScore.caseScore.timeInfoText.text = ((int)(timer - Time.time)).ToString();
 
 
         if (timer < Time.time)
@@ -66,7 +69,7 @@ public class TwitchIntegration : MonoBehaviour
 
         yield return new WaitForSeconds(1);
 
-        if (timer > Time.time+1)
+        if (timer+1 > Time.time)
         {
             StartCoroutine(Voting(false));
         }
@@ -75,7 +78,9 @@ public class TwitchIntegration : MonoBehaviour
         {
             isVoting = false;
 
+            DOTween.To(() => 0.1f, x => CaseScore.caseScore.scoreBar.fillAmount = x, PCCase.pCCase.caseScore / 100.0f, 1F);
 
+          
 
             CaseScore.caseScore.RecommendedPrice();
         }
