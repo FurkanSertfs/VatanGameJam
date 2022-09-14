@@ -42,9 +42,13 @@ public class TwitchIntegrationObject : MonoBehaviour
 
     public void ConnectTwitch()
     {
+        if (joinField.text != "")
+        { 
+        
+        }
 
 
-        if (isConnected)
+            if (isConnected)
         {
             isConnected = false;
             debugText.text = "Lütfen Bekleyiniz Çýkýþ Yapýlýyor";
@@ -80,9 +84,14 @@ public class TwitchIntegrationObject : MonoBehaviour
 
     public void ChannerNameEnd()
     {
-        TwitchIRC.twitchIRC.twitchDetails.channel = channelName.text;
-        
-        connectObject.SetActive(true);
+        if (channelName.text != "")
+        {
+            TwitchIRC.twitchIRC.twitchDetails.channel = channelName.text;
+
+            connectObject.SetActive(true);
+        }
+
+
     }
 
 
