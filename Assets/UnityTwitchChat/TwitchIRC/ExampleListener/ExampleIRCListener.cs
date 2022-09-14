@@ -1,7 +1,19 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+
+
+[System.Serializable]
+public class AuctionUser
+{
+
+    public string userName;
+
+    public int userBitAmount;
+
+}
 
 public class ExampleIRCListener : MonoBehaviour
 {
@@ -9,9 +21,16 @@ public class ExampleIRCListener : MonoBehaviour
 
     public List<int> voterList;
 
+    public List<string> pcTaskList;
 
+    List<AuctionUser> auctionUsers= new List<AuctionUser>();
+
+    public List<AuctionUser> sortedAuctionUsers=new List<AuctionUser>();
 
     public static ExampleIRCListener userList;
+
+    bool furkan, fati,eren;
+
 
     private void Awake()
     {
@@ -40,8 +59,31 @@ public class ExampleIRCListener : MonoBehaviour
 
         // Here are some examples on how you could use the chatter objects...
 
-        if (chatter.tags.displayName == "Lexone")
-            Debug.Log("Chat message was sent by Lexone!");
+        if (chatter.tags.displayName == "furkansertfs"&&!furkan)
+        {
+            furkan = true;
+            TwitchIRC.twitchIRC.stream.WriteLine("PRIVMSG #" + TwitchIRC.twitchIRC.twitchDetails.channel.ToLower() + " :Ohoo Furkan beyler gelmiþ hoþgelmiþ");
+
+           /// Debug.Log("Chat message was sent by Lexone!");
+        }
+
+
+        if (chatter.tags.displayName == "plejaa" && !eren)
+        {
+            eren = true;
+            TwitchIRC.twitchIRC.stream.WriteLine("PRIVMSG #" + TwitchIRC.twitchIRC.twitchDetails.channel.ToLower() + " :Plejaaaa'da burda hoþgeldin");
+
+            /// Debug.Log("Chat message was sent by Lexone!");
+        }
+
+        if (chatter.tags.displayName == "ceyranci_"&&!fati)
+        {
+            fati = true;
+            TwitchIRC.twitchIRC.stream.WriteLine("PRIVMSG #" + TwitchIRC.twitchIRC.twitchDetails.channel.ToLower() + " :Oruspularedan Fati hosgeldin <3");
+
+            /// Debug.Log("Chat message was sent by Lexone!");
+        }
+
 
         if (chatter.HasBadge("subscriber"))
             Debug.Log("Chat message sender is a subscriber");
@@ -53,9 +95,74 @@ public class ExampleIRCListener : MonoBehaviour
             Debug.Log("Chat message contained the Kappa emote");
 
         if (chatter.message == "!join")
-            Debug.Log(chatter.tags.displayName + " said !join");
-      
-        if (chatter.message.Contains("!vote"))
+        {
+            if(chatter.login== "ceyranci_")
+            {
+                pcTaskList.Add("Oruspu Fati");
+                TwitchIRC.twitchIRC.stream.WriteLine("PRIVMSG #" + TwitchIRC.twitchIRC.twitchDetails.channel.ToLower() + " :Oruspu " + chatter.login + " katýldý");
+            }
+            else
+            {
+                pcTaskList.Add(chatter.login);
+                TwitchIRC.twitchIRC.stream.WriteLine("PRIVMSG #" + TwitchIRC.twitchIRC.twitchDetails.channel.ToLower() + " :"+ chatter.login + " katýldý");
+            }
+          
+        }
+        if (chatter.message.Contains("Fheer"))
+        {
+            string temp = "";
+            bool isHere = false;
+
+            for (int i = 5; i < chatter.message.Length; i++)
+            {
+                if (!Char.IsNumber(chatter.message[i]))
+                {
+                    break;
+                }
+
+                else
+                {
+                    temp += chatter.message[i];
+
+                }
+            }
+
+            if (temp != "")
+            {
+                for (int i = 0; i < auctionUsers.Count; i++)
+                {
+                    if (chatter.login == auctionUsers[i].userName)
+                    {
+                        isHere = true;
+                        auctionUsers[i].userBitAmount += int.Parse(temp);
+                    }
+                }
+
+
+
+                if (!isHere)
+                {
+
+                    auctionUsers.Add(new AuctionUser());
+
+                    auctionUsers[auctionUsers.Count - 1].userName = chatter.login;
+
+                    auctionUsers[auctionUsers.Count - 1].userBitAmount = int.Parse(temp);
+
+                }
+
+
+                EditListbyBitAmount();
+            }
+
+           
+                
+
+
+
+        }
+
+            if (chatter.message.Contains("!vote"))
         {
             if (TwitchIntegration.twitchIntegration.isVoting)
             {
@@ -70,7 +177,8 @@ public class ExampleIRCListener : MonoBehaviour
                         isN = false;
                     }
                 }
-                if (isN)
+
+                if (isN && msg[1].Length>0)
                 {
                     if (int.Parse(msg[1]) >= 100)
 
@@ -110,5 +218,15 @@ public class ExampleIRCListener : MonoBehaviour
         // Save latest chatter object
         // This is just to show how the Chatter object looks like inside the Inspector
       //  latestChatter.Add(chatter);
+    }
+
+    void EditListbyBitAmount()
+    {
+        sortedAuctionUsers = auctionUsers.OrderBy(x => x.userBitAmount).ToList();
+        
+
+
+
+
     }
 }

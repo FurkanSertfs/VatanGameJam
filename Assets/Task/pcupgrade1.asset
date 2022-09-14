@@ -32,12 +32,12 @@ MonoBehaviour:
     productPrefab: {fileID: 6679258289566832745, guid: 5cb21f1714326bb4a89be333a004b187,
       type: 3}
   - productType: 1
-    productPrefab: {fileID: 8763277401402870562, guid: 142f40af28b06d44590d8b5ccf7bca31,
+    productPrefab: {fileID: 8763277401402870562, guid: 73225f455fca12d4ea073444b39e13b9,
       type: 3}
   - productType: 2
-    productPrefab: {fileID: 3621013353624466814, guid: e0dd2d3b769110742942ac666a6e6456,
+    productPrefab: {fileID: 3621013353624466814, guid: bad0a348efdd34e459ba7f8630dc81ac,
       type: 3}
   - productType: 3
-    productPrefab: {fileID: 8025141250204031504, guid: d9b18842de3f13c4ea210aebb95ecbfc,
+    productPrefab: {fileID: 8025141250204031504, guid: 5483673026bdc5c4da817648f71f22d8,
       type: 3}
   installedApps: []

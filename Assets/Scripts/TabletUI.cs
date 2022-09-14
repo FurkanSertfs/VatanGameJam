@@ -1039,6 +1039,14 @@ public class TabletUI : MonoBehaviour
             }
 
             CheckTask();
+
+            if (GameManager.gameManager.twitchIntegration)
+            {
+                TwitchIntegration.twitchIntegration.kasaSahibi.text = "Müþteri "+ ExampleIRCListener.userList.pcTaskList[Random.Range(0, ExampleIRCListener.userList.pcTaskList.Count)];
+            }
+
+
+
         }
 
 

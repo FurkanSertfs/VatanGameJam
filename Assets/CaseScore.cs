@@ -57,8 +57,8 @@ public class CaseScore : MonoBehaviour
             sellBitPriceText.text = pc.sellBitPrice.ToString();
             
             costText.text = pc.caseCost.ToString();
-            
-            recommendedPriceText.text = "";
+
+            recommendedPriceText.text = pc.recommendedPrice.ToString() + " TL";
             
             chatInfoText.text = "";
             
@@ -67,10 +67,15 @@ public class CaseScore : MonoBehaviour
           
 
         }
+
+        else
+        {
+            pc.sellPrice = (int)priceSlider.value;
+            pc.sellBitPrice = (int)bitPriceSlider.value;
+        }
        
 
-        pc.sellPrice = (int)priceSlider.value;
-        pc.sellBitPrice = (int)bitPriceSlider.value;
+      
 
     }
 
@@ -125,6 +130,11 @@ public class CaseScore : MonoBehaviour
 
     public void Confirm()
     {
+        PCCase.pCCase.gameObject.tag = "ReadyToSell";
+        PCCase.pCCase.isPriced = true;
+        PCCase.pCCase.enabled = false;
+        PCCase.pCCase = null;
+        gameObject.SetActive(false);
 
     }
 

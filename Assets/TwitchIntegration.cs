@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using DG.Tweening;
 
 public class TwitchIntegration : MonoBehaviour
@@ -14,6 +15,8 @@ public class TwitchIntegration : MonoBehaviour
     float timer;
 
     ExampleIRCListener userList;
+
+    public Text kasaSahibi;
 
     public bool isVoting;
 

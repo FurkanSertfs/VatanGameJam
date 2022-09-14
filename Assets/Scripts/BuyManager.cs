@@ -68,8 +68,18 @@ public class BuyManager : MonoBehaviour
             {
                 hitProductManager = null;
             }
+            if (hit.collider.CompareTag("ReadyToSell"))
+            {
+                gameManager.croshair.color = Color.green;
+                gameManager.infoBuy.SetActive(false);
+                gameManager.infoOpenPc.SetActive(false);
+                gameManager.infoAddTable.SetActive(false);
+                gameManager.infoOpenMonitor.SetActive(false);
 
-            if (hit.collider.CompareTag("PCEnvanterElement"))
+            }
+
+
+            else  if (hit.collider.CompareTag("PCEnvanterElement"))
             {
                 gameManager.croshair.color = Color.green;
                 gameManager.infoBuy.SetActive(false);

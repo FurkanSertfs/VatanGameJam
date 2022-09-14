@@ -18,7 +18,7 @@ public class TwitchIRC : MonoBehaviour
     public StatusEvent statusEvent = new StatusEvent(); // Connection events
 
     private TcpClient client;
-    private NetworkStream stream;
+    public NetworkStream stream;
 
     public string ircAddress = "irc.chat.twitch.tv";
     public int port = 6667;
@@ -32,6 +32,8 @@ public class TwitchIRC : MonoBehaviour
     private bool connected = false;
     private Thread outputThread = null;
     private Thread inputThread = null;
+
+    public static TwitchIRC twitchIRC;
 
     [System.Serializable]
     public class TwitchDetails
@@ -52,6 +54,11 @@ public class TwitchIRC : MonoBehaviour
     }
 
     #region Unity MonoBehaviour functions
+
+    private void Awake()
+    {
+        twitchIRC = this;
+    }
     private void Start()
     {
         if (settings.autoConnectOnStart)
@@ -66,6 +73,20 @@ public class TwitchIRC : MonoBehaviour
     private void OnDisable()
     {
         Disconnect();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            Debug.Log("1");
+
+        
+            stream.WriteLine("PRIVMSG #"+twitchDetails.channel.ToLower() +" :Nasılım babuş, botum nasıl iyi mi çokmu faça KAPAAAT");
+            
+            //  stream.WriteLine("PRIVMSG #"+twitchDetails.channel + ":Selamlaaaar oyunumuzu oynadığpğın için teşekkürler");
+        }
+
     }
     #endregion
 
