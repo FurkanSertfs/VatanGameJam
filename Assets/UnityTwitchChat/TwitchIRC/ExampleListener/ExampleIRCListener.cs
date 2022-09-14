@@ -59,30 +59,16 @@ public class ExampleIRCListener : MonoBehaviour
 
         // Here are some examples on how you could use the chatter objects...
 
-        if (chatter.tags.displayName == "furkansertfs"&&!furkan)
-        {
-            furkan = true;
-            TwitchIRC.twitchIRC.stream.WriteLine("PRIVMSG #" + TwitchIRC.twitchIRC.twitchDetails.channel.ToLower() + " :Ohoo Furkan beyler gelmiþ hoþgelmiþ");
+        //if (chatter.tags.displayName == "furkansertfs"&&!furkan)
+        //{
+        //    furkan = true;
+        //    TwitchIRC.twitchIRC.stream.WriteLine("PRIVMSG #" + TwitchIRC.twitchIRC.twitchDetails.channel.ToLower() + " :Ohoo Furkan beyler gelmiþ hoþgelmiþ");
 
-           /// Debug.Log("Chat message was sent by Lexone!");
-        }
+        //   /// Debug.Log("Chat message was sent by Lexone!");
+        //}
 
 
-        if (chatter.tags.displayName == "plejaa" && !eren)
-        {
-            eren = true;
-            TwitchIRC.twitchIRC.stream.WriteLine("PRIVMSG #" + TwitchIRC.twitchIRC.twitchDetails.channel.ToLower() + " :Plejaaaa'da burda hoþgeldin");
-
-            /// Debug.Log("Chat message was sent by Lexone!");
-        }
-
-        if (chatter.tags.displayName == "ceyranci_"&&!fati)
-        {
-            fati = true;
-            TwitchIRC.twitchIRC.stream.WriteLine("PRIVMSG #" + TwitchIRC.twitchIRC.twitchDetails.channel.ToLower() + " :Oruspularedan Fati hosgeldin <3");
-
-            /// Debug.Log("Chat message was sent by Lexone!");
-        }
+       
 
 
         if (chatter.HasBadge("subscriber"))

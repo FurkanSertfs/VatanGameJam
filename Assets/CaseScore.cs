@@ -131,9 +131,13 @@ public class CaseScore : MonoBehaviour
     public void Confirm()
     {
         PCCase.pCCase.gameObject.tag = "ReadyToSell";
+        PCCase.pCCase.GetComponent<BoxCollider>().enabled = true;
         PCCase.pCCase.isPriced = true;
         PCCase.pCCase.enabled = false;
         PCCase.pCCase = null;
+
+        TwitchIRC.twitchIRC.stream.WriteLine("PRIVMSG #" + TwitchIRC.twitchIRC.twitchDetails.channel.ToLower() + " :Nasýlým babuþ, botum nasýl iyi mi çokmu faça KAPAAAT");
+
         gameObject.SetActive(false);
 
     }
