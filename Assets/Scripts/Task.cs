@@ -12,6 +12,8 @@ public class Task : MonoBehaviour
 
     public Text gorevName;
 
+    public string userName;
+
     TabletUI tablet;
 
   
@@ -25,12 +27,20 @@ public class Task : MonoBehaviour
 
         tablet.taskAwardText.text = teskClass.task.taskAward.ToString();
 
+        
         tablet.selectedtaskClass = teskClass;
 
 
         tablet.selectedtaskClass.taskObject = this;
 
         TaskManager.taskManager.selectedTask = this;
+
+        if (GameManager.gameManager.twitchIntegration)
+        {
+
+            TwitchIntegration.twitchIntegration.tabletKasaSahibi.text = userName;
+      
+        }
 
 
         if (!tablet.startTaskButton.gameObject.activeSelf)

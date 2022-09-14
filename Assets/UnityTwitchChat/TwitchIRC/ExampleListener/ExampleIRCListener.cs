@@ -29,7 +29,7 @@ public class ExampleIRCListener : MonoBehaviour
 
     public static ExampleIRCListener userList;
 
-    bool furkan, fati,eren;
+    public string joinCommand, rateCommand;
 
 
     private void Awake()
@@ -80,20 +80,17 @@ public class ExampleIRCListener : MonoBehaviour
         if (chatter.MessageContainsEmote("25")) //25 = Kappa emote ID
             Debug.Log("Chat message contained the Kappa emote");
 
-        if (chatter.message == "!join")
+        if (chatter.message == joinCommand)
         {
-            if(chatter.login== "ceyranci_")
-            {
-                pcTaskList.Add("Oruspu Fati");
-                TwitchIRC.twitchIRC.stream.WriteLine("PRIVMSG #" + TwitchIRC.twitchIRC.twitchDetails.channel.ToLower() + " :Oruspu " + chatter.login + " katýldý");
-            }
-            else
-            {
-                pcTaskList.Add(chatter.login);
-                TwitchIRC.twitchIRC.stream.WriteLine("PRIVMSG #" + TwitchIRC.twitchIRC.twitchDetails.channel.ToLower() + " :"+ chatter.login + " katýldý");
-            }
+          pcTaskList.Add(chatter.login);
+          
+        TwitchIntegrationObject.twitchIntegrationObject.ShowJoinedUser(chatter.login);
+          
+        TwitchIRC.twitchIRC.stream.WriteLine("PRIVMSG #" + TwitchIRC.twitchIRC.twitchDetails.channel.ToLower() + " :"+ chatter.login + " katýldý");
+            
           
         }
+
         if (chatter.message.Contains("Fheer"))
         {
             string temp = "";
@@ -148,7 +145,7 @@ public class ExampleIRCListener : MonoBehaviour
 
         }
 
-            if (chatter.message.Contains("!vote"))
+            if (chatter.message.Contains(rateCommand))
         {
             if (TwitchIntegration.twitchIntegration.isVoting)
             {

@@ -135,7 +135,7 @@ public class TabletUI : MonoBehaviour
     }
     private void Start()
     {
-        NextDay();
+        
 
        
     }
@@ -152,7 +152,16 @@ public class TabletUI : MonoBehaviour
 
         }
 
-    
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+
+            NextDay();
+
+
+        }
+
+
+
 
 
 
@@ -184,8 +193,18 @@ public class TabletUI : MonoBehaviour
 
                 newTask.GetComponent<Task>().teskClass.ID = totalTaskID;
 
+                if (GameManager.gameManager.twitchIntegration)
+                {
+                    newTask.GetComponent<Task>().userName = "Müþteri: " + ExampleIRCListener.userList.pcTaskList[Random.Range(0, ExampleIRCListener.userList.pcTaskList.Count)];
+                }
 
+                else
+                {
+                    newTask.GetComponent<Task>().userName = "";
+                }
+                
                 awardID.Add(false);
+               
                 taskID.Add(false);
 
                 totalTaskID++;
@@ -207,9 +226,9 @@ public class TabletUI : MonoBehaviour
                 newTask.GetComponent<Task>().gorevName.text = "GÖREV " + (totalTaskID + 1).ToString();
 
                 newTask.GetComponent<Task>().teskClass.ID = totalTaskID;
-
-
+                
                 awardID.Add(false);
+                
                 taskID.Add(false);
 
                 totalTaskID++;
@@ -1042,7 +1061,8 @@ public class TabletUI : MonoBehaviour
 
             if (GameManager.gameManager.twitchIntegration)
             {
-                TwitchIntegration.twitchIntegration.kasaSahibi.text = "Müþteri "+ ExampleIRCListener.userList.pcTaskList[Random.Range(0, ExampleIRCListener.userList.pcTaskList.Count)];
+                TwitchIntegration.twitchIntegration.kasaSahibi.text = startedTaskClass.taskObject.userName;
+
             }
 
 

@@ -16,7 +16,7 @@ public class TwitchIntegration : MonoBehaviour
 
     ExampleIRCListener userList;
 
-    public Text kasaSahibi;
+    public Text kasaSahibi,tabletKasaSahibi;
 
     public bool isVoting;
 
@@ -60,7 +60,7 @@ public class TwitchIntegration : MonoBehaviour
 
         isVoting = true;
 
-        CaseScore.caseScore.chatInfoText.text = "Puanlamak için Chate " + "!Vote puan"+ "yaz";
+        CaseScore.caseScore.chatInfoText.text = "Puanlamak için Chate " + ExampleIRCListener.userList.rateCommand +" puan yaz";
 
         CaseScore.caseScore.timeInfoText.text = ((int)(timer - Time.time)).ToString();
 

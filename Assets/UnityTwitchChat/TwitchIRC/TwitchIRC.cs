@@ -4,6 +4,7 @@ using System.Net.Sockets;
 using System.IO;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Twitch.tv IRC client for Unity https://github.com/lexonegit/Unity-Twitch-Chat
@@ -35,6 +36,10 @@ public class TwitchIRC : MonoBehaviour
 
     public static TwitchIRC twitchIRC;
 
+    bool isConnected;
+
+    public Text debugText;
+
     [System.Serializable]
     public class TwitchDetails
     {
@@ -63,6 +68,8 @@ public class TwitchIRC : MonoBehaviour
     {
         if (settings.autoConnectOnStart)
             StartCoroutine(PrepareConnection());
+
+      
     }
 
     private void OnDestroy()
@@ -77,17 +84,13 @@ public class TwitchIRC : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
+        if (isConnected)
         {
-            Debug.Log("1");
-
-        
-            stream.WriteLine("PRIVMSG #"+twitchDetails.channel.ToLower() +" :Nasılım babuş, botum nasıl iyi mi çokmu faça KAPAAAT");
-            
-            //  stream.WriteLine("PRIVMSG #"+twitchDetails.channel + ":Selamlaaaar oyunumuzu oynadığpğın için teşekkürler");
+            isConnected = false;
+            debugText.text = twitchDetails.channel + " Kanalına Başarıyla Bağlanıldı";
         }
-
     }
+
     #endregion
 
     [ContextMenu("Connect IRC")]
@@ -102,7 +105,7 @@ public class TwitchIRC : MonoBehaviour
         Disconnect();
     }
 
-    private IEnumerator PrepareConnection()
+    public IEnumerator PrepareConnection()
     {
         if (inputThread != null && outputThread != null)
             while (inputThread.IsAlive || outputThread.IsAlive) // Wait for previous threads to close (if there are any)
@@ -149,7 +152,7 @@ public class TwitchIRC : MonoBehaviour
         outputThread.Start();
     }
 
-    private void Disconnect(bool reconnect = false)
+    public void Disconnect(bool reconnect = false)
     {
         if (!connected) return;
 
@@ -159,6 +162,7 @@ public class TwitchIRC : MonoBehaviour
         stream.Close();
         
         Debug.LogWarning("Disconnected from Twitch IRC");
+        debugText.text = "Çıkış yapıldı";
 
         if (reconnect)
             StartCoroutine(PrepareConnection());
@@ -283,9 +287,11 @@ public class TwitchIRC : MonoBehaviour
                 break;
             case "353":
                 Debug.Log("<color=#bd2881><b>[JOIN]</b></color> Joined channel: " + twitchDetails.channel + " successfully");
+                isConnected = true;
                 break;
         }
     }
+    
 
     private void HandlePRIVMSG(string ircString, string tagString)
     {
