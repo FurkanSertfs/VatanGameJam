@@ -68,6 +68,9 @@ public class BuyManager : MonoBehaviour
             {
                 hitProductManager = null;
             }
+
+
+            
             if (hit.collider.CompareTag("ReadyToSell"))
             {
                 gameManager.croshair.color = Color.green;
@@ -75,6 +78,39 @@ public class BuyManager : MonoBehaviour
                 gameManager.infoOpenPc.SetActive(false);
                 gameManager.infoAddTable.SetActive(false);
                 gameManager.infoOpenMonitor.SetActive(false);
+
+                bool allDisabled = true;
+
+                if (Input.GetKeyDown(KeyCode.Mouse1))
+                {
+                    
+                        for (int i = 0; i < gameManager.PCCases.Length; i++)
+                        {
+                            if (gameManager.PCCases[i].activeSelf)
+                            {
+                                allDisabled = false;
+                            }
+                        }
+
+                        if (allDisabled)
+                        {
+                            gameManager.activeCase = gameManager.PCCases[hitProductManager.product.caseModelID];
+                            gameManager.caseBase.SetActive(true);
+                            gameManager.activeCase.SetActive(true);
+                            Destroy(hit.collider.gameObject);
+                        }
+                        else
+                        {
+                            Debug.Log("Kucaginda kasa var");
+
+                        }
+
+                }
+
+                    
+
+
+
 
             }
 
