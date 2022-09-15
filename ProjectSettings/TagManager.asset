@@ -26,6 +26,7 @@ TagManager:
   - PCPoint
   - ReadyToSell
   - PCSellTable
+  - ComputerSellTable
   layers:
   - Default
   - TransparentFX
