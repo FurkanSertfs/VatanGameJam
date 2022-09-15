@@ -956,6 +956,8 @@ public class TabletUI : MonoBehaviour
 
         GameObject newProduct = Instantiate(owned.productPrefab, pcProductsinCaseSpawnPoints[(int)owned.productType].position, pcProductsinCaseSpawnPoints[(int)owned.productType].rotation, BuyManager.buyManager.productsPointsParent.transform);
 
+        newProduct.transform.parent = PCCase.pCCase.transform;
+
         newProductManager = newProduct.GetComponent<ProductManager>();
 
         newProductManager.spawnPoint = pcProductsSpawnPoints[(int)owned.productType];
@@ -965,8 +967,7 @@ public class TabletUI : MonoBehaviour
         if (newProduct.GetComponent<CpuManager>()== null)
         {
 
-            Debug.Log(newProduct.gameObject.name);
-
+     
             PCCase.pCCase.productCaseHave.Add(newProduct.GetComponent<PCCaseElement>());
 
             PCCase.pCCase.taskType.Add(newProduct.GetComponent<PCCaseElement>().taskType);

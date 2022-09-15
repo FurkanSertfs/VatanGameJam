@@ -162,7 +162,7 @@ public class BuyManager : MonoBehaviour
 
                             for (int i = 0; i < gameManager.computerTable.Count; i++)
                             {
-                                gameManager.computerTable[i].caseBase.SetActive(true);
+                            gameManager.computerTable[i].caseBase.SetActive(true);
 
                             }
 
@@ -532,6 +532,8 @@ public class BuyManager : MonoBehaviour
                 tablet.mod[(int)hitProductManager.product.model] -= 1;
 
                 GameObject newProduct = Instantiate(hitProductManager.product.prefabProduct, hitProductManager.spawnPoint.position, hitProductManager.spawnPoint.rotation, productsPointsParent.transform);
+
+                newProduct.transform.parent = PCCase.pCCase.gameObject.transform;
 
                 newProductManager = newProduct.GetComponent<ProductManager>();
 

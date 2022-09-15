@@ -127,12 +127,8 @@ public class PCUI : MonoBehaviour
 
         if (driverBoosterApp.activeSelf)
         {
-            Debug.Log("driver1");
-
-
+            
             driverInstalPerAgeText.text = driverInstalPerAge.ToString();
-
-
 
             gpuMhzText.text = gpuMhz.ToString();
 

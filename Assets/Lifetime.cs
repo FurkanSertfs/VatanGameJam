@@ -7,6 +7,14 @@ public class Lifetime : MonoBehaviour
     [SerializeField]
     private float lifeTime;
 
+   void OnEnable()
+    {
+        StartCoroutine(Deactive());
+
+
+    }
+
+
     IEnumerator Deactive()
     {
 
