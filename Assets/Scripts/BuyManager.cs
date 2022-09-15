@@ -70,8 +70,69 @@ public class BuyManager : MonoBehaviour
             }
 
 
+            if (hit.collider.CompareTag("ComputerSellTable")&&gameManager.isHaveCaseForSell)
+            {
+                PCCase pc = gameManager.activeCase.GetComponent<PCCase>();
+               
+                ComputerSellTable table = hit.collider.GetComponent<ComputerSellTable>();
+
+                if (Input.GetKeyDown(KeyCode.Mouse1))
+                { 
+                   if (!hit.collider.GetComponent<BuyTable>().isSold)
+                    {
+                        hit.collider.GetComponent<BuyTable>().Buy();
+
+                    }
+                
+                }
+
+
+
+                    if (!table.isFull)
+                {
+                    gameManager.croshair.color = Color.green;
+                    gameManager.infoBuy.SetActive(false);
+                    gameManager.infoOpenPc.SetActive(false);
+                    gameManager.infoAddTable.SetActive(false);
+                    gameManager.infoOpenMonitor.SetActive(false);
+
+                
+
+                    if (Input.GetKeyDown(KeyCode.Mouse1))
+                    {
+                        pc.transform.position = table.caseSpawnPoints[pc.CaseModel].transform.position;
+                        pc.transform.rotation = table.caseSpawnPoints[pc.CaseModel].transform.rotation;
+                        pc.transform.parent = table.gameObject.transform;
+                        table.Canvas.SetActive(true);
+                        table.caseName.text = pc.caseName;
+                        table.casePrice.text = pc.sellPrice.ToString();
+                        table.caseBitPrice.text = pc.sellBitPrice.ToString();
+                        table.caseFP.text = pc.fiyatPerformans.ToString();
+                        
+                        for (int i = 0; i < gameManager.computerTable.Count; i++)
+                        {
+                            gameManager.computerTable[i].caseBase.SetActive(false);
+
+
+                        }
+                        table.isFull = true;
+                        gameManager.computerTable.Remove(table);
+                        pc.gameObject.tag = "Untagged";
+
+
+
+
+                        gameManager.isHaveCaseForSell = false;
+                    }
+                }
+
+               
+
+            }
+           
             
-            if (hit.collider.CompareTag("ReadyToSell"))
+            
+            else if (hit.collider.CompareTag("ReadyToSell"))
             {
                 gameManager.croshair.color = Color.green;
                 gameManager.infoBuy.SetActive(false);
@@ -94,11 +155,24 @@ public class BuyManager : MonoBehaviour
 
                         if (allDisabled)
                         {
-                            gameManager.activeCase = gameManager.PCCases[hitProductManager.product.caseModelID];
-                            gameManager.caseBase.SetActive(true);
-                            gameManager.activeCase.SetActive(true);
-                            Destroy(hit.collider.gameObject);
+                            gameManager.activeCase = gameManager.PCCases[hit.collider.GetComponent<PCCase>().CaseModel];
+
+
+                        for (int i = 0; i < gameManager.computerTable.Count; i++)
+                        {
+                            gameManager.computerTable[i].caseBase.SetActive(true);
+
                         }
+                            gameManager.isHaveCaseForSell = true;
+
+                            hit.collider.transform.parent = gameManager.caseParrent.transform;
+                            
+                            hit.collider.transform.position = gameManager.activeCase.transform.position;
+                        
+                            hit.collider.transform.rotation = gameManager.activeCase.transform.rotation;
+
+                        }
+
                         else
                         {
                             Debug.Log("Kucaginda kasa var");
@@ -106,11 +180,6 @@ public class BuyManager : MonoBehaviour
                         }
 
                 }
-
-                    
-
-
-
 
             }
 

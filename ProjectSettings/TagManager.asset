@@ -25,6 +25,7 @@ TagManager:
   - PCEnvanterElement
   - PCPoint
   - ReadyToSell
+  - PCSellTable
   layers:
   - Default
   - TransparentFX

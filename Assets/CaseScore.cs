@@ -14,7 +14,7 @@ public class CaseScore : MonoBehaviour
 
     public Transform usedProductElementLayout;
 
-    public Text scoreText, chatInfoText, timeInfoText, caseNameText, costText, recommendedPriceText,  chanceText,sellPriceText, sellBitPriceText;
+    public Text scoreText, chatInfoText, timeInfoText, caseNameText, costText, recommendedPriceText,  chanceText,sellPriceText, sellBitPriceText,kasaAdýUyarý;
 
     public InputField caseName;
 
@@ -130,15 +130,28 @@ public class CaseScore : MonoBehaviour
 
     public void Confirm()
     {
-        PCCase.pCCase.gameObject.tag = "ReadyToSell";
-        PCCase.pCCase.GetComponent<BoxCollider>().enabled = true;
-        PCCase.pCCase.isPriced = true;
-        PCCase.pCCase.enabled = false;
-        PCCase.pCCase = null;
+        if (pc.caseName!="")
+        {
+            PCCase.pCCase.gameObject.tag = "ReadyToSell";
 
-        TwitchIRC.twitchIRC.stream.WriteLine("PRIVMSG #" + TwitchIRC.twitchIRC.twitchDetails.channel.ToLower() + " :Nasýlým babuþ, botum nasýl iyi mi çokmu faça KAPAAAT");
+            PCCase.pCCase.GetComponent<BoxCollider>().enabled = true;
 
-        gameObject.SetActive(false);
+            PCCase.pCCase.isPriced = true;
+
+            PCCase.pCCase.enabled = false;
+
+            PCCase.pCCase = null;
+
+            GameManager.gameManager.ChangeCam("FPS");
+
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            kasaAdýUyarý.gameObject.SetActive(true);
+        }
+
+    
 
     }
 

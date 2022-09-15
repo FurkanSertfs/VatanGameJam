@@ -24,16 +24,18 @@ public class GameManager : MonoBehaviour
     public int day;
 
     public AudioClip confirmBasketSound, UIclick, buyProduct;
+  
     public AudioSource audioSource;
 
     public GameObject[] PCCases;
 
-    public GameObject activeCase,caseBase, sellCaseScreen;
+    public GameObject activeCase,caseBase, sellCaseScreen,caseParrent;
 
     public int bitTLRatio;
 
-    public bool twitchIntegration;
+    public bool twitchIntegration,isHaveCaseForSell;
 
+    public List<ComputerSellTable> computerTable;
     private void Awake()
     {
         gameManager = this;

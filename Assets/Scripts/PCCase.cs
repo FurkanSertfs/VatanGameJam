@@ -9,6 +9,8 @@ public class PCCase : MonoBehaviour
     [SerializeField]
     private Camera pcbuildCam;
 
+    public int CaseModel;
+
     PCCaseElement.ProductType productType;
 
     // installed Elements Screws and Cover
@@ -57,7 +59,7 @@ public class PCCase : MonoBehaviour
 
     public bool calculatedPrice;
 
-   public List<GameObject> productWeUsed= new List<GameObject>();
+    public List<GameObject> productWeUsed= new List<GameObject>();
 
 
 
