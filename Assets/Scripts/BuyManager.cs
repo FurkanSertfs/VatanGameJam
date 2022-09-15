@@ -72,15 +72,15 @@ public class BuyManager : MonoBehaviour
 
             if (hit.collider.CompareTag("PCSellTable"))
             {
-                PCCase pc = gameManager.activeCase.GetComponent<PCCase>();
-               
+              
+
                 ComputerSellTable table = hit.collider.GetComponent<ComputerSellTable>();
-               
+
                 if (!hit.collider.GetComponent<BuyTable>().isSold)
                 {
                     gameManager.croshair.color = Color.green;
 
-                    if (Input.GetKeyDown(KeyCode.Mouse1))
+                    if (Input.GetKeyDown(KeyCode.Mouse0))
                     {
 
                         hit.collider.GetComponent<BuyTable>().Buy();
@@ -89,7 +89,9 @@ public class BuyManager : MonoBehaviour
                 }
                 
                 if (!table.isFull && gameManager.isHaveCaseForSell)
-                    {
+                {
+                    PCCase pc = gameManager.activeCase.GetComponent<PCCase>();
+                   
                     gameManager.croshair.color = Color.green;
                     gameManager.infoBuy.SetActive(false);
                     gameManager.infoOpenPc.SetActive(false);

@@ -13,8 +13,9 @@ public class BuyTable : MonoBehaviour
 
     public void Buy()
     {
-        if (GameManager.gameManager.money > tablePrice&&!isSold)
+        if (GameManager.gameManager.money > tablePrice && !isSold)
         {
+           
             GameManager.gameManager.money -= tablePrice;
 
             GetComponent<ComputerSellTable>().enabled = true;
