@@ -157,21 +157,23 @@ public class BuyManager : MonoBehaviour
 
                         if (allDisabled)
                         {
-                            gameManager.activeCase = gameManager.PCCases[hit.collider.GetComponent<PCCase>().CaseModel];
+                            gameManager.activeCase = hit.collider.GetComponent<PCCase>().gameObject;
 
 
-                        for (int i = 0; i < gameManager.computerTable.Count; i++)
-                        {
-                            gameManager.computerTable[i].caseBase.SetActive(true);
+                            for (int i = 0; i < gameManager.computerTable.Count; i++)
+                            {
+                                gameManager.computerTable[i].caseBase.SetActive(true);
 
-                        }
+                            }
+
                             gameManager.isHaveCaseForSell = true;
 
                             hit.collider.transform.parent = gameManager.caseParrent.transform;
-                            
-                            hit.collider.transform.position = gameManager.activeCase.transform.position;
-                        
-                            hit.collider.transform.rotation = gameManager.activeCase.transform.rotation;
+
+                            hit.collider.transform.position = gameManager.PCCases[hit.collider.GetComponent<PCCase>().CaseModel].transform.position;
+
+
+                            hit.collider.transform.rotation = gameManager.PCCases[hit.collider.GetComponent<PCCase>().CaseModel].transform.rotation;
 
                         }
 
