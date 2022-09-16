@@ -8,6 +8,8 @@ public class BuyTable : MonoBehaviour
     public bool isSold;
     public int tablePrice;
     public GameObject sellCanvvas;
+
+    public Material matFull;
    
 
 
@@ -15,6 +17,7 @@ public class BuyTable : MonoBehaviour
     {
         if (GameManager.gameManager.money > tablePrice && !isSold)
         {
+            GetComponent<MeshRenderer>().material = matFull;
            
             GameManager.gameManager.money -= tablePrice;
 

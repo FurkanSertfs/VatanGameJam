@@ -12,7 +12,7 @@ public class BuyManager : MonoBehaviour
 
     public Image productImage;
 
-    public Text shopingDescriptionText, priceText, hitProductNameText;
+    public Text shopingDescriptionText, priceText, hitProductNameText,hitTableName;
 
     public GameObject shophingInfoUI;
 
@@ -30,6 +30,11 @@ public class BuyManager : MonoBehaviour
     TabletUI tablet;
 
     GameManager gameManager;
+
+    [SerializeField]
+    GameObject[] infos;
+
+
 
     GameObject newPc;
 
@@ -78,6 +83,11 @@ public class BuyManager : MonoBehaviour
 
                 if (!hit.collider.GetComponent<BuyTable>().isSold)
                 {
+
+                    CloseInfos();
+                    gameManager.infoBuyPcTable.SetActive(true);
+                    hitTableName.text = "Bu masada topladýðýn kasayý satabilirsin satýn almak için týkla "+ hit.collider.GetComponent<BuyTable>().tablePrice + " TL";
+                    hit.collider.GetComponent<BuyTable>().sellCanvvas.SetActive(true);
                     gameManager.croshair.color = Color.green;
 
                     if (Input.GetKeyDown(KeyCode.Mouse0))
@@ -87,16 +97,19 @@ public class BuyManager : MonoBehaviour
 
                     }
                 }
+
+                else
+                {
+                    hit.collider.GetComponent<BuyTable>().sellCanvvas.SetActive(false);
+                }
                 
-                if (!table.isFull && gameManager.isHaveCaseForSell)
+                if (!table.isFull && gameManager.isHaveCaseForSell&& hit.collider.GetComponent<BuyTable>().isSold)
                 {
                     PCCase pc = gameManager.activeCase.GetComponent<PCCase>();
                    
                     gameManager.croshair.color = Color.green;
-                    gameManager.infoBuy.SetActive(false);
-                    gameManager.infoOpenPc.SetActive(false);
-                    gameManager.infoAddTable.SetActive(false);
-                    gameManager.infoOpenMonitor.SetActive(false);
+                    CloseInfos();
+                    gameManager.infoPlacePC.SetActive(true);
 
                 
 
@@ -137,10 +150,10 @@ public class BuyManager : MonoBehaviour
             else if (hit.collider.CompareTag("ReadyToSell"))
             {
                 gameManager.croshair.color = Color.green;
-                gameManager.infoBuy.SetActive(false);
-                gameManager.infoOpenPc.SetActive(false);
-                gameManager.infoAddTable.SetActive(false);
-                gameManager.infoOpenMonitor.SetActive(false);
+                CloseInfos();
+                gameManager.infoCaryPC.SetActive(true);
+
+               
 
                 bool allDisabled = true;
 
@@ -191,10 +204,9 @@ public class BuyManager : MonoBehaviour
             else  if (hit.collider.CompareTag("PCEnvanterElement"))
             {
                 gameManager.croshair.color = Color.green;
-                gameManager.infoBuy.SetActive(false);
-                gameManager.infoOpenPc.SetActive(false);
-                gameManager.infoAddTable.SetActive(true);
-                gameManager.infoOpenMonitor.SetActive(false);
+                CloseInfos();
+                gameManager.infoCaryPC.SetActive(true);
+            
 
                 bool allDisabled = true;
 
@@ -240,7 +252,8 @@ public class BuyManager : MonoBehaviour
            else if (hit.collider.CompareTag("PCPoint"))
             {
                 gameManager.croshair.color = Color.green;
-
+                CloseInfos();
+                gameManager.infoPlacePC.SetActive(true);
 
                 if (Input.GetKeyDown(KeyCode.Mouse1))
                 {
@@ -278,13 +291,11 @@ public class BuyManager : MonoBehaviour
 
             else if (hit.collider.CompareTag("Product"))
             {
-
-
                 gameManager.croshair.color = Color.green;
+                
+                CloseInfos();
                 gameManager.infoBuy.SetActive(true);
-                gameManager.infoOpenPc.SetActive(false);
-                gameManager.infoAddTable.SetActive(false);
-                gameManager.infoOpenMonitor.SetActive(false);
+              
 
 
                 hitProductNameText.text = hitProductManager.product.productName + " " + hitProductManager.product.price + " TL";
@@ -323,9 +334,7 @@ public class BuyManager : MonoBehaviour
             {
                 gameManager.croshair.color = Color.blue;
 
-                gameManager.infoBuy.SetActive(false);
-                gameManager.infoOpenPc.SetActive(false);
-                gameManager.infoAddTable.SetActive(false);
+                CloseInfos();
                 gameManager.infoOpenMonitor.SetActive(true);
 
 
@@ -342,10 +351,9 @@ public class BuyManager : MonoBehaviour
             {
                 gameManager.croshair.color = Color.blue;
 
-                gameManager.infoBuy.SetActive(false);
+                CloseInfos();
                 gameManager.infoOpenPc.SetActive(true);
-                gameManager.infoAddTable.SetActive(false);
-                gameManager.infoOpenMonitor.SetActive(false);
+                
 
 
                 if (Input.GetKeyDown(KeyCode.Mouse0))
@@ -478,10 +486,7 @@ public class BuyManager : MonoBehaviour
             {
 
                 gameManager.croshair.color = Color.white;
-                gameManager.infoBuy.SetActive(false);
-                gameManager.infoOpenPc.SetActive(false);
-                gameManager.infoAddTable.SetActive(false);
-                gameManager.infoOpenMonitor.SetActive(false);
+                CloseInfos();
 
 
             }
@@ -494,21 +499,24 @@ public class BuyManager : MonoBehaviour
         {
 
             gameManager.croshair.color = Color.white;
-            gameManager.infoBuy.SetActive(false);
-            gameManager.infoOpenPc.SetActive(false);
-            gameManager.infoAddTable.SetActive(false);
-            gameManager.infoOpenMonitor.SetActive(false);
+            CloseInfos();
 
 
         }
     }
 
+    void CloseInfos()
+    {
+        for (int i = 0; i < infos.Length; i++)
+        {
+            infos[i].SetActive(false);
+        }
+    }
+
     void EnvanterItemAddToTable()
     {
-        gameManager.infoBuy.SetActive(false);
-        gameManager.infoOpenPc.SetActive(false);
+        CloseInfos();
         gameManager.infoAddTable.SetActive(true);
-        gameManager.infoOpenMonitor.SetActive(false);
         gameManager.croshair.color = Color.green;
 
         canAddTable = true;
