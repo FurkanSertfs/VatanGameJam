@@ -116,13 +116,22 @@ public class BuyManager : MonoBehaviour
                     if (Input.GetKeyDown(KeyCode.Mouse1))
                     {
                         pc.transform.position = table.caseSpawnPoints[pc.CaseModel].transform.position;
+                       
                         pc.transform.rotation = table.caseSpawnPoints[pc.CaseModel].transform.rotation;
+                      
                         pc.transform.parent = table.gameObject.transform;
+                        
                         table.Canvas.SetActive(true);
+                      
                         table.caseName.text = pc.caseName;
+                       
                         table.casePrice.text = pc.sellPrice.ToString();
+                       
                         table.caseBitPrice.text = pc.sellBitPrice.ToString();
+                        
                         table.caseFP.text = pc.fiyatPerformans.ToString();
+
+                        table.pc = pc;
                         
                         for (int i = 0; i < gameManager.computerTable.Count; i++)
                         {
@@ -130,14 +139,37 @@ public class BuyManager : MonoBehaviour
 
 
                         }
+
                         table.isFull = true;
+                      
                         gameManager.computerTable.Remove(table);
+                        
                         pc.gameObject.tag = "Untagged";
+
+                        pc.GetComponent<BoxCollider>().enabled = false;
 
 
 
 
                         gameManager.isHaveCaseForSell = false;
+                    }
+                }
+
+                else if (table.isFull)
+                {
+                    gameManager.croshair.color = Color.green;
+                   
+                    CloseInfos();
+                    gameManager.infoSellSettings.SetActive(true);
+                  
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+
+                        CaseScore.caseScore.pc = table.pc;
+                        CaseScore.caseScore.gameObject.SetActive(true);
+                        table.pc.ShowUsedProducts();
+
+
                     }
                 }
 
@@ -181,12 +213,15 @@ public class BuyManager : MonoBehaviour
 
                             gameManager.isHaveCaseForSell = true;
 
+                            GameObject deleteO = hit.collider.GetComponentInParent<PCModels>().gameObject;
+
                             hit.collider.transform.parent = gameManager.caseParrent.transform;
 
                             hit.collider.transform.position = gameManager.PCCases[hit.collider.GetComponent<PCCase>().CaseModel].transform.position;
-
-
+                            
                             hit.collider.transform.rotation = gameManager.PCCases[hit.collider.GetComponent<PCCase>().CaseModel].transform.rotation;
+
+                            Destroy(deleteO);
 
                         }
 

@@ -8,6 +8,8 @@ public class ComputerSellTable : MonoBehaviour
     public Transform[] caseSpawnPoints;
 
     public GameObject Canvas,caseBase;
+
+    public PCCase pc;
    
     public Text caseName, casePrice, caseFP, caseBitPrice;
 

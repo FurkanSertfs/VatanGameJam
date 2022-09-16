@@ -53,28 +53,34 @@ public class PowerButton : MonoBehaviour
 
     public void Power()
     {
-        if (PCCase.pCCase.pcCanOpen)
+        if (PCCase.pCCase != null)
         {
-            if (!PCUI.pCUI.isOpen && PCCase.pCCase.isSystemActive)
+            if (PCCase.pCCase.pcCanOpen)
             {
-                StartCoroutine(PressButton("Restart"));
+                if (!PCUI.pCUI.isOpen && PCCase.pCCase.isSystemActive)
+                {
+                    StartCoroutine(PressButton("Restart"));
 
-            }
-            else if (!PCUI.pCUI.isOpen)
-            {
-                StartCoroutine(PressButton("Format"));
+                }
+                else if (!PCUI.pCUI.isOpen)
+                {
+                    StartCoroutine(PressButton("Format"));
 
-            }
+                }
 
-            else
-            {
-                
-                PCUI.pCUI.isOpen=false;
-              
-                transform.DOMove(pointClose.position, 0.5f);
+                else
+                {
+
+                    PCUI.pCUI.isOpen = false;
+
+                    transform.DOMove(pointClose.position, 0.5f);
+                }
+
             }
 
         }
+
+       
       
 
     }

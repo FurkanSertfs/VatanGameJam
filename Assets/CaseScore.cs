@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class CaseScore : MonoBehaviour
 {
-    PCCase pc;
+    public PCCase pc;
 
     public static CaseScore caseScore;
 
@@ -14,7 +14,7 @@ public class CaseScore : MonoBehaviour
 
     public Transform usedProductElementLayout;
 
-    public Text scoreText, chatInfoText, timeInfoText, caseNameText, costText, recommendedPriceText,  chanceText,sellPriceText, sellBitPriceText,kasaAdýUyarý;
+    public Text scoreText, chatInfoText, timeInfoText, caseNameText, costText, recommendedPriceText, chanceText, sellPriceText, sellBitPriceText, kasaAdýUyarý;
 
     public InputField caseName;
 
@@ -22,7 +22,7 @@ public class CaseScore : MonoBehaviour
 
     public Image scoreBar;
 
-    public Slider priceSlider,bitPriceSlider;
+    public Slider priceSlider, bitPriceSlider;
 
     public int tempFiyatPerformans;
 
@@ -44,27 +44,26 @@ public class CaseScore : MonoBehaviour
 
     private void OnEnable()
     {
-        pc = PCCase.pCCase;
 
         if (pc.isPriced)
         {
             scoreText.text = pc.caseScore.ToString();
-            
+
             caseName.text = pc.caseName;
 
             sellPriceText.text = pc.sellPrice.ToString();
 
             sellBitPriceText.text = pc.sellBitPrice.ToString();
-            
+
             costText.text = pc.caseCost.ToString();
 
             recommendedPriceText.text = pc.recommendedPrice.ToString() + " TL";
-            
+
             chatInfoText.text = "";
-            
+
             timeInfoText.text = "";
 
-          
+
 
         }
 
@@ -73,9 +72,9 @@ public class CaseScore : MonoBehaviour
             pc.sellPrice = (int)priceSlider.value;
             pc.sellBitPrice = (int)bitPriceSlider.value;
         }
-       
 
-      
+
+
 
     }
 
@@ -87,94 +86,95 @@ public class CaseScore : MonoBehaviour
 
         if (pc.calculatedPrice)
         {
-            recommendedPriceText.text = PCCase.pCCase.recommendedPrice.ToString() + " TL";
+            recommendedPriceText.text = pc.recommendedPrice.ToString() + " TL";
 
             chanceText.text = "%" + pc.fiyatPerformans.ToString();
 
             sellPriceText.text = pc.sellPrice.ToString() + " TL";
 
             sellBitPriceText.text = pc.sellBitPrice.ToString() + " Bit";
-            
-           
+
+
         }
 
 
-       
+
     }
     public void CalculateFiyutPerformans()
     {
-      if (pc.calculatedPrice)
+        if (pc.calculatedPrice)
         {
             pc.fiyatPerformans = tempFiyatPerformans;
 
-            
+
 
             overPercent = (pc.sellPrice - pc.recommendedPrice) * 100 / pc.recommendedPrice;
 
             pc.fiyatPerformans -= (int)(overPercent * 2);
 
-           
+
             if (pc.fiyatPerformans > 100)
             {
                 pc.fiyatPerformans = 100;
             }
-           else if (pc.fiyatPerformans < 0)
+            else if (pc.fiyatPerformans < 0)
             {
                 pc.fiyatPerformans = 0;
             }
 
             priceSlider.maxValue = (3 * pc.recommendedPrice / 2);
         }
-       
+
     }
 
     public void Confirm()
     {
-        if (pc.caseName!="")
+        if (pc.caseName != "")
         {
-            PCCase.pCCase.gameObject.tag = "ReadyToSell";
+            pc.gameObject.tag = "ReadyToSell";
 
-            PCCase.pCCase.GetComponent<BoxCollider>().enabled = true;
+            pc.GetComponent<BoxCollider>().enabled = true;
 
-            PCCase.pCCase.isPriced = true;
+            pc.isPriced = true;
 
-            PCCase.pCCase.enabled = false;
+            pc.enabled = false;
 
-            PCCase.pCCase = null;
+            // PCCase.pcase=null;
 
             GameManager.gameManager.ChangeCam("FPS");
 
             gameObject.SetActive(false);
         }
+
         else
         {
             kasaAdýUyarý.gameObject.SetActive(true);
         }
 
-    
+
 
     }
 
     public void RecommendedPrice()
     {
-        profitrate = (PCCase.pCCase.caseScore + 20) / 4;
+        profitrate = (pc.caseScore + 20) / 4;
 
-        if (PCCase.pCCase.caseScore >= 100)
+        if (pc.caseScore >= 100)
         {
-            PCCase.pCCase.recommendedPrice = PCCase.pCCase.caseCost + (int)PCCase.pCCase.caseCost * 30 / 100;
+            pc.recommendedPrice = pc.caseCost + (int)pc.caseCost * 30 / 100;
         }
         else
         {
-            PCCase.pCCase.recommendedPrice = PCCase.pCCase.caseCost + (int)(PCCase.pCCase.caseCost * profitrate/100);
+            pc.recommendedPrice = pc.caseCost + (int)(pc.caseCost * profitrate / 100);
         }
 
-       
+
         priceSlider.value = pc.recommendedPrice;
 
-       
+
 
         tempFiyatPerformans = pc.fiyatPerformans;
-        
+
         pc.calculatedPrice = true;
 
 
@@ -190,15 +190,15 @@ public class CaseScore : MonoBehaviour
 
     public void SellPrice()
     {
-        
+
         pc.sellPrice = (int)priceSlider.value;
-        
+
         CalculateFiyutPerformans();
     }
 
     public void SellBitPrice()
     {
-         pc.sellBitPrice= (int)bitPriceSlider.value;
+        pc.sellBitPrice = (int)bitPriceSlider.value;
     }
 
 

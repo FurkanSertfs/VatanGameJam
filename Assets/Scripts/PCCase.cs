@@ -193,13 +193,13 @@ public class PCCase : MonoBehaviour
 
                 if (hitProductManager.gameObject.GetComponent<Outline>()!=null)
                 {
-                    tablet.hitProductName.color = hitProductManager.gameObject.GetComponent<Outline>().OutlineColor;
+                    tablet.hitProductName.color = Color.blue;
 
                 }
 
                else if (hitProductManager.gameObject.GetComponentInParent<Outline>() != null)
                 {
-                    tablet.hitProductName.color = hitProductManager.gameObject.GetComponentInParent<Outline>().OutlineColor;
+                    tablet.hitProductName.color = Color.blue;
 
                 }
                
@@ -387,10 +387,6 @@ public class PCCase : MonoBehaviour
 
                             }
 
-                            
-
-
-
                             Destroy(hitProductManager.gameObject);
 
 
@@ -403,15 +399,7 @@ public class PCCase : MonoBehaviour
                         GameManager.gameManager.loadingCursor.gameObject.SetActive(false);
                         GameManager.gameManager.loadingCursor.fillAmount = 0;
                     }
-                    //
-
-
-
-
-
-
-
-
+                    
 
                 }
 
@@ -419,11 +407,6 @@ public class PCCase : MonoBehaviour
                 {
                     hitinfo.collider.GetComponent<Outline>().enabled = false;
                 }
-
-
-
-
-
 
             }
             else if (hitinfo.collider.CompareTag("State"))
@@ -491,6 +474,11 @@ public class PCCase : MonoBehaviour
                     if (productType == PCCaseElement.ProductType.RightCover)
                     {
                         screwDown.transform.DOMove(screwDownBase.position, 1).OnComplete(() => ShowCaceScore());
+                        
+                        if (tablet.startedTaskClass.task == null)
+                        {
+                            selectedObject.GetComponent<MeshCollider>().enabled = false;
+                        }
 
                         screwDown.gameObject.tag = "PcElement";
 
@@ -540,7 +528,7 @@ public class PCCase : MonoBehaviour
         }
     }
 
-    void ShowUsedProducts()
+    public void ShowUsedProducts()
     {
         for (int i = 0; i < productWeUsed.Count; i++)
         {
@@ -615,9 +603,11 @@ public class PCCase : MonoBehaviour
         {
             fiyatPerformans = 100;
             
-
+            CaseScore.caseScore.pc = this;
             CaseScore.caseScore.gameObject.SetActive(true);
-           
+
+       
+
             ShowUsedProducts();
 
 
