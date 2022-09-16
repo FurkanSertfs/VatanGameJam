@@ -28,6 +28,7 @@ public class NewAI : MonoBehaviour
     {
         if (other.gameObject.CompareTag("TableNear"))
         {
+
             GetComponent<NavMeshAgent>().SetDestination(exitpoint.position);
             Debug.Log("girdi");
             Anim.SetBool("isCarry", true);
