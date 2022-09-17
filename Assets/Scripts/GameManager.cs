@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using StarterAssets;
 
+public class SalablePC
+{
+
+}
 
 public class GameManager : MonoBehaviour
 {
@@ -32,6 +36,8 @@ public class GameManager : MonoBehaviour
     public GameObject activeCase,caseBase, sellCaseScreen,caseParrent;
 
     public int bitTLRatio;
+
+    public float fiyatPerformansBonus;
 
     public bool twitchIntegration,isHaveCaseForSell, youtubeIntegration;
 
@@ -82,7 +88,10 @@ public class GameManager : MonoBehaviour
     }
 
 
-
+    public void BuyUpgrade(int price)
+    {
+        money -= price;
+    }
 
     public void ChangeCam(string name)
     {

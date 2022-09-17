@@ -178,6 +178,8 @@ public class CaseScore : MonoBehaviour
                 GameManager.gameManager.ChangeCam("FPS");
 
                 gameObject.SetActive(false);
+
+
             }
 
             else
