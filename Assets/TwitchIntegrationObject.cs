@@ -10,13 +10,13 @@ public class TwitchIntegrationObject : MonoBehaviour
 
     public static TwitchIntegrationObject twitchIntegrationObject = null;
 
-    public InputField joinField,rateField,channelName;
+    public InputField joinField,rateField,channelName,videoURL;
 
-    public GameObject connectObject,joinUserPrefab;
+    public GameObject connectObjectTwitch, connectObjectYoutube, joinUserPrefab,youtubeSettings,twitchSettings;
 
     public Transform joinUserTransform;
 
-    bool isConnected;
+    public  bool isConnectedTwitch,isConnectedYoutube;
 
     public Text debugText,joinInfoText,rateInfoText;
 
@@ -42,15 +42,10 @@ public class TwitchIntegrationObject : MonoBehaviour
 
     public void ConnectTwitch()
     {
-        if (joinField.text != "")
-        { 
-        
-        }
-
-
-            if (isConnected)
+       
+        if (isConnectedTwitch)
         {
-            isConnected = false;
+            isConnectedTwitch = false;
             debugText.text = "Lütfen Bekleyiniz Çýkýþ Yapýlýyor";
             TwitchIRC.twitchIRC.Disconnect();
             
@@ -58,12 +53,59 @@ public class TwitchIntegrationObject : MonoBehaviour
 
         else
         {
-            isConnected = true;
+            isConnectedTwitch = true;
             debugText.text = "Lütfen Bekleyiniz Baðlanýlýyor";
             TwitchIRC.twitchIRC.StartCoroutine(TwitchIRC.twitchIRC.PrepareConnection());
         }
         
     }
+
+    public void ConnectYoutube()
+    {
+
+        if (isConnectedYoutube)
+        {
+            isConnectedYoutube = false;
+           
+
+        }
+
+        else
+        {
+            isConnectedYoutube = true;
+            YoutubeIntegration.youtubeIntegration.VideoIDFinder();
+           
+        }
+
+    }
+
+    public void ChangePlatform(string platformName)
+    {
+        if (platformName == "Youtube")
+        {
+            
+
+            joinInfoText.color = Color.red;
+           
+            rateInfoText.color = Color.red;
+            
+
+        }
+        else
+        {
+
+            
+
+            joinInfoText.color = new Color32(145,70,255,255);
+           
+            rateInfoText.color = new Color32(145, 70, 255, 255);
+
+        }
+
+    }
+
+
+
 
 
     public void JoinFiledEnd()
@@ -74,6 +116,7 @@ public class TwitchIntegrationObject : MonoBehaviour
 
             joinInfoText.text = "Ýzleyiciler " + joinField.text + " yazarak sipariþ verenlerin listesine katýlabilir. Oyun esnasýnda katýlmaya devam edebilirsiniz.";
         }
+
         else
         {
             joinInfoText.text = "Lütfen Boþ Býrakmayýnýz";
@@ -82,13 +125,25 @@ public class TwitchIntegrationObject : MonoBehaviour
 
     }
 
-    public void ChannerNameEnd()
+    public void ChangeNameEnd()
     {
         if (channelName.text != "")
         {
             TwitchIRC.twitchIRC.twitchDetails.channel = channelName.text;
 
-            connectObject.SetActive(true);
+            connectObjectTwitch.SetActive(true);
+        }
+
+
+    }
+
+    public void ChangelURLEnd()
+    {
+
+        if (videoURL.text != "")
+        {
+            YoutubeIntegration.youtubeIntegration.videoLink = videoURL.text;
+            connectObjectYoutube.SetActive(true);
         }
 
 
@@ -114,7 +169,7 @@ public class TwitchIntegrationObject : MonoBehaviour
     {
         GameObject newUser =   Instantiate(joinUserPrefab, joinUserTransform);
 
-        newUser.GetComponent<Text>().text = name + " Katýldý";
+        newUser.GetComponent<Text>().text = name + " Joined";
 
     }
 

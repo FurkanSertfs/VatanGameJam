@@ -19,9 +19,9 @@ public class ExampleIRCListener : MonoBehaviour
 {
     private TwitchIRC IRC;
 
-    public List<int> voterList;
+    public List<int> voterList=new List<int>();
 
-    public List<string> pcTaskList;
+    public List<string> pcTaskList = new List<string>();
 
     List<AuctionUser> auctionUsers= new List<AuctionUser>();
 
@@ -86,7 +86,7 @@ public class ExampleIRCListener : MonoBehaviour
           
         TwitchIntegrationObject.twitchIntegrationObject.ShowJoinedUser(chatter.login);
           
-        TwitchIRC.twitchIRC.stream.WriteLine("PRIVMSG #" + TwitchIRC.twitchIRC.twitchDetails.channel.ToLower() + " :"+ chatter.login + " katýldý");
+        TwitchIRC.twitchIRC.stream.WriteLine("PRIVMSG #" + TwitchIRC.twitchIRC.twitchDetails.channel.ToLower() + " :"+ chatter.login + " joined");
             
           
         }
@@ -145,9 +145,9 @@ public class ExampleIRCListener : MonoBehaviour
 
         }
 
-            if (chatter.message.Contains(rateCommand))
-        {
-            if (TwitchIntegration.twitchIntegration.isVoting)
+        if (chatter.message.Contains(rateCommand))
+            {
+            if (TwitchIntegration.twitchIntegration != null && TwitchIntegration.twitchIntegration.isVoting)
             {
                 string[] msg;
                 bool isN = true;

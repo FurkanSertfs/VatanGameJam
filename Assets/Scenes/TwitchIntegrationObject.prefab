@@ -1,5 +1,51 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &398281374
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 398281376}
+  - component: {fileID: 398281375}
+  m_Layer: 0
+  m_Name: YoutubeIntegration
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &398281376
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398281374}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1087.4235, y: 693.035, z: -710.31274}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2076228442271667099}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &398281375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398281374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2926d3771cb2388449e4448d5c7093ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  status: 
+  videoLink: https://www.youtube.com/watch?v=v7nd27uGc3E
+  items: []
 --- !u!1 &5027298907110521130
 GameObject:
   m_ObjectHideFlags: 0
@@ -30,6 +76,7 @@ Transform:
   m_Children:
   - {fileID: 5205464832543993692}
   - {fileID: 1058204411825153353}
+  - {fileID: 398281376}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -45,6 +92,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60db3a295f5f873448fe388677aa7304, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  joinField: {fileID: 0}
+  rateField: {fileID: 0}
+  channelName: {fileID: 0}
+  connectObject: {fileID: 0}
+  joinUserPrefab: {fileID: 3040712128084298878, guid: 7f21ddd00cb711048a4870463df3424e,
+    type: 3}
+  joinUserTransform: {fileID: 0}
+  debugText: {fileID: 0}
+  joinInfoText: {fileID: 0}
+  rateInfoText: {fileID: 0}
 --- !u!1001 &6641924943307325526
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -115,7 +172,7 @@ PrefabInstance:
     - target: {fileID: 3039776206827660459, guid: b1ba9e45c7a770f4f9b408f2a9b34c36,
         type: 3}
       propertyPath: settings.debugIRC
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3039776206827660459, guid: b1ba9e45c7a770f4f9b408f2a9b34c36,
         type: 3}
@@ -131,6 +188,11 @@ PrefabInstance:
         type: 3}
       propertyPath: twitchDetails.channel
       value: furkansertfs
+      objectReference: {fileID: 0}
+    - target: {fileID: 3039776206827660459, guid: b1ba9e45c7a770f4f9b408f2a9b34c36,
+        type: 3}
+      propertyPath: settings.autoConnectOnStart
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1ba9e45c7a770f4f9b408f2a9b34c36, type: 3}
@@ -206,6 +268,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7273008240159367169, guid: 394edef4f2e86b24f9f5a8379da97814,
+        type: 3}
+      propertyPath: joinCommand
+      value: '!join'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7273008240159367169, guid: 394edef4f2e86b24f9f5a8379da97814,
+        type: 3}
+      propertyPath: rateCommand
+      value: '!rate'
       objectReference: {fileID: 0}
     - target: {fileID: 7273008240159367169, guid: 394edef4f2e86b24f9f5a8379da97814,
         type: 3}

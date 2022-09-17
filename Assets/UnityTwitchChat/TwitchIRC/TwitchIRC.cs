@@ -191,7 +191,7 @@ public class TwitchIRC : MonoBehaviour
 
                     if (connected)
                     {
-                        Debug.LogError("Error while reading IRC input. Reconnecting...");
+                        Debug.Log("Error while reading IRC input. Reconnecting...");
                         MainThread.Instance.Enqueue(() => Disconnect(true)); // Disconnect, but then reconnect
                     }
 
