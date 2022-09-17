@@ -19,11 +19,13 @@ public class NewAI : MonoBehaviour
 
     public Transform exitpoint;
 
-
+    NavMeshAgent agent;
 
     void Start()
     {
         Anim = GetComponent<Animator>();
+
+        agent = GetComponent<NavMeshAgent>();
     }
 
 
@@ -64,14 +66,11 @@ public class NewAI : MonoBehaviour
 
             }
 
+        }
 
-           
-            
-            
-          
-           
-
-
+        if (other.gameObject.CompareTag("ExitPoint"))
+        {
+            Destroy(gameObject);
         }
     }
 

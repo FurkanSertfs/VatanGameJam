@@ -28,6 +28,7 @@ TagManager:
   - PCSellTable
   - ComputerSellTable
   - TableNear
+  - ExitPoint
   layers:
   - Default
   - TransparentFX
