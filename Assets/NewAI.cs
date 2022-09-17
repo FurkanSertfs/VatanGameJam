@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-
-
+using UnityEngine.UI;
 
 public class NewAI : MonoBehaviour
 {
@@ -15,21 +14,42 @@ public class NewAI : MonoBehaviour
 
     public Transform transformParent;
 
+    public GameObject integrationmObjects, youtubeIcon, twitchIcon;
+
+    public Text userName;
+
     bool boughtPC;
+
+    public bool twitch, youtube;
 
     public Transform exitpoint;
 
     NavMeshAgent agent;
+
+
+
+
 
     void Start()
     {
         Anim = GetComponent<Animator>();
 
         agent = GetComponent<NavMeshAgent>();
+
+        if (youtube)
+        {
+            youtubeIcon.SetActive(true);
+            
+            integrationmObjects.SetActive(true);
+        }
+        else if (twitch)
+        {
+            twitchIcon.SetActive(true);
+            
+            integrationmObjects.SetActive(true);
+
+        }
     }
-
-
-
 
 
 

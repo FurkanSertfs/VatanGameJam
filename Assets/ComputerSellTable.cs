@@ -7,6 +7,8 @@ public class ComputerSellTable : MonoBehaviour
 {
     public Transform[] caseSpawnPoints;
 
+    public SalablePC salablePC;
+
     public Transform buyPoint;
 
     public GameObject Canvas,caseBase;
@@ -29,15 +31,30 @@ public class ComputerSellTable : MonoBehaviour
     {
         GameManager.gameManager.computerTable.Add(this);
 
-       
-      
     }
+
     private void Update()
     {
-        if (isFull&&!startCorutine)
+        if (isFull&&!startCorutine&&!isSold)
         {
-            startCorutine = true;
 
+            if (!pc.isAddedSalebleList)
+            {
+                GameManager.gameManager.salablePCs.Add(new SalablePC());
+
+                GameManager.gameManager.salablePCs[GameManager.gameManager.salablePCs.Count - 1].price = pc.sellBitPrice;
+
+                GameManager.gameManager.salablePCs[GameManager.gameManager.salablePCs.Count - 1].caseName = pc.caseName;
+
+                GameManager.gameManager.salablePCs[GameManager.gameManager.salablePCs.Count - 1].table = this;
+
+                salablePC = GameManager.gameManager.salablePCs[GameManager.gameManager.salablePCs.Count - 1];
+            }
+
+
+
+            startCorutine = true;
+            
             StartCoroutine(Buy(1));
         }
     }
@@ -58,7 +75,7 @@ public class ComputerSellTable : MonoBehaviour
 
         }
 
-        else
+        if(!isSold)
         {
             coolDown = Random.Range(5, 6);
 
@@ -70,11 +87,4 @@ public class ComputerSellTable : MonoBehaviour
 
 
     }
-
-    
-
-
-
-
-
 }

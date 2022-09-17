@@ -57,7 +57,7 @@ public class PCCase : MonoBehaviour
 
     bool isCoverOppened;
 
-    public bool calculatedPrice;
+    public bool calculatedPrice,isAddedSalebleList;
 
     public List<GameObject> productWeUsed= new List<GameObject>();
 

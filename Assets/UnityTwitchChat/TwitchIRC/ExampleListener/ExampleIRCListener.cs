@@ -113,30 +113,33 @@ public class ExampleIRCListener : MonoBehaviour
 
             if (temp != "")
             {
-                for (int i = 0; i < auctionUsers.Count; i++)
+
+                for (int i = 0; i < GameManager.gameManager.salablePCs.Count; i++)
                 {
-                    if (chatter.login == auctionUsers[i].userName)
+                    if (int.Parse(temp) >= GameManager.gameManager.salablePCs[i].price)
                     {
-                        isHere = true;
-                        auctionUsers[i].userBitAmount += int.Parse(temp);
+                        if (GameManager.gameManager.salablePCs.Count > 1)
+                        {
+                           
+                            if (chatter.message.Contains(GameManager.gameManager.salablePCs[i].caseName))
+                            {
+                                AIManager.aiManager.SpawnManager(GameManager.gameManager.salablePCs[i].table, chatter.login,"Twitch");
+                            }
+                          
+
+
+                        }
+
+                        else if(GameManager.gameManager.salablePCs.Count ==1)
+                        {
+                            AIManager.aiManager.SpawnManager(GameManager.gameManager.salablePCs[i].table,chatter.login,"Twitch");
+                        }
+
                     }
-                }
-
-
-
-                if (!isHere)
-                {
-
-                    auctionUsers.Add(new AuctionUser());
-
-                    auctionUsers[auctionUsers.Count - 1].userName = chatter.login;
-
-                    auctionUsers[auctionUsers.Count - 1].userBitAmount = int.Parse(temp);
 
                 }
 
-
-                EditListbyBitAmount();
+               
             }
 
            

@@ -179,6 +179,9 @@ public class CaseScore : MonoBehaviour
 
                 gameObject.SetActive(false);
 
+             
+             
+               
 
             }
 

@@ -4,13 +4,23 @@ using UnityEngine;
 using UnityEngine.UI;
 using StarterAssets;
 
+[System.Serializable]
 public class SalablePC
 {
+    public ComputerSellTable table;
+
+    public string caseName;
+
+    public int price;
+
 
 }
 
 public class GameManager : MonoBehaviour
 {
+
+    public List<SalablePC> salablePCs = new List<SalablePC>();
+
     public static GameManager gameManager;
 
     public int money;
