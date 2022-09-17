@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
 
     public int bitTLRatio;
 
-    public bool twitchIntegration,isHaveCaseForSell;
+    public bool twitchIntegration,isHaveCaseForSell, youtubeIntegration;
 
     public List<ComputerSellTable> computerTable;
     private void Awake()
@@ -42,6 +42,21 @@ public class GameManager : MonoBehaviour
        
         
     }
+
+    private void OnEnable()
+    {
+        if (TwitchIntegrationObject.twitchIntegrationObject.isConnectedTwitch)
+        {
+            twitchIntegration = true;
+        }
+        else if(TwitchIntegrationObject.twitchIntegrationObject.isConnectedYoutube)
+        {
+            youtubeIntegration = true;
+        }
+        
+        
+    }
+
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();

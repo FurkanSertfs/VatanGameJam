@@ -614,9 +614,10 @@ public class PCCase : MonoBehaviour
             if (!isPriced)
             {
                
-                if (GameManager.gameManager.twitchIntegration)
+                if (GameManager.gameManager.twitchIntegration || (GameManager.gameManager.youtubeIntegration))
                 {
-                   
+                    TwitchIntegration.twitchIntegration.pc = this;
+
                     TwitchIntegration.twitchIntegration.StartCoroutine(TwitchIntegration.twitchIntegration.Voting(true));
 
 

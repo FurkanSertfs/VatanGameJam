@@ -46,7 +46,11 @@ public class TwitchIntegrationObject : MonoBehaviour
         if (isConnectedTwitch)
         {
             isConnectedTwitch = false;
+
+            
+
             debugText.text = "Lütfen Bekleyiniz Çýkýþ Yapýlýyor";
+
             TwitchIRC.twitchIRC.Disconnect();
             
         }
@@ -54,7 +58,11 @@ public class TwitchIntegrationObject : MonoBehaviour
         else
         {
             isConnectedTwitch = true;
+
+          
+
             debugText.text = "Lütfen Bekleyiniz Baðlanýlýyor";
+
             TwitchIRC.twitchIRC.StartCoroutine(TwitchIRC.twitchIRC.PrepareConnection());
         }
         
@@ -66,13 +74,17 @@ public class TwitchIntegrationObject : MonoBehaviour
         if (isConnectedYoutube)
         {
             isConnectedYoutube = false;
+
            
 
         }
 
         else
         {
+            
+
             isConnectedYoutube = true;
+
             YoutubeIntegration.youtubeIntegration.VideoIDFinder();
            
         }

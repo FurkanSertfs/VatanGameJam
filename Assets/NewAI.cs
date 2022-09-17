@@ -58,7 +58,9 @@ public class NewAI : MonoBehaviour
                 table.pc.gameObject.transform.position = casesPoint[table.pc.CaseModel].transform.position;
 
                 table.pc.gameObject.transform.rotation = casesPoint[table.pc.CaseModel].transform.rotation;
-                
+
+                table.pc.gameObject.transform.localScale = casesPoint[table.pc.CaseModel].transform.localScale;
+
                 GetComponent<NavMeshAgent>().SetDestination(exitpoint.position);
 
                 Anim.SetBool("isCarry", true);

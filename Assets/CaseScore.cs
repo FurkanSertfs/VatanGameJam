@@ -10,11 +10,11 @@ public class CaseScore : MonoBehaviour
 
     public static CaseScore caseScore;
 
-    public GameObject usedProductElement;
+    public GameObject usedProductElement,twitchEntegrasyon,youtubeEntegrasyon,entegrrasyon;
 
     public Transform usedProductElementLayout;
 
-    public Text scoreText, chatInfoText, timeInfoText, caseNameText, costText, recommendedPriceText, chanceText, sellPriceText, sellBitPriceText, kasaAdýUyarý;
+    public Text scoreText, chatInfoText, timeInfoText, caseNameText, costText, recommendedPriceText, chanceText, sellPriceText, sellBitPriceText, kasaAdýUyarý,bitMessageText,superChatMessageText;
 
     public InputField caseName;
 
@@ -44,6 +44,22 @@ public class CaseScore : MonoBehaviour
 
     private void OnEnable()
     {
+        if (GameManager.gameManager.twitchIntegration || GameManager.gameManager.youtubeIntegration)
+        {
+            entegrrasyon.SetActive(true);
+            if (GameManager.gameManager.twitchIntegration)
+            {
+                twitchEntegrasyon.SetActive(true);
+            }
+            else
+            {
+                youtubeEntegrasyon.SetActive(true);
+            }
+
+        }
+
+
+
 
         if (pc.isPriced)
         {
@@ -70,6 +86,7 @@ public class CaseScore : MonoBehaviour
         else
         {
             pc.sellPrice = (int)priceSlider.value;
+            
             pc.sellBitPrice = (int)bitPriceSlider.value;
         }
 
@@ -83,6 +100,21 @@ public class CaseScore : MonoBehaviour
         scoreText.text = pc.caseScore.ToString() + "%";
 
         costText.text = pc.caseCost.ToString() + " TL";
+
+
+        if (pc.caseName.Length > 0)
+        {
+            
+            superChatMessageText.text = pc.caseName;
+            bitMessageText.text = "Cheer" + pc.sellBitPrice + " " + pc.caseName;
+        }
+        else
+        {
+            bitMessageText.text = "Cheer" + pc.sellBitPrice + " KasaAdý";
+
+            superChatMessageText.text = " KasaAdý";
+        }
+       
 
         if (pc.calculatedPrice)
         {
@@ -129,27 +161,32 @@ public class CaseScore : MonoBehaviour
 
     public void Confirm()
     {
-        if (pc.caseName != "")
+        if (pc.calculatedPrice)
         {
-            pc.gameObject.tag = "ReadyToSell";
+            if (pc.caseName != "")
+            {
+                pc.gameObject.tag = "ReadyToSell";
 
-            pc.GetComponent<BoxCollider>().enabled = true;
+                pc.GetComponent<BoxCollider>().enabled = true;
 
-            pc.isPriced = true;
+                pc.isPriced = true;
 
-            pc.enabled = false;
+                pc.enabled = false;
 
-            // PCCase.pcase=null;
+                // PCCase.pcase=null;
 
-            GameManager.gameManager.ChangeCam("FPS");
+                GameManager.gameManager.ChangeCam("FPS");
 
-            gameObject.SetActive(false);
+                gameObject.SetActive(false);
+            }
+
+            else
+            {
+                kasaAdýUyarý.gameObject.SetActive(true);
+            }
         }
 
-        else
-        {
-            kasaAdýUyarý.gameObject.SetActive(true);
-        }
+        
 
 
 

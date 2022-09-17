@@ -31,6 +31,7 @@ public class ExampleIRCListener : MonoBehaviour
 
     public string joinCommand, rateCommand;
 
+    bool furkan;
 
     private void Awake()
     {
@@ -59,16 +60,16 @@ public class ExampleIRCListener : MonoBehaviour
 
         // Here are some examples on how you could use the chatter objects...
 
-        //if (chatter.tags.displayName == "furkansertfs"&&!furkan)
+        //if (chatter.tags.displayName == "bakbak38" && !furkan)
         //{
         //    furkan = true;
-        //    TwitchIRC.twitchIRC.stream.WriteLine("PRIVMSG #" + TwitchIRC.twitchIRC.twitchDetails.channel.ToLower() + " :Ohoo Furkan beyler gelmiþ hoþgelmiþ");
+        //    TwitchIRC.twitchIRC.stream.WriteLine("PRIVMSG #" + TwitchIRC.twitchIRC.twitchDetails.channel.ToLower() + " :Ohoo Batu beyler gelmiþ hoþgelmiþ");
 
-        //   /// Debug.Log("Chat message was sent by Lexone!");
+        //    /// Debug.Log("Chat message was sent by Lexone!");
         //}
 
 
-       
+
 
 
         if (chatter.HasBadge("subscriber"))
