@@ -19,6 +19,22 @@ public class PruductClass
 
 }
 
+
+[System.Serializable]
+public class ModClass
+
+{
+    public bool isFull;
+    public int value;
+
+
+}
+
+
+
+
+
+
 [System.Serializable]
 public class ProductSpawnPoint
 
@@ -122,7 +138,7 @@ public class TabletUI : MonoBehaviour
 
     // 
 
-
+    public List<ModClass> modClasses = new List<ModClass>();
     public List<int> mod = new List<int>();
     GameObject newPc;
 

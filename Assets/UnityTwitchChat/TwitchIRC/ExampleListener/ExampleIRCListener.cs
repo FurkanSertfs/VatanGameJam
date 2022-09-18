@@ -119,12 +119,16 @@ public class ExampleIRCListener : MonoBehaviour
                 {
                     if (int.Parse(temp) >= GameManager.gameManager.salablePCs[i].price)
                     {
+                        enoughfMoney = true;
+
                         if (GameManager.gameManager.salablePCs.Count > 1)
                         {
                            
                             if (chatter.message.Contains(GameManager.gameManager.salablePCs[i].caseName))
                             {
                                 AIManager.aiManager.SpawnManager(GameManager.gameManager.salablePCs[i].table, chatter.login,"Twitch");
+
+                                enoughfMoney = false;
                             }
                           
 
@@ -134,6 +138,8 @@ public class ExampleIRCListener : MonoBehaviour
                         else if(GameManager.gameManager.salablePCs.Count ==1)
                         {
                             AIManager.aiManager.SpawnManager(GameManager.gameManager.salablePCs[i].table,chatter.login,"Twitch");
+
+                            enoughfMoney = false;
                         }
 
                     }
