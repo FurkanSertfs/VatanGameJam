@@ -81,6 +81,8 @@ public class ComputerSellTable : MonoBehaviour
         {
             coolDown = Random.Range(5, 6);
 
+            GameManager.gameManager.computerTable.Add(this);
+
             StartCoroutine(Buy(coolDown));
 
 

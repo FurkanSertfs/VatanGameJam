@@ -207,7 +207,7 @@ public class BuyManager : MonoBehaviour
 
                             for (int i = 0; i < gameManager.computerTable.Count; i++)
                             {
-                            gameManager.computerTable[i].caseBase.SetActive(true);
+                                gameManager.computerTable[i].caseBase.SetActive(true);
 
                             }
 
@@ -222,6 +222,8 @@ public class BuyManager : MonoBehaviour
                             hit.collider.transform.rotation = gameManager.PCCases[hit.collider.GetComponent<PCCase>().CaseModel].transform.rotation;
 
                             Destroy(deleteO);
+
+                            PCCase.pCCase = null;
 
                         }
 
@@ -419,6 +421,10 @@ public class BuyManager : MonoBehaviour
                 {
 
                     gameManager.ChangeCam("PCBuild");
+                   
+                    CloseInfos();
+                  
+                    gameManager.infoPcRotate.SetActive(true);
 
                 }
 
@@ -429,7 +435,9 @@ public class BuyManager : MonoBehaviour
 
 
                         gameManager.caseBase.SetActive(false);
+                       
                         gameManager.activeCase.SetActive(false);
+                       
                         newPc = Instantiate(tablet.pcPrefab, tablet.pcSpawnPoint.position, tablet.pcSpawnPoint.rotation, tablet.pcSpawnPoint);
 
                         newPc.GetComponent<PCModels>().Cases[gameManager.activeCase.GetComponent<ProductManager>().product.caseModelID].SetActive(true);

@@ -33,8 +33,7 @@ public class UIMain : MonoBehaviour
             loadingBar.fillAmount = operation.progress;
             progresText.text = "%" + ((int)(operation.progress*100)).ToString();
 
-            if(operation.progress>=89)
-            yield return new WaitForSeconds(1.5f);
+          
             yield return null;
         }
 

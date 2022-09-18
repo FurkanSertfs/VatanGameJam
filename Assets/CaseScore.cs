@@ -184,8 +184,6 @@ public class CaseScore : MonoBehaviour
 
                 pc.enabled = false;
 
-                // PCCase.pcase=null;
-
                 GameManager.gameManager.ChangeCam("FPS");
 
                 gameObject.SetActive(false);
