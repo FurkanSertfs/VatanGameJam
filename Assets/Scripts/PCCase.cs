@@ -588,6 +588,8 @@ public class PCCase : MonoBehaviour
 
 
                 }
+
+                CaseScore.caseScore.productWeUsed = productWeUsed;
             }
 
 

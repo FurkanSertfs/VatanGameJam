@@ -87,14 +87,24 @@ public class TwitchIntegration : MonoBehaviour
             {
                 float min = pc.tempSkor + pc.caseSkor;
 
+              
+
                 DOTween.To(() => 0, x => pc.caseScore = x, Random.Range((int)min, (int)min + 10), 2F).OnComplete(() => CaseScore.caseScore.RecommendedPrice());
+
+                DOTween.To(() => 0.1f, x => CaseScore.caseScore.scoreBar.fillAmount = x, Random.Range((int)min, (int)min + 10) / 100.0f, 2F);
             }
 
-            DOTween.To(() => 0.1f, x => CaseScore.caseScore.scoreBar.fillAmount = x, PCCase.pCCase.caseScore / 100.0f, 1F);
+            else
+            {
+                DOTween.To(() => 0.1f, x => CaseScore.caseScore.scoreBar.fillAmount = x, PCCase.pCCase.caseScore / 100.0f, 1F);
+                CaseScore.caseScore.RecommendedPrice();
 
-          
+            }
 
-            CaseScore.caseScore.RecommendedPrice();
+
+
+
+            
         }
    
     }

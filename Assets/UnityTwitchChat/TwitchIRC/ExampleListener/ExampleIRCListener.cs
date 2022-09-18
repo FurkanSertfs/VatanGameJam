@@ -95,7 +95,8 @@ public class ExampleIRCListener : MonoBehaviour
         if (chatter.message.Contains("Fheer"))
         {
             string temp = "";
-            bool isHere = false;
+            bool enoughfMoney = false;
+            int pcID = -1;
 
             for (int i = 5; i < chatter.message.Length; i++)
             {
@@ -138,8 +139,12 @@ public class ExampleIRCListener : MonoBehaviour
                     }
 
                 }
+                if (enoughfMoney && GameManager.gameManager.salablePCs.Count > 0)
+                {
+                    AIManager.aiManager.SpawnManager(GameManager.gameManager.salablePCs[pcID].table, chatter.login, "Twitch");
+                }
 
-               
+
             }
 
            

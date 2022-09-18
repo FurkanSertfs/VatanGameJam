@@ -344,22 +344,46 @@ public class BuyManager : MonoBehaviour
 
                     if (timer + 0.6f < Time.time)
                     {
-                        hitProductManager = hit.collider.GetComponent<ProductManager>();
+                        if (hitProductManager.productType == PCCaseElement.ProductType.Case&&GameManager.gameManager.tableCount==0)
+                        {
+                            
 
-                        tablet.AddProducttoBasket(hitProductManager.product);
+                            GameObject newNotification = Instantiate(AIManager.aiManager.caseSellnotification, AIManager.aiManager.caseSellnotificationParent);
 
-                        productImage.sprite = hitProductManager.product.productImage;
+                            newNotification.GetComponent<ShopingDes>().userNameText.text = "Kasa satýn almadan önce bir satýþ standý almasýlýn";
 
-                        shopingDescriptionText.text = hitProductManager.product.name + " Sepete Eklendi";
+                            newNotification.GetComponent<ShopingDes>().caseNameText.text = "";
 
-                        priceText.text = (hitProductManager.product.price) + " TL";
+                            newNotification.GetComponent<ShopingDes>().priceText.text = "";
 
-                        ShopDescription();
+                            newNotification.GetComponent<ShopingDes>().bitPriceText.text ="";
+
+                            newNotification.GetComponent<ShopingDes>().userNameText.gameObject.SetActive(true);
+                           
+
+
+                        }
+
+                        else
+                        {
+                            tablet.AddProducttoBasket(hitProductManager.product);
+
+                            productImage.sprite = hitProductManager.product.productImage;
+
+                            shopingDescriptionText.text = hitProductManager.product.name + " Sepete Eklendi";
+
+                            priceText.text = (hitProductManager.product.price) + " TL";
+
+                            ShopDescription();
+
+                            timer = Time.time;
 
 
 
+                        }
 
-                        timer = Time.time;
+
+
                     }
 
                 }

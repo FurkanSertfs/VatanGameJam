@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using DG.Tweening;
 
 public class ShopingDes : MonoBehaviour
 {
-   
+    public Text userNameText,caseNameText,bitPriceText,priceText;
+
+    public Image youtubeIcon,twitchIcon;
+
+    public float time;
 
     [SerializeField]
     public RectTransform startPoint,target;
@@ -15,7 +20,7 @@ public class ShopingDes : MonoBehaviour
         private void OnEnable()
         {
 
-        transform.DOMove(target.position, 2.25f).SetEase(easeType).OnComplete(()=>OnTarget());
+        transform.DOMove(target.position, time).SetEase(easeType).OnComplete(()=>OnTarget());
         
         }
 

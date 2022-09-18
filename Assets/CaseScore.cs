@@ -8,13 +8,15 @@ public class CaseScore : MonoBehaviour
 {
     public PCCase pc;
 
+    public List<GameObject> productWeUsed = new List<GameObject>();
+
     public static CaseScore caseScore;
 
-    public GameObject usedProductElement,twitchEntegrasyon,youtubeEntegrasyon,entegrrasyon;
+    public GameObject usedProductElement,twitchEntegrasyon,youtubeEntegrasyon,entegrrasyon,afterScore;
 
     public Transform usedProductElementLayout;
 
-    public Text scoreText, chatInfoText, timeInfoText, caseNameText, costText, recommendedPriceText, chanceText, sellPriceText, sellBitPriceText, kasaAdýUyarý,bitMessageText,superChatMessageText;
+    public Text scoreText, chatInfoText, timeInfoText, costText, recommendedPriceText, chanceText, sellPriceText, sellBitPriceText, kasaAdýUyarý,bitMessageText,superChatMessageText;
 
     public InputField caseName;
 
@@ -95,6 +97,13 @@ public class CaseScore : MonoBehaviour
 
     }
 
+    private void OnDisable()
+    {
+        afterScore.SetActive(false);
+        caseName.text = "";
+    }
+
+
     private void Update()
     {
         scoreText.text = pc.caseScore.ToString() + "%";
@@ -118,6 +127,8 @@ public class CaseScore : MonoBehaviour
 
         if (pc.calculatedPrice)
         {
+            afterScore.SetActive(true);
+
             recommendedPriceText.text = pc.recommendedPrice.ToString() + " TL";
 
             chanceText.text = "%" + pc.fiyatPerformans.ToString();
@@ -179,9 +190,13 @@ public class CaseScore : MonoBehaviour
 
                 gameObject.SetActive(false);
 
-             
-             
-               
+                TableProducts.tableProducts.productTableHave.Clear();
+
+                for (int i = 0; i < productWeUsed.Count; i++)
+                {
+                    Destroy(productWeUsed[i]);
+                }
+                productWeUsed.Clear();
 
             }
 
@@ -189,6 +204,7 @@ public class CaseScore : MonoBehaviour
             {
                 kasaAdýUyarý.gameObject.SetActive(true);
             }
+      
         }
 
         

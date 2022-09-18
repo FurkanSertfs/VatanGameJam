@@ -21,6 +21,8 @@ public class BuyTable : MonoBehaviour
            
             GameManager.gameManager.money -= tablePrice;
 
+            GameManager.gameManager.tableCount++;
+
             GetComponent<ComputerSellTable>().enabled = true;
 
             sellCanvvas.SetActive(false);

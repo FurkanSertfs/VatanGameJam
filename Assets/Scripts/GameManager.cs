@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject activeCase,caseBase, sellCaseScreen,caseParrent;
 
-    public int bitTLRatio;
+    public int bitTLRatio,tableCount;
 
     public float fiyatPerformansBonus;
 
@@ -61,14 +61,19 @@ public class GameManager : MonoBehaviour
 
     private void OnEnable()
     {
-        if (TwitchIntegrationObject.twitchIntegrationObject.isConnectedTwitch)
+        if (TwitchIntegrationObject.twitchIntegrationObject!=null)
         {
-            twitchIntegration = true;
+
+            if (TwitchIntegrationObject.twitchIntegrationObject.isConnectedTwitch)
+            {
+                twitchIntegration = true;
+            }
+            else if (TwitchIntegrationObject.twitchIntegrationObject.isConnectedYoutube)
+            {
+                youtubeIntegration = true;
+            }
         }
-        else if(TwitchIntegrationObject.twitchIntegrationObject.isConnectedYoutube)
-        {
-            youtubeIntegration = true;
-        }
+
         
         
     }
@@ -81,16 +86,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if(GameTime.Hour >= 17 && GameTime.Minute >30)
-        {
-            GameTime.Hour = 9;
-            GameTime.Minute = 0;
-
-           TabletUI.tabletUI.StartCoroutine(TabletUI.tabletUI.FinishDay());
-           
-            day++;
-        }
-
+      
         moneyText.text = money.ToString() + " TL";
 
       

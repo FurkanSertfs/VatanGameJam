@@ -521,12 +521,6 @@ public class TabletUI : MonoBehaviour
         
         GameManager.gameManager.day++;
         
-        GameTime.Hour = 9;
-        
-        GameTime.Minute = 0;
-
-       
-
         NextDay();
     }
 

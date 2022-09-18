@@ -11,9 +11,11 @@ public class YoutubeIntegration : MonoBehaviour
 {
     public static YoutubeIntegration youtubeIntegration;
 
+    public string jSon;
+ 
     private string key = "AIzaSyAi3vi-7t-77ORnJakk1j8lm0tCGdc7GHc";
    
-    private string liveChatId;
+    public string liveChatId;
     
     public string videoID;
 
@@ -24,6 +26,8 @@ public class YoutubeIntegration : MonoBehaviour
     public string status;
     
     public string videoLink;
+
+    public List<Snippet> superChatUsers;
     
     private const string YoutubeLinkRegex = "(?:.+?)?(?:\\/v\\/|watch\\/|\\?v=|\\&v=|youtu\\.be\\/|\\/v=|^youtu\\.be\\/)([a-zA-Z0-9_-]{11})+";
     
@@ -246,6 +250,7 @@ public class YoutubeIntegration : MonoBehaviour
         {
             WWW link = new WWW("https://www.googleapis.com/youtube/v3/liveChat/messages?liveChatId="+liveChatId+"&part=snippet,authorDetails&key="+key+"&pageToken=" + liveChatMesages.nextPageToken);
 
+            jSon = "https://www.googleapis.com/youtube/v3/liveChat/messages?liveChatId=" + liveChatId + "&part=snippet,authorDetails&key=" + key + "&pageToken=" + liveChatMesages.nextPageToken;
 
             yield return link;
             if (link.error == null)
@@ -261,6 +266,7 @@ public class YoutubeIntegration : MonoBehaviour
                     {
                         Rate(i);
                         Join(i);
+                        SuperChatUser(i);
 
                     }
                 }
@@ -297,9 +303,81 @@ public class YoutubeIntegration : MonoBehaviour
         }
     }
 
+    void SuperChatUser(int i)
+    {
+        bool enoughfMoney=false;
+        int pcID=-1;
+
+        if (liveChatMesages.items[i].snippet.superChatDetails.amountDisplayString.Length > 0) 
+        {
+          
+             string temp="";
+
+            for (int j = 4; j < liveChatMesages.items[i].snippet.superChatDetails.amountDisplayString.Length; j++)
+            {
+                if (!Char.IsNumber(liveChatMesages.items[i].snippet.superChatDetails.amountDisplayString[j]))
+                {
+                    break;
+                }
+
+                else
+                {
+                    temp += liveChatMesages.items[i].snippet.superChatDetails.amountDisplayString[j];
+
+                }
+            }
+
+            if (temp != "")
+            {
+
+                for (int j = 0; j < GameManager.gameManager.salablePCs.Count; j++)
+                {
+                    if (int.Parse(temp) >= GameManager.gameManager.salablePCs[j].price)
+                    {
+                        enoughfMoney = true;
+                        pcID = i;
+                        if (GameManager.gameManager.salablePCs.Count > 1)
+                        {
+
+                            if (liveChatMesages.items[i].snippet.superChatDetails.userComment.Contains(GameManager.gameManager.salablePCs[j].caseName))
+                            {
+                                AIManager.aiManager.SpawnManager(GameManager.gameManager.salablePCs[j].table, liveChatMesages.items[i].authorDetails.displayName, "Youtube");
+
+                                enoughfMoney = false;
+                            }
 
 
-    void Rate(int i)
+
+                        }
+
+                        else if (GameManager.gameManager.salablePCs.Count == 1)
+                        {
+                            AIManager.aiManager.SpawnManager(GameManager.gameManager.salablePCs[j].table, liveChatMesages.items[i].authorDetails.displayName, "Youtube");
+                            enoughfMoney = false;
+                        }
+
+                    }
+
+                }
+
+                if (enoughfMoney&& GameManager.gameManager.salablePCs.Count>0)
+                {
+                    AIManager.aiManager.SpawnManager(GameManager.gameManager.salablePCs[i].table, liveChatMesages.items[i].authorDetails.displayName, "Youtube");
+                }
+                //
+
+                
+
+            }
+                
+        }
+
+
+
+    }
+
+
+        void Rate(int i)
     {
 
         if (liveChatMesages.items[i].snippet.displayMessage.Contains(userList.rateCommand))
@@ -446,7 +524,17 @@ public class YoutubeIntegration : MonoBehaviour
     public class Snippet
     {
         public string displayMessage;
+        public SuperChatDetails superChatDetails= new SuperChatDetails();
     }
+    [System.Serializable]
+    public class SuperChatDetails
+    {
+        public string amountDisplayString="";
+        public string currency;
+        public string userComment;
+        public string money;
+    }
+    
     [System.Serializable]
     public class AuthorDetails
     {

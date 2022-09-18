@@ -67,9 +67,11 @@ public class ComputerSellTable : MonoBehaviour
         
         fp = Random.Range(0,100);
 
-        if (fp < pc.fiyatPerformans)
+        if (fp < pc.fiyatPerformans&& !isSold)
         {
-            AIManager.aiManager.SpawnManager(buyPoint.transform);
+            AIManager.aiManager.SpawnManager(this);
+
+            GameManager.gameManager.salablePCs.Remove(salablePC);
 
             isSold = true;
 

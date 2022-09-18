@@ -69,6 +69,8 @@ public class NewAI : MonoBehaviour
 
                 table.isSold = false;
 
+                table.Canvas.SetActive(false);
+
                 table.startCorutine = false;
 
                 GameManager.gameManager.money += table.pc.sellPrice;

@@ -1,23 +1,49 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 
 public class UIMain : MonoBehaviour
 {
+    public Text progresText;
+    public Image loadingBar;
+
     [Header("Volume")]
     public AudioMixer audioMixer;
 
     [Header("UIPages")]
-    public GameObject settingsScreen,twitchScreen;
+    public GameObject settingsScreen,twitchScreen,loadingScreen;
     public GameObject mainScreen;
 
     public string sceneName;
 
+
+    IEnumerator LoadLevel()
+    {
+        yield return new WaitForSeconds(1.5f);
+
+        AsyncOperation operation = SceneManager.LoadSceneAsync(1);
+
+        while (!operation.isDone)
+        {
+            
+
+            loadingBar.fillAmount = operation.progress;
+            progresText.text = "%" + ((int)(operation.progress*100)).ToString();
+
+            if(operation.progress>=89)
+            yield return new WaitForSeconds(1.5f);
+            yield return null;
+        }
+
+    }
+
     public void StartGame()
     {
-        SceneManager.LoadScene(sceneName);
+        loadingScreen.SetActive(true);
+        StartCoroutine(LoadLevel());
     }
 
     public void Settings()
