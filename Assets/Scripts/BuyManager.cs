@@ -264,6 +264,7 @@ public class BuyManager : MonoBehaviour
                             gameManager.activeCase = gameManager.PCCases[hitProductManager.product.caseModelID];
                             gameManager.caseBase.SetActive(true);
                             gameManager.activeCase.SetActive(true);
+                            tablet.mod[(int)hitProductManager.product.model] -= 1;
                             Destroy(hit.collider.gameObject);
                         }
                         else
