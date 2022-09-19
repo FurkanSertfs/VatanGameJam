@@ -196,6 +196,11 @@ public class CaseScore : MonoBehaviour
                 }
                 productWeUsed.Clear();
 
+                Cursor.lockState = CursorLockMode.Locked;
+
+                Cursor.visible = false;
+
+
             }
 
             else

@@ -158,18 +158,30 @@ public class BuyManager : MonoBehaviour
                 else if (table.isFull)
                 {
                     gameManager.croshair.color = Color.green;
-                   
-                    CloseInfos();
-                    gameManager.infoSellSettings.SetActive(true);
-                  
-                    if (Input.GetKeyDown(KeyCode.E))
+                    
+                    if (!table.isSold)
                     {
+                        CloseInfos();
+                        gameManager.infoSellSettings.SetActive(true);
 
-                        CaseScore.caseScore.pc = table.pc;
-                        CaseScore.caseScore.gameObject.SetActive(true);
-                        table.pc.ShowUsedProducts();
+                        if (Input.GetKeyDown(KeyCode.E))
+                        {
+
+                            CaseScore.caseScore.pc = table.pc;
+
+                            CaseScore.caseScore.gameObject.SetActive(true);
+
+                            Cursor.lockState = CursorLockMode.Confined;
+
+                            Cursor.visible = true;
+
+                            table.pc.ShowUsedProducts();
 
 
+
+
+
+                        }
                     }
                 }
 

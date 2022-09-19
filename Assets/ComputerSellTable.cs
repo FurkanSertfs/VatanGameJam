@@ -35,6 +35,17 @@ public class ComputerSellTable : MonoBehaviour
 
     private void Update()
     {
+        if (pc != null)
+        {
+            caseBitPrice.text = pc.sellBitPrice.ToString();
+            casePrice.text = pc.sellPrice.ToString();
+            caseFP.text = pc.fiyatPerformans.ToString();
+            caseName.text = pc.caseName;
+
+        }
+       
+
+
         if (isFull&&!startCorutine&&!isSold)
         {
 
