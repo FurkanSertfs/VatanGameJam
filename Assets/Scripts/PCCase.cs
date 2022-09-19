@@ -118,6 +118,13 @@ public class PCCase : MonoBehaviour
     {
         ChechPcOpen();
     }
+    private void OnDisable()
+    {
+        if (PCUI.pCUI != null)
+        {
+            PCUI.pCUI.RestartUI();
+        }
+    }
 
     void ChechPcOpen()
     {

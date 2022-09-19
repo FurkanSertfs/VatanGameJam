@@ -35,8 +35,6 @@ public class GameManager : MonoBehaviour
 
     public Text moneyText;
 
-    public int day;
-
     public AudioClip confirmBasketSound, UIclick, buyProduct;
   
     public AudioSource audioSource;

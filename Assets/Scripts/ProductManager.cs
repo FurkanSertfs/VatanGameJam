@@ -15,4 +15,6 @@ public class ProductManager : MonoBehaviour
 
     public GameObject envanterPrefab;
 
+    public int spawnValue;
+
 }

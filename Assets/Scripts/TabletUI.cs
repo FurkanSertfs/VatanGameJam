@@ -24,7 +24,7 @@ public class PruductClass
 public class ModClass
 
 {
-    public bool isFull;
+    public List<bool> isFull = new List<bool>();
     public int value;
 
 
@@ -124,8 +124,6 @@ public class TabletUI : MonoBehaviour
 
     public List<GameObject> dailyTasksObjects = new List<GameObject>();
 
-    public bool isDayFinished;
-
     public GameObject gorevlerLayout, endDayObject;
 
 
@@ -139,8 +137,10 @@ public class TabletUI : MonoBehaviour
     // 
 
     public List<ModClass> modClasses = new List<ModClass>();
-    public List<int> mod = new List<int>();
+  //  public List<int> mod = new List<int>();
     GameObject newPc;
+
+    bool firstDay=true;
 
     int totalBasketPrice;
 
@@ -151,9 +151,18 @@ public class TabletUI : MonoBehaviour
     }
     private void Start()
     {
-        
 
+        NextTask();
+
+        for (int i = 0; i < modClasses.Count; i++)
+        {
+            modClasses[i].isFull.Add(false);
+
+
+
+        }
        
+
     }
 
 
@@ -168,36 +177,54 @@ public class TabletUI : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-
-            NextDay();
-
-
-        }
-
-
-
-
-
-
-
-
-
     }
 
-    public void NextDay()
+    public void NextTask()
     {
         for (int i = 0; i < dailyTasksObjects.Count; i++)
         {
-            Destroy(dailyTasksObjects[i]);
+            if (awardID[dailyTasksObjects[i].GetComponent<Task>().teskClass.ID])
+            {
+                Destroy(dailyTasksObjects[i]);
+                
+                dailyTasksObjects.Remove(dailyTasksObjects[i]);
+            }
+          
         }
 
-
-        dailyTasksObjects.Clear();
-
-        if (GameManager.gameManager.day == 0)
+        if (!firstDay)
         {
+            for (int i = 0; i < totalDailyTask.Length; i++)
+            {
+                for (int j = 0; j < 4-dailyTasksObjects.Count; j++)
+                {
+                    GameObject newTask = Instantiate(dailyTaskUI, gorevlerLayout.transform);
+
+                    newTask.GetComponent<Task>().teskClass.task = totalDailyTask[i];
+
+                    newTask.GetComponent<Task>().gorevName.text = "GÖREV " + (totalTaskID + 1).ToString();
+
+                    newTask.GetComponent<Task>().teskClass.ID = totalTaskID;
+
+                    awardID.Add(false);
+
+                    taskID.Add(false);
+
+                    totalTaskID++;
+
+                    dailyTasksObjects.Add(newTask);
+                }
+
+               
+
+
+            }
+
+        }
+
+       else 
+        {
+            firstDay = false;
             for (int i = 0; i < dailyTask.Count; i++)
             {
 
@@ -209,7 +236,7 @@ public class TabletUI : MonoBehaviour
 
                 newTask.GetComponent<Task>().teskClass.ID = totalTaskID;
 
-                if (GameManager.gameManager.twitchIntegration)
+                if (GameManager.gameManager.twitchIntegration|| GameManager.gameManager.youtubeIntegration)
                 {
                     newTask.GetComponent<Task>().userName = "Müþteri: " + ExampleIRCListener.userList.pcTaskList[Random.Range(0, ExampleIRCListener.userList.pcTaskList.Count)];
                 }
@@ -230,32 +257,7 @@ public class TabletUI : MonoBehaviour
 
             }
         }
-        else
-        {
-            for (int i = 0; i < totalDailyTask.Length; i++)
-            {
-
-                GameObject newTask = Instantiate(dailyTaskUI, gorevlerLayout.transform);
-
-                newTask.GetComponent<Task>().teskClass.task = totalDailyTask[i];
-
-                newTask.GetComponent<Task>().gorevName.text = "GÖREV " + (totalTaskID + 1).ToString();
-
-                newTask.GetComponent<Task>().teskClass.ID = totalTaskID;
-                
-                awardID.Add(false);
-                
-                taskID.Add(false);
-
-                totalTaskID++;
-
-                dailyTasksObjects.Add(newTask);
-
-
-            }
-
-        }
-
+        
        
 
         dailyTasksObjects[0].GetComponent<Task>().ButtunColor(new Color32(0, 150, 255, 255));
@@ -497,7 +499,9 @@ public class TabletUI : MonoBehaviour
                 }
                
             }
+
             Destroy(newPc);
+
             Transform[] products= BuyManager.buyManager.productsPointsParent.gameObject.GetComponentsInChildren<Transform>();
             for (int i = 1; i < products.Length; i++)
             {
@@ -515,50 +519,13 @@ public class TabletUI : MonoBehaviour
 
 
         }
-
+        NextTask();
         CheckTask();
 
-        CheckDay();
 
-        if (isDayFinished)
-        {
-            StartCoroutine(FinishDay());
-        }
+    
 
-    }
-
-  
-   public IEnumerator FinishDay()
-    {
-        yield return new WaitForSeconds(1);
-        
-
-        endDayObject.SetActive(true);
-        
-        GameManager.gameManager.day++;
-        
-        NextDay();
-    }
-
-
-
-    void CheckDay()
-    {
-        isDayFinished = true;
-
-        for (int i = 0; i < dailyTasksObjects.Count; i++)
-        {
-            
-            if (!taskID[dailyTasksObjects[i].GetComponent<Task>().teskClass.ID])
-          
-            {
-                isDayFinished = false;
-
-
-            }
-
-        }
-
+      
 
     }
 
@@ -661,11 +628,11 @@ public class TabletUI : MonoBehaviour
 
     void PlaceProducts()
     {
-        int id;
+        int id,id2;
 
         // mod=0;
 
-        int count = 0;
+        int count = 0,count2=0;
 
         for (int i = 0; i < productsinBasket.Count; i++)
         {
@@ -710,27 +677,23 @@ public class TabletUI : MonoBehaviour
             }
 
 
-            count = mod.Count;
+            count = modClasses.Count;
 
             for (int j = 0; j < productsinBasket[i].count; j++)
             {
 
 
                 id = (int)productsinBasket[i].product.model;
-                if (mod.Count <= id)
-                {
-                    for (int k = 0; k < (id-count)+1; k++)
-                    {
-                        mod.Add(0);
-                    }
-                }
+              
 
 
-                GameObject newEnvanterProduct = Instantiate(productsinBasket[i].product.prefabEnvanter, productsSpawnPoints[id].spawnPoints[mod[id] % (productsSpawnPoints[id].spawnPoints.Length - 1)]);
+                GameObject newEnvanterProduct = Instantiate(productsinBasket[i].product.prefabEnvanter, productsSpawnPoints[id].spawnPoints[modClasses[id].value % (productsSpawnPoints[id].spawnPoints.Length - 1)]);
 
-                newEnvanterProduct.GetComponent<ProductManager>().spawnPoint = productsSpawnPoints[id].spawnPoints [mod[id] % (productsSpawnPoints[id].spawnPoints.Length - 1) ].GetComponent<ProductSpawn>().spawnPoint;
+                newEnvanterProduct.GetComponent<ProductManager>().spawnPoint = productsSpawnPoints[id].spawnPoints [modClasses[id].value % (productsSpawnPoints[id].spawnPoints.Length - 1) ].GetComponent<ProductSpawn>().spawnPoint;
 
-                mod[id]++;
+            //    modClasses[id].isFull = true;
+
+                modClasses[id].value++;
 
             }
 
@@ -803,24 +766,23 @@ public class TabletUI : MonoBehaviour
 
         GameManager.gameManager.audioSource.Play();
 
-        int count = mod.Count;
         int id = (int)productManager.product.model;
 
-        if (mod.Count <= id)
-        {
-            for (int k = 0; k < (id - count) + 1; k++)
-            {
-                mod.Add(0);
-            }
-        }
-    
+     
+      
 
-        GameObject newEnvanterProduct = Instantiate(productManager.envanterPrefab, productsSpawnPoints[id].spawnPoints[mod[id] % (productsSpawnPoints[id].spawnPoints.Length - 1)]);
 
-        newEnvanterProduct.GetComponent<ProductManager>().spawnPoint = productsSpawnPoints[id].spawnPoints[mod[id] % (productsSpawnPoints[id].spawnPoints.Length - 1) ].GetComponent<ProductSpawn>().spawnPoint;
 
+        GameObject newEnvanterProduct = Instantiate(productManager.envanterPrefab, productsSpawnPoints[id].spawnPoints[modClasses[id].value % (productsSpawnPoints[id].spawnPoints.Length - 1)]);
+
+        newEnvanterProduct.GetComponent<ProductManager>().spawnPoint = productsSpawnPoints[id].spawnPoints[modClasses[id].value % (productsSpawnPoints[id].spawnPoints.Length - 1) ].GetComponent<ProductSpawn>().spawnPoint;
+
+        //newEnvanterProduct.GetComponent<ProductManager>() = spawnValue;
+     
         newEnvanterProduct.SetActive(true);
 
+       
+        
         if (productManager.GetComponent<PCCaseElement>() != null)
         {
             if (!productManager.GetComponent<PCCaseElement>().isAddedInEnvanter)
@@ -841,10 +803,10 @@ public class TabletUI : MonoBehaviour
 
         }
 
-       
-        
-        
-        mod[id]++;
+
+
+       // modClasses[id].isFull = true;
+        modClasses[id].value++;
     }
 
 
@@ -985,6 +947,7 @@ public class TabletUI : MonoBehaviour
         else
         {
             PCCase.pCCase.productCaseHave.Add(newProduct.GetComponent<CpuManager>().cpu);
+          
             PCCase.pCCase.productCaseHave.Add(newProduct.GetComponent<CpuManager>().cpuCooler);
         }
 
@@ -1039,6 +1002,8 @@ public class TabletUI : MonoBehaviour
 
                 newPc = Instantiate(pcPrefab, pcSpawnPoint.position, pcSpawnPoint.rotation);
 
+                newPc.GetComponentInChildren<PCModels>().Cases[startedTaskClass.task.caseModel].SetActive(true);
+                
                 newPc.GetComponentInChildren<PC>().taskClass = startedTaskClass.task;
                 
                 if (startedTaskClass.task.ownedProducts.Length > 0)

@@ -37,9 +37,25 @@ public class ComputerSellTable : MonoBehaviour
     {
         if (pc != null)
         {
-            caseBitPrice.text = pc.sellBitPrice.ToString();
+            if(GameManager.gameManager.twitchIntegration)
+            {
+                caseBitPrice.text ="Bit Fiyatý: "+ pc.sellBitPrice.ToString();
+            }
+            else if (GameManager.gameManager.youtubeIntegration)
+            {
+
+                caseBitPrice.text = "Super Chat Fiyatý: "+pc.sellBitPrice.ToString();
+            }
+
+            else
+            {
+                caseBitPrice.text = "";
+            }
+           
             casePrice.text = pc.sellPrice.ToString();
-            caseFP.text = pc.fiyatPerformans.ToString();
+            
+            caseFP.text = "%"+pc.fiyatPerformans.ToString();
+           
             caseName.text = pc.caseName;
 
         }
