@@ -153,14 +153,16 @@ public class TabletUI : MonoBehaviour
     {
 
         NextTask();
-
         for (int i = 0; i < modClasses.Count; i++)
         {
-            modClasses[i].isFull.Add(false);
-
+            for (int j = 0; j < productsSpawnPoints[i].spawnPoints.Length; j++)
+            {
+                modClasses[i].isFull.Add(false);
+            }
 
 
         }
+        
        
 
     }
@@ -628,7 +630,7 @@ public class TabletUI : MonoBehaviour
 
     void PlaceProducts()
     {
-        int id,id2;
+        int id;
 
         // mod=0;
 
@@ -637,6 +639,7 @@ public class TabletUI : MonoBehaviour
         for (int i = 0; i < productsinBasket.Count; i++)
         {
             bool isThere=false;
+            bool enableSpawn = false;
 
             if (productWeHave.Count > 0)
             {
@@ -679,22 +682,49 @@ public class TabletUI : MonoBehaviour
 
             count = modClasses.Count;
 
+
+
             for (int j = 0; j < productsinBasket[i].count; j++)
             {
-
+                enableSpawn = false;
 
                 id = (int)productsinBasket[i].product.model;
+                
+                for (int k = 0; k < modClasses[id].isFull.Count; k++)
+                {
+                    if (!modClasses[id].isFull[k])
+                    {
+                        modClasses[id].value = k;
+                        enableSpawn = true;
+                        
+                        break;
+                    }
+
+                }
+
+                if (enableSpawn)
+                {
+                    GameObject newEnvanterProduct = Instantiate(productsinBasket[i].product.prefabEnvanter, productsSpawnPoints[id].spawnPoints[modClasses[id].value % (productsSpawnPoints[id].spawnPoints.Length - 1)]);
+
+                    newEnvanterProduct.GetComponent<ProductManager>().spawnPoint = productsSpawnPoints[id].spawnPoints[modClasses[id].value % (productsSpawnPoints[id].spawnPoints.Length - 1)].GetComponent<ProductSpawn>().spawnPoint;
+
+                    newEnvanterProduct.GetComponent<ProductManager>().spawnValue = modClasses[id].value;
+
+                    modClasses[id].isFull[modClasses[id].value] = true;
+
+
+                }
+
+                else
+                {
+                    Debug.Log("Envanterde yer yok!!!");
+                }
+
+
+
               
 
-
-                GameObject newEnvanterProduct = Instantiate(productsinBasket[i].product.prefabEnvanter, productsSpawnPoints[id].spawnPoints[modClasses[id].value % (productsSpawnPoints[id].spawnPoints.Length - 1)]);
-
-                newEnvanterProduct.GetComponent<ProductManager>().spawnPoint = productsSpawnPoints[id].spawnPoints [modClasses[id].value % (productsSpawnPoints[id].spawnPoints.Length - 1) ].GetComponent<ProductSpawn>().spawnPoint;
-
-            //    modClasses[id].isFull = true;
-
-                modClasses[id].value++;
-
+          
             }
 
 
@@ -766,47 +796,64 @@ public class TabletUI : MonoBehaviour
 
         GameManager.gameManager.audioSource.Play();
 
+        bool enableSpawn = false;
         int id = (int)productManager.product.model;
+        
+        for (int k = 0; k < modClasses[id].isFull.Count; k++)
+        {
+            if (!modClasses[id].isFull[k])
+            {
+                modClasses[id].value = k;
+                enableSpawn = true;
 
-     
-      
+                break;
+            }
+
+        }
 
 
+        if (enableSpawn)
+        {
+            GameObject newEnvanterProduct = Instantiate(productManager.envanterPrefab, productsSpawnPoints[id].spawnPoints[modClasses[id].value % (productsSpawnPoints[id].spawnPoints.Length - 1)]);
 
-        GameObject newEnvanterProduct = Instantiate(productManager.envanterPrefab, productsSpawnPoints[id].spawnPoints[modClasses[id].value % (productsSpawnPoints[id].spawnPoints.Length - 1)]);
+            newEnvanterProduct.GetComponent<ProductManager>().spawnPoint = productsSpawnPoints[id].spawnPoints[modClasses[id].value % (productsSpawnPoints[id].spawnPoints.Length - 1)].GetComponent<ProductSpawn>().spawnPoint;
 
-        newEnvanterProduct.GetComponent<ProductManager>().spawnPoint = productsSpawnPoints[id].spawnPoints[modClasses[id].value % (productsSpawnPoints[id].spawnPoints.Length - 1) ].GetComponent<ProductSpawn>().spawnPoint;
+            newEnvanterProduct.GetComponent<ProductManager>().spawnValue= modClasses[id].value;
 
-        //newEnvanterProduct.GetComponent<ProductManager>() = spawnValue;
-     
-        newEnvanterProduct.SetActive(true);
+            newEnvanterProduct.SetActive(true);
+
+            if (productManager.GetComponent<PCCaseElement>() != null)
+            {
+                if (!productManager.GetComponent<PCCaseElement>().isAddedInEnvanter)
+                {
+                    productManager.GetComponent<PCCaseElement>().isAddedInEnvanter = true;
+
+                    AddProducttoList(productManager.product);
+                }
+            }
+
+            else if (productManager.GetComponentInChildren<PCCaseElement>() != null)
+            {
+                if (!productManager.GetComponentInChildren<PCCaseElement>().isAddedInEnvanter)
+                {
+                    productManager.GetComponentInChildren<PCCaseElement>().isAddedInEnvanter = true;
+
+                    AddProducttoList(productManager.product);
+                }
+
+            }
+
+            modClasses[id].isFull[modClasses[id].value] = true;
+           
+        }
+
+        else
+        {
+            Debug.Log("Envanterde yer yok!!!");
+        }
+
 
        
-        
-        if (productManager.GetComponent<PCCaseElement>() != null)
-        {
-            if (!productManager.GetComponent<PCCaseElement>().isAddedInEnvanter)
-            {
-                productManager.GetComponent<PCCaseElement>().isAddedInEnvanter = true;
-
-                AddProducttoList(productManager.product);
-            }
-        }
-        else if (productManager.GetComponentInChildren<PCCaseElement>() != null)
-        {
-            if (!productManager.GetComponentInChildren<PCCaseElement>().isAddedInEnvanter)
-            {
-                productManager.GetComponentInChildren<PCCaseElement>().isAddedInEnvanter = true;
-
-                AddProducttoList(productManager.product);
-            }
-
-        }
-
-
-
-       // modClasses[id].isFull = true;
-        modClasses[id].value++;
     }
 
 

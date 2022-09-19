@@ -276,7 +276,7 @@ public class BuyManager : MonoBehaviour
                             gameManager.activeCase = gameManager.PCCases[hitProductManager.product.caseModelID];
                             gameManager.caseBase.SetActive(true);
                             gameManager.activeCase.SetActive(true);
-                        //    tablet.mod[(int)hitProductManager.product.model] -= 1;
+                            tablet.modClasses[(int)hitProductManager.product.model].isFull[hitProductManager.spawnValue] = false;
                             Destroy(hit.collider.gameObject);
                         }
                         else
@@ -617,7 +617,7 @@ public class BuyManager : MonoBehaviour
             if (canAddTable)
             {
 
-            //     tablet.mod[(int)hitProductManager.product.model] -= 1;
+                tablet.modClasses[(int)hitProductManager.product.model].isFull[hitProductManager.spawnValue] = false;
 
                 GameObject newProduct = Instantiate(hitProductManager.product.prefabProduct, hitProductManager.spawnPoint.position, hitProductManager.spawnPoint.rotation, productsPointsParent.transform);
 
