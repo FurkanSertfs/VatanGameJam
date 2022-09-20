@@ -4,21 +4,24 @@ using UnityEngine;
 using UnityEngine.UI;
 
 using UnityEngine.SceneManagement;
+using System;
 
 public class TwitchIntegrationObject : MonoBehaviour
 {
 
     public static TwitchIntegrationObject twitchIntegrationObject = null;
 
-    public InputField joinField,rateField,channelName,videoURL;
+    public InputField joinField,rateField,channelName,videoURL,rateTime;
 
-    public GameObject connectObjectTwitch, connectObjectYoutube, joinUserPrefab,youtubeSettings,twitchSettings;
+    public GameObject connectObjectTwitch, connectObjectYoutube, joinUserPrefab;
 
     public Transform joinUserTransform;
 
     public  bool isConnectedTwitch,isConnectedYoutube;
 
-    public Text debugText,joinInfoText,rateInfoText;
+    public float voteTime;
+
+    public Text debugText,joinInfoText, rateInfoText, rateTimeInfoText;
 
     private void Awake()
     {
@@ -38,6 +41,41 @@ public class TwitchIntegrationObject : MonoBehaviour
 
     }
 
+    private void Start()
+    {
+        rateTimeInfoText.text = "Kasa toplandýkdan sonra yapýlacak oylamanýn süresi " + voteTime + " saniye"; 
+    }
+
+
+    public void VoteTime()
+    {
+        bool allNumber=true;
+
+        for (int i = 0; i < rateTime.text.Length; i++)
+        {
+            if (!Char.IsNumber(rateTime.text[i]))
+            {
+                allNumber = false;
+                break;
+            }
+
+        }
+        voteTime = int.Parse(rateTime.text);
+
+        if (!allNumber)
+        {
+            rateTimeInfoText.text = "Lütfen sadece sayý giriniz (Önerilen deðer 40)";
+        }
+
+        else
+        {
+            
+            rateTimeInfoText.text = "Kasa toplandýkdan sonra yapýlacak oylamanýn süresi " + voteTime + " saniye";
+
+
+        }
+
+    }
     
 
     public void ConnectTwitch()
@@ -49,7 +87,7 @@ public class TwitchIntegrationObject : MonoBehaviour
 
             
 
-            debugText.text = "Lütfen Bekleyiniz Çýkýþ Yapýlýyor";
+            debugText.text = "Lütfen Bekleyiniz Çýkýþ Yapýlýyor ";
 
             TwitchIRC.twitchIRC.Disconnect();
             
@@ -61,7 +99,7 @@ public class TwitchIntegrationObject : MonoBehaviour
 
           
 
-            debugText.text = "Lütfen Bekleyiniz Baðlanýlýyor";
+            debugText.text = "Lütfen Bekleyiniz Baðlanýlýyor (Uzun süre baðlanmazsa kanal aqdýný kontrol edip tekrare deneyin)";
 
             TwitchIRC.twitchIRC.StartCoroutine(TwitchIRC.twitchIRC.PrepareConnection());
         }

@@ -107,9 +107,19 @@ public class YoutubeIntegration : MonoBehaviour
             {
                 channelID = JsonUtility.FromJson<ChannelID>(link.text);
 
-                channelid = channelID.items[0].snippet.channelId;
+                if(channelID.items.Length > 0)
+                {
+                    channelid = channelID.items[0].snippet.channelId;
+                    StartCoroutine(FindChannelName());
+                }
+                else
+                {
+                    status = "Canlý yayýn videosu bulunamadý link kontrol edip tekrar deneyin;";
+                }
 
-                StartCoroutine(FindChannelName());
+                
+
+              
 
             }
           
@@ -222,9 +232,10 @@ public class YoutubeIntegration : MonoBehaviour
                 {
                     liveChatId = liveChatKey.items[0].liveStreamingDetails.activeLiveChatId;
                 }
+
                 else
                 {
-                    status = "Canlý Chat ID'si Bulunamadý Linki Kontrol Ediniz";
+                    status = "Canlý Yayýn Chat ID'si Bulunamadý Linki Kontrol Ediniz";
 
                     TwitchIntegrationObject.twitchIntegrationObject.debugText.text = status;
                 }

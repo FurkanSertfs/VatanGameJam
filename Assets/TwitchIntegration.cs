@@ -31,6 +31,17 @@ public class TwitchIntegration : MonoBehaviour
     private void Start()
     {
         userList = ExampleIRCListener.userList;
+
+        if (TwitchIntegrationObject.twitchIntegrationObject != null)
+        {
+
+            if (TwitchIntegrationObject.twitchIntegrationObject.isConnectedTwitch|| TwitchIntegrationObject.twitchIntegrationObject.isConnectedYoutube)
+            {
+                voteTime = (int)TwitchIntegrationObject.twitchIntegrationObject.voteTime;
+            }
+          
+        }
+
     }
 
     public void UpdateScore()
