@@ -12,6 +12,12 @@ public class UpgradeUI : MonoBehaviour
     public GameObject DecorSS, PaintSS;
     public GameObject DecorLevelBar, PaintLevelBar;
 
+    private void Awake()
+    {
+        Cursor.visible = false;
+
+    }
+
     public void CloseUpgradePanel()
     {
         UpgradePanel.SetActive(false);
@@ -37,7 +43,6 @@ public class UpgradeUI : MonoBehaviour
         Decors.SetActive(true);
 
         DecorLevelBar.SetActive(true);
-
 
     }
     public void OpenDecorSS()
