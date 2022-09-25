@@ -17,7 +17,7 @@ MonoBehaviour:
   pcBuilding: 1
   needFormat: 1
   taskAward: 1500
-  caseModel: 0
+  caseModel: 1
   gorevAnlatim:
   - GorevAnlat: "\u0130\u015Fletim Sistemini Y\xFCkle"
     buyProduct: 0

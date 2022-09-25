@@ -504,7 +504,7 @@ public class PCUI : MonoBehaviour
         PCCase.pCCase.taskType.Add(GorevAnlatim.Taskenum.Driver);
 
         TabletUI.tabletUI.CheckTask();
-
+            
         eventSystem.enabled = true;
     }
 

@@ -136,13 +136,13 @@ public class PCCaseElement : MonoBehaviour
         {
             if (PCCase.pCCase.productCaseHave.Count == PCCase.pCCase.caseMustHave.Length )
             {
-
                 DownisInstall = true;
                 
                 DownisInstall2 = true;
                 
                 UpDeInstall = true;
             }
+
             else
             {
                 DownisInstall = false;
@@ -157,7 +157,7 @@ public class PCCaseElement : MonoBehaviour
         
         
 
-        if (!DownisInstall || !DownisInstall2|| !UpDeInstall)
+        if (!DownisInstall || !DownisInstall2 || !UpDeInstall)
         {
             outline.OutlineColor = Color.yellow;
 
@@ -174,6 +174,8 @@ public class PCCaseElement : MonoBehaviour
 
         else
         {
+            
+
             outline.enabled = true;
             
             outline.OutlineColor = Color.green;

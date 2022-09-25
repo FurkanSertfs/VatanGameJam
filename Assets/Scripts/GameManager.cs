@@ -80,6 +80,8 @@ public class GameManager : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         firstPersonController = GetComponent<FirstPersonController>();
+    
+
     }
 
     private void Update()
@@ -139,6 +141,8 @@ public class GameManager : MonoBehaviour
             pcuiCam.SetActive(false);
 
             pcBuildCam.SetActive(false);
+
+            Cursor.visible = false;
 
             Cursor.lockState = CursorLockMode.Locked;
 
