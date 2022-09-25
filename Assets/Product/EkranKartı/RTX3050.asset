@@ -18,6 +18,7 @@ MonoBehaviour:
   skor: 14.8
   productName: RTX 3050
   price: 7200
+  sellPrice: 4800
   prefabEnvanter: {fileID: 1057881245177971571, guid: 85c5d72af2f32944cb9a06e409049d8f,
     type: 3}
   prefabProduct: {fileID: 8763277401402870562, guid: 05bfb56c700497c4685e565cd70aa5ec,

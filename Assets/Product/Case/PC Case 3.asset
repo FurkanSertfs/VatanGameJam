@@ -18,6 +18,7 @@ MonoBehaviour:
   skor: 0
   productName: Case Model 3
   price: 2600
+  sellPrice: 1732
   prefabEnvanter: {fileID: 5730408211027095340, guid: bf018200272a4504789adf9ccef9ca45,
     type: 3}
   prefabProduct: {fileID: 5730408211027095340, guid: bf018200272a4504789adf9ccef9ca45,

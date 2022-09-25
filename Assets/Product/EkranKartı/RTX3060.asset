@@ -18,6 +18,7 @@ MonoBehaviour:
   skor: 22.2
   productName: RTX 3060
   price: 8000
+  sellPrice: 5333
   prefabEnvanter: {fileID: 1057881245177971571, guid: 78289b3e94cf1d84fbd30f32bf66cf0c,
     type: 3}
   prefabProduct: {fileID: 8763277401402870562, guid: 85df7e8bea6399e41b9841d2cb596a9b,
