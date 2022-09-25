@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf0b95d7ca1bebc42a8cf96b06e05f72, type: 3}
   m_Name: pcupgrade1
   m_EditorClassIdentifier: 
-  taskDecription: "Gelen bilgisayar\u0131n sipari\u015F edilen par\xE7a ile y\xFCkseltmesini
-    yap, driverlar\u0131n\u0131 kur."
+  taskDecription: "\xC7al\u0131\u015Fma masana gelen bilgisayar\u0131n ekran kart\u0131n\u0131
+    de\u011F\u015Ftir ve driverlar\u0131n\u0131 kur."
   pcBuilding: 1
   needFormat: 0
-  taskAward: 4500
+  taskAward: 6200
   caseModel: 1
   gorevAnlatim:
-  - GorevAnlat: "RTX 3060Ti Ekran Kart\u0131 \u0130le Y\xFCkselt"
-    buyProduct: 6
-    buildProduct: 6
+  - GorevAnlat: RTX 2060
+    buyProduct: 3
+    buildProduct: 3
     taskManagerElement: {fileID: 0}
   - GorevAnlat: "Driverlar\u0131 Kur"
     buyProduct: 0

@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf0b95d7ca1bebc42a8cf96b06e05f72, type: 3}
-  m_Name: Format and Driver 1
+  m_Name: pcupgrade2
   m_EditorClassIdentifier: 
-  taskDecription: "\xC7al\u0131\u015Fma masana gelen bilgisayara i\u015Fletim sistemini
-    y\xFCkle ve driverlar\u0131n\u0131 kur."
+  taskDecription: "\xC7al\u0131\u015Fma masana gelen bilgisayar\u0131n ekran kart\u0131n\u0131
+    de\u011F\u015Ftir ve driverlar\u0131n\u0131 kur."
   pcBuilding: 1
-  needFormat: 1
-  taskAward: 1500
-  caseModel: 0
+  needFormat: 0
+  taskAward: 6900
+  caseModel: 2
   gorevAnlatim:
-  - GorevAnlat: "\u0130\u015Fletim Sistemini Y\xFCkle"
-    buyProduct: 0
-    buildProduct: 25
+  - GorevAnlat: RTX 2080
+    buyProduct: 4
+    buildProduct: 4
     taskManagerElement: {fileID: 0}
   - GorevAnlat: "Driverlar\u0131 Kur"
     buyProduct: 0
@@ -29,10 +29,10 @@ MonoBehaviour:
     taskManagerElement: {fileID: 0}
   ownedProducts:
   - productType: 0
-    productPrefab: {fileID: 6679258289566832745, guid: 36ef3d8a74c9746478d519ba6dd40004,
+    productPrefab: {fileID: 6679258289566832745, guid: 54491b671ba3b8c4dbcc77d7bf8a8269,
       type: 3}
   - productType: 1
-    productPrefab: {fileID: 8763277401402870562, guid: fe899956aed809a4b9d1dc97b87fbeeb,
+    productPrefab: {fileID: 8763277401402870562, guid: 73225f455fca12d4ea073444b39e13b9,
       type: 3}
   - productType: 2
     productPrefab: {fileID: 3621013353624466814, guid: 39437d0a1d3b93440b7df6399478b083,
