@@ -312,8 +312,12 @@ public class BuyManager : MonoBehaviour
 
 
                         gameManager.caseBase.SetActive(false);
+                      
                         gameManager.activeCase.SetActive(false);
+                      
                         newPc = Instantiate(tablet.pcPrefab, tablet.pcSpawnPoint.position, tablet.pcSpawnPoint.rotation, tablet.pcSpawnPoint);
+                      
+                        newPc.layer = 0;
 
                         newPc.GetComponent<PCModels>().Cases[gameManager.activeCase.GetComponent<ProductManager>().product.caseModelID].SetActive(true);
 

@@ -153,6 +153,7 @@ public class TabletUI : MonoBehaviour
     {
 
         NextTask();
+
         for (int i = 0; i < modClasses.Count; i++)
         {
             for (int j = 0; j < productsSpawnPoints[i].spawnPoints.Length; j++)

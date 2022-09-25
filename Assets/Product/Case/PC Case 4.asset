@@ -16,7 +16,7 @@ MonoBehaviour:
   model: 4
   ID: 22
   skor: 0
-  productName: Case Model 1
+  productName: Case Model 4
   price: 0
   prefabEnvanter: {fileID: 521893358281935814, guid: 5faa51284c823ad409dc6c366bd16352,
     type: 3}

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 756008104568062025}
   - component: {fileID: 756008104568062022}
   - component: {fileID: 756008104568062023}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: 'Cpu Cooler '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 8780175379635255674}
   - component: {fileID: 8201839682697381531}
   - component: {fileID: 1389044749141643131}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: powercablein
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -239,7 +239,7 @@ GameObject:
   - component: {fileID: 946343927929517125}
   - component: {fileID: 7269450079287592732}
   - component: {fileID: 801552870015065496}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: gpufan1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -332,7 +332,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 951207555156654040}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Pc Power
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -354,7 +354,7 @@ Transform:
   - {fileID: 8780175379635255674}
   - {fileID: 2327483047375387565}
   m_Father: {fileID: 4032788179622382033}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &951207555692493522
 GameObject:
@@ -365,7 +365,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 951207555692493523}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: HdmiCable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -404,7 +404,7 @@ GameObject:
   - component: {fileID: 1165717597394272571}
   - component: {fileID: 1165717597394272569}
   - component: {fileID: 1165717597394272575}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SSD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -564,7 +564,7 @@ GameObject:
   - component: {fileID: 2327483047375387565}
   - component: {fileID: 2752746358530006523}
   - component: {fileID: 7013562738341663565}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: powercableout
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -646,7 +646,7 @@ GameObject:
   - component: {fileID: 9179855712178447549}
   - component: {fileID: 5063141434616142330}
   - component: {fileID: 6766511632158137661}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: BezierCurve.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -726,7 +726,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4032788179622382033}
   - component: {fileID: -1000498246791025755}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: PC Models
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -747,13 +747,13 @@ Transform:
   - {fileID: 8720318160309403741}
   - {fileID: 2491667617996105775}
   - {fileID: 8986723271456692445}
-  - {fileID: 9119352013856648493}
-  - {fileID: 9119352015158516156}
-  - {fileID: 9119352014631968649}
-  - {fileID: 9119352015458475781}
+  - {fileID: 898221260882510196}
+  - {fileID: 7769699166113155411}
   - {fileID: 9120306931530689541}
+  - {fileID: 6823635998689652258}
   - {fileID: 4211087496632290853}
   - {fileID: 951207555156654040}
+  - {fileID: 728476618823222831}
   - {fileID: 951207555692493523}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -772,10 +772,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Cases:
   - {fileID: 8645945497726075495}
-  - {fileID: 8486368274137446295}
-  - {fileID: 8486368276064256774}
-  - {fileID: 8486368275516736819}
-  - {fileID: 8486368275756041663}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &2447752891521795580
 GameObject:
   m_ObjectHideFlags: 0
@@ -788,7 +788,7 @@ GameObject:
   - component: {fileID: 3804618754157873238}
   - component: {fileID: 6617900677884085850}
   - component: {fileID: 2447752891521795555}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: gpufan2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -883,7 +883,7 @@ GameObject:
   - component: {fileID: 2491667616884039230}
   - component: {fileID: 2491667616884039228}
   - component: {fileID: 2491667616884039231}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -966,7 +966,7 @@ GameObject:
   - component: {fileID: 2491667617105864510}
   - component: {fileID: 2491667617105864508}
   - component: {fileID: 2491667617105864511}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1050,7 +1050,7 @@ GameObject:
   - component: {fileID: 2491667617133506519}
   - component: {fileID: 2491667617133506517}
   - component: {fileID: 2491667617133506516}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Right Up Screw Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1131,7 +1131,7 @@ GameObject:
   - component: {fileID: 2491667617149838058}
   - component: {fileID: 2491667617149838056}
   - component: {fileID: 2491667617149838059}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: gpufan1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1216,7 +1216,7 @@ GameObject:
   - component: {fileID: 2491667617160074684}
   - component: {fileID: 2491667617160074682}
   - component: {fileID: 2491667617160074685}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SSD Base
   m_TagString: ProductPoint
   m_Icon: {fileID: 0}
@@ -1346,7 +1346,7 @@ GameObject:
   - component: {fileID: 2491667617176328785}
   - component: {fileID: 2491667617176328783}
   - component: {fileID: 2491667617176328782}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Gpu Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1434,7 +1434,7 @@ GameObject:
   - component: {fileID: 2491667617237685540}
   - component: {fileID: 2491667617237685538}
   - component: {fileID: 2491667617237685541}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Cpu Base Eski
   m_TagString: ProductPoint
   m_Icon: {fileID: 0}
@@ -1561,7 +1561,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2491667617303423936}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: GpuFan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1594,7 +1594,7 @@ GameObject:
   - component: {fileID: 2491667617380414925}
   - component: {fileID: 2491667617380414923}
   - component: {fileID: 2491667617380414922}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: RightCoverPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1675,7 +1675,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2491667617458684243}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: GpuFan (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1708,7 +1708,7 @@ GameObject:
   - component: {fileID: 2491667617596954306}
   - component: {fileID: 2491667617596954304}
   - component: {fileID: 2491667617596954307}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: gpufan1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1793,7 +1793,7 @@ GameObject:
   - component: {fileID: 2491667617623291805}
   - component: {fileID: 2491667617623291804}
   - component: {fileID: 2491667617623291807}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: 'RightCover Base '
   m_TagString: ProductPoint
   m_Icon: {fileID: 0}
@@ -1921,7 +1921,7 @@ GameObject:
   - component: {fileID: 2491667617707571424}
   - component: {fileID: 2491667617707571998}
   - component: {fileID: 2491667617707571425}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Cpu Cooler  Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2006,7 +2006,7 @@ GameObject:
   - component: {fileID: 2491667617736641851}
   - component: {fileID: 2491667617736641849}
   - component: {fileID: 2491667617736641848}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: gpufan2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2088,7 +2088,7 @@ GameObject:
   - component: {fileID: 2491667617737024594}
   - component: {fileID: 2491667617737024592}
   - component: {fileID: 2491667617737024595}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SSD Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2172,7 +2172,7 @@ GameObject:
   - component: {fileID: 2491667617739854746}
   - component: {fileID: 2491667617739854744}
   - component: {fileID: 2491667617739854747}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Right Down ScrewPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2256,7 +2256,7 @@ GameObject:
   - component: {fileID: 2491667617884985093}
   - component: {fileID: 2491667617884985091}
   - component: {fileID: 2491667617884985090}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Gpu Base
   m_TagString: ProductPoint
   m_Icon: {fileID: 0}
@@ -2388,7 +2388,7 @@ GameObject:
   - component: {fileID: 2491667617938505002}
   - component: {fileID: 2491667617938505000}
   - component: {fileID: 2491667617938505003}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: cpufan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2469,7 +2469,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2491667617994226296}
   - component: {fileID: 2491667617994226297}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2507,7 +2507,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2491667617996105775}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Points PC Case
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2549,7 +2549,7 @@ GameObject:
   - component: {fileID: 2491667618063882378}
   - component: {fileID: 2491667618063882376}
   - component: {fileID: 2491667618063882379}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Cpu Cooler Base
   m_TagString: ProductPoint
   m_Icon: {fileID: 0}
@@ -2680,7 +2680,7 @@ GameObject:
   - component: {fileID: 2491667618123138113}
   - component: {fileID: 2491667618123138175}
   - component: {fileID: 2491667618123138174}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: CpuPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2762,7 +2762,7 @@ GameObject:
   - component: {fileID: 2491667618177631084}
   - component: {fileID: 2491667618177631082}
   - component: {fileID: 2491667618177631085}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: RamPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2850,7 +2850,7 @@ GameObject:
   - component: {fileID: 2491667618255715089}
   - component: {fileID: 2491667618255715088}
   - component: {fileID: 2491667618255715091}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Cpu Base
   m_TagString: ProductPoint
   m_Icon: {fileID: 0}
@@ -2981,7 +2981,7 @@ GameObject:
   - component: {fileID: 2491667618361281315}
   - component: {fileID: 2491667618361281314}
   - component: {fileID: 2491667618361281374}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: 'Right Down Screw Base '
   m_TagString: ProductPoint
   m_Icon: {fileID: 0}
@@ -3107,7 +3107,7 @@ GameObject:
   - component: {fileID: 2491667618377802766}
   - component: {fileID: 2491667618377802764}
   - component: {fileID: 2491667618377802767}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3191,7 +3191,7 @@ GameObject:
   - component: {fileID: 2491667618694582483}
   - component: {fileID: 2491667618694582481}
   - component: {fileID: 2491667618694582480}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: gpufan1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3276,7 +3276,7 @@ GameObject:
   - component: {fileID: 2491667618759355788}
   - component: {fileID: 2491667618759355786}
   - component: {fileID: 2491667618759355789}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: RamBase
   m_TagString: ProductPoint
   m_Icon: {fileID: 0}
@@ -3407,7 +3407,7 @@ GameObject:
   - component: {fileID: 2491667618862739766}
   - component: {fileID: 2491667618862739764}
   - component: {fileID: 2491667618862739767}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: cpufan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3489,7 +3489,7 @@ GameObject:
   - component: {fileID: 2491667618879158103}
   - component: {fileID: 2491667618879158101}
   - component: {fileID: 2491667618879158100}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3577,7 +3577,7 @@ GameObject:
   - component: {fileID: 2491667618899309858}
   - component: {fileID: 2491667618899309861}
   - component: {fileID: 2491667618899309857}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: 'Right Up Screw Base '
   m_TagString: ProductPoint
   m_Icon: {fileID: 0}
@@ -3703,7 +3703,7 @@ GameObject:
   - component: {fileID: 2491667618906792841}
   - component: {fileID: 2491667618906792839}
   - component: {fileID: 2491667618906792838}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: CpuFan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3784,7 +3784,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4211087496632290853}
   - component: {fileID: 4211087496632290858}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: PC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3803,7 +3803,7 @@ Transform:
   m_LocalScale: {x: 0.49999997, y: 0.5, z: 0.49999997}
   m_Children: []
   m_Father: {fileID: 4032788179622382033}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: -30.773, z: 0}
 --- !u!114 &4211087496632290858
 MonoBehaviour:
@@ -3835,7 +3835,7 @@ GameObject:
   - component: {fileID: 1931804734287076926}
   - component: {fileID: 7548485370304921730}
   - component: {fileID: 4323748857230676851}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Cpu2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3935,7 +3935,7 @@ GameObject:
   - component: {fileID: 4437865517040135295}
   - component: {fileID: 4437865517040135292}
   - component: {fileID: 4437865517040135232}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Ram
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4096,7 +4096,7 @@ GameObject:
   - component: {fileID: 1170232304343698321}
   - component: {fileID: 41551297584799351}
   - component: {fileID: 5417827696604117645}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: BezierCurve.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4180,7 +4180,7 @@ GameObject:
   - component: {fileID: 601238893195113045}
   - component: {fileID: 6218844344669203170}
   - component: {fileID: 5032957771342324505}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: RightCover Base Case1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4325,7 +4325,7 @@ GameObject:
   - component: {fileID: 6963794715704077671}
   - component: {fileID: 6963794715704077670}
   - component: {fileID: 6963794715704077673}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Cpu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4470,7 +4470,7 @@ GameObject:
   - component: {fileID: 7447004058859502776}
   - component: {fileID: 7447004058859502778}
   - component: {fileID: 7447004058859502780}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Gpu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4630,7 +4630,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9120306931530689541}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: PC Product
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4663,7 +4663,7 @@ Transform:
   - {fileID: 2491667618361281317}
   - {fileID: 2491667618899309860}
   m_Father: {fileID: 4032788179622382033}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 49.53, z: 0}
 --- !u!1 &8634872549758633772
 GameObject:
@@ -4676,7 +4676,7 @@ GameObject:
   - component: {fileID: 5201523478224725901}
   - component: {fileID: 6150341281129101896}
   - component: {fileID: 6867126746757189079}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: hdmiin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4759,7 +4759,7 @@ GameObject:
   - component: {fileID: 5834973872705023287}
   - component: {fileID: 2391740791822109278}
   - component: {fileID: 8660107610819479287}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: cpu fan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4854,7 +4854,7 @@ GameObject:
   - component: {fileID: 8720318160309403741}
   - component: {fileID: 8720318160309403715}
   - component: {fileID: 8720318160309403740}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: right (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4935,7 +4935,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8720318161069152898}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: CpuPoint +Cpu Cooler Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4968,7 +4968,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8720318161290979147}
   - component: {fileID: 8720318161290979146}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: CPU + CPUCOOLER
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5021,7 +5021,7 @@ GameObject:
   - component: {fileID: 1516403361933868091}
   - component: {fileID: 7068302808870681151}
   - component: {fileID: 556637994046916235}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: hdmiin.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5104,6 +5104,11 @@ PrefabInstance:
       propertyPath: transformPoint.Array.data[0]
       value: 
       objectReference: {fileID: 2491667617739854746}
+    - target: {fileID: 897891509619626364, guid: c29ef9743fd572a42bb6c92f2c97fad4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2597577006454997994, guid: c29ef9743fd572a42bb6c92f2c97fad4,
         type: 3}
       propertyPath: transformPoint.Array.data[0]
@@ -5221,15 +5226,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c29ef9743fd572a42bb6c92f2c97fad4, type: 3}
---- !u!1 &8486368275516736819 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8486837868772021563, guid: c29ef9743fd572a42bb6c92f2c97fad4,
-    type: 3}
-  m_PrefabInstance: {fileID: 823432424755208}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &9119352014631968649 stripped
+--- !u!4 &898221260882510196 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 9118837888842010497, guid: c29ef9743fd572a42bb6c92f2c97fad4,
+  m_CorrespondingSourceObject: {fileID: 897891509619626364, guid: c29ef9743fd572a42bb6c92f2c97fad4,
     type: 3}
   m_PrefabInstance: {fileID: 823432424755208}
   m_PrefabAsset: {fileID: 0}
@@ -5345,17 +5344,16 @@ PrefabInstance:
       propertyPath: transformPoint.Array.data[0]
       value: 
       objectReference: {fileID: 2491667618123138113}
+    - target: {fileID: 9122695318225228210, guid: a4ad2ef89fe13604e88beeb5bff61228,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4ad2ef89fe13604e88beeb5bff61228, type: 3}
---- !u!4 &9119352013856648493 stripped
+--- !u!4 &7769699166113155411 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 7766357914370373068, guid: a4ad2ef89fe13604e88beeb5bff61228,
-    type: 3}
-  m_PrefabInstance: {fileID: 1533993779776575713}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8486368274137446295 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6957065045933469558, guid: a4ad2ef89fe13604e88beeb5bff61228,
+  m_CorrespondingSourceObject: {fileID: 9122695318225228210, guid: a4ad2ef89fe13604e88beeb5bff61228,
     type: 3}
   m_PrefabInstance: {fileID: 1533993779776575713}
   m_PrefabAsset: {fileID: 0}
@@ -5411,6 +5409,11 @@ PrefabInstance:
       propertyPath: transformPoint.Array.data[0]
       value: 
       objectReference: {fileID: 2491667617133506519}
+    - target: {fileID: 4957811474466616726, guid: 0d41839509ced364d99f6af3ffc55041,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7273790424949637640, guid: 0d41839509ced364d99f6af3ffc55041,
         type: 3}
       propertyPath: m_RootOrder
@@ -5473,15 +5476,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d41839509ced364d99f6af3ffc55041, type: 3}
---- !u!1 &8486368276064256774 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8050854447262374066, guid: 0d41839509ced364d99f6af3ffc55041,
-    type: 3}
-  m_PrefabInstance: {fileID: 1909459777730567092}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &9119352015158516156 stripped
+--- !u!4 &6823635998689652258 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 7273790424949637640, guid: 0d41839509ced364d99f6af3ffc55041,
+  m_CorrespondingSourceObject: {fileID: 4957811474466616726, guid: 0d41839509ced364d99f6af3ffc55041,
     type: 3}
   m_PrefabInstance: {fileID: 1909459777730567092}
   m_PrefabAsset: {fileID: 0}
@@ -5517,11 +5514,41 @@ PrefabInstance:
       propertyPath: productBase.Array.data[4]
       value: 
       objectReference: {fileID: 2491667618255715091}
+    - target: {fileID: 692033359500543685, guid: 37a9f505416b4a248851daea3a64880b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 692033359500543691, guid: 37a9f505416b4a248851daea3a64880b,
         type: 3}
       propertyPath: transformPoint.Array.data[0]
       value: 
       objectReference: {fileID: 2491667618123138113}
+    - target: {fileID: 820050706402314957, guid: 37a9f505416b4a248851daea3a64880b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1035736576966341015, guid: 37a9f505416b4a248851daea3a64880b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1089155950920856272, guid: 37a9f505416b4a248851daea3a64880b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1177756127307658110, guid: 37a9f505416b4a248851daea3a64880b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1211089479553165667, guid: 37a9f505416b4a248851daea3a64880b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1650382405272848449, guid: 37a9f505416b4a248851daea3a64880b,
         type: 3}
       propertyPath: m_RootOrder
@@ -5584,7 +5611,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2138231949870207739, guid: 37a9f505416b4a248851daea3a64880b,
         type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2138231949870207739, guid: 37a9f505416b4a248851daea3a64880b,
+        type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841621896187712776, guid: 37a9f505416b4a248851daea3a64880b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2886689495254219341, guid: 37a9f505416b4a248851daea3a64880b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3374597166477286391, guid: 37a9f505416b4a248851daea3a64880b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3466525840637665344, guid: 37a9f505416b4a248851daea3a64880b,
+        type: 3}
+      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3466525840637665345, guid: 37a9f505416b4a248851daea3a64880b,
@@ -5592,16 +5644,96 @@ PrefabInstance:
       propertyPath: transformPoint.Array.data[0]
       value: 
       objectReference: {fileID: 2491667617133506519}
+    - target: {fileID: 4713510812319423156, guid: 37a9f505416b4a248851daea3a64880b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5243378817820233726, guid: 37a9f505416b4a248851daea3a64880b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5243378818848542725, guid: 37a9f505416b4a248851daea3a64880b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5424056881310362314, guid: 37a9f505416b4a248851daea3a64880b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5638838590338314477, guid: 37a9f505416b4a248851daea3a64880b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5638838590338314482, guid: 37a9f505416b4a248851daea3a64880b,
         type: 3}
       propertyPath: transformPoint.Array.data[0]
       value: 
       objectReference: {fileID: 2491667617739854746}
+    - target: {fileID: 5651215795310765714, guid: 37a9f505416b4a248851daea3a64880b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5685403809632517564, guid: 37a9f505416b4a248851daea3a64880b,
         type: 3}
       propertyPath: transformPoint.Array.data[0]
       value: 
       objectReference: {fileID: 2491667617380414925}
+    - target: {fileID: 5685403809632517567, guid: 37a9f505416b4a248851daea3a64880b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6481294977917383034, guid: 37a9f505416b4a248851daea3a64880b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6610818507181746228, guid: 37a9f505416b4a248851daea3a64880b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6634797326062974495, guid: 37a9f505416b4a248851daea3a64880b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6940980765440640502, guid: 37a9f505416b4a248851daea3a64880b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7293890140702834326, guid: 37a9f505416b4a248851daea3a64880b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7957597188107212556, guid: 37a9f505416b4a248851daea3a64880b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8427630089990213636, guid: 37a9f505416b4a248851daea3a64880b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8668397364994211322, guid: 37a9f505416b4a248851daea3a64880b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9030249560381890304, guid: 37a9f505416b4a248851daea3a64880b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37a9f505416b4a248851daea3a64880b, type: 3}
 --- !u!1 &8645945497726075495 stripped
@@ -5743,17 +5875,16 @@ PrefabInstance:
       propertyPath: transformPoint.Array.data[0]
       value: 
       objectReference: {fileID: 2491667618123138113}
+    - target: {fileID: 8356432881376275955, guid: bd7f115be22826645bd5b980170fd125,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd7f115be22826645bd5b980170fd125, type: 3}
---- !u!1 &8486368275756041663 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 874173546688163427, guid: bd7f115be22826645bd5b980170fd125,
-    type: 3}
-  m_PrefabInstance: {fileID: 8783165850995747804}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &9119352015458475781 stripped
+--- !u!4 &728476618823222831 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 534345716325446873, guid: bd7f115be22826645bd5b980170fd125,
+  m_CorrespondingSourceObject: {fileID: 8356432881376275955, guid: bd7f115be22826645bd5b980170fd125,
     type: 3}
   m_PrefabInstance: {fileID: 8783165850995747804}
   m_PrefabAsset: {fileID: 0}
