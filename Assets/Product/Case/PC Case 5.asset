@@ -23,5 +23,5 @@ MonoBehaviour:
     type: 3}
   prefabProduct: {fileID: 8697528139609536329, guid: eb1ebc361126efb40b415548d2c5d9fe,
     type: 3}
-  productImage: {fileID: 21300000, guid: e750a4ca684f1bb4e84f8dd127442deb, type: 3}
+  productImage: {fileID: 21300000, guid: ee3bb7b97a9d8d042a5b7d4ec2a6555d, type: 3}
   caseModelID: 4
