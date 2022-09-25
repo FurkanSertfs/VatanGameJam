@@ -19,7 +19,7 @@ MonoBehaviour:
   taskAward: 5000
   caseModel: 0
   gorevAnlatim:
-  - GorevAnlat: GTX 1660Ti
+  - GorevAnlat: "GTX 1660Ti'a Y\xFCkselt"
     buyProduct: 2
     buildProduct: 2
     taskManagerElement: {fileID: 0}

@@ -19,7 +19,7 @@ MonoBehaviour:
   taskAward: 6100
   caseModel: 0
   gorevAnlatim:
-  - GorevAnlat: i5 10600
+  - GorevAnlat: "i5 10600'e Y\xFCkselt"
     buyProduct: 10
     buildProduct: 10
     taskManagerElement: {fileID: 0}

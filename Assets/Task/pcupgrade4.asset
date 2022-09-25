@@ -19,7 +19,7 @@ MonoBehaviour:
   taskAward: 10100
   caseModel: 4
   gorevAnlatim:
-  - GorevAnlat: RTX 3090
+  - GorevAnlat: "RTX 3090'a Y\xFCkselt"
     buyProduct: 7
     buildProduct: 7
     taskManagerElement: {fileID: 0}

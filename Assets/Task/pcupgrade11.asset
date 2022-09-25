@@ -12,20 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf0b95d7ca1bebc42a8cf96b06e05f72, type: 3}
   m_Name: pcupgrade11
   m_EditorClassIdentifier: 
-  taskDecription: "\xC7al\u0131\u015Fma masana gelen bilgisayar\u0131n ekran kart\u0131n\u0131
-    de\u011F\u015Ftir ve driverlar\u0131n\u0131 kur."
+  taskDecription: "\xC7al\u0131\u015Fma masana gelen bilgisayar\u0131n ssdsini de\u011F\u015Ftir,i\u015Fletim
+    sistemini kur ve driverlar\u0131n\u0131 kur."
   pcBuilding: 1
-  needFormat: 0
-  taskAward: 8000
+  needFormat: 1
+  taskAward: 5500
   caseModel: 3
   gorevAnlatim:
-  - GorevAnlat: RTX 3050
-    buyProduct: 5
-    buildProduct: 5
+  - GorevAnlat: "SSD 500GB'a Y\xFCkselt"
+    buyProduct: 16
+    buildProduct: 16
     taskManagerElement: {fileID: 0}
   - GorevAnlat: "Driverlar\u0131 Kur"
     buyProduct: 0
     buildProduct: 27
+    taskManagerElement: {fileID: 0}
+  - GorevAnlat: "\u0130\u015Fletim Sistemini Y\xFCkle"
+    buyProduct: 0
+    buildProduct: 25
     taskManagerElement: {fileID: 0}
   ownedProducts:
   - productType: 0

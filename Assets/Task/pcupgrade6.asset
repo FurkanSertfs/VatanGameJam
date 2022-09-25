@@ -19,7 +19,7 @@ MonoBehaviour:
   taskAward: 7200
   caseModel: 1
   gorevAnlatim:
-  - GorevAnlat: i7 11700F
+  - GorevAnlat: "i7 11700F'e Y\xFCkselt"
     buyProduct: 11
     buildProduct: 11
     taskManagerElement: {fileID: 0}

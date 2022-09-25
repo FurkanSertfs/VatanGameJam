@@ -19,7 +19,7 @@ MonoBehaviour:
   taskAward: 6900
   caseModel: 2
   gorevAnlatim:
-  - GorevAnlat: RTX 2080
+  - GorevAnlat: "RTX 2080'e Y\xFCkselt"
     buyProduct: 4
     buildProduct: 4
     taskManagerElement: {fileID: 0}

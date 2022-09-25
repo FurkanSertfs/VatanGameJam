@@ -19,7 +19,7 @@ MonoBehaviour:
   taskAward: 9200
   caseModel: 2
   gorevAnlatim:
-  - GorevAnlat: i9 10900
+  - GorevAnlat: "i9 10900'a Y\xFCkselt"
     buyProduct: 12
     buildProduct: 12
     taskManagerElement: {fileID: 0}

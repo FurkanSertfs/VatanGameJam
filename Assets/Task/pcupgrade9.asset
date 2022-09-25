@@ -19,7 +19,7 @@ MonoBehaviour:
   taskAward: 10700
   caseModel: 4
   gorevAnlatim:
-  - GorevAnlat: i9 11900K
+  - GorevAnlat: "i9 11900K'ya Y\xFCkselt"
     buyProduct: 14
     buildProduct: 14
     taskManagerElement: {fileID: 0}

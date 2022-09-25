@@ -19,7 +19,7 @@ MonoBehaviour:
   taskAward: 8000
   caseModel: 3
   gorevAnlatim:
-  - GorevAnlat: RTX 3050
+  - GorevAnlat: "RTX 3050'ye Y\xFCkselt"
     buyProduct: 5
     buildProduct: 5
     taskManagerElement: {fileID: 0}
