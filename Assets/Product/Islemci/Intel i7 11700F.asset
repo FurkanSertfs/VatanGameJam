@@ -18,6 +18,7 @@ MonoBehaviour:
   skor: 14.8
   productName: Intel i7 11700F
   price: 6000
+  sellPrice: 4000
   prefabEnvanter: {fileID: 6476448739622032108, guid: 102d457d1d3ab114a86d374e1c5387d0,
     type: 3}
   prefabProduct: {fileID: 6679258289566832745, guid: 531d44c3ba375b642ad7385fc6b5848a,

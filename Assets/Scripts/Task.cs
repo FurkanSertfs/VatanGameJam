@@ -27,9 +27,7 @@ public class Task : MonoBehaviour
 
         tablet.taskAwardText.text = teskClass.task.taskAward.ToString();
 
-        
         tablet.selectedtaskClass = teskClass;
-
 
         tablet.selectedtaskClass.taskObject = this;
 

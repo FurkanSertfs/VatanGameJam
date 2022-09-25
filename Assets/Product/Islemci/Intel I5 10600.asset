@@ -18,6 +18,7 @@ MonoBehaviour:
   skor: 7.4
   productName: Intel I5 10600
   price: 4900
+  sellPrice: 3266
   prefabEnvanter: {fileID: 7456322186176621382, guid: 7f7226d61465cbc428e3ea32b145264d,
     type: 3}
   prefabProduct: {fileID: 6679258289566832745, guid: 19b615912839e904abe7d2224b8e6495,

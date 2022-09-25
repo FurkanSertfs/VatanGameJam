@@ -334,10 +334,21 @@ public class BuyManager : MonoBehaviour
 
             }
 
-            else if (hit.collider.CompareTag("EnvanterElement") && PCCase.pCCase != null)
+            else if (hit.collider.CompareTag("EnvanterElement"))
             {
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    gameManager.money += hitProductManager.product.sellPrice;
+                    Destroy(hit.collider.gameObject);
+                    tablet.modClasses[(int)hitProductManager.product.model].isFull[hitProductManager.spawnValue] = false;
+                }
 
-                EnvanterItemAddToTable();
+                if(PCCase.pCCase != null)
+                {
+                    EnvanterItemAddToTable();
+                }
+
+             
 
             }
 

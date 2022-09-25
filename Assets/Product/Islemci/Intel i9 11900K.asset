@@ -18,6 +18,7 @@ MonoBehaviour:
   skor: 25.9
   productName: Intel i9 11900K
   price: 9500
+  sellPrice: 6333
   prefabEnvanter: {fileID: 6476448739622032108, guid: a23021803e4037646ba48e593826da9b,
     type: 3}
   prefabProduct: {fileID: 6679258289566832745, guid: 65f2d819c952a4945bd4a290f06af3d9,

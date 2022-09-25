@@ -18,6 +18,7 @@ MonoBehaviour:
   skor: 3.7
   productName: Intel I5 10400F
   price: 3000
+  sellPrice: 2000
   prefabEnvanter: {fileID: 7456322186176621382, guid: 20898e3417232e84aa93b3184e40eec2,
     type: 3}
   prefabProduct: {fileID: 6679258289566832745, guid: c1669e7f37e74ab41aa0600eb5f2dff9,

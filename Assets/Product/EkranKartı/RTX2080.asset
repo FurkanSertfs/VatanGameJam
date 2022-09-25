@@ -18,6 +18,7 @@ MonoBehaviour:
   skor: 18.5
   productName: RTX 2080
   price: 6100
+  sellPrice: 4066
   prefabEnvanter: {fileID: 1057881245177971571, guid: d83f64ed6a3d7aa4fb52020351a73074,
     type: 3}
   prefabProduct: {fileID: 8763277401402870562, guid: 4809383052ce5674cb6b503206e60515,

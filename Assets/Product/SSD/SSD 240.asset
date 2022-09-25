@@ -18,6 +18,7 @@ MonoBehaviour:
   skor: 0
   productName: Intel SSD 240 GB
   price: 2200
+  sellPrice: 1466
   prefabEnvanter: {fileID: 8697883375710151414, guid: 0a8336b88a0013e4ea2527d1b4c5786f,
     type: 3}
   prefabProduct: {fileID: 8025141250204031504, guid: d66ca98528ff9944ea444d940ec3ffef,
