@@ -12,7 +12,7 @@ public class BuyManager : MonoBehaviour
 
     public Image productImage;
 
-    public Text shopingDescriptionText, priceText, hitProductNameText,hitTableName;
+    public Text shopingDescriptionText, priceText, hitProductNameText,hitTableName,envanterItemName;
 
     public GameObject shophingInfoUI;
 
@@ -34,6 +34,7 @@ public class BuyManager : MonoBehaviour
     [SerializeField]
     GameObject[] infos;
 
+    bool envanterName;
 
 
     GameObject newPc;
@@ -54,6 +55,14 @@ public class BuyManager : MonoBehaviour
     }
     void Update()
     {
+        if (envanterName)
+        {
+
+        }
+
+
+
+
         RaycastHit hit;
 
 
@@ -336,6 +345,11 @@ public class BuyManager : MonoBehaviour
 
             else if (hit.collider.CompareTag("EnvanterElement"))
             {
+                envanterItemName.gameObject.SetActive(true);
+                envanterItemName.text = hitProductManager.product.name;
+
+
+
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     gameManager.money += hitProductManager.product.sellPrice;
@@ -503,9 +517,7 @@ public class BuyManager : MonoBehaviour
 
                             TabletUI.tabletUI.modClasses[id].isFull[TabletUI.tabletUI.modClasses[id].value] = true;
 
-
-
-                            Destroy(hit.collider.gameObject);
+                            Destroy(hit.collider.GetComponent<PCModels>().gameObject);
 
                         }
                         else

@@ -193,11 +193,11 @@ public class PCCase : MonoBehaviour
                 hitProductManager = null;
             }
 
-            if (hitProductManager != null)
+
+            if (hitProductManager != null&&!hitProductManager.CompareTag("PCBuild"))
             {
                 tablet.hitProductName.gameObject.SetActive(true);
-
-
+                
                 tablet.hitProductName.text = hitProductManager.product.name;
 
                 if (hitProductManager.gameObject.GetComponent<Outline>()!=null)
@@ -348,7 +348,7 @@ public class PCCase : MonoBehaviour
 
                     }
                     //
-                    if (Input.GetMouseButton(1) && hitProductManager != null)
+                    if (Input.GetMouseButton(1) && hitProductManager != null&&!hitProductManager.CompareTag("PCBuild"))
                     {
                         GameManager.gameManager.loadingCursor.gameObject.SetActive(true);
                         GameManager.gameManager.loadingCursor.fillAmount += Time.deltaTime;
