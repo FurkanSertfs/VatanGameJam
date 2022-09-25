@@ -92,7 +92,7 @@ public class TabletUI : MonoBehaviour
 
     [SerializeField]
     [NonReorderable]
-    private List<ProductSpawnPoint> productsSpawnPoints = new List<ProductSpawnPoint>();
+    public List<ProductSpawnPoint> productsSpawnPoints = new List<ProductSpawnPoint>();
 
 
     [SerializeField]

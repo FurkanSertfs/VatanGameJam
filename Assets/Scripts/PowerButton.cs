@@ -16,18 +16,28 @@ public class PowerButton : MonoBehaviour
         powerButton = this;
     }
 
-    private void Update()
+     void Update()
     {
+       
+
         if (Input.GetKeyDown(KeyCode.P))
         {
-            Power();
+            if (PCCase.pCCase != null)
+            {
+                PCCase.pCCase.ChechPcOpen();
+
+                Power();
+            }
         }
+         
     }
 
     IEnumerator PressButton(string name)
     {
         PCUI.pCUI.isOpen = true;
+       
         transform.DOMove(pointOpen.position, 0.5f);
+       
         firstTime = false;
       
         yield return new WaitForSeconds(0.75f);
@@ -57,8 +67,10 @@ public class PowerButton : MonoBehaviour
         {
             if (PCCase.pCCase.pcCanOpen)
             {
+
                 if (!PCUI.pCUI.isOpen && PCCase.pCCase.isSystemActive)
                 {
+                  
                     StartCoroutine(PressButton("Restart"));
 
                 }

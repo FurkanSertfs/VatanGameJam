@@ -126,7 +126,7 @@ public class PCCase : MonoBehaviour
         }
     }
 
-    void ChechPcOpen()
+  public void ChechPcOpen()
     {
         if (productCaseHave.Count >= caseMustHave.Length)
         {

@@ -472,8 +472,61 @@ public class BuyManager : MonoBehaviour
 
                     }
 
-                    else
+                   else if (PCCase.pCCase != null)
                     {
+                      int  id = (int)hitProductManager.product.model;
+
+                        bool isProductInCase = false;
+
+                        for (int i = 0; i < PCCase.pCCase.productCaseHave.Count; i++)
+                        {
+                            if (PCCase.pCCase.productCaseHave[i].productType == PCCaseElement.ProductType.UpScrew|| PCCase.pCCase.productCaseHave[i].productType == PCCaseElement.ProductType.DownScrew || PCCase.pCCase.productCaseHave[i].productType == PCCaseElement.ProductType.RightCover || PCCase.pCCase.productCaseHave[i].productType == PCCaseElement.ProductType.CpuCover)
+                            {
+
+                                isProductInCase = false;
+                            }
+                            else
+                            {
+                                isProductInCase = true;
+                                break;
+                            }
+                           
+                        }
+
+                        if (!isProductInCase)
+                        {
+                            GameObject newEnvanterProduct = Instantiate(hitProductManager.product.prefabEnvanter, TabletUI.tabletUI.productsSpawnPoints[id].spawnPoints[TabletUI.tabletUI.modClasses[id].value % (TabletUI.tabletUI.productsSpawnPoints[id].spawnPoints.Length - 1)]);
+
+                            newEnvanterProduct.GetComponent<ProductManager>().spawnPoint = TabletUI.tabletUI.productsSpawnPoints[id].spawnPoints[TabletUI.tabletUI.modClasses[id].value % (TabletUI.tabletUI.productsSpawnPoints[id].spawnPoints.Length - 1)].GetComponent<ProductSpawn>().spawnPoint;
+
+                            newEnvanterProduct.GetComponent<ProductManager>().spawnValue = TabletUI.tabletUI.modClasses[id].value;
+
+                            TabletUI.tabletUI.modClasses[id].isFull[TabletUI.tabletUI.modClasses[id].value] = true;
+
+
+
+                            Destroy(hit.collider.gameObject);
+
+                        }
+                        else
+                        {
+
+                            GameObject newNotification = Instantiate(AIManager.aiManager.caseSellnotification, AIManager.aiManager.caseSellnotificationParent);
+
+                            newNotification.GetComponent<ShopingDes>().userNameText.text = "Kasa envantere eklenmek için içi boþ olmalý";
+
+                            newNotification.GetComponent<ShopingDes>().caseNameText.text = "";
+
+                            newNotification.GetComponent<ShopingDes>().priceText.text = "";
+
+                            newNotification.GetComponent<ShopingDes>().bitPriceText.text = "";
+
+                            newNotification.GetComponent<ShopingDes>().userNameText.gameObject.SetActive(true);
+
+                        }
+
+
+
                         Debug.Log("Masada zaten pc var");
                     }
 
@@ -682,6 +735,22 @@ public class BuyManager : MonoBehaviour
 
                 hitProductManager.gameObject.SetActive(false);
 
+
+            }
+            else
+            {
+
+                GameObject newNotification = Instantiate(AIManager.aiManager.caseSellnotification, AIManager.aiManager.caseSellnotificationParent);
+
+                newNotification.GetComponent<ShopingDes>().userNameText.text = "Atölye masasýnda ayný tür üründen sadece bir tane olabilir. Masadaki ürünü envantere yollayabilirsin";
+
+                newNotification.GetComponent<ShopingDes>().caseNameText.text = "";
+
+                newNotification.GetComponent<ShopingDes>().priceText.text = "";
+
+                newNotification.GetComponent<ShopingDes>().bitPriceText.text = "";
+
+                newNotification.GetComponent<ShopingDes>().userNameText.gameObject.SetActive(true);
 
             }
 
