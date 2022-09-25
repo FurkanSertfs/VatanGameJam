@@ -17,7 +17,7 @@ MonoBehaviour:
   ID: 6
   skor: 25.9
   productName: RTX 3090
-  price: 2000
+  price: 9300
   prefabEnvanter: {fileID: 1057881245177971571, guid: 2e7903a7c8f23d64ea8a90f996023d73,
     type: 3}
   prefabProduct: {fileID: 8763277401402870562, guid: ae8b0ed30fcd0b84dbe62a005ea6e07e,

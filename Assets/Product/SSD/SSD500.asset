@@ -15,8 +15,9 @@ MonoBehaviour:
   productType: 16
   model: 3
   ID: 15
+  skor: 0
   productName: Intel SSD 500 GB
-  price: 3000
+  price: 4000
   prefabEnvanter: {fileID: 9125817439676235666, guid: 64e173956647b4e4190e3907a1e24e69,
     type: 3}
   prefabProduct: {fileID: 8025141250204031504, guid: 1f5ddc757bd67bf4ba2ea4325a3d4501,

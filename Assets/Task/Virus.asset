@@ -14,15 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   taskDecription: "Gelen bilgisayar\u0131n vir\xFCs taramas\u0131n\u0131 yap ve temizle."
   pcBuilding: 1
-  taskAward: 100
+  needFormat: 0
+  taskAward: 1000
+  caseModel: 3
   gorevAnlatim:
   - GorevAnlat: "Vir\xFCs Taramas\u0131n\u0131 Yap ve Temizle"
-    buyProduct: 14
-    buildProduct: 8
+    buyProduct: 0
+    buildProduct: 26
     taskManagerElement: {fileID: 0}
   ownedProducts:
   - productType: 0
-    productPrefab: {fileID: 6679258289566832745, guid: f67448bb4dd5f044e9123fa293d85b20,
+    productPrefab: {fileID: 6679258289566832745, guid: fac83daefdf062c479a02f2bb97954c5,
       type: 3}
   - productType: 1
     productPrefab: {fileID: 8763277401402870562, guid: fe899956aed809a4b9d1dc97b87fbeeb,

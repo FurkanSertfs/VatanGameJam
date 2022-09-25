@@ -17,7 +17,7 @@ MonoBehaviour:
   ID: 19
   skor: 0
   productName: Case Model 1
-  price: 0
+  price: 800
   prefabEnvanter: {fileID: 8261439393379972700, guid: f3df74a41a03c594f95b843e20b10b31,
     type: 3}
   prefabProduct: {fileID: 8261439393379972700, guid: f3df74a41a03c594f95b843e20b10b31,

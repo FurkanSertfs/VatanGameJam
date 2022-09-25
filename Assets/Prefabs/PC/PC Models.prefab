@@ -1059,7 +1059,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   elementType: 0
-  UpType: 9
+  UpType: 8
   DownType: 0
   DownType2: 0
   taskType: 0

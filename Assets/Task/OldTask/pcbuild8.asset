@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf0b95d7ca1bebc42a8cf96b06e05f72, type: 3}
+  m_Name: pcbuild8
+  m_EditorClassIdentifier: 
+  taskDecription: "Masana gelecek olan kasa i\xE7erisine, verilen sipari\u015Fteki
+    par\xE7alar\u0131 yerle\u015Ftir, sistemi kur."
+  pcBuilding: 1
+  needFormat: 1
+  taskAward: 10750
+  gorevAnlatim:
+  - GorevAnlat: 8GB Ram Tak
+    buyProduct: 14
+    buildProduct: 1
+    taskManagerElement: {fileID: 0}
+  - GorevAnlat: 240GB SSD Tak
+    buyProduct: 14
+    buildProduct: 12
+    taskManagerElement: {fileID: 0}
+  - GorevAnlat: "GTX 1660Ti Ekran Kart\u0131 Tak"
+    buyProduct: 14
+    buildProduct: 4
+    taskManagerElement: {fileID: 0}
+  - GorevAnlat: Intel i7 CPU Tak
+    buyProduct: 14
+    buildProduct: 10
+    taskManagerElement: {fileID: 0}
+  - GorevAnlat: "\u0130\u015Fletim Sistemini Y\xFCkle"
+    buyProduct: 14
+    buildProduct: 0
+    taskManagerElement: {fileID: 0}
+  - GorevAnlat: "Driverlar\u0131 Kur"
+    buyProduct: 14
+    buildProduct: 9
+    taskManagerElement: {fileID: 0}
+  ownedProducts: []
+  installedApps: []

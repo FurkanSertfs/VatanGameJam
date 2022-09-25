@@ -15,8 +15,9 @@ MonoBehaviour:
   productType: 17
   model: 3
   ID: 16
+  skor: 0
   productName: Intel SSD 1 TB
-  price: 2000
+  price: 6000
   prefabEnvanter: {fileID: 9125817439676235666, guid: 08f5b3f3d70c2594a9f6d2f5db1aa29b,
     type: 3}
   prefabProduct: {fileID: 8025141250204031504, guid: 113fbee0d4937c94b985bef301b4a065,
