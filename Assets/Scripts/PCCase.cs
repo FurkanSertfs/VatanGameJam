@@ -154,18 +154,18 @@ public class PCCase : MonoBehaviour
 
             if (productType == productBase[i].productType)
             {
-                Debug.Log("Alan3");
+               
                 productBase[i].gameObject.SetActive(true);
 
             }
             else
             {
-                Debug.Log("Alan4");
+               
                 productBase[i].gameObject.SetActive(false);
             }
 
         }
-        Debug.Log("Alan5");
+        
     }
 
 
@@ -332,12 +332,12 @@ public class PCCase : MonoBehaviour
 
                     GameManager.gameManager.croshair.color = Color.blue;
 
-                    Debug.Log("Alan1");
+                
 
                     if (Input.GetMouseButtonDown(0))
                     {
 
-                        Debug.Log("Alan2");
+                       
 
                         selectedObject = hitinfo.collider.gameObject;
 
