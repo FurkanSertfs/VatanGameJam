@@ -9129,6 +9129,7 @@ GameObject:
   - component: {fileID: 6334124813930755647}
   - component: {fileID: 3381451690949520289}
   - component: {fileID: 3845914930459741633}
+  - component: {fileID: 6205595547283134798}
   m_Layer: 0
   m_Name: powerfan.009
   m_TagString: Untagged
@@ -9200,6 +9201,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6205595547283134798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3863850675257147143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc6894bf53aed5a49a76341dc58471a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotate: {x: 0, y: 0, z: 30}
 --- !u!1 &3923423395529714648
 GameObject:
   m_ObjectHideFlags: 0
