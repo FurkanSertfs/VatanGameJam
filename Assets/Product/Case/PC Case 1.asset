@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a12bfb23204f0da4f869cdceef0568aa, type: 3}
   m_Name: PC Case 1
   m_EditorClassIdentifier: 
-  productType: 16
+  productType: 20
   model: 4
-  ID: 9
+  ID: 19
+  skor: 0
   productName: Case Model 1
   price: 0
-  prefabEnvanter: {fileID: 2570406499216756063, guid: fc84229fb6061714ab6c783270d0989f,
+  prefabEnvanter: {fileID: 8261439393379972700, guid: f3df74a41a03c594f95b843e20b10b31,
     type: 3}
-  prefabProduct: {fileID: 2570406499216756063, guid: b49435a94b57fd3458f20bf6ad378ada,
+  prefabProduct: {fileID: 8261439393379972700, guid: f3df74a41a03c594f95b843e20b10b31,
     type: 3}
   productImage: {fileID: 21300000, guid: e750a4ca684f1bb4e84f8dd127442deb, type: 3}
   caseModelID: 0
