@@ -144,6 +144,24 @@ public class TabletUI : MonoBehaviour
 
     int totalBasketPrice;
 
+    // Tutorial
+
+    public bool isSelectedFirstTask;
+
+
+
+    // Tutorial
+
+
+
+
+
+
+
+
+
+
+
     private void Awake()
     {
         tabletUI = this;
@@ -861,102 +879,101 @@ public class TabletUI : MonoBehaviour
 
     void CloseTablet()
     {
-        CheckTask();
+        
+            CheckTask();
 
-       
-
-        if (selectedtaskClass.task!=null)
-        {
-
-            if (taskID[selectedtaskClass.ID])
+            if (selectedtaskClass.task != null)
             {
 
-                if (awardID[selectedtaskClass.ID])
+                if (taskID[selectedtaskClass.ID])
                 {
-                    startTaskButton.GetComponentInChildren<Text>().text = "Görev Tamamlandý";
 
-                    startTaskButton.onClick.RemoveAllListeners();
+                    if (awardID[selectedtaskClass.ID])
+                    {
+                        startTaskButton.GetComponentInChildren<Text>().text = "Görev Tamamlandý";
 
-                  
+                        startTaskButton.onClick.RemoveAllListeners();
+
+
+                    }
+
+                    else
+                    {
+                        startTaskButton.GetComponentInChildren<Text>().text = "Görevi Bitir";
+
+                        startTaskButton.onClick.RemoveAllListeners();
+
+                        startTaskButton.GetComponent<Button>().onClick.AddListener(() => FinishTask());
+                    }
+
+
                 }
+
+
 
                 else
                 {
-                    startTaskButton.GetComponentInChildren<Text>().text = "Görevi Bitir";
-
                     startTaskButton.onClick.RemoveAllListeners();
 
-                    startTaskButton.GetComponent<Button>().onClick.AddListener(() => FinishTask());
+                    startTaskButton.GetComponent<Button>().onClick.AddListener(() => GorevKabul());
+
+                    if (isTaskActive)
+                    {
+
+
+                        startTaskButton.GetComponentInChildren<Text>().text = "Aktif bir görev var";
+                    }
+                    else
+                    {
+                        startTaskButton.GetComponentInChildren<Text>().text = "Göreve Baþla";
+
+                    }
+
+
                 }
+
+
+
 
 
             }
 
+            if (Tablet.activeSelf&&isSelectedFirstTask)
+            {
 
+                for (int i = 0; i < applications.Length; i++)
+                {
+                    applications[i].SetActive(false);
+                }
+
+                Tablet.SetActive(false);
+
+                Cursor.visible = false;
+
+                Cursor.lockState = CursorLockMode.Locked;
+
+                GameManager.gameManager.firstPersonController.enabled = true;
+
+                EventSystem.current.SetSelectedGameObject(null);
+
+
+            }
 
             else
             {
-                startTaskButton.onClick.RemoveAllListeners();
 
-                startTaskButton.GetComponent<Button>().onClick.AddListener(() => GorevKabul());
+                Cursor.visible = true;
 
-                if (isTaskActive)
-                {
-                   
+                Cursor.lockState = CursorLockMode.Confined;
 
-                    startTaskButton.GetComponentInChildren<Text>().text = "Aktif bir görev var";
-                }
-                else
-                {
-                    startTaskButton.GetComponentInChildren<Text>().text = "Göreve Baþla";
-                     
-                }
+                GameManager.gameManager.firstPersonController.enabled = false;
 
+                Tablet.SetActive(true);
 
             }
 
+        
 
-
-
-
-        }
-
-
-
-
-        if (Tablet.activeSelf)
-        {
-
-            for (int i = 0; i < applications.Length; i++)
-            {
-                applications[i].SetActive(false);
-            }
-
-            Tablet.SetActive(false);
-            
-            Cursor.visible = false;
-
-            Cursor.lockState = CursorLockMode.Locked;
-
-            GameManager.gameManager.firstPersonController.enabled = true;
-
-            EventSystem.current.SetSelectedGameObject(null);
-
-
-        }
-
-        else
-        {
-           
-            Cursor.visible = true;
-
-            Cursor.lockState = CursorLockMode.Confined;
-
-            GameManager.gameManager.firstPersonController.enabled = false;
-
-            Tablet.SetActive(true);
-
-        }
     }
 
 
@@ -1028,6 +1045,8 @@ public class TabletUI : MonoBehaviour
         GameManager.gameManager.audioSource.clip = GameManager.gameManager.UIclick;
 
         GameManager.gameManager.audioSource.Play();
+
+        isSelectedFirstTask = true;
 
 
         if (!isTaskActive && !taskID[selectedtaskClass.ID])

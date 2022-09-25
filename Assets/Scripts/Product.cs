@@ -19,7 +19,7 @@ public class Product : ScriptableObject
 
     public string productName;
 
-    public int price;
+    public int price,sellPrice;
 
     public GameObject prefabEnvanter,prefabProduct;
 

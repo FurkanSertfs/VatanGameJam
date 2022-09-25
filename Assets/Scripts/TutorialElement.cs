@@ -8,7 +8,41 @@ public class TutorialElement : MonoBehaviour
 
     public bool CloseButton;
 
+    [SerializeField] bool openTablet;
+
     public GameObject openTutorial;
+
+    private void OnEnable()
+    {
+        if (openTablet)
+        {
+            GameManager.gameManager.firstPersonController.enabled = false;
+        }
+    }
+
+
+    private void OnDisable()
+    {
+        if (ClosePlayerControl)
+        {
+            Time.timeScale = 1;
+            GameManager.gameManager.firstPersonController.enabled = true;
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = false;
+            if (openTutorial != null)
+            {
+                openTutorial.SetActive(true);
+            }
+        }
+
+
+     
+
+
+    }
+
+
+
 
     private void Start()
     {
@@ -21,6 +55,8 @@ public class TutorialElement : MonoBehaviour
            
 
         }
+
+      
     }
     private void Update()
     {
@@ -42,21 +78,5 @@ public class TutorialElement : MonoBehaviour
     }
 
 
-    private void OnDisable()
-    {
-        if (ClosePlayerControl)
-        {
-            Time.timeScale = 1;
-            GameManager.gameManager.firstPersonController.enabled = true;
-            Cursor.lockState = CursorLockMode.Confined;
-            Cursor.visible = false;
-            if (openTutorial!=null)
-            {
-                openTutorial.SetActive(true);
-            }
-        }
-    
-    
-    }
 
 }
