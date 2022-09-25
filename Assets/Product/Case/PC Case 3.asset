@@ -18,9 +18,9 @@ MonoBehaviour:
   skor: 0
   productName: Case Model 3
   price: 0
-  prefabEnvanter: {fileID: 5730408211027095340, guid: 2d0ac4be8ce05844b8bbec0862a84b8c,
+  prefabEnvanter: {fileID: 5730408211027095340, guid: bf018200272a4504789adf9ccef9ca45,
     type: 3}
-  prefabProduct: {fileID: 5730408211027095340, guid: 2d0ac4be8ce05844b8bbec0862a84b8c,
+  prefabProduct: {fileID: 5730408211027095340, guid: bf018200272a4504789adf9ccef9ca45,
     type: 3}
   productImage: {fileID: 21300000, guid: e750a4ca684f1bb4e84f8dd127442deb, type: 3}
   caseModelID: 2

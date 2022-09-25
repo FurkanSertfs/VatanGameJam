@@ -499,9 +499,6 @@ GameObject:
   - component: {fileID: 4995348351972221330}
   - component: {fileID: 5152961276946664950}
   - component: {fileID: 5084645610720096050}
-  - component: {fileID: 2601601980360760775}
-  - component: {fileID: 6890467345029334687}
-  - component: {fileID: 3703608308667493429}
   m_Layer: 0
   m_Name: rightdownscrew
   m_TagString: Untagged
@@ -572,65 +569,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2601601980360760775
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2601601980360760774}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 2507917810054156286, guid: e2e835ad6c3d9e24a9d111bd2f97ec3a, type: 3}
---- !u!114 &6890467345029334687
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2601601980360760774}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57f249986d464854ab886f8510cc51af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  elementType: 0
-  UpType: 7
-  DownType: 9
-  DownType2: 0
-  taskType: 0
-  isInstall: 1
-  isRotate: 0
-  DownisInstall: 0
-  DownisInstall2: 1
-  UpDeInstall: 0
-  productType: 8
-  transformPoint:
-  - {fileID: 0}
-  isAddedInEnvanter: 0
---- !u!114 &3703608308667493429
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2601601980360760774}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 0.039053082, g: 1, b: 0, a: 1}
-  outlineWidth: 6
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
-  alwaysActive: 1
 --- !u!1 &2742731551235899233
 GameObject:
   m_ObjectHideFlags: 0
@@ -733,9 +671,6 @@ GameObject:
   - component: {fileID: 6244628317064159979}
   - component: {fileID: 8136432205106668435}
   - component: {fileID: 8722162114734326553}
-  - component: {fileID: 2781986137654469711}
-  - component: {fileID: 2781986137654469710}
-  - component: {fileID: 2781986137654469709}
   m_Layer: 0
   m_Name: right
   m_TagString: Untagged
@@ -808,65 +743,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2781986137654469711
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2781986137654469708}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 5439737192064214556, guid: e2e835ad6c3d9e24a9d111bd2f97ec3a, type: 3}
---- !u!114 &2781986137654469710
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2781986137654469708}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57f249986d464854ab886f8510cc51af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  elementType: 0
-  UpType: 8
-  DownType: 0
-  DownType2: 0
-  taskType: 0
-  isInstall: 1
-  isRotate: 0
-  DownisInstall: 0
-  DownisInstall2: 1
-  UpDeInstall: 0
-  productType: 9
-  transformPoint:
-  - {fileID: 0}
-  isAddedInEnvanter: 0
---- !u!114 &2781986137654469709
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2781986137654469708}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 0, g: 1, b: 0.06464243, a: 1}
-  outlineWidth: 5
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
-  alwaysActive: 1
 --- !u!1 &2960206493325706055
 GameObject:
   m_ObjectHideFlags: 0
@@ -1664,9 +1540,6 @@ GameObject:
   - component: {fileID: 2650335902031241990}
   - component: {fileID: 1633442837443816167}
   - component: {fileID: 3867485075777185408}
-  - component: {fileID: 6503197893519838564}
-  - component: {fileID: 5467856173306300715}
-  - component: {fileID: 2169413107737354235}
   m_Layer: 0
   m_Name: rightupscrew
   m_TagString: Untagged
@@ -1737,65 +1610,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6503197893519838564
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6503197893519838571}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -1639967638229431338, guid: e2e835ad6c3d9e24a9d111bd2f97ec3a, type: 3}
---- !u!114 &5467856173306300715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6503197893519838571}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57f249986d464854ab886f8510cc51af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  elementType: 0
-  UpType: 0
-  DownType: 8
-  DownType2: 0
-  taskType: 0
-  isInstall: 1
-  isRotate: 0
-  DownisInstall: 0
-  DownisInstall2: 1
-  UpDeInstall: 0
-  productType: 7
-  transformPoint:
-  - {fileID: 0}
-  isAddedInEnvanter: 0
---- !u!114 &2169413107737354235
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6503197893519838571}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 0, g: 1, b: 0.17761254, a: 1}
-  outlineWidth: 6
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
-  alwaysActive: 1
 --- !u!1 &6980299777589295219
 GameObject:
   m_ObjectHideFlags: 0

@@ -783,9 +783,6 @@ GameObject:
   - component: {fileID: 5202038811170676179}
   - component: {fileID: 5395504331959267767}
   - component: {fileID: 5472465492205949811}
-  - component: {fileID: 2988401510664610176}
-  - component: {fileID: 2988401510664610177}
-  - component: {fileID: 2988401510664610182}
   m_Layer: 0
   m_Name: rightdownscrew
   m_TagString: Untagged
@@ -856,65 +853,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2988401510664610176
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2988401510664610183}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57f249986d464854ab886f8510cc51af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  elementType: 0
-  UpType: 7
-  DownType: 9
-  DownType2: 0
-  taskType: 0
-  isInstall: 1
-  isRotate: 0
-  DownisInstall: 0
-  DownisInstall2: 1
-  UpDeInstall: 0
-  productType: 8
-  transformPoint:
-  - {fileID: 0}
-  isAddedInEnvanter: 0
---- !u!114 &2988401510664610177
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2988401510664610183}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 0.070926666, g: 1, b: 0, a: 1}
-  outlineWidth: 6
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
-  alwaysActive: 1
---- !u!64 &2988401510664610182
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2988401510664610183}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 2507917810054156286, guid: 8e49df8ee34cb21458859e1179892706, type: 3}
 --- !u!1 &3130691894327591712
 GameObject:
   m_ObjectHideFlags: 0
@@ -1016,9 +954,6 @@ GameObject:
   - component: {fileID: 6614433524190076586}
   - component: {fileID: 9045543193672867794}
   - component: {fileID: 8388244970525474648}
-  - component: {fileID: 3168785672450873358}
-  - component: {fileID: 3168785672450873359}
-  - component: {fileID: 3168785672450873356}
   m_Layer: 0
   m_Name: right
   m_TagString: Untagged
@@ -1091,65 +1026,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3168785672450873358
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3168785672450873357}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57f249986d464854ab886f8510cc51af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  elementType: 0
-  UpType: 8
-  DownType: 0
-  DownType2: 0
-  taskType: 0
-  isInstall: 1
-  isRotate: 0
-  DownisInstall: 0
-  DownisInstall2: 1
-  UpDeInstall: 0
-  productType: 9
-  transformPoint:
-  - {fileID: 0}
-  isAddedInEnvanter: 0
---- !u!114 &3168785672450873359
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3168785672450873357}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 0.22463512, g: 1, b: 0, a: 1}
-  outlineWidth: 5
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
-  alwaysActive: 1
---- !u!64 &3168785672450873356
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3168785672450873357}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 5439737192064214556, guid: 8e49df8ee34cb21458859e1179892706, type: 3}
 --- !u!1 &3339783737394073464
 GameObject:
   m_ObjectHideFlags: 0
@@ -1936,9 +1812,6 @@ GameObject:
   - component: {fileID: 3001000531573727047}
   - component: {fileID: 2002263431704614566}
   - component: {fileID: 4093280919504181953}
-  - component: {fileID: 6278669238054760759}
-  - component: {fileID: 6278669238054760756}
-  - component: {fileID: 6278669238054760757}
   m_Layer: 0
   m_Name: rightupscrew
   m_TagString: Untagged
@@ -2009,65 +1882,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &6278669238054760759
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6278669238054760746}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57f249986d464854ab886f8510cc51af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  elementType: 0
-  UpType: 0
-  DownType: 8
-  DownType2: 0
-  taskType: 0
-  isInstall: 1
-  isRotate: 0
-  DownisInstall: 0
-  DownisInstall2: 1
-  UpDeInstall: 0
-  productType: 7
-  transformPoint:
-  - {fileID: 0}
-  isAddedInEnvanter: 0
---- !u!114 &6278669238054760756
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6278669238054760746}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 0.024532318, g: 1, b: 0, a: 1}
-  outlineWidth: 6
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
-  alwaysActive: 1
---- !u!64 &6278669238054760757
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6278669238054760746}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -1639967638229431338, guid: 8e49df8ee34cb21458859e1179892706, type: 3}
 --- !u!1 &6812329326367904887
 GameObject:
   m_ObjectHideFlags: 0
