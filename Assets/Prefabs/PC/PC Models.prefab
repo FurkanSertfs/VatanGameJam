@@ -1123,7 +1123,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &898221260882510196
 Transform:
   m_ObjectHideFlags: 0
@@ -1559,7 +1559,6 @@ GameObject:
   - component: {fileID: 4260205980926356250}
   - component: {fileID: 6777318982194945189}
   - component: {fileID: 2176897700861266123}
-  - component: {fileID: 7814832248072109401}
   m_Layer: 0
   m_Name: powerbuttonClose
   m_TagString: Untagged
@@ -1596,7 +1595,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 670618813363839481}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1630,20 +1629,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &7814832248072109401
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 670618813363839481}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80ee4c1ab77258a4bbe5b0fda2a8695b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pointOpen: {fileID: 8550849565164522546}
-  pointClose: {fileID: 2159207098790498487}
 --- !u!1 &690352223847166720
 GameObject:
   m_ObjectHideFlags: 0
@@ -3482,7 +3467,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1586222057961527251}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -8609,7 +8594,7 @@ GameObject:
   - component: {fileID: 5464348514031826351}
   m_Layer: 0
   m_Name: powerbutton
-  m_TagString: Untagged
+  m_TagString: PowerButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12154,7 +12139,7 @@ GameObject:
   - component: {fileID: 1234018574912648918}
   m_Layer: 0
   m_Name: powerbutton
-  m_TagString: Untagged
+  m_TagString: PowerButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13602,7 +13587,7 @@ GameObject:
   - component: {fileID: 1929799748243305577}
   m_Layer: 0
   m_Name: powerbutton
-  m_TagString: Untagged
+  m_TagString: PowerButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14911,7 +14896,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7646523433634788004}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -15203,7 +15188,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7798596109582805393}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -15416,7 +15401,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7884385942716674701}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -15722,7 +15707,6 @@ GameObject:
   - component: {fileID: 8938831359266324008}
   - component: {fileID: 3702205093310926306}
   - component: {fileID: 4915484539294660661}
-  - component: {fileID: 1350847490868690058}
   m_Layer: 0
   m_Name: powerbuttonOpen
   m_TagString: Untagged
@@ -15759,7 +15743,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8166374667616628563}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -15793,20 +15777,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1350847490868690058
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8166374667616628563}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80ee4c1ab77258a4bbe5b0fda2a8695b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pointOpen: {fileID: 8550849565164522546}
-  pointClose: {fileID: 2159207098790498487}
 --- !u!1 &8226290523387130818
 GameObject:
   m_ObjectHideFlags: 0
@@ -17503,7 +17473,7 @@ PrefabInstance:
     - target: {fileID: 2138231949870207739, guid: 37a9f505416b4a248851daea3a64880b,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2841621896187712776, guid: 37a9f505416b4a248851daea3a64880b,
         type: 3}
@@ -17641,18 +17611,6 @@ GameObject:
 --- !u!4 &8986723271456692445 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1650382405272848449, guid: 37a9f505416b4a248851daea3a64880b,
-    type: 3}
-  m_PrefabInstance: {fileID: 7660648521485144220}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2159207098790498487 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8621891161005916203, guid: 37a9f505416b4a248851daea3a64880b,
-    type: 3}
-  m_PrefabInstance: {fileID: 7660648521485144220}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &8550849565164522546 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2088174195959733422, guid: 37a9f505416b4a248851daea3a64880b,
     type: 3}
   m_PrefabInstance: {fileID: 7660648521485144220}
   m_PrefabAsset: {fileID: 0}
