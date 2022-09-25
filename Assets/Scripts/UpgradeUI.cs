@@ -12,11 +12,7 @@ public class UpgradeUI : MonoBehaviour
     public GameObject DecorSS, PaintSS;
     public GameObject DecorLevelBar, PaintLevelBar;
 
-    private void Awake()
-    {
-        Cursor.visible = false;
 
-    }
 
     public void CloseUpgradePanel()
     {
