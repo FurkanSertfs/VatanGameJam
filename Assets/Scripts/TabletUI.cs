@@ -447,7 +447,7 @@ public class TabletUI : MonoBehaviour
 
             GameObject newNotification = Instantiate(AIManager.aiManager.caseSellnotification, AIManager.aiManager.caseSellnotificationParent);
 
-            newNotification.GetComponent<ShopingDes>().userNameText.text = "Aldýðýn ürünler envanterine dizilde. Envanterinden masana ekleyebilirsin";
+            newNotification.GetComponent<ShopingDes>().userNameText.text = "Aldýðýn ürünler envanterine dizildi. Envanterinden masana ekleyebilirsin";
 
             newNotification.GetComponent<ShopingDes>().caseNameText.text = "";
 
