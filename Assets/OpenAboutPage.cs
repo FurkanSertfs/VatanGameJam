@@ -13,4 +13,9 @@ public class OpenAboutPage : MonoBehaviour
         CreditPanel.SetActive(true);
 
     }
+    public void CloseCredit()
+    {
+        CreditPanel.SetActive(false);
+
+    }
 }
