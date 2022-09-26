@@ -7,7 +7,7 @@ public class BuyTable : MonoBehaviour
 
     public bool isSold;
     public int tablePrice;
-    public GameObject sellCanvvas;
+    public GameObject sellCanvvas,buytable;
 
     public Material matFull;
    
@@ -26,6 +26,13 @@ public class BuyTable : MonoBehaviour
             GetComponent<ComputerSellTable>().enabled = true;
 
             sellCanvvas.SetActive(false);
+
+            if (buytable != null)
+            {
+                buytable.SetActive(true);
+
+            }
+          
 
             this.enabled = false;
 

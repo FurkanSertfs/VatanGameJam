@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pcbuildCam: {fileID: 0}
-  CaseModel: 0
+  CaseModel: 4
   caseMustHave: 010000000200000003000000040000000500000006000000
   CaseProducts: 090000000700000008000000
   elementCaseHave:
@@ -1261,7 +1261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pcbuildCam: {fileID: 0}
-  CaseModel: 0
+  CaseModel: 3
   caseMustHave: 010000000200000003000000040000000500000006000000
   CaseProducts: 090000000700000008000000
   elementCaseHave:
@@ -12909,7 +12909,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pcbuildCam: {fileID: 0}
-  CaseModel: 0
+  CaseModel: 2
   caseMustHave: 010000000200000003000000040000000500000006000000
   CaseProducts: 090000000700000008000000
   elementCaseHave:
@@ -14406,7 +14406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pcbuildCam: {fileID: 0}
-  CaseModel: 0
+  CaseModel: 1
   caseMustHave: 010000000200000003000000040000000500000006000000
   CaseProducts: 090000000700000008000000
   elementCaseHave:

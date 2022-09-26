@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UpgradeUI : MonoBehaviour
 {
@@ -12,6 +13,10 @@ public class UpgradeUI : MonoBehaviour
     public GameObject DecorSS, PaintSS;
     public GameObject DecorLevelBar, PaintLevelBar;
 
+    public ComputerSellTable[] tables;
+    
+    public Text priceTextDekor, priceTextPaint;
+
 
 
     public void CloseUpgradePanel()
@@ -20,25 +25,49 @@ public class UpgradeUI : MonoBehaviour
         
     }
     
-    public void BuyPaintes()
+    public void BuyPaintes(GameObject button)
     {
-        GameManager.gameManager.BuyUpgrade(2500);
+        if (GameManager.gameManager.money >= 1500)
+        {
+            GameManager.gameManager.money -= 1500;
 
-        OldPaint.SetActive(false);
+            OldPaint.SetActive(false);
 
-        UpgradePaint.SetActive(true);
+            UpgradePaint.SetActive(true);
 
-        PaintLevelBar.SetActive(true);
+            PaintLevelBar.SetActive(true);
+
+            priceTextPaint.text = "Satýn Alýndý";
+
+            button.SetActive(false);
+        }
+
+       
 
     }
-    public void BuyDecors()
+    public void BuyDecors(GameObject button)
     {
+        if (GameManager.gameManager.money >= 1500)
+        {
+            Decors.SetActive(true);
 
-        GameManager.gameManager.BuyUpgrade(2500);
+            DecorLevelBar.SetActive(true);
+            
+            priceTextDekor.text = "Satýn Alýndý";
 
-        Decors.SetActive(true);
+            button.SetActive(false);
 
-        DecorLevelBar.SetActive(true);
+            for (int i = 0; i < tables.Length; i++)
+            {
+                tables[i].UpgradeLevel();
+
+            }
+        }
+
+
+
+
+     
 
     }
     public void OpenDecorSS()
