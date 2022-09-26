@@ -6,6 +6,7 @@ public class PowerButton : MonoBehaviour
 {
     public Transform pointOpen,pointClose;
 
+  [SerializeField]  float timer;
 
     public static PowerButton powerButton;
 
@@ -19,15 +20,18 @@ public class PowerButton : MonoBehaviour
      void Update()
     {
        
-
-        if (Input.GetKeyDown(KeyCode.P))
+     
+        if (Input.GetKeyDown(KeyCode.P) && timer - Time.time < 1.5F)
         {
             if (PCCase.pCCase != null)
             {
                 PCCase.pCCase.ChechPcOpen();
 
+               
+
                 Power();
             }
+            timer = Time.time+2;
         }
          
     }

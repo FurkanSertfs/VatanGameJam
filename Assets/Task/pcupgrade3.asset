@@ -17,6 +17,7 @@ MonoBehaviour:
   pcBuilding: 1
   needFormat: 0
   taskAward: 8000
+  minMoney: 900000
   caseModel: 3
   gorevAnlatim:
   - GorevAnlat: "RTX 3050'ye Y\xFCkselt"

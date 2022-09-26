@@ -49,6 +49,8 @@ public class TaskClass : ScriptableObject
 
     public int taskAward;
 
+    public int minMoney;
+
     public int caseModel;
 
     [NonReorderable]

@@ -100,6 +100,13 @@ public class GameManager : MonoBehaviour
             canBuildPCInfo = true;
             canBuildPCInfoText.SetActive(true);
         }
+
+        if (Input.GetKeyDown(KeyCode.PageUp))
+        {
+            money += 2500;
+        }
+      
+
       
     }
 

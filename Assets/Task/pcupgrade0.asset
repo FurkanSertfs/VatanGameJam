@@ -17,6 +17,7 @@ MonoBehaviour:
   pcBuilding: 1
   needFormat: 0
   taskAward: 5000
+  minMoney: 900000
   caseModel: 0
   gorevAnlatim:
   - GorevAnlat: "GTX 1660Ti'a Y\xFCkselt"

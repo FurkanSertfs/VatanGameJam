@@ -221,8 +221,16 @@ public class TabletUI : MonoBehaviour
                 {
                     GameObject newTask = Instantiate(dailyTaskUI, gorevlerLayout.transform);
 
-                    newTask.GetComponent<Task>().teskClass.task = totalDailyTask[i];
+                    int randomTask = Random.Range(0, totalDailyTask.Length);
 
+                    while(GameManager.gameManager.money <= totalDailyTask[randomTask].minMoney) 
+                    {
+
+                        randomTask = Random.Range(0, totalDailyTask.Length);
+                    }
+
+                    newTask.GetComponent<Task>().teskClass.task = totalDailyTask[randomTask];
+                    
                     newTask.GetComponent<Task>().gorevName.text = "GÖREV " + (totalTaskID + 1).ToString();
 
                     newTask.GetComponent<Task>().teskClass.ID = totalTaskID;
