@@ -17,7 +17,7 @@ MonoBehaviour:
   pcBuilding: 1
   needFormat: 0
   taskAward: 6200
-  minMoney: 900000
+  minMoney: 5400
   caseModel: 1
   gorevAnlatim:
   - GorevAnlat: "RTX 2060'a Y\xFCkselt"

@@ -17,7 +17,7 @@ MonoBehaviour:
   pcBuilding: 1
   needFormat: 1
   taskAward: 7500
-  minMoney: 900000
+  minMoney: 6000
   caseModel: 4
   gorevAnlatim:
   - GorevAnlat: "SSD 1TB'a Y\xFCkselt"

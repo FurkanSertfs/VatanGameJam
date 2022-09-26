@@ -17,7 +17,7 @@ MonoBehaviour:
   pcBuilding: 1
   needFormat: 0
   taskAward: 2100
-  minMoney: 900000
+  minMoney: 1500
   caseModel: 2
   gorevAnlatim:
   - GorevAnlat: "16GB Ram'e Y\xFCkselt"

@@ -17,7 +17,7 @@ MonoBehaviour:
   pcBuilding: 1
   needFormat: 0
   taskAward: 9200
-  minMoney: 900000
+  minMoney: 8000
   caseModel: 2
   gorevAnlatim:
   - GorevAnlat: "i9 10900'a Y\xFCkselt"
