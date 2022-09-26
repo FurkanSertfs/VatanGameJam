@@ -32,10 +32,10 @@ MonoBehaviour:
     productPrefab: {fileID: 6679258289566832745, guid: 54491b671ba3b8c4dbcc77d7bf8a8269,
       type: 3}
   - productType: 1
-    productPrefab: {fileID: 8763277401402870562, guid: 73225f455fca12d4ea073444b39e13b9,
+    productPrefab: {fileID: 8763277401402870562, guid: fe899956aed809a4b9d1dc97b87fbeeb,
       type: 3}
   - productType: 2
-    productPrefab: {fileID: 3621013353624466814, guid: 39437d0a1d3b93440b7df6399478b083,
+    productPrefab: {fileID: 3621013353624466814, guid: bad0a348efdd34e459ba7f8630dc81ac,
       type: 3}
   - productType: 3
     productPrefab: {fileID: 8025141250204031504, guid: d66ca98528ff9944ea444d940ec3ffef,
