@@ -21,7 +21,7 @@ MonoBehaviour:
   caseModel: 4
   gorevAnlatim:
   - GorevAnlat: "RTX 3090'a Y\xFCkselt"
-    buyProduct: 7
+    buyProduct: 0
     buildProduct: 7
     taskManagerElement: {fileID: 0}
   - GorevAnlat: "Driverlar\u0131 Kur"

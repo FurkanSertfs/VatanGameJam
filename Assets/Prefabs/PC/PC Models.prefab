@@ -9005,6 +9005,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointOpen: {fileID: 6813493585934386750}
   pointClose: {fileID: 5509746022896807999}
+  timer: 0
 --- !u!1 &3700257843624421248
 GameObject:
   m_ObjectHideFlags: 0
@@ -9189,8 +9190,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Bilgisayar\u0131 a\xE7mak i\xE7in Power tu\u015Funa veya P tu\u015Funa
-    bas."
+  m_Text: "Bilgisayar\u0131 a\xE7mak i\xE7in kasa \xFCzerindeki Power D\xFC\u011Fmesine
+    veya P tu\u015Funa bas."
 --- !u!1 &3734133421623573677
 GameObject:
   m_ObjectHideFlags: 0
@@ -9433,6 +9434,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointOpen: {fileID: 979155637081920766}
   pointClose: {fileID: 979155636672874985}
+  timer: 0
 --- !u!64 &3815907195851093026
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -12791,6 +12793,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointOpen: {fileID: 8938831359266324008}
   pointClose: {fileID: 4260205980926356250}
+  timer: 0
 --- !u!64 &1234018574912648918
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -14302,6 +14305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointOpen: {fileID: 3256498993982154709}
   pointClose: {fileID: 2969329903730784050}
+  timer: 0
 --- !u!1 &6960406224326267881
 GameObject:
   m_ObjectHideFlags: 0

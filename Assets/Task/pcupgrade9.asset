@@ -21,7 +21,7 @@ MonoBehaviour:
   caseModel: 4
   gorevAnlatim:
   - GorevAnlat: "i9 11900K'ya Y\xFCkselt"
-    buyProduct: 14
+    buyProduct: 0
     buildProduct: 14
     taskManagerElement: {fileID: 0}
   - GorevAnlat: "Driverlar\u0131 Kur"

@@ -21,7 +21,7 @@ MonoBehaviour:
   caseModel: 0
   gorevAnlatim:
   - GorevAnlat: "i5 10600'e Y\xFCkselt"
-    buyProduct: 10
+    buyProduct: 0
     buildProduct: 10
     taskManagerElement: {fileID: 0}
   - GorevAnlat: "Driverlar\u0131 Kur"

@@ -21,7 +21,7 @@ MonoBehaviour:
   caseModel: 2
   gorevAnlatim:
   - GorevAnlat: "i9 10900'a Y\xFCkselt"
-    buyProduct: 12
+    buyProduct: 0
     buildProduct: 12
     taskManagerElement: {fileID: 0}
   - GorevAnlat: "Driverlar\u0131 Kur"

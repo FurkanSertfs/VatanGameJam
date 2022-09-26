@@ -21,7 +21,7 @@ MonoBehaviour:
   caseModel: 4
   gorevAnlatim:
   - GorevAnlat: "SSD 1TB'a Y\xFCkselt"
-    buyProduct: 17
+    buyProduct: 0
     buildProduct: 17
     taskManagerElement: {fileID: 0}
   - GorevAnlat: "Driverlar\u0131 Kur"

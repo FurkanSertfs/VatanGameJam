@@ -21,16 +21,16 @@ MonoBehaviour:
   caseModel: 3
   gorevAnlatim:
   - GorevAnlat: "SSD 500GB'a Y\xFCkselt"
-    buyProduct: 16
-    buildProduct: 16
-    taskManagerElement: {fileID: 0}
-  - GorevAnlat: "Driverlar\u0131 Kur"
     buyProduct: 0
-    buildProduct: 27
+    buildProduct: 16
     taskManagerElement: {fileID: 0}
   - GorevAnlat: "\u0130\u015Fletim Sistemini Y\xFCkle"
     buyProduct: 0
     buildProduct: 25
+    taskManagerElement: {fileID: 0}
+  - GorevAnlat: "Driverlar\u0131 Kur"
+    buyProduct: 0
+    buildProduct: 27
     taskManagerElement: {fileID: 0}
   ownedProducts:
   - productType: 0

@@ -21,7 +21,7 @@ MonoBehaviour:
   caseModel: 1
   gorevAnlatim:
   - GorevAnlat: "i7 11700F'e Y\xFCkselt"
-    buyProduct: 11
+    buyProduct: 0
     buildProduct: 11
     taskManagerElement: {fileID: 0}
   - GorevAnlat: "Driverlar\u0131 Kur"

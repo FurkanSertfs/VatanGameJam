@@ -499,12 +499,17 @@ public class BuyManager : MonoBehaviour
 
                                 isProductInCase = false;
                             }
+                           
                             else
                             {
                                 isProductInCase = true;
                                 break;
                             }
                            
+                        }
+                       if (tableProducts.productTableHave.Count > 0)
+                        {
+                            isProductInCase=true;
                         }
 
                         if (!isProductInCase)
@@ -525,7 +530,7 @@ public class BuyManager : MonoBehaviour
 
                             GameObject newNotification = Instantiate(AIManager.aiManager.caseSellnotification, AIManager.aiManager.caseSellnotificationParent);
 
-                            newNotification.GetComponent<ShopingDes>().userNameText.text = "Kasa envantere eklenmek için içi boþ olmalý";
+                            newNotification.GetComponent<ShopingDes>().userNameText.text = "Kasa envantere eklenmek için masada ve kasada ürün olmamalý ";
 
                             newNotification.GetComponent<ShopingDes>().caseNameText.text = "";
 

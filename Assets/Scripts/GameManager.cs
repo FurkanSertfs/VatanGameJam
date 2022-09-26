@@ -57,8 +57,16 @@ public class GameManager : MonoBehaviour
 
     public Slider soundSlider;
 
+    CursorLockMode lockMode;
+    bool visible;
+    bool croshairB;
+
+    
+
     private void Awake()
     {
+      
+
         gameManager = this;
        
         
@@ -97,18 +105,27 @@ public class GameManager : MonoBehaviour
 
     }
 
+   IEnumerator MouseLock()
+    {
+        yield return new WaitForSeconds(0.2f);
+        
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            var lockMode = Cursor.lockState;
-            bool visible = Cursor.visible;
-            bool croshairB = croshair.enabled;
+             
 
-            Debug.Log(lockMode+" "+visible+croshairB);
+            
 
             if (!settingsMenu.activeSelf)
             {
+
+                lockMode = Cursor.lockState;
+                visible = Cursor.visible;
+                croshairB = croshair.enabled;
+
                 settingsMenu.SetActive(true);
 
                 Cursor.lockState = CursorLockMode.Confined;
@@ -121,9 +138,9 @@ public class GameManager : MonoBehaviour
             {
                 settingsMenu.SetActive(false);
 
-                croshair.enabled = croshairB;
-               
                 Cursor.lockState = lockMode;
+
+                croshair.enabled = croshairB;
 
                 Cursor.visible = visible;
             }

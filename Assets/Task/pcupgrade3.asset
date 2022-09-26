@@ -21,7 +21,7 @@ MonoBehaviour:
   caseModel: 3
   gorevAnlatim:
   - GorevAnlat: "RTX 3050'ye Y\xFCkselt"
-    buyProduct: 5
+    buyProduct: 0
     buildProduct: 5
     taskManagerElement: {fileID: 0}
   - GorevAnlat: "Driverlar\u0131 Kur"

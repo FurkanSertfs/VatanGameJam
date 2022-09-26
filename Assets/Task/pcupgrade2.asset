@@ -21,7 +21,7 @@ MonoBehaviour:
   caseModel: 2
   gorevAnlatim:
   - GorevAnlat: "RTX 2080'e Y\xFCkselt"
-    buyProduct: 4
+    buyProduct: 0
     buildProduct: 4
     taskManagerElement: {fileID: 0}
   - GorevAnlat: "Driverlar\u0131 Kur"
