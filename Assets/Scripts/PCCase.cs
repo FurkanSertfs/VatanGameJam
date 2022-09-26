@@ -430,7 +430,7 @@ public class PCCase : MonoBehaviour
 
                 // hitProductNameText.text = hitProductManager.product.productName + " " + hitProductManager.product.price + " TL";
 
-                if (Input.GetMouseButton(1)&& hitProductManager != null)
+                if (Input.GetMouseButton(1)&& hitProductManager != null && !hitProductManager.CompareTag("PCBuild"))
                 {
                     GameManager.gameManager.loadingCursor.gameObject.SetActive(true);
                     GameManager.gameManager.loadingCursor.fillAmount += Time.deltaTime;

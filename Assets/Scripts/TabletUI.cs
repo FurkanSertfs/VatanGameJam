@@ -877,7 +877,7 @@ public class TabletUI : MonoBehaviour
 
 
 
-    void CloseTablet()
+   public void CloseTablet()
     {
         
             CheckTask();

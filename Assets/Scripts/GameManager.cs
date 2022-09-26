@@ -50,6 +50,12 @@ public class GameManager : MonoBehaviour
     public bool twitchIntegration,isHaveCaseForSell, youtubeIntegration;
 
     public List<ComputerSellTable> computerTable;
+
+    bool canBuildPCInfo;
+
+    [SerializeField] GameObject canBuildPCInfoText;
+
+
     private void Awake()
     {
         gameManager = this;
@@ -89,7 +95,11 @@ public class GameManager : MonoBehaviour
       
         moneyText.text = money.ToString() + " TL";
 
-      
+        if (money > 10000 && !canBuildPCInfo)
+        {
+            canBuildPCInfo = true;
+            canBuildPCInfoText.SetActive(true);
+        }
       
     }
 

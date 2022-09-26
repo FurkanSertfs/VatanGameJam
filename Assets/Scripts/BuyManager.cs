@@ -517,7 +517,7 @@ public class BuyManager : MonoBehaviour
 
                             TabletUI.tabletUI.modClasses[id].isFull[TabletUI.tabletUI.modClasses[id].value] = true;
 
-                            Destroy(hit.collider.GetComponent<PCModels>().gameObject);
+                            Destroy(hit.collider.GetComponentInParent<PCModels>().gameObject);
 
                         }
                         else

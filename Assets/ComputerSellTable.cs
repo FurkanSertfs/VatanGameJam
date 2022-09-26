@@ -82,7 +82,7 @@ public class ComputerSellTable : MonoBehaviour
 
             startCorutine = true;
             
-            StartCoroutine(Buy(1));
+            StartCoroutine(Buy(5));
         }
     }
 
@@ -94,13 +94,15 @@ public class ComputerSellTable : MonoBehaviour
         
         fp = Random.Range(0,100);
 
+        Debug.Log(fp);
+
         if (fp < pc.fiyatPerformans&& !isSold)
         {
-            AIManager.aiManager.SpawnManager(this);
+            //AIManager.aiManager.SpawnManager(this);
 
-            GameManager.gameManager.salablePCs.Remove(salablePC);
+            //GameManager.gameManager.salablePCs.Remove(salablePC);
 
-            isSold = true;
+            //isSold = true;
 
         }
 

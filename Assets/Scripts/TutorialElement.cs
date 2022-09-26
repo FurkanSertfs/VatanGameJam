@@ -8,15 +8,20 @@ public class TutorialElement : MonoBehaviour
 
     public bool CloseButton;
 
-    [SerializeField] bool openTablet;
+    [SerializeField] bool openTablet,closeTablet;
 
     public GameObject openTutorial;
 
+    
     private void OnEnable()
     {
         if (openTablet)
         {
             GameManager.gameManager.firstPersonController.enabled = false;
+        }
+        if (closeTablet)
+        {
+            TabletUI.tabletUI.CloseTablet();
         }
     }
 
