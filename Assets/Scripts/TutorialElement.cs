@@ -21,7 +21,11 @@ public class TutorialElement : MonoBehaviour
         }
         if (closeTablet)
         {
-            TabletUI.tabletUI.CloseTablet();
+            if (TabletUI.tabletUI.Tablet.activeSelf)
+            {
+                TabletUI.tabletUI.CloseTablet();
+            }
+          
         }
     }
 
