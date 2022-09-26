@@ -6383,6 +6383,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4089886379235200194, guid: 8411fe29dd8eaea46afbda0978351f6b,
         type: 3}
+      propertyPath: voterList.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089886379235200194, guid: 8411fe29dd8eaea46afbda0978351f6b,
+        type: 3}
+      propertyPath: pcTaskList.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089886379235200194, guid: 8411fe29dd8eaea46afbda0978351f6b,
+        type: 3}
       propertyPath: pcTaskList.Array.data[0]
       value: mecfree
       objectReference: {fileID: 0}
@@ -6395,6 +6405,11 @@ PrefabInstance:
         type: 3}
       propertyPath: pcTaskList.Array.data[2]
       value: FatihAslan
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089886379235200194, guid: 8411fe29dd8eaea46afbda0978351f6b,
+        type: 3}
+      propertyPath: pcTaskList.Array.data[3]
+      value: ErenBoran
       objectReference: {fileID: 0}
     - target: {fileID: 5027298907110521130, guid: 8411fe29dd8eaea46afbda0978351f6b,
         type: 3}
@@ -6411,6 +6426,16 @@ PrefabInstance:
       propertyPath: debugText
       value: 
       objectReference: {fileID: 1613445601}
+    - target: {fileID: 8503833835367458045, guid: 8411fe29dd8eaea46afbda0978351f6b,
+        type: 3}
+      propertyPath: twitchDetails.nick
+      value: TinyWorlds
+      objectReference: {fileID: 0}
+    - target: {fileID: 8503833835367458045, guid: 8411fe29dd8eaea46afbda0978351f6b,
+        type: 3}
+      propertyPath: twitchDetails.oauth
+      value: 'oauth:ieqhe4d2ly7soz5oso9f7tdsz27bpb '
+      objectReference: {fileID: 0}
     - target: {fileID: 8602620393506734852, guid: 8411fe29dd8eaea46afbda0978351f6b,
         type: 3}
       propertyPath: rateTime
