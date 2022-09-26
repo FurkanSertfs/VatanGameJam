@@ -24,13 +24,13 @@ MonoBehaviour:
     buyProduct: 0
     buildProduct: 17
     taskManagerElement: {fileID: 0}
-  - GorevAnlat: "Driverlar\u0131 Kur"
-    buyProduct: 0
-    buildProduct: 27
-    taskManagerElement: {fileID: 0}
   - GorevAnlat: "\u0130\u015Fletim Sistemini Y\xFCkle"
     buyProduct: 0
     buildProduct: 25
+    taskManagerElement: {fileID: 0}
+  - GorevAnlat: "Driverlar\u0131 Kur"
+    buyProduct: 0
+    buildProduct: 27
     taskManagerElement: {fileID: 0}
   ownedProducts:
   - productType: 0

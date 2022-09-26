@@ -337,16 +337,14 @@ public class PCCase : MonoBehaviour
                     if (Input.GetMouseButtonDown(0))
                     {
 
-                       
-
                         selectedObject = hitinfo.collider.gameObject;
 
                         productType = hitinfo.collider.GetComponent<PCCaseElement>().productType;
 
                         ShowOutLine();
 
-
                     }
+
                     //
                     if (Input.GetMouseButton(1) && hitProductManager != null&&!hitProductManager.CompareTag("PCBuild"))
                     {
@@ -489,7 +487,9 @@ public class PCCase : MonoBehaviour
                     if (productType == PCCaseElement.ProductType.RightCover)
                     {
                         screwDown.transform.DOMove(screwDownBase.position, 1).OnComplete(() => ShowCaceScore());
-                        
+
+                        screwDown.transform.DORotateQuaternion(screwDownBase.transform.rotation, 1);
+
                         if (tablet.startedTaskClass.task == null)
                         {
                             selectedObject.GetComponent<MeshCollider>().enabled = false;
@@ -502,6 +502,7 @@ public class PCCase : MonoBehaviour
                         productCaseHave.Add(screwDown.GetComponent<PCCaseElement>());
 
                         screwUp.transform.DOMove(screwUpBase.position, 1);
+                        screwUp.transform.DORotateQuaternion(screwUpBase.transform.rotation, 1);
 
                         screwUp.gameObject.tag = "PcElement";
 

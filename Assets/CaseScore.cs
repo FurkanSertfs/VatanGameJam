@@ -176,9 +176,16 @@ public class CaseScore : MonoBehaviour
         {
             if (pc.caseName != "")
             {
-                pc.gameObject.tag = "ReadyToSell";
+                if (pc.CompareTag("Untagged"))
+                {
 
-                pc.GetComponent<BoxCollider>().enabled = true;
+                }
+                else
+                {
+                    pc.gameObject.tag = "ReadyToSell";
+                    pc.GetComponent<BoxCollider>().enabled = true;
+                    TableProducts.tableProducts.productTableHave.Clear();
+                }
 
                 pc.isPriced = true;
 
@@ -188,12 +195,11 @@ public class CaseScore : MonoBehaviour
 
                 gameObject.SetActive(false);
 
-                TableProducts.tableProducts.productTableHave.Clear();
-
                 for (int i = 0; i < productWeUsed.Count; i++)
                 {
                     Destroy(productWeUsed[i]);
                 }
+
                 productWeUsed.Clear();
 
                 Cursor.lockState = CursorLockMode.Locked;

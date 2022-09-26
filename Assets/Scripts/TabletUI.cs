@@ -444,6 +444,25 @@ public class TabletUI : MonoBehaviour
         if (GameManager.gameManager.money >= totalBasketPrice)
             
         {
+
+            GameObject newNotification = Instantiate(AIManager.aiManager.caseSellnotification, AIManager.aiManager.caseSellnotificationParent);
+
+            newNotification.GetComponent<ShopingDes>().userNameText.text = "Aldýðýn ürünler envanterine dizilde. Envanterinden masana ekleyebilirsin";
+
+            newNotification.GetComponent<ShopingDes>().caseNameText.text = "";
+
+            newNotification.GetComponent<ShopingDes>().priceText.text = "";
+
+            newNotification.GetComponent<ShopingDes>().bitPriceText.text = "";
+
+            newNotification.GetComponent<ShopingDes>().userNameText.gameObject.SetActive(true);
+
+
+
+
+
+
+
             GameManager.gameManager.audioSource.clip = GameManager.gameManager.confirmBasketSound;
             
             GameManager.gameManager.audioSource.Play();
@@ -477,6 +496,24 @@ public class TabletUI : MonoBehaviour
                 Tutorial.tutorial.envanterTutorial.SetActive(true);
             }
            
+        }
+
+        else
+        {
+
+            CloseTablet();
+
+            GameObject newNotification = Instantiate(AIManager.aiManager.caseSellnotification, AIManager.aiManager.caseSellnotificationParent);
+
+            newNotification.GetComponent<ShopingDes>().userNameText.text = "Yeterli miktarda paran yok";
+
+            newNotification.GetComponent<ShopingDes>().caseNameText.text = "";
+
+            newNotification.GetComponent<ShopingDes>().priceText.text = "";
+
+            newNotification.GetComponent<ShopingDes>().bitPriceText.text = "";
+
+            newNotification.GetComponent<ShopingDes>().userNameText.gameObject.SetActive(true);
         }
     }
    public void FinishTask()

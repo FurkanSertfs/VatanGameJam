@@ -86,7 +86,7 @@ public class BuyManager : MonoBehaviour
 
             if (hit.collider.CompareTag("PCSellTable"))
             {
-              
+
 
                 ComputerSellTable table = hit.collider.GetComponent<ComputerSellTable>();
 
@@ -95,7 +95,7 @@ public class BuyManager : MonoBehaviour
 
                     CloseInfos();
                     gameManager.infoBuyPcTable.SetActive(true);
-                    hitTableName.text = "Bu masada topladýðýn kasayý satabilirsin satýn almak için týkla "+ hit.collider.GetComponent<BuyTable>().tablePrice + " TL";
+                    hitTableName.text = "Bu masada topladýðýn kasayý satabilirsin satýn almak için týkla " + hit.collider.GetComponent<BuyTable>().tablePrice + " TL";
                     hit.collider.GetComponent<BuyTable>().sellCanvvas.SetActive(true);
                     gameManager.croshair.color = Color.green;
 
@@ -111,37 +111,37 @@ public class BuyManager : MonoBehaviour
                 {
                     hit.collider.GetComponent<BuyTable>().sellCanvvas.SetActive(false);
                 }
-                
-                if (!table.isFull && gameManager.isHaveCaseForSell&& hit.collider.GetComponent<BuyTable>().isSold)
+
+                if (!table.isFull && gameManager.isHaveCaseForSell && hit.collider.GetComponent<BuyTable>().isSold)
                 {
                     PCCase pc = gameManager.activeCase.GetComponent<PCCase>();
-                   
+
                     gameManager.croshair.color = Color.green;
                     CloseInfos();
                     gameManager.infoPlacePC.SetActive(true);
 
-                
+
 
                     if (Input.GetKeyDown(KeyCode.Mouse1))
                     {
                         pc.transform.position = table.caseSpawnPoints[pc.CaseModel].transform.position;
-                       
+
                         pc.transform.rotation = table.caseSpawnPoints[pc.CaseModel].transform.rotation;
-                      
+
                         pc.transform.parent = table.gameObject.transform;
-                        
+
                         table.Canvas.SetActive(true);
-                      
+
                         table.caseName.text = pc.caseName;
-                       
+
                         table.casePrice.text = pc.sellPrice.ToString();
-                       
+
                         table.caseBitPrice.text = pc.sellBitPrice.ToString();
-                        
+
                         table.caseFP.text = pc.fiyatPerformans.ToString();
 
                         table.pc = pc;
-                        
+
                         for (int i = 0; i < gameManager.computerTable.Count; i++)
                         {
                             gameManager.computerTable[i].caseBase.SetActive(false);
@@ -150,9 +150,9 @@ public class BuyManager : MonoBehaviour
                         }
 
                         table.isFull = true;
-                      
+
                         gameManager.computerTable.Remove(table);
-                        
+
                         pc.gameObject.tag = "Untagged";
 
                         pc.GetComponent<BoxCollider>().enabled = false;
@@ -167,7 +167,7 @@ public class BuyManager : MonoBehaviour
                 else if (table.isFull)
                 {
                     gameManager.croshair.color = Color.green;
-                    
+
                     if (!table.isSold)
                     {
                         CloseInfos();
@@ -194,77 +194,77 @@ public class BuyManager : MonoBehaviour
                     }
                 }
 
-               
+
 
             }
-           
-            
-            
+
+
+
             else if (hit.collider.CompareTag("ReadyToSell"))
             {
                 gameManager.croshair.color = Color.green;
                 CloseInfos();
                 gameManager.infoCaryPC.SetActive(true);
 
-               
+
 
                 bool allDisabled = true;
 
                 if (Input.GetKeyDown(KeyCode.Mouse1))
                 {
-                    
-                        for (int i = 0; i < gameManager.PCCases.Length; i++)
+
+                    for (int i = 0; i < gameManager.PCCases.Length; i++)
+                    {
+                        if (gameManager.PCCases[i].activeSelf)
                         {
-                            if (gameManager.PCCases[i].activeSelf)
-                            {
-                                allDisabled = false;
-                            }
+                            allDisabled = false;
                         }
+                    }
 
-                        if (allDisabled)
+                    if (allDisabled)
+                    {
+                        gameManager.activeCase = hit.collider.GetComponent<PCCase>().gameObject;
+
+
+                        for (int i = 0; i < gameManager.computerTable.Count; i++)
                         {
-                            gameManager.activeCase = hit.collider.GetComponent<PCCase>().gameObject;
-
-
-                            for (int i = 0; i < gameManager.computerTable.Count; i++)
-                            {
-                                gameManager.computerTable[i].caseBase.SetActive(true);
-
-                            }
-
-                            gameManager.isHaveCaseForSell = true;
-
-                            GameObject deleteO = hit.collider.GetComponentInParent<PCModels>().gameObject;
-
-                            hit.collider.transform.parent = gameManager.caseParrent.transform;
-
-                            hit.collider.transform.position = gameManager.PCCases[hit.collider.GetComponent<PCCase>().CaseModel].transform.position;
-                            
-                            hit.collider.transform.rotation = gameManager.PCCases[hit.collider.GetComponent<PCCase>().CaseModel].transform.rotation;
-
-                            Destroy(deleteO);
-
-                            PCCase.pCCase = null;
+                            gameManager.computerTable[i].caseBase.SetActive(true);
 
                         }
 
-                        else
-                        {
-                            Debug.Log("Kucaginda kasa var");
+                        gameManager.isHaveCaseForSell = true;
 
-                        }
+                        GameObject deleteO = hit.collider.GetComponentInParent<PCModels>().gameObject;
+
+                        hit.collider.transform.parent = gameManager.caseParrent.transform;
+
+                        hit.collider.transform.position = gameManager.PCCases[hit.collider.GetComponent<PCCase>().CaseModel].transform.position;
+
+                        hit.collider.transform.rotation = gameManager.PCCases[hit.collider.GetComponent<PCCase>().CaseModel].transform.rotation;
+
+                        Destroy(deleteO);
+
+                        PCCase.pCCase = null;
+
+                    }
+
+                    else
+                    {
+                        Debug.Log("Kucaginda kasa var");
+
+                    }
 
                 }
 
             }
 
 
-            else  if (hit.collider.CompareTag("PCEnvanterElement"))
+            else if (hit.collider.CompareTag("PCEnvanterElement"))
             {
                 gameManager.croshair.color = Color.green;
                 CloseInfos();
                 gameManager.infoCaryPC.SetActive(true);
-            
+
 
                 bool allDisabled = true;
 
@@ -303,12 +303,12 @@ public class BuyManager : MonoBehaviour
                 }
 
 
-               
 
-              
+
+
             }
 
-           else if (hit.collider.CompareTag("PCPoint"))
+            else if (hit.collider.CompareTag("PCPoint"))
             {
                 gameManager.croshair.color = Color.green;
                 CloseInfos();
@@ -321,11 +321,11 @@ public class BuyManager : MonoBehaviour
 
 
                         gameManager.caseBase.SetActive(false);
-                      
+
                         gameManager.activeCase.SetActive(false);
-                      
+
                         newPc = Instantiate(tablet.pcPrefab, tablet.pcSpawnPoint.position, tablet.pcSpawnPoint.rotation, tablet.pcSpawnPoint);
-                      
+
                         newPc.layer = 0;
 
                         newPc.GetComponent<PCModels>().Cases[gameManager.activeCase.GetComponent<ProductManager>().product.caseModelID].SetActive(true);
@@ -357,12 +357,12 @@ public class BuyManager : MonoBehaviour
                     tablet.modClasses[(int)hitProductManager.product.model].isFull[hitProductManager.spawnValue] = false;
                 }
 
-                if(PCCase.pCCase != null)
+                if (PCCase.pCCase != null)
                 {
                     EnvanterItemAddToTable();
                 }
 
-             
+
 
             }
 
@@ -371,10 +371,10 @@ public class BuyManager : MonoBehaviour
             else if (hit.collider.CompareTag("Product"))
             {
                 gameManager.croshair.color = Color.green;
-                
+
                 CloseInfos();
                 gameManager.infoBuy.SetActive(true);
-              
+
 
 
                 hitProductNameText.text = hitProductManager.product.productName + " " + hitProductManager.product.price + " TL";
@@ -388,9 +388,9 @@ public class BuyManager : MonoBehaviour
 
                     if (timer + 0.6f < Time.time)
                     {
-                        if (hitProductManager.productType == PCCaseElement.ProductType.Case&&GameManager.gameManager.tableCount==0)
+                        if (hitProductManager.productType == PCCaseElement.ProductType.Case && GameManager.gameManager.tableCount == 0)
                         {
-                            
+
 
                             GameObject newNotification = Instantiate(AIManager.aiManager.caseSellnotification, AIManager.aiManager.caseSellnotificationParent);
 
@@ -400,10 +400,10 @@ public class BuyManager : MonoBehaviour
 
                             newNotification.GetComponent<ShopingDes>().priceText.text = "";
 
-                            newNotification.GetComponent<ShopingDes>().bitPriceText.text ="";
+                            newNotification.GetComponent<ShopingDes>().bitPriceText.text = "";
 
                             newNotification.GetComponent<ShopingDes>().userNameText.gameObject.SetActive(true);
-                           
+
 
 
                         }
@@ -456,16 +456,16 @@ public class BuyManager : MonoBehaviour
 
                 CloseInfos();
                 gameManager.infoOpenPc.SetActive(true);
-                
+
 
 
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
 
                     gameManager.ChangeCam("PCBuild");
-                   
+
                     CloseInfos();
-                  
+
                     gameManager.infoPcRotate.SetActive(true);
 
                 }
@@ -477,52 +477,76 @@ public class BuyManager : MonoBehaviour
 
 
                         gameManager.caseBase.SetActive(false);
-                       
+
                         gameManager.activeCase.SetActive(false);
-                       
+
                         newPc = Instantiate(tablet.pcPrefab, tablet.pcSpawnPoint.position, tablet.pcSpawnPoint.rotation, tablet.pcSpawnPoint);
 
                         newPc.GetComponent<PCModels>().Cases[gameManager.activeCase.GetComponent<ProductManager>().product.caseModelID].SetActive(true);
 
                     }
 
-                   else if (PCCase.pCCase != null)
+                    else if (PCCase.pCCase != null)
                     {
-                      int  id = (int)hitProductManager.product.model;
+                        int id = (int)hitProductManager.product.model;
+                        bool enableSpawn = false;
 
                         bool isProductInCase = false;
 
                         for (int i = 0; i < PCCase.pCCase.productCaseHave.Count; i++)
                         {
-                            if (PCCase.pCCase.productCaseHave[i].productType == PCCaseElement.ProductType.UpScrew|| PCCase.pCCase.productCaseHave[i].productType == PCCaseElement.ProductType.DownScrew || PCCase.pCCase.productCaseHave[i].productType == PCCaseElement.ProductType.RightCover || PCCase.pCCase.productCaseHave[i].productType == PCCaseElement.ProductType.CpuCover)
+                            if (PCCase.pCCase.productCaseHave[i].productType == PCCaseElement.ProductType.UpScrew || PCCase.pCCase.productCaseHave[i].productType == PCCaseElement.ProductType.DownScrew || PCCase.pCCase.productCaseHave[i].productType == PCCaseElement.ProductType.RightCover || PCCase.pCCase.productCaseHave[i].productType == PCCaseElement.ProductType.CpuCover)
                             {
 
                                 isProductInCase = false;
                             }
-                           
+
                             else
                             {
                                 isProductInCase = true;
                                 break;
                             }
-                           
+
                         }
-                       if (tableProducts.productTableHave.Count > 0)
+                        if (tableProducts.productTableHave.Count > 0)
                         {
-                            isProductInCase=true;
+                            isProductInCase = true;
                         }
 
                         if (!isProductInCase)
                         {
-                            GameObject newEnvanterProduct = Instantiate(hitProductManager.product.prefabEnvanter, TabletUI.tabletUI.productsSpawnPoints[id].spawnPoints[TabletUI.tabletUI.modClasses[id].value % (TabletUI.tabletUI.productsSpawnPoints[id].spawnPoints.Length - 1)]);
 
-                            newEnvanterProduct.GetComponent<ProductManager>().spawnPoint = TabletUI.tabletUI.productsSpawnPoints[id].spawnPoints[TabletUI.tabletUI.modClasses[id].value % (TabletUI.tabletUI.productsSpawnPoints[id].spawnPoints.Length - 1)].GetComponent<ProductSpawn>().spawnPoint;
+                            for (int k = 0; k < TabletUI.tabletUI.modClasses[id].isFull.Count; k++)
+                            {
+                                if (!TabletUI.tabletUI.modClasses[id].isFull[k])
+                                {
+                                    TabletUI.tabletUI.modClasses[id].value = k;
+                                    enableSpawn = true;
 
-                            newEnvanterProduct.GetComponent<ProductManager>().spawnValue = TabletUI.tabletUI.modClasses[id].value;
+                                    break;
+                                }
 
-                            TabletUI.tabletUI.modClasses[id].isFull[TabletUI.tabletUI.modClasses[id].value] = true;
+                            }
 
-                            Destroy(hit.collider.GetComponentInParent<PCModels>().gameObject);
+                            if (enableSpawn)
+                            {
+                                GameObject newEnvanterProduct = Instantiate(hitProductManager.product.prefabEnvanter, TabletUI.tabletUI.productsSpawnPoints[id].spawnPoints[TabletUI.tabletUI.modClasses[id].value % (TabletUI.tabletUI.productsSpawnPoints[id].spawnPoints.Length - 1)]);
+
+                                newEnvanterProduct.GetComponent<ProductManager>().spawnPoint = TabletUI.tabletUI.productsSpawnPoints[id].spawnPoints[TabletUI.tabletUI.modClasses[id].value % (TabletUI.tabletUI.productsSpawnPoints[id].spawnPoints.Length - 1)].GetComponent<ProductSpawn>().spawnPoint;
+
+                                newEnvanterProduct.GetComponent<ProductManager>().spawnValue = TabletUI.tabletUI.modClasses[id].value;
+
+                                TabletUI.tabletUI.modClasses[id].isFull[TabletUI.tabletUI.modClasses[id].value] = true;
+
+                                Destroy(hit.collider.GetComponentInParent<PCModels>().gameObject);
+
+                            }
+
+                            else
+                            {
+                                Debug.Log("Envanterde yer yok");
+                            }
+                            
 
                         }
                         else
@@ -594,7 +618,7 @@ public class BuyManager : MonoBehaviour
 
 
 
-            else if (hit.collider.CompareTag("State"))
+            else if (hit.collider.CompareTag("State") && hitProductManager.productType != PCCaseElement.ProductType.Case) 
             {
                 gameManager.croshair.color = Color.blue;
 
