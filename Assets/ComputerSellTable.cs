@@ -7,6 +7,8 @@ public class ComputerSellTable : MonoBehaviour
 {
     public Transform[] caseSpawnPoints;
 
+    public GameObject level2Table;
+
     public SalablePC salablePC;
 
     public Transform buyPoint;
@@ -31,6 +33,12 @@ public class ComputerSellTable : MonoBehaviour
     {
         GameManager.gameManager.computerTable.Add(this);
 
+    }
+
+    public void UpgradeLevel()
+    {
+        level2Table.SetActive(true);
+        GetComponent<MeshRenderer>().enabled = false;
     }
 
     private void Update()

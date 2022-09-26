@@ -19,6 +19,15 @@ public class UpgradePanelControl : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         UpgradePanelUI.SetActive(true);
+      
+
+
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        UpgradePanelUI.SetActive(false);
+     
+
     }
 
 }

@@ -104,10 +104,7 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public void BuyUpgrade(int price)
-    {
-        money -= price;
-    }
+  
 
     public void ChangeCam(string name)
     {
