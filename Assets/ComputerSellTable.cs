@@ -106,11 +106,11 @@ public class ComputerSellTable : MonoBehaviour
 
         if (fp < pc.fiyatPerformans&& !isSold)
         {
-            //AIManager.aiManager.SpawnManager(this);
+            AIManager.aiManager.SpawnManager(this);
 
-            //GameManager.gameManager.salablePCs.Remove(salablePC);
+            GameManager.gameManager.salablePCs.Remove(salablePC);
 
-            //isSold = true;
+            isSold = true;
 
         }
 
