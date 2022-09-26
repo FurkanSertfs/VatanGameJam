@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject[] PCCases;
 
-    public GameObject activeCase,caseBase, sellCaseScreen,caseParrent;
+    public GameObject activeCase,caseBase, sellCaseScreen,caseParrent,settingsMenu;
 
     public int bitTLRatio,tableCount;
 
@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] GameObject canBuildPCInfoText;
 
+    public Slider soundSlider;
 
     private void Awake()
     {
@@ -86,13 +87,52 @@ public class GameManager : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         firstPersonController = GetComponent<FirstPersonController>();
-    
+
+        if (Settings.settings != null)
+        {
+            audioSource.volume = Settings.settings.soundVolume;
+            soundSlider.value= Settings.settings.soundVolume;
+        }
+
 
     }
 
     private void Update()
     {
-      
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            var lockMode = Cursor.lockState;
+            bool visible = Cursor.visible;
+            bool croshairB = croshair.enabled;
+
+            Debug.Log(lockMode+" "+visible+croshairB);
+
+            if (!settingsMenu.activeSelf)
+            {
+                settingsMenu.SetActive(true);
+
+                Cursor.lockState = CursorLockMode.Confined;
+
+                Cursor.visible = true;
+
+                croshair.enabled = false;
+            }
+            else
+            {
+                settingsMenu.SetActive(false);
+
+                croshair.enabled = croshairB;
+               
+                Cursor.lockState = lockMode;
+
+                Cursor.visible = visible;
+            }
+
+          
+        }
+
+
+
         moneyText.text = money.ToString() + " TL";
 
         if (money > 10000 && !canBuildPCInfo)
@@ -111,7 +151,10 @@ public class GameManager : MonoBehaviour
     }
 
 
-  
+    public void SoundVolumeChange(Slider slider)
+    {
+        audioSource.volume = slider.value;
+    }
 
     public void ChangeCam(string name)
     {
