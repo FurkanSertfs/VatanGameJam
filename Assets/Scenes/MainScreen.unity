@@ -6381,6 +6381,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4089886379235200194, guid: 8411fe29dd8eaea46afbda0978351f6b,
+        type: 3}
+      propertyPath: pcTaskList.Array.data[0]
+      value: mecfree
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089886379235200194, guid: 8411fe29dd8eaea46afbda0978351f6b,
+        type: 3}
+      propertyPath: pcTaskList.Array.data[1]
+      value: FurkanSert
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089886379235200194, guid: 8411fe29dd8eaea46afbda0978351f6b,
+        type: 3}
+      propertyPath: pcTaskList.Array.data[2]
+      value: FatihAslan
+      objectReference: {fileID: 0}
     - target: {fileID: 5027298907110521130, guid: 8411fe29dd8eaea46afbda0978351f6b,
         type: 3}
       propertyPath: m_Name
