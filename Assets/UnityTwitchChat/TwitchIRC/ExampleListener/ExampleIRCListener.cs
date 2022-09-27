@@ -92,7 +92,7 @@ public class ExampleIRCListener : MonoBehaviour
           
         }
 
-        if (chatter.message.Contains("Fheer"))
+        if (chatter.message.Contains("Cheer"))
         {
             string temp = "";
             bool enoughfMoney = false;
