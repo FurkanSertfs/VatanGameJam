@@ -235,6 +235,18 @@ public class TabletUI : MonoBehaviour
 
                     newTask.GetComponent<Task>().teskClass.ID = totalTaskID;
 
+                    if (GameManager.gameManager.twitchIntegration || GameManager.gameManager.youtubeIntegration)
+                    {
+                        newTask.GetComponent<Task>().userName = "Müþteri: " + ExampleIRCListener.userList.pcTaskList[Random.Range(0, ExampleIRCListener.userList.pcTaskList.Count)];
+                      
+                    }
+
+                    else
+                    {
+                        newTask.GetComponent<Task>().userName = "";
+                        Debug.Log("Test 4");
+                    }
+
                     awardID.Add(false);
 
                     taskID.Add(false);
@@ -265,13 +277,15 @@ public class TabletUI : MonoBehaviour
 
                 newTask.GetComponent<Task>().teskClass.ID = totalTaskID;
 
-                if (GameManager.gameManager.twitchIntegration|| GameManager.gameManager.youtubeIntegration)
+                if (GameManager.gameManager.twitchIntegration || GameManager.gameManager.youtubeIntegration)
                 {
+                    Debug.Log(ExampleIRCListener.userList.pcTaskList[Random.Range(0, ExampleIRCListener.userList.pcTaskList.Count)]);
                     newTask.GetComponent<Task>().userName = "Müþteri: " + ExampleIRCListener.userList.pcTaskList[Random.Range(0, ExampleIRCListener.userList.pcTaskList.Count)];
                 }
 
                 else
                 {
+                   
                     newTask.GetComponent<Task>().userName = "";
                 }
                 
@@ -1147,7 +1161,7 @@ public class TabletUI : MonoBehaviour
 
             CheckTask();
 
-            if (GameManager.gameManager.twitchIntegration)
+            if (GameManager.gameManager.twitchIntegration || GameManager.gameManager.youtubeIntegration)
             {
                 TwitchIntegration.twitchIntegration.kasaSahibi.text = startedTaskClass.taskObject.userName;
 

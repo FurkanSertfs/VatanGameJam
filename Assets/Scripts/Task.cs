@@ -33,7 +33,7 @@ public class Task : MonoBehaviour
 
         TaskManager.taskManager.selectedTask = this;
 
-        if (GameManager.gameManager.twitchIntegration)
+        if (GameManager.gameManager.twitchIntegration || GameManager.gameManager.youtubeIntegration)
         {
 
             TwitchIntegration.twitchIntegration.tabletKasaSahibi.text = userName;

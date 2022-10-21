@@ -116,7 +116,7 @@ public class ComputerSellTable : MonoBehaviour
 
         if(!isSold)
         {
-            coolDown = Random.Range(5, 6);
+            coolDown = Random.Range(30, 60);
 
             GameManager.gameManager.computerTable.Add(this);
 

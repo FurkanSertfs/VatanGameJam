@@ -28,6 +28,27 @@ public class PCApps : MonoBehaviour
             PCUI.pCUI.timer3 = Time.time + 0.1f;
             PCUI.pCUI.timer4 = Time.time + 0.1f;
         }
+
+        if (appClass.ID == 3)
+        {
+            
+            Application.OpenURL("https://store.steampowered.com/app/1723100/Building_Hope__Refugee_Camp_Simulator/?l=turkish");
+
+            GameManager.gameManager.ChangeCam("FPS");
+        }
+
+        if (appClass.ID == 4)
+        {
+            Application.OpenURL("https://store.steampowered.com/app/2023050/Lighthouse_Keeper/");
+            GameManager.gameManager.ChangeCam("FPS");
+        }
+
+        if (appClass.ID == 5)
+        {
+            Application.OpenURL("https://store.steampowered.com/app/1724770/Castle_Of_Alchemists/");
+            GameManager.gameManager.ChangeCam("FPS");
+        }
+
     }
 
 

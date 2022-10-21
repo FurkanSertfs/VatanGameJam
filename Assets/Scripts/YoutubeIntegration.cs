@@ -306,6 +306,8 @@ public class YoutubeIntegration : MonoBehaviour
 
             userList.pcTaskList.Add(liveChatMesages.items[i].authorDetails.displayName);
 
+            ExampleIRCListener.userList.pcTaskList.Add(liveChatMesages.items[i].authorDetails.displayName);
+
             TwitchIntegrationObject.twitchIntegrationObject.ShowJoinedUser(liveChatMesages.items[i].authorDetails.displayName);
 
           //  TwitchIRC.twitchIRC.stream.WriteLine("PRIVMSG #" + TwitchIRC.twitchIRC.twitchDetails.channel.ToLower() + " :" + liveChatMesages.items[i].authorDetails.displayName + " katýldý");

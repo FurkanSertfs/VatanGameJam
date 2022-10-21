@@ -87,7 +87,7 @@ public class ExampleIRCListener : MonoBehaviour
           
         TwitchIntegrationObject.twitchIntegrationObject.ShowJoinedUser(chatter.login);
           
-        TwitchIRC.twitchIRC.stream.WriteLine("PRIVMSG #" + TwitchIRC.twitchIRC.twitchDetails.channel.ToLower() + " :"+ chatter.login + " joined");
+        //TwitchIRC.twitchIRC.stream.WriteLine("PRIVMSG #" + TwitchIRC.twitchIRC.twitchDetails.channel.ToLower() + " :"+ chatter.login + " joined");
             
           
         }

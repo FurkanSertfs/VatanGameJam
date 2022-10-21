@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
 
     public float fiyatPerformansBonus;
 
-    public bool twitchIntegration,isHaveCaseForSell, youtubeIntegration;
+    public bool isHaveCaseForSell, youtubeIntegration, twitchIntegration;
 
     public List<ComputerSellTable> computerTable;
 
@@ -115,12 +115,24 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-             
-
-            
-
-            if (!settingsMenu.activeSelf)
+            if (TabletUI.tabletUI.Tablet.activeSelf)
             {
+                TabletUI.tabletUI.CloseTablet();
+            }
+
+            else if (pcBuildCam.activeSelf)
+            {
+                ChangeCam("FPS");
+            }
+
+            else if (pcuiCam.activeSelf)
+            {
+                ChangeCam("FPS");
+            }
+
+            else if (!settingsMenu.activeSelf)
+            {
+                
 
                 lockMode = Cursor.lockState;
                 visible = Cursor.visible;
@@ -134,6 +146,7 @@ public class GameManager : MonoBehaviour
 
                 croshair.enabled = false;
             }
+
             else
             {
                 settingsMenu.SetActive(false);
